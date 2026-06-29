@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tentang KEDIS - Latar belakang lahirnya gerakan Kesadaran Digital Sampah dan visi misi tim pengembang untuk masa depan bumi hijau.">
+  <title>Tentang Gerakan Kami - KEDIS</title> <!-- Google Fonts: Space Grotesk (Headings), Inter (Body/UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"> <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"> <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script>
+    tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        limeCanopy: '#d7eb80',
+        inkBlack: '#333333',
+        paperWhite: '#ffffff',
+        warmMist: '#f8f8f6',
+        linenCream: '#f0f0eb',
+        stoneGray: '#6c6c6c',
+        ashBorder: '#bebeb9',
+      },
+      fontFamily: {
+        sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      }
+    }
+  }
+}
+  </script> <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-paperWhite font-sans text-inkBlack antialiased selection:bg-limeCanopy/40 selection:text-inkBlack"> <!-- Floating Capsule Header -->
+  <header id="main-header" class="header-subpage">
+    <div id="header-pill">
+      <a href="index.html" class="flex items-center shrink-0">
+        <img src="assets/logo.svg" alt="Logo KEDIS" class="logo-img h-10 w-auto">
+      </a>
+      
+      <!-- Desktop Nav -->
+      <nav aria-label="Navigasi Utama" class="hidden md:flex items-center space-x-7 text-sm font-semibold">
+        <a href="index.html" class="nav-link pb-0.5 border-b-2 border-transparent">Beranda</a>
+        
+        <!-- Eco-Learn Dropdown -->
+        <div class="relative py-2">
+          <button id="desktop-dropdown-trigger" type="button" class="nav-link pb-0.5 border-b-2 border-transparent flex items-center gap-1 hover:text-inkBlack transition-colors">
+            Eco-Learn <i class="fa-solid fa-chevron-down text-[8px] transition-transform"></i>
+          </button>
+          <div id="desktop-dropdown-menu" class="absolute top-full left-0 mt-1 w-40 bg-white border border-ashBorder/20 rounded-xl shadow-lg hidden z-50 py-2">
+            <a href="edukasi.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-stoneGray hover:text-inkBlack transition-colors">Kenali Pilah</a>
+            <a href="artikel.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-stoneGray hover:text-inkBlack transition-colors">Kelas Edukasi</a>
+          </div>
+        </div>
+
+        <a href="komunitas.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Connect</a>
+        <a href="game.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Play</a>
+        <a href="tentang.html" class="nav-link nav-link-active pb-0.5 border-b-2">Tentang</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-limeCanopy hover:opacity-90 text-inkBlack text-xs font-bold uppercase tracking-wider transition-opacity duration-200">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        </a>
+        <button id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi" class="md:hidden w-11 h-11 flex items-center justify-center">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden floating-menu mx-4 mt-0">
+      <nav aria-label="Navigasi Seluler" class="flex flex-col space-y-4 text-sm font-semibold">
+        <a href="index.html" class="text-stoneGray hover:text-inkBlack">Beranda</a>
+        
+        <!-- Mobile Eco-Learn Submenu -->
+        <div class="space-y-2">
+          <span class="text-stoneGray uppercase text-[10px] tracking-wider font-bold block">Eco-Learn</span>
+          <div class="pl-3 flex flex-col space-y-2.5">
+            <a href="edukasi.html" class="text-stoneGray hover:text-inkBlack text-xs">Kenali Pilah</a>
+            <a href="artikel.html" class="text-stoneGray hover:text-inkBlack text-xs">Kelas Edukasi</a>
+          </div>
+        </div>
+
+        <a href="komunitas.html" class="text-stoneGray hover:text-inkBlack">Eco-Connect</a>
+        <a href="game.html" class="text-stoneGray hover:text-inkBlack">Eco-Play</a>
+        <a href="tentang.html" class="text-inkBlack">Tentang Kami</a>
+        <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-limeCanopy text-inkBlack text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main class="pt-24"> <!-- Title Banner — Left-aligned with mission statement -->
+    <section class="max-w-7xl mx-auto px-6 page-banner">
+      <div class="max-w-4xl space-y-4"> <span class="text-xs font-bold uppercase tracking-widest text-stoneGray block animate-on-scroll stagger-1">CERITA GERAKAN</span>
+        <h1 class="text-hero font-display font-bold text-inkBlack animate-on-scroll stagger-2">Cerita di Balik<br>KEDIS</h1>
+        <p class="text-stoneGray text-base max-w-xl leading-relaxed text-measure animate-on-scroll stagger-3"> Mengapa pemilahan sampah secara sadar dari pintu rumah tangga adalah awal mutlak keselamatan ekosistem bumi kita? </p>
+      </div>
+    <!-- About Narrative Content (Alternating Full-bleed layout bands) -->
+    <!-- Section 1: Latar Belakang (White Canvas) -->
+    <section class="w-full bg-paperWhite py-16">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start animate-on-scroll">
+          <div class="lg:col-span-5">
+            <h2 class="font-display text-display font-bold text-inkBlack">Kepedulian yang Memulai Aksi</h2>
+          </div>
+          <div class="lg:col-span-7 space-y-4 text-stoneGray text-base leading-relaxed font-medium">
+            <p> KEDIS (Kesadaran Digital Sampah) diinisiasi dari keprihatinan mendalam kami terhadap volume sampah harian yang menumpuk tak terkelola di TPA regional kita. Mengandalkan pengolahan akhir saja tidak akan pernah cukup. Tindakan preventif paling efektif bermula dari lingkup dapur rumah tangga. </p>
+            <p> Dengan menyelaraskan karya dalam subtema <strong>"Going Green Through Smart Digital Solutions"</strong> untuk kompetisi INVENTION 2026, kami merancang wadah publikasi edukasi mandiri ini agar mempermudah setiap individu untuk mengenali klasifikasi limbah, menghitung dampak emisi karbon secara matematis, serta melatih refleks pemilahan harian melalui simulasi interaktif. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Visi & Misi (Warm Mist Band, committed to pacing rhythm) -->
+    <section class="w-full py-20 border-y border-ashBorder/20">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start animate-on-scroll">
+          <div class="lg:col-span-5">
+            <h2 class="font-display text-display font-bold text-inkBlack">Visi &amp; Arah Gerakan</h2>
+          </div>
+          <div class="lg:col-span-7 space-y-4 text-stoneGray text-base leading-relaxed font-medium">
+            <p> Visi besar KEDIS adalah mendorong lahirnya lingkungan pemukiman hijau mandiri (eco-neighborhoods) di Indonesia, di mana setiap warganya telah sadar dan disiplin mengelompokkan sampah organik, anorganik, dan B3 sebelum meninggalkan pekarangan rumah. </p>
+            <p> Kami meyakini bahwa satu aksi memilah sisa makanan basah dari wadah plastik kering dapat meringankan beban penimbunan sampah hingga 65%, mencegah pelepasan gas metana pekat, serta mewujudkan lingkungan pemukiman yang bersih, asri, dan nyaman huni. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>   <!-- Linen Cream Footer — Distilled for Minimalist Ecosia aesthetic -->
+  <footer class="bg-linenCream text-inkBlack border-t border-ashBorder/30 py-16">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12"> <!-- Brand column -->
+      <div class="space-y-4"> <a href="index.html" class="inline-block"> <img src="assets/logo.svg" alt="Logo KEDIS" class="h-10 w-auto" loading="lazy"> </a>
+        <p class="text-xs text-stoneGray leading-relaxed max-w-sm"> Kampanye kesadaran digital untuk pemilahan sampah mandiri dari pintu rumah tangga demi lingkungan perkotaan yang sehat dan berkelanjutan. </p>
+        <div class="flex space-x-4 pt-2 text-stoneGray"> <a href="#" aria-label="Instagram KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-instagram text-lg">
+            </i>
+          </a> <a href="#" aria-label="GitHub KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-github text-lg">
+            </i>
+          </a> <a href="#" aria-label="YouTube KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-youtube text-lg">
+            </i>
+          </a> </div>
+      </div> <!-- Contest Info Column -->
+      <div class="space-y-4 md:text-right md:flex md:flex-col md:items-end">
+        <h3 class="font-display text-sm font-bold uppercase tracking-wider text-inkBlack">INVENTION 2026</h3>
+        <p class="text-xs text-stoneGray leading-relaxed max-w-xs md:text-right"> Karya orisinal subtema "Going Green Through Smart Digital Solutions" dalam kompetisi Web Design INVENTION 2026. </p>
+      </div>
+    </div> <!-- Bottom Copyright & Inline Navigation -->
+    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-ashBorder/20 flex flex-col md:flex-row justify-between items-center text-xs text-stoneGray font-bold uppercase tracking-wider gap-4">
+      <div> &copy; 2026 KEDIS. Hak Cipta Dilindungi. Edisi INVENTION 2026. </div>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2"> <a href="index.html" class="hover:text-inkBlack transition-colors">Beranda</a> <a href="edukasi.html" class="hover:text-inkBlack transition-colors">Eco-Learn</a> <a href="komunitas.html" class="hover:text-inkBlack transition-colors">Eco-Connect</a> <a href="game.html" class="hover:text-inkBlack transition-colors">Eco-Play</a> <a href="tentang.html" class="hover:text-inkBlack transition-colors">Tentang</a> </div>
+    </div>
+  </footer> <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+  </script> <!-- Custom JS -->
+  <script src="js/main.js">
+  </script>
+</body>
+
+</html>
+

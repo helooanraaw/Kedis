@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Eco-Connect KEDIS - Temukan dan hubungkan diri dengan komunitas peduli sampah regional terdekat di kota Anda untuk aksi bersama.">
+  <title>Eco-Connect: Hub Komunitas - KEDIS</title> <!-- Google Fonts: Space Grotesk (Headings), Inter (Body/UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"> <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"> <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script>
+    tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        limeCanopy: '#d7eb80',
+        inkBlack: '#333333',
+        paperWhite: '#ffffff',
+        warmMist: '#f8f8f6',
+        linenCream: '#f0f0eb',
+        stoneGray: '#6c6c6c',
+        ashBorder: '#bebeb9',
+      },
+      fontFamily: {
+        sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      }
+    }
+  }
+}
+  </script> <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-paperWhite font-sans text-inkBlack antialiased selection:bg-limeCanopy/40 selection:text-inkBlack"> <!-- Floating Capsule Header -->
+  <header id="main-header" class="header-subpage">
+    <div id="header-pill">
+      <a href="index.html" class="flex items-center shrink-0">
+        <img src="assets/logo.svg" alt="Logo KEDIS" class="logo-img h-10 w-auto">
+      </a>
+      
+      <!-- Desktop Nav -->
+      <nav aria-label="Navigasi Utama" class="hidden md:flex items-center space-x-7 text-sm font-semibold">
+        <a href="index.html" class="nav-link pb-0.5 border-b-2 border-transparent">Beranda</a>
+        
+        <!-- Eco-Learn Dropdown -->
+        <div class="relative py-2">
+          <button id="desktop-dropdown-trigger" type="button" class="nav-link pb-0.5 border-b-2 border-transparent flex items-center gap-1 hover:text-inkBlack transition-colors">
+            Eco-Learn <i class="fa-solid fa-chevron-down text-[8px] transition-transform"></i>
+          </button>
+          <div id="desktop-dropdown-menu" class="absolute top-full left-0 mt-1 w-40 bg-white border border-ashBorder/20 rounded-xl shadow-lg hidden z-50 py-2">
+            <a href="edukasi.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-stoneGray hover:text-inkBlack transition-colors">Kenali Pilah</a>
+            <a href="artikel.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-stoneGray hover:text-inkBlack transition-colors">Kelas Edukasi</a>
+          </div>
+        </div>
+
+        <a href="komunitas.html" class="nav-link nav-link-active pb-0.5 border-b-2">Eco-Connect</a>
+        <a href="game.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Play</a>
+        <a href="tentang.html" class="nav-link pb-0.5 border-b-2 border-transparent">Tentang</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-limeCanopy hover:opacity-90 text-inkBlack text-xs font-bold uppercase tracking-wider transition-opacity duration-200">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        </a>
+        <button id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi" class="md:hidden w-11 h-11 flex items-center justify-center">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden floating-menu mx-4 mt-0">
+      <nav aria-label="Navigasi Seluler" class="flex flex-col space-y-4 text-sm font-semibold">
+        <a href="index.html" class="text-stoneGray hover:text-inkBlack">Beranda</a>
+        
+        <!-- Mobile Eco-Learn Submenu -->
+        <div class="space-y-2">
+          <span class="text-stoneGray uppercase text-[10px] tracking-wider font-bold block">Eco-Learn</span>
+          <div class="pl-3 flex flex-col space-y-2.5">
+            <a href="edukasi.html" class="text-stoneGray hover:text-inkBlack text-xs">Kenali Pilah</a>
+            <a href="artikel.html" class="text-stoneGray hover:text-inkBlack text-xs">Kelas Edukasi</a>
+          </div>
+        </div>
+
+        <a href="komunitas.html" class="text-inkBlack">Eco-Connect</a>
+        <a href="game.html" class="text-stoneGray hover:text-inkBlack">Eco-Play</a>
+        <a href="tentang.html" class="text-stoneGray hover:text-inkBlack">Tentang Kami</a>
+        <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-limeCanopy text-inkBlack text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main class="pt-24"> <!-- Title Banner — Left-aligned with location accent -->
+    <section class="max-w-7xl mx-auto px-6 page-banner">
+      <div class="max-w-3xl space-y-4"> <span class="inline-flex items-center gap-1.5 text-xs bg-linenCream text-inkBlack px-3.5 py-1.5 rounded-pill font-bold uppercase tracking-wider animate-on-scroll stagger-1"><i class="fa-solid fa-location-dot text-[10px] text-stoneGray"></i> Jejaring Sosial</span>
+        <h1 class="text-hero font-display font-bold text-inkBlack animate-on-scroll stagger-2">Temukan<br>Komunitas Hijau</h1>
+        <p class="text-stoneGray text-sm sm:text-base max-w-xl leading-relaxed text-measure animate-on-scroll stagger-3"> Penyelamatan bumi tidak dapat dicapai sendirian. Salurkan hasil pemilahan sampah kering Anda atau daftarkan diri untuk aksi sukarela ke komunitas lingkungan terdekat. </p>
+      </div>
+    </section> <!-- Community Hub Content Section -->
+    <section class="max-w-5xl mx-auto px-6 page-main">
+      <!-- List View Panel -->
+      <div id="communities-hub-list-view" class="space-y-12">
+        <!-- Filter control panel (Drop-down styled as a pill tag) -->
+        <div class="flex flex-col sm:flex-row items-center justify-between border-b border-ashBorder/20 pb-6 gap-4 animate-on-scroll">
+          <div class="text-center sm:text-left">
+            <h2 class="font-display text-xl font-bold text-inkBlack">Daftar Komunitas Aktif</h2>
+            <p class="text-xs text-stoneGray font-medium mt-1">Pilih wilayah di samping untuk mempersempit jejaring pencarian Anda.</p>
+          </div>
+          <!-- Dropdown Pill Selector -->
+          <div class="w-full sm:w-64">
+            <label for="region-filter" class="sr-only">Filter wilayah komunitas</label>
+            <select id="region-filter" class="w-full px-5 py-3 rounded-pill bg-warmMist border border-ashBorder text-inkBlack text-sm font-semibold focus:border-inkBlack cursor-pointer appearance-none transition-colors outline-none" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%236c6c6c%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 20px top 50%; background-size: 10px auto;">
+              <option value="all">Semua Wilayah</option>
+              <option value="jakarta">DKI Jakarta</option>
+              <option value="bandung">Bandung</option>
+              <option value="surabaya">Surabaya</option>
+              <option value="bali">Bali</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Flat List layout with interactive hover states -->
+        <div id="communities-list" class="divide-y divide-ashBorder/20 animate-on-scroll">
+          <!-- Community 1 (Jakarta) -->
+          <div class="community-item py-6 px-4 flex flex-col sm:flex-row justify-between items-start gap-4 cursor-pointer hover:bg-warmMist transition-all duration-300 rounded-2xl border border-transparent hover:border-ashBorder/10" data-region="jakarta" data-id="koalisi-hijau-jakarta">
+            <div class="space-y-2">
+              <span class="text-[11px] bg-linenCream text-inkBlack px-3 py-1.5 rounded-pill font-bold uppercase tracking-wider"> DKI Jakarta </span>
+              <h3 class="font-display text-lg font-bold text-inkBlack">Koalisi Hijau Jakarta</h3>
+              <p class="text-stoneGray text-xs sm:text-sm leading-relaxed max-w-2xl font-medium"> Aliansi sukarelawan aktif yang menyelenggarakan aksi pengumpulan sampah mingguan pada momen Hari Bebas Kendaraan Bermotor (CFD) serta edukasi pemilahan sampah organik rumah tangga. </p>
+            </div>
+            <div class="shrink-0 flex items-center space-x-2 mt-2 sm:mt-0">
+              <span class="text-[11px] border border-inkBlack text-inkBlack px-3 py-1.5 rounded-pill font-bold uppercase tracking-wider"> Aksi Sukarela </span>
+              <i class="fa-solid fa-chevron-right text-stoneGray/40 text-xs pl-2 hidden sm:inline"></i>
+            </div>
+          </div>
+          <!-- Community 2 (Jakarta) -->
+          <div class="community-item py-6 px-4 flex flex-col sm:flex-row justify-between items-start gap-4 cursor-pointer hover:bg-warmMist transition-all duration-300 rounded-2xl border border-transparent hover:border-ashBorder/10" data-region="jakarta" data-id="asosiasi-bank-sampah-jakarta">
+            <div class="space-y-2">
+              <span class="text-[11px] bg-linenCream text-inkBlack px-3 py-1.5 rounded-pill font-bold uppercase tracking-wider"> DKI Jakarta </span>
+              <h3 class="font-display text-lg font-bold text-inkBlack">Asosiasi Bank Sampah Jakarta</h3>
+              <p class="text-stoneGray text-xs sm:text-sm leading-relaxed max-w-2xl font-medium"> Menyediakan jaringan penampungan kertas, botol PET, dan logam bekas untuk dikirim langsung ke pabrik daur ulang. Warga penyetor mendapatkan saldo tabungan digital. </p>
+            </div>
+            <div class="shrink-0 flex items-center space-x-2 mt-2 sm:mt-0">
+              <span class="text-[11px] border border-inkBlack text-inkBlack px-3 py-1.5 rounded-pill font-bold uppercase tracking-wider"> Daur Ulang </span>
+              <i class="fa-solid fa-chevron-right text-stoneGray/40 text-xs pl-2 hidden sm:inline"></i>
+            </div>
+          </div>
+          <!-- Community 3 (Bandung) -->
+          <div class="community-item py-6 px-4 flex flex-col sm:flex-row justify-between items-start gap-4 cursor-pointer hover:bg-warmMist transition-all duration-300 rounded-2xl border border-transparent hover:border-ashBorder/10" data-region="bandung" data-id="kolektif-bandung-hejo">
+            <div class="space-y-2">
+              <span class="text-[11px] bg-linenCream text-inkBlack px-3 py-1.5 rounded-pill font-bold uppercase tracking-wider"> Bandung </span>
+              <h3 class="font-display text-lg font-bold text-inkBlack">Kolektif Bandung Hejo</h3>
+              <p class="text-stoneGray text-xs sm:text-sm leading-relaxed max-w-2xl font-medium"> Fokus pada pembagian komposter modular bersubsidi dan pelatihan pembuatan lubang biopori di area pemukiman padat kota Bandung guna meminimalkan penumpukan sampah basah. </p>
+            </div>
+            <div class="shrink-0 flex items-center space-x-2 mt-2 sm:mt-0">
+              <span class="text-[11px] border border-inkBlack text-inkBlack px-3 py-1.5 rounded-pill font-bold uppercase tracking-wider"> Pengomposan </span>
+              <i class="fa-solid fa-chevron-right text-stoneGray/40 text-xs pl-2 hidden sm:inline"></i>
+            </div>
+          </div>
+          <!-- Community 4 (Bandung) -->
+          <div class="community-item py-6 px-4 flex flex-col sm:flex-row justify-between items-start gap-4 cursor-pointer hover:bg-warmMist transition-all duration-300 rounded-2xl border border-transparent hover:border-ashBorder/10" data-region="bandung" data-id="bank-sampah-bandung-barat">
+            <div class="space-y-2">
+              <span class="text-[11px] bg-linenCream text-inkBlack px-3 py-1.5 rounded-pill font-bold uppercase tracking-wider"> Bandung </span>
+              <h3 class="font-display text-lg font-bold text-inkBlack">Bank Sampah Bandung Barat</h3>
+              <p class="text-stoneGray text-xs sm:text-sm leading-relaxed max-w-2xl font-medium"> Melayani penjemputan sampah anorganik terpilah (kertas, plastik, aluminium) berskala lingkungan perumahan untuk wilayah Bandung Raya dan sekitarnya. </p>
+            </div>
+            <div class="shrink-0 flex items-center space-x-2 mt-2 sm:mt-0">
+              <span class="text-[11px] border border-inkBlack text-inkBlack px-3 py-1.5 rounded-pill font-bold uppercase tracking-wider"> Daur Ulang </span>
+              <i class="fa-solid fa-chevron-right text-stoneGray/40 text-xs pl-2 hidden sm:inline"></i>
+            </div>
+          </div>
+          <!-- Community 5 (Surabaya) -->
+          <div class="community-item py-6 px-4 flex flex-col sm:flex-row justify-between items-start gap-4 cursor-pointer hover:bg-warmMist transition-all duration-300 rounded-2xl border border-transparent hover:border-ashBorder/10" data-region="surabaya" data-id="relawan-sungai-bersih-surabaya">
+            <div class="space-y-2">
+              <span class="text-[11px] bg-linenCream text-inkBlack px-3 py-1.5 rounded-pill font-bold uppercase tracking-wider"> Surabaya </span>
+              <h3 class="font-display text-lg font-bold text-inkBlack">Relawan Sungai Bersih Surabaya</h3>
+              <p class="text-stoneGray text-xs sm:text-sm leading-relaxed max-w-2xl font-medium"> Gerakan pembersihan terintegrasi pada muara dan bantaran kali Surabaya dari penumpukan limbah anorganik, dibarengi edukasi kesadaran warga setempat. </p>
+            </div>
+            <div class="shrink-0 flex items-center space-x-2 mt-2 sm:mt-0">
+              <span class="text-[11px] border border-inkBlack text-inkBlack px-3 py-1.5 rounded-pill font-bold uppercase tracking-wider"> Aksi Sukarela </span>
+              <i class="fa-solid fa-chevron-right text-stoneGray/40 text-xs pl-2 hidden sm:inline"></i>
+            </div>
+          </div>
+          <!-- Community 6 (Bali) -->
+          <div class="community-item py-6 px-4 flex flex-col sm:flex-row justify-between items-start gap-4 cursor-pointer hover:bg-warmMist transition-all duration-300 rounded-2xl border border-transparent hover:border-ashBorder/10" data-region="bali" data-id="bali-beach-cleaners">
+            <div class="space-y-2">
+              <span class="text-[11px] bg-linenCream text-inkBlack px-3 py-1.5 rounded-pill font-bold uppercase tracking-wider"> Bali </span>
+              <h3 class="font-display text-lg font-bold text-inkBlack">Bali Beach Cleaners</h3>
+              <p class="text-stoneGray text-xs sm:text-sm leading-relaxed max-w-2xl font-medium"> Kolektif pemuda-pemudi di pesisir pantai Bali yang rutin menggalang aksi pungut sampah laut plastik setiap hari Sabtu pagi demi menjaga kualitas perairan pariwisata. </p>
+            </div>
+            <div class="shrink-0 flex items-center space-x-2 mt-2 sm:mt-0">
+              <span class="text-[11px] border border-inkBlack text-inkBlack px-3 py-1.5 rounded-pill font-bold uppercase tracking-wider"> Aksi Sukarela </span>
+              <i class="fa-solid fa-chevron-right text-stoneGray/40 text-xs pl-2 hidden sm:inline"></i>
+            </div>
+          </div>
+        </div>
+
+        <div id="communities-empty" class="hidden py-16 text-center space-y-3" role="status">
+          <p class="font-display text-lg font-bold text-inkBlack">Belum ada komunitas di wilayah ini</p>
+          <p class="text-sm text-stoneGray max-w-md mx-auto leading-relaxed">Coba pilih wilayah lain atau tampilkan semua komunitas aktif.</p>
+        </div>
+      </div>
+
+      <!-- Community Details Dynamic Panel (Initially Hidden) -->
+      <div id="community-detail" class="hidden space-y-12 pb-16">
+        <!-- Back button -->
+        <div class="animate-on-scroll">
+          <button id="btn-back-to-list" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-inkBlack hover:opacity-80 transition-opacity gap-2 cursor-pointer">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar
+          </button>
+        </div>
+
+        <!-- Header Content -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="md:col-span-2 space-y-6">
+            <div class="space-y-4">
+              <div class="flex flex-wrap gap-2">
+                <span id="detail-region-badge" class="text-[11px] bg-linenCream text-inkBlack px-3 py-1 rounded-pill font-bold uppercase tracking-wider"></span>
+                <span id="detail-category-badge" class="text-[11px] border border-inkBlack text-inkBlack px-3 py-1 rounded-pill font-bold uppercase tracking-wider"></span>
+              </div>
+              <h2 id="detail-name" class="font-display text-3xl sm:text-4xl font-bold text-inkBlack"></h2>
+              <p id="detail-desc" class="text-stoneGray text-sm sm:text-base leading-relaxed font-medium"></p>
+            </div>
+            <!-- Google Maps Embed -->
+            <div class="w-full aspect-[4/3] rounded-card overflow-hidden border border-ashBorder/20 shadow-inner">
+              <iframe width="100%" height="100%" src="https://www.google.com/maps/embed?pb=REPLACE_MAP" title="Lokasi komunitas" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full"></iframe>
+            </div>
+          </div>
+          
+          <!-- Right Sidebar Content (Stacked widgets to balance layout) -->
+          <div class="space-y-6 flex flex-col h-full">
+            <!-- Contact card -->
+            <div class="bg-warmMist border border-ashBorder/20 p-6 rounded-card space-y-4">
+              <h3 class="font-display text-sm font-bold text-inkBlack uppercase tracking-wider border-b border-ashBorder/20 pb-2">Hubungi Komunitas</h3>
+              <div class="space-y-3 text-xs font-medium text-stoneGray">
+                <div class="flex items-center gap-2.5">
+                  <i class="fa-solid fa-location-dot text-inkBlack text-sm w-4 text-center"></i>
+                  <span id="detail-location"></span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <i class="fa-solid fa-envelope text-inkBlack text-sm w-4 text-center"></i>
+                  <span id="detail-email"></span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <i class="fa-brands fa-whatsapp text-inkBlack text-sm w-4 text-center"></i>
+                  <span id="detail-phone"></span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <i class="fa-brands fa-instagram text-inkBlack text-sm w-4 text-center"></i>
+                  <span id="detail-instagram"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stats/Impact Card -->
+            <div class="bg-warmMist border border-ashBorder/20 p-6 rounded-card space-y-4">
+              <h3 class="font-display text-sm font-bold text-inkBlack uppercase tracking-wider border-b border-ashBorder/20 pb-2">Dampak &amp; Kontribusi</h3>
+              <div class="grid grid-cols-2 gap-4 text-center">
+                <div class="bg-paperWhite p-3.5 rounded-2xl border border-ashBorder/10">
+                  <span class="block font-display text-base sm:text-lg font-bold text-inkBlack" id="detail-stat-members">0+</span>
+                  <span class="text-[9px] text-stoneGray font-bold uppercase tracking-wider block mt-0.5">Relawan</span>
+                </div>
+                <div class="bg-paperWhite p-3.5 rounded-2xl border border-ashBorder/10">
+                  <span class="block font-display text-base sm:text-lg font-bold text-inkBlack" id="detail-stat-waste">0 Kg</span>
+                  <span class="text-[9px] text-stoneGray font-bold uppercase tracking-wider block mt-0.5">Terpilah</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Guide Card (Stretched to match heights) -->
+            <div class="bg-inkBlack text-white p-6 rounded-card space-y-3.5 shadow-md flex-grow flex flex-col justify-center">
+              <h3 class="font-display text-xs font-bold text-[#d7eb80] uppercase tracking-widest">Cara Ikut Serta</h3>
+              <ul class="space-y-2.5 text-xs text-white/90 leading-relaxed font-medium list-decimal list-inside">
+                <li>Pilih agenda kegiatan aktif di bawah.</li>
+                <li>Klik tombol <strong class="text-[#d7eb80]">Ikuti Aksi</strong> pada kartu event.</li>
+                <li>Konfirmasi rincian via email / WhatsApp.</li>
+                <li>Hadir di lokasi dengan membawa tumbler minum sendiri.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Community Slider Banner -->
+        <div class="relative w-full aspect-[4/3] rounded-card overflow-hidden bg-linenCream border border-ashBorder/20 shadow-inner group">
+          <!-- Slides Container -->
+          <div id="carousel-slides" class="w-full h-full relative overflow-hidden">
+            <div id="carousel-track" class="flex w-full h-full transition-transform duration-500 ease-out" style="transform: translateX(0%);">
+              <!-- Dynamic slides will be inserted here -->
+            </div>
+          </div>
+          
+          <!-- Navigation Buttons -->
+          <button type="button" id="carousel-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 hover:bg-white text-inkBlack flex items-center justify-center border border-ashBorder/25 hover:scale-105 transition-all cursor-pointer opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Gambar sebelumnya">
+            <i class="fa-solid fa-chevron-left text-xs"></i>
+          </button>
+          <button type="button" id="carousel-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 hover:bg-white text-inkBlack flex items-center justify-center border border-ashBorder/25 hover:scale-105 transition-all cursor-pointer opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Gambar berikutnya">
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+          </button>
+          
+          <!-- Indicators -->
+          <div id="carousel-indicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+            <!-- Dynamic indicators -->
+          </div>
+        </div>
+
+        <!-- Upcoming Events -->
+        <div class="space-y-6">
+          <div class="border-b border-ashBorder/20 pb-4">
+            <h3 class="font-display text-xl font-bold text-inkBlack">Agenda Kegiatan &amp; Aksi Lingkungan</h3>
+            <p class="text-xs text-stoneGray font-medium mt-1">Ikuti kegiatan nyata yang diadakan oleh komunitas ini untuk berkontribusi langsung.</p>
+          </div>
+          
+          <div id="detail-events-list" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Dynamically populated event cards -->
+          </div>
+        </div>
+      </div>
+    </section> <!-- CTA Banner Section -->
+    <section class="w-full bg-warmMist section-cta border-t border-ashBorder/20">
+      <div class="max-w-4xl mx-auto px-6 text-center space-y-6 animate-on-scroll">
+        <h2 class="font-display text-display font-bold text-inkBlack">Belum Menemukan Komunitas Terdekat?</h2>
+        <p class="text-stoneGray text-sm max-w-xl mx-auto leading-relaxed"> Langkah kecil dari rumah Anda sudah bernilai besar. Baca panduan Eco-Learn kami untuk mulai memilah secara mandiri dari lingkungan terkecil. </p>
+        <div class="pt-2 flex flex-col sm:flex-row justify-center gap-4"> <a href="edukasi.html" class="inline-flex items-center justify-center px-6 py-3 rounded-pill bg-limeCanopy hover:opacity-95 text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200"> Pelajari Panduan Pilah </a> <a href="game.html" class="inline-flex items-center justify-center px-6 py-3 rounded-pill border border-inkBlack hover:bg-inkBlack hover:text-paperWhite text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200"> Uji Pengetahuan (Game) </a> </div>
+      </div>
+    </section>
+  </main>   <!-- Linen Cream Footer — Distilled for Minimalist Ecosia aesthetic -->
+  <footer class="bg-linenCream text-inkBlack border-t border-ashBorder/30 py-16">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12"> <!-- Brand column -->
+      <div class="space-y-4"> <a href="index.html" class="inline-block"> <img src="assets/logo.svg" alt="Logo KEDIS" class="h-10 w-auto" loading="lazy"> </a>
+        <p class="text-xs text-stoneGray leading-relaxed max-w-sm"> Kampanye kesadaran digital untuk pemilahan sampah mandiri dari pintu rumah tangga demi lingkungan perkotaan yang sehat dan berkelanjutan. </p>
+        <div class="flex space-x-4 pt-2 text-stoneGray"> <a href="#" aria-label="Instagram KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-instagram text-lg">
+            </i>
+          </a> <a href="#" aria-label="GitHub KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-github text-lg">
+            </i>
+          </a> <a href="#" aria-label="YouTube KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-youtube text-lg">
+            </i>
+          </a> </div>
+      </div> <!-- Contest Info Column -->
+      <div class="space-y-4 md:text-right md:flex md:flex-col md:items-end">
+        <h3 class="font-display text-sm font-bold uppercase tracking-wider text-inkBlack">INVENTION 2026</h3>
+        <p class="text-xs text-stoneGray leading-relaxed max-w-xs md:text-right"> Karya orisinal subtema "Going Green Through Smart Digital Solutions" dalam kompetisi Web Design INVENTION 2026. </p>
+      </div>
+    </div> <!-- Bottom Copyright & Inline Navigation -->
+    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-ashBorder/20 flex flex-col md:flex-row justify-between items-center text-xs text-stoneGray font-bold uppercase tracking-wider gap-4">
+      <div> &copy; 2026 KEDIS. Hak Cipta Dilindungi. Edisi INVENTION 2026. </div>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2"> <a href="index.html" class="hover:text-inkBlack transition-colors">Beranda</a> <a href="edukasi.html" class="hover:text-inkBlack transition-colors">Eco-Learn</a> <a href="komunitas.html" class="hover:text-inkBlack transition-colors">Eco-Connect</a> <a href="game.html" class="hover:text-inkBlack transition-colors">Eco-Play</a> <a href="tentang.html" class="hover:text-inkBlack transition-colors">Tentang</a> </div>
+    </div>
+  </footer>
+
+  <!-- Event Detail Modal -->
+  <div id="event-detail-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center bg-inkBlack/60 backdrop-blur-sm p-4">
+    <div id="event-detail-modal-content" class="bg-paperWhite border border-ashBorder/20 w-full max-w-md rounded-card shadow-2xl p-8 space-y-6 transform scale-95 transition-all duration-300">
+      
+      <!-- Modal Header -->
+      <div class="flex items-start justify-between border-b border-ashBorder/20 pb-4">
+        <div>
+          <span class="text-[10px] font-bold text-stoneGray uppercase tracking-widest block">DETAIL KEGIATAN</span>
+          <h3 id="pop-event-title" class="font-display text-lg font-bold text-inkBlack mt-1 leading-tight"></h3>
+          <p id="pop-community-name" class="text-xs text-stoneGray font-semibold mt-1"></p>
+        </div>
+        <button type="button" id="btn-close-event-modal" class="text-stoneGray hover:text-inkBlack text-xl p-1 transition-colors cursor-pointer" aria-label="Tutup detail">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Modal Content Body -->
+      <div class="space-y-4 text-xs font-medium text-stoneGray leading-relaxed">
+        <p id="pop-event-desc" class="text-sm text-inkBlack/80 font-medium"></p>
+        
+        <div class="bg-warmMist rounded-xl p-4 border border-ashBorder/10 space-y-3">
+          <div class="flex items-start gap-2.5">
+            <i class="fa-solid fa-calendar-day text-stoneGray text-[14px] w-4 text-center mt-0.5"></i>
+            <div>
+              <strong class="text-inkBlack block">Waktu Pelaksanaan:</strong>
+              <span id="pop-event-date"></span>
+            </div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i class="fa-solid fa-map-pin text-stoneGray text-[14px] w-4 text-center mt-0.5"></i>
+            <div>
+              <strong class="text-inkBlack block">Lokasi / Wilayah:</strong>
+              <span id="pop-event-location"></span>
+            </div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i class="fa-solid fa-location-crosshairs text-stoneGray text-[14px] w-4 text-center mt-0.5"></i>
+            <div>
+              <strong class="text-inkBlack block">Titik Kumpul Koordinasi:</strong>
+              <span id="pop-event-meeting"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <strong class="text-inkBlack text-xs block uppercase tracking-wider"><i class="fa-solid fa-bullseye mr-1 text-stoneGray"></i> Target &amp; Tujuan Aksi:</strong>
+          <ul id="pop-event-goals" class="list-disc list-inside space-y-1 pl-1 text-stoneGray">
+            <!-- Dynamic goals list -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div class="pt-2">
+        <button type="button" id="btn-pop-rsvp" class="w-full py-3.5 rounded-pill bg-limeCanopy text-inkBlack font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-opacity cursor-pointer text-center">
+          Ikuti Aksi Relawan <i class="fa-solid fa-arrow-right ml-1.5"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Volunteer Registration Modal -->
+  <div id="rsvp-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center bg-inkBlack/60 backdrop-blur-sm p-4">
+    <div id="rsvp-modal-content" class="bg-paperWhite border border-ashBorder/20 w-full max-w-md rounded-card shadow-2xl p-8 space-y-6 transform scale-95 transition-all duration-300">
+      
+      <!-- Modal Header -->
+      <div class="flex items-start justify-between border-b border-ashBorder/20 pb-4">
+        <div>
+          <span class="text-[10px] font-bold text-stoneGray uppercase tracking-widest block">FORMULIR PENDAFTARAN</span>
+          <h3 id="modal-event-title" class="font-display text-lg font-bold text-inkBlack mt-1 leading-tight"></h3>
+          <p id="modal-community-name" class="text-xs text-stoneGray font-semibold mt-1"></p>
+        </div>
+        <button type="button" id="btn-close-modal" class="text-stoneGray hover:text-inkBlack text-xl p-1 transition-colors cursor-pointer" aria-label="Tutup formulir">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Registration Form -->
+      <form id="rsvp-form" class="space-y-4">
+        <!-- Event Details Mini Summary -->
+        <div class="bg-warmMist rounded-xl p-4 border border-ashBorder/10 text-xs text-stoneGray font-medium space-y-2">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-calendar-day text-stoneGray text-[14px] w-4 text-center"></i>
+            <span id="modal-event-date"></span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-map-pin text-stoneGray text-[14px] w-4 text-center"></i>
+            <span id="modal-event-location"></span>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <label for="rsvp-name" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Nama Lengkap</label>
+          <input type="text" id="rsvp-name" required placeholder="Masukkan nama lengkap Anda" class="w-full rounded-pill bg-warmMist border border-ashBorder px-4 py-3 text-sm font-semibold focus:border-inkBlack transition-colors outline-none">
+        </div>
+
+        <div class="space-y-2">
+          <label for="rsvp-email" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Alamat Email</label>
+          <input type="email" id="rsvp-email" required placeholder="nama@email.com" class="w-full rounded-pill bg-warmMist border border-ashBorder px-4 py-3 text-sm font-semibold focus:border-inkBlack transition-colors outline-none">
+        </div>
+
+        <div class="space-y-2">
+          <label for="rsvp-phone" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Nomor WhatsApp</label>
+          <input type="tel" id="rsvp-phone" required placeholder="08xxxxxxxxxx" class="w-full rounded-pill bg-warmMist border border-ashBorder px-4 py-3 text-sm font-semibold focus:border-inkBlack transition-colors outline-none">
+        </div>
+
+        <!-- Checkbox agreements -->
+        <div class="space-y-3 pt-2">
+          <label class="flex items-start gap-2.5 cursor-pointer text-xs font-semibold text-stoneGray">
+            <input type="checkbox" required class="mt-0.5 rounded border-ashBorder focus:ring-0 text-inkBlack">
+            <span>Saya setuju untuk hadir tepat waktu dan mematuhi panduan kebersihan relawan.</span>
+          </label>
+          <label class="flex items-start gap-2.5 cursor-pointer text-xs font-semibold text-stoneGray">
+            <input type="checkbox" required class="mt-0.5 rounded border-ashBorder focus:ring-0 text-inkBlack">
+            <span>Saya bersedia membawa tumbler minum sendiri untuk menekan sampah plastik sekali pakai.</span>
+          </label>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="w-full py-4 rounded-pill bg-limeCanopy text-inkBlack font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-opacity duration-200 cursor-pointer mt-4">
+          Kirim Pendaftaran Relawan <i class="fa-solid fa-paper-plane ml-1.5"></i>
+        </button>
+      </form>
+
+      <!-- Success Screen (Initially Hidden) -->
+      <div id="rsvp-success" class="hidden text-center py-4 space-y-6">
+        <div class="w-16 h-16 rounded-full bg-limeCanopy/20 border border-limeCanopy text-limeCanopy text-3xl flex items-center justify-center mx-auto shadow-sm">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <div class="space-y-2">
+          <h4 class="font-display text-lg font-bold text-inkBlack">Pendaftaran Berhasil!</h4>
+          <p class="text-xs text-stoneGray max-w-sm mx-auto leading-relaxed">
+            Terima kasih telah bergabung dalam aksi nyata untuk lingkungan! Kode tiket partisipasi digital Anda adalah:
+          </p>
+          <div class="inline-block bg-warmMist border border-ashBorder/20 px-6 py-3 rounded-xl font-display text-base font-bold text-inkBlack tracking-widest mt-2 select-all animate-pulse" id="rsvp-ticket-code">
+            KDS-84729
+          </div>
+        </div>
+        <p class="text-xs text-stoneGray max-w-sm mx-auto leading-relaxed">
+          Detail koordinasi, perlengkapan aksi, dan kontak kordinator lapangan telah dikirim ke email <strong id="success-email" class="text-inkBlack font-semibold"></strong> dan nomor WhatsApp <strong id="success-phone" class="text-inkBlack font-semibold"></strong>.
+        </p>
+        <button type="button" id="btn-close-success" class="w-full py-4 rounded-pill bg-inkBlack text-white hover:bg-inkBlack/90 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer">
+          Selesai &amp; Tutup
+        </button>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+  </script> <!-- Custom JS -->
+  <script src="js/main.js">
+  </script> <!-- jQuery dropdown filter script -->
+  <script>
+    $(document).ready(function() {
+      const communitiesData = {
+        'koalisi-hijau-jakarta': {
+          name: 'Koalisi Hijau Jakarta',
+          region: 'DKI Jakarta',
+          category: 'Aksi Sukarela',
+          images: [
+            'assets/komunitas1.png',
+            'assets/komunitas2.png',
+            'assets/komunitas3.png'
+          ],
+          members: '150+',
+          waste: '850 Kg',
+          desc: 'Aliansi sukarelawan aktif yang menyelenggarakan aksi pengumpulan sampah mingguan pada momen Hari Bebas Kendaraan Bermotor (CFD) serta edukasi pemilahan sampah organik rumah tangga.',
+          location: 'Monas & Bundaran HI, Jakarta Pusat',
+          email: 'kontak@koalisihijau.id',
+          phone: '+62 812-3456-7890',
+          instagram: '@koalisi_hijau_jkt',
+          events: [
+            {
+              title: 'Aksi Pungut Sampah CFD Sudirman',
+              date: 'Setiap Minggu Pagi (06:00 - 09:00 WIB)',
+              location: 'Bundaran HI (Depan Grand Indonesia)',
+              desc: 'Bergabunglah bersama puluhan relawan untuk membersihkan sisa sampah plastik dan botol kemasan di sepanjang jalan Sudirman-Thamrin saat CFD.',
+              meetingPoint: 'Depan Monumen Selamat Datang (Pos Polisi Bundaran HI)',
+              goals: ['Mengumpulkan botol & gelas plastik sekali pakai', 'Mengampanyekan pemilahan sampah langsung ke pejalan kaki', 'Menyalurkan sampah terpilah ke Bank Sampah terdekat']
+            },
+            {
+              title: 'Workshop Kompos Skala Rumah Tangga',
+              date: 'Sabtu, 11 Juli 2026 (09:00 - 12:00 WIB)',
+              location: 'RPTRA Kalijodo, Jakarta Utara',
+              desc: 'Belajar langsung cara membuat pupuk kompos dari sampah dapur sisa makanan menggunakan metode Takakura yang praktis.',
+              meetingPoint: 'Gazebo Aula Utama RPTRA Kalijodo',
+              goals: ['Demonstrasi langsung metode komposting Takakura', 'Pembagian starter kit mikroorganisme pengurai gratis', 'Praktik pemilahan sampah dapur organik']
+            }
+          ]
+        },
+        'asosiasi-bank-sampah-jakarta': {
+          name: 'Asosiasi Bank Sampah Jakarta',
+          region: 'DKI Jakarta',
+          category: 'Daur Ulang',
+          images: [
+            'assets/komunitas1.png',
+            'assets/komunitas2.png',
+            'assets/komunitas3.png'
+          ],
+          members: '420+',
+          waste: '4.2 Ton',
+          desc: 'Menyediakan jaringan penampungan kertas, botol PET, dan logam bekas untuk dikirim langsung ke pabrik daur ulang. Warga penyetor mendapatkan saldo tabungan digital.',
+          location: 'Tebet, Jakarta Selatan (Hub Utama)',
+          email: 'info@banksampahjkt.or.id',
+          phone: '+62 821-2233-4455',
+          instagram: '@banksampah_jkt',
+          events: [
+            {
+              title: 'Program "Pilah Bersama Jadi Saldo"',
+              date: 'Setiap Hari Kerja (08:00 - 16:00 WIB)',
+              location: 'Seluruh Pos Bank Sampah Mitra (50+ Titik Jakarta)',
+              desc: 'Bawa sampah anorganik terpilah Anda ke pos terdekat dan konversikan langsung menjadi saldo e-wallet dompet digital Anda.',
+              meetingPoint: 'Mitra Bank Sampah Unit Terdekat (Lihat Peta Posko)',
+              goals: ['Menerima penyaluran kardus, koran, & botol kemasan', 'Konversi berat sampah kering menjadi saldo digital', 'Penyaluran resmi ke pabrik peleburan daur ulang']
+            },
+            {
+              title: 'Sosialisasi Pemilahan Sampah Perumahan',
+              date: 'Minggu, 5 Juli 2026 (16:00 WIB)',
+              location: 'Balai RW 08 Tebet Timur, Jakarta Selatan',
+              desc: 'Diskusi warga tentang tata cara pemilahan sampah kering dan basah agar mempermudah proses daur ulang skala lokal.',
+              meetingPoint: 'Balai Warga RW 08 (Samping Lapangan Tenis)',
+              goals: ['Edukasi pemisahan jenis sampah anorganik & residu', 'Pembagian stiker klasifikasi sampah dinding', 'Pembentukan unit Bank Sampah tingkat RT baru']
+            }
+          ]
+        },
+        'kolektif-bandung-hejo': {
+          name: 'Kolektif Bandung Hejo',
+          region: 'Bandung',
+          category: 'Pengomposan',
+          images: [
+            'assets/komunitas1.png',
+            'assets/komunitas2.png',
+            'assets/komunitas3.png'
+          ],
+          members: '180+',
+          waste: '1.1 Ton',
+          desc: 'Fokus pada pembagian komposter modular bersubsidi dan pelatihan pembuatan lubang biopori di area pemukiman padat kota Bandung guna meminimalkan penumpukan sampah basah.',
+          location: 'Dago, Bandung',
+          email: 'kontak@bandunghejo.org',
+          phone: '+62 822-1122-3344',
+          instagram: '@bdg_hejo',
+          events: [
+            {
+              title: 'Gerakan 1000 Biopori Bandung',
+              date: 'Sabtu, 4 Juli 2026 (08:00 WIB)',
+              location: 'Kelurahan Sadang Serang, Coblong, Bandung',
+              desc: 'Aksi gotong royong pembuatan lubang resapan biopori di pekarangan rumah warga guna mencegah banjir dan mengolah sampah organik.',
+              meetingPoint: 'Halaman Kantor Kelurahan Sadang Serang',
+              goals: ['Pembuatan 50 lubang resapan biopori baru', 'Pelatihan penggunaan alat bor biopori manual', 'Distribusi pupuk kompos organik hasil daur ulang warga']
+            },
+            {
+              title: 'Distribusi Komposter Komunitas',
+              date: 'Jumat, 10 Juli 2026 (13:00 - 15:00 WIB)',
+              location: 'Dago Hub Bandung Hejo',
+              desc: 'Penyerahan alat komposter anaerobik untuk 20 perwakilan RT/RW disertai pelatihan dasar pengoperasian bakteri komposer.',
+              meetingPoint: 'Gudang Logistik Bandung Hejo (Jalan Dago No. 12)',
+              goals: ['Penyerahan 20 unit komposter modular bersubsidi', 'Pelatihan kontrol kelembapan cairan kompos', 'Pembagian wadah komposer cair serbaguna']
+            }
+          ]
+        },
+        'bank-sampah-bandung-barat': {
+          name: 'Bank Sampah Bandung Barat',
+          region: 'Bandung',
+          category: 'Daur Ulang',
+          images: [
+            'assets/komunitas1.png',
+            'assets/komunitas2.png',
+            'assets/komunitas3.png'
+          ],
+          members: '290+',
+          waste: '2.4 Ton',
+          desc: 'Melayani penjemputan sampah anorganik terpilah (kertas, plastik, aluminium) berskala lingkungan perumahan untuk wilayah Bandung Raya dan sekitarnya.',
+          location: 'Padalarang, Bandung Barat',
+          email: 'support@bsbb.id',
+          phone: '+62 878-8899-0011',
+          instagram: '@banksampah_bandungbarat',
+          events: [
+            {
+              title: 'Layanan Pickup Kertas & Kardus Bekas',
+              date: 'Setiap Rabu & Sabtu (09:00 - 14:00 WIB)',
+              location: 'Area Penjemputan Bandung Barat & Cimahi',
+              desc: 'Jadwalkan penjemputan gratis tumpukan kardus, koran, dan kertas bekas kantor Anda langsung dari pintu rumah lewat WhatsApp.',
+              meetingPoint: 'Depan Pintu Rumah Masing-masing (Sistem Pickup)',
+              goals: ['Penjemputan tumpukan kardus & kertas bekas', 'Penerapan timbangan digital di depan nasabah', 'Dukungan logistik pengolahan pulp daur ulang']
+            },
+            {
+              title: 'Edukasi Daur Ulang Kreatif Anak Sekolah',
+              date: 'Kamis, 16 Juli 2026 (10:00 WIB)',
+              location: 'SDN 1 Padalarang, Bandung Barat',
+              desc: 'Pelatihan mengolah botol plastik bekas menjadi pot tanaman hias kreatif bersama siswa sekolah dasar setempat.',
+              meetingPoint: 'Ruang Aula Kelas 5 & 6 SDN 1 Padalarang',
+              goals: ['Pelatihan merakit pot tanaman dari botol plastik', 'Lomba mewarnai wadah pilah sampah mini', 'Penyerahan bantuan 3 unit tong sampah sekolah']
+            }
+          ]
+        },
+        'relawan-sungai-bersih-surabaya': {
+          name: 'Relawan Sungai Bersih Surabaya',
+          region: 'Surabaya',
+          category: 'Aksi Sukarela',
+          images: [
+            'assets/komunitas1.png',
+            'assets/komunitas2.png',
+            'assets/komunitas3.png'
+          ],
+          members: '310+',
+          waste: '3.1 Ton',
+          desc: 'Gerakan pembersihan terintegrasi pada muara dan bantaran kali Surabaya dari penumpukan limbah anorganik, dibarengi edukasi kesadaran warga setempat.',
+          location: 'Wonokromo, Surabaya',
+          email: 'halo@sungaibersihsby.org',
+          phone: '+62 856-4433-2211',
+          instagram: '@surabayarivercleaners',
+          events: [
+            {
+              title: 'Aksi Clean-Up Kali Mas Wonokromo',
+              date: 'Sabtu, 11 Juli 2026 (06:30 - 10:30 WIB)',
+              location: 'Jembatan Wonokromo (Sisi Timur)',
+              desc: 'Aksi terjun langsung ke aliran sungai menggunakan perahu karet untuk mengangkut sampah plastik yang menyumbat saluran air kota.',
+              meetingPoint: 'Dermaga Perahu Karet Wonokromo (Sisi Timur Jembatan)',
+              goals: ['Pembersihan sampah terapung di aliran sungai Kali Mas', 'Pengangkutan eceng gondok penghambat arus air', 'Pemisahan sampah plastik untuk dikirim ke Bank Sampah']
+            },
+            {
+              title: 'Kampanye Bahaya Sampah Plastik Mikro',
+              date: 'Minggu, 19 Juli 2026 (08:00 WIB)',
+              location: 'Taman Bungkul (Car Free Day Raya Darmo)',
+              desc: 'Pameran sampel air sungai dan edukasi mengenai bahaya mikroplastik yang masuk ke rantai makanan perikanan lokal Surabaya.',
+              meetingPoint: 'Area Car Free Day (Depan Kebun Binatang Surabaya)',
+              goals: ['Pameran mikroplastik hasil filtrasi air sungai', 'Pembagian brosur aksi diet plastik sekali pakai', 'Konsultasi gratis uji kejernihan air sumur']
+            }
+          ]
+        },
+        'bali-beach-cleaners': {
+          name: 'Bali Beach Cleaners',
+          region: 'Bali',
+          category: 'Aksi Sukarela',
+          images: [
+            'assets/komunitas1.png',
+            'assets/komunitas2.png',
+            'assets/komunitas3.png'
+          ],
+          members: '220+',
+          waste: '980 Kg',
+          desc: 'Kolektif pemuda-pemudi di pesisir pantai Bali yang rutin menggalang aksi pungut sampah laut plastik setiap hari Sabtu pagi demi menjaga kualitas perairan pariwisata.',
+          location: 'Kuta, Badung, Bali',
+          email: 'volunteer@balibeachclean.org',
+          phone: '+62 899-7788-9900',
+          instagram: '@balibeachcleaners',
+          events: [
+            {
+              title: 'Sabtu Pagi Bersih Pantai Kuta',
+              date: 'Setiap Sabtu Pagi (07:00 - 09:00 WITA)',
+              location: 'Pantai Kuta (Area Depan Beachwalk Mall)',
+              desc: 'Aksi rutin mingguan memungut sedotan, gelas plastik, dan puntung rokok di pasir pantai bersama turis mancanegara dan lokal.',
+              meetingPoint: 'Pasir Pantai Depan Gapura Utama (Samping Beachwalk)',
+              goals: ['Pembersihan sampah kecil (sedotan, puntung rokok) di pasir', 'Sosialisasi ramah lingkungan kepada turis asing & lokal', 'Pemisahan sampah organik pantai (daun/ranting) & anorganik']
+            },
+            {
+              title: 'Pemasangan Trash Barrier Aliran Sungai Kuta',
+              date: 'Minggu, 12 Juli 2026 (08:00 WITA)',
+              location: 'Sungai Tukad Mati, Kuta',
+              desc: 'Pemasangan jaring penghalang sampah plastik sederhana pada aliran sungai sebelum bermuara langsung ke pantai selat Bali.',
+              meetingPoint: 'Pintu Air Jembatan Tukad Mati (Jalan Sunset Road)',
+              goals: ['Pemasangan jaring kawat penahan sampah plastik sungai', 'Pembersihan endapan lumpur muara sungai', 'Pencatatan statistik volume sampah harian sungai']
+            }
+          ]
+        }
+      };
+
+      function updateCommunityList() {
+        const selected = $('#region-filter').val();
+        let visibleCount = 0;
+        if (selected === 'all') {
+          $('.community-item').show();
+          visibleCount = $('.community-item').length;
+        } else {
+          $('.community-item').hide();
+          const $visible = $('.community-item[data-region="' + selected + '"]');
+          $visible.show();
+          visibleCount = $visible.length;
+        }
+        $('#communities-empty').toggleClass('hidden', visibleCount > 0);
+      }
+
+      $('#region-filter').on('change', updateCommunityList);
+      updateCommunityList();
+
+      let currentImagesArray = [];
+      let currentSlideIndex = 0;
+
+      function showSlide(index) {
+        if (currentImagesArray.length === 0) return;
+        $('#carousel-track').css('transform', `translateX(-${index * 100}%)`);
+
+        $('#carousel-indicators button').each(function(i) {
+          if (i === index) {
+            $(this).removeClass('bg-white/40 w-2').addClass('bg-white w-5');
+          } else {
+            $(this).removeClass('bg-white w-5').addClass('bg-white/40 w-2');
+          }
+        });
+      }
+
+      $('#carousel-prev').on('click', function(e) {
+        e.stopPropagation();
+        if (currentImagesArray.length <= 1) return;
+        currentSlideIndex = (currentSlideIndex - 1 + currentImagesArray.length) % currentImagesArray.length;
+        showSlide(currentSlideIndex);
+      });
+
+      $('#carousel-next').on('click', function(e) {
+        e.stopPropagation();
+        if (currentImagesArray.length <= 1) return;
+        currentSlideIndex = (currentSlideIndex + 1) % currentImagesArray.length;
+        showSlide(currentSlideIndex);
+      });
+
+      // Show details click handler
+      $('.community-item').on('click', function() {
+        const id = $(this).data('id');
+        const data = communitiesData[id];
+        if (!data) return;
+
+        // Populate slider track
+        currentImagesArray = data.images || [];
+        currentSlideIndex = 0;
+
+        const $track = $('#carousel-track').empty();
+        currentImagesArray.forEach((imgUrl, i) => {
+          const $slide = $(
+            `<div class="w-full h-full shrink-0">` +
+              `<img src="${imgUrl}" alt="Foto Kegiatan ${data.name}" class="w-full h-full object-cover">` +
+            `</div>`
+          );
+          $track.append($slide);
+        });
+
+        if (currentImagesArray.length <= 1) {
+          $('#carousel-prev, #carousel-next').addClass('hidden');
+        } else {
+          $('#carousel-prev, #carousel-next').removeClass('hidden');
+        }
+
+        // Generate indicators
+        const $indicators = $('#carousel-indicators').empty();
+        currentImagesArray.forEach((_, i) => {
+          const $dot = $('<button type="button" class="h-2 rounded-full bg-white/40 w-2 transition-all duration-200 cursor-pointer" aria-label="Slide ' + (i + 1) + '"></button>');
+          $dot.on('click', function(e) {
+            e.stopPropagation();
+            currentSlideIndex = i;
+            showSlide(currentSlideIndex);
+          });
+          $indicators.append($dot);
+        });
+
+        showSlide(currentSlideIndex);
+
+        // Populate details
+        $('#detail-name').text(data.name);
+        $('#detail-desc').text(data.desc);
+        $('#detail-region-badge').text(data.region);
+        $('#detail-category-badge').text(data.category);
+        $('#detail-location').text(data.location);
+        $('#detail-email').text(data.email);
+        $('#detail-phone').text(data.phone);
+        $('#detail-instagram').text(data.instagram);
+        $('#detail-stat-members').text(data.members || '0+');
+        $('#detail-stat-waste').text(data.waste || '0 Kg');
+
+        // Populate events
+        const $eventsContainer = $('#detail-events-list').empty();
+        data.events.forEach(ev => {
+          let goalsHtml = '';
+          if (ev.goals) {
+            ev.goals.forEach(g => {
+              goalsHtml += `<li>${g}</li>`;
+            });
+          }
+          const $card = $(
+            `<div class="bg-warmMist border border-ashBorder/15 p-6 rounded-card flex flex-col justify-between space-y-4 cursor-pointer hover:border-inkBlack/30 transition-all select-none">` +
+              `<div class="space-y-3">` +
+                `<div class="flex items-center gap-2 text-xs font-bold text-inkBlack/70">` +
+                  `<i class="fa-solid fa-calendar-day text-stoneGray text-sm"></i>` +
+                  `<span>${ev.date}</span>` +
+                `</div>` +
+                `<h4 class="font-display text-base font-bold text-inkBlack">${ev.title}</h4>` +
+                `<p class="text-stoneGray text-xs leading-relaxed line-clamp-2">${ev.desc}</p>` +
+              `</div>` +
+              `<div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs pt-3 border-t border-ashBorder/10 gap-2">` +
+                `<span class="text-stoneGray font-medium flex items-center gap-1"><i class="fa-solid fa-map-pin text-stoneGray"></i> ${ev.location}</span>` +
+                `<button type="button" class="btn-rsvp inline-flex items-center justify-center px-4 py-1.5 border border-inkBlack rounded-pill font-bold hover:bg-inkBlack hover:text-white transition-colors cursor-pointer self-start sm:self-auto shrink-0">Ikuti Aksi</button>` +
+              `</div>` +
+            `</div>`
+          );
+
+          // Click handler to open detailed event popup
+          $card.on('click', function(e) {
+            // Populate Detail Modal fields
+            $('#pop-event-title').text(ev.title);
+            $('#pop-community-name').text('Penyelenggara: ' + data.name);
+            $('#pop-event-desc').text(ev.desc);
+            $('#pop-event-date').text(ev.date);
+            $('#pop-event-location').text(ev.location);
+            $('#pop-event-meeting').text(ev.meetingPoint || '-');
+
+            // Render goals list
+            const $goalsList = $('#pop-event-goals').empty();
+            if (ev.goals) {
+              ev.goals.forEach(g => {
+                $goalsList.append(`<li>${g}</li>`);
+              });
+            }
+
+            // Configure the RSVP button in the popup to launch registration modal
+            $('#btn-pop-rsvp').off('click').on('click', function() {
+              closeEventModal();
+              
+              // Populate RSVP fields
+              $('#modal-event-title').text(ev.title);
+              $('#modal-community-name').text('Penyelenggara: ' + data.name);
+              $('#modal-event-date').text(ev.date);
+              $('#modal-event-location').text(ev.location);
+
+              // Reset RSVP form
+              $('#rsvp-form')[0].reset();
+              $('#rsvp-form').removeClass('hidden').show();
+              $('#rsvp-success').addClass('hidden').hide();
+
+              // Open RSVP modal
+              $('#rsvp-modal').removeClass('hidden').addClass('flex').hide().fadeIn(200);
+              $('#rsvp-modal-content').removeClass('scale-95').addClass('scale-100');
+            });
+
+            // Open Detail Modal with zoom transition
+            $('#event-detail-modal').removeClass('hidden').addClass('flex').hide().fadeIn(200);
+            $('#event-detail-modal-content').removeClass('scale-95').addClass('scale-100');
+          });
+
+          // Direct registration click bypasses event modal
+          $card.find('.btn-rsvp').on('click', function(e) {
+            e.stopPropagation();
+            
+            // Populate RSVP fields
+            $('#modal-event-title').text(ev.title);
+            $('#modal-community-name').text('Penyelenggara: ' + data.name);
+            $('#modal-event-date').text(ev.date);
+            $('#modal-event-location').text(ev.location);
+
+            // Reset form elements
+            $('#rsvp-form')[0].reset();
+            $('#rsvp-form').removeClass('hidden').show();
+            $('#rsvp-success').addClass('hidden').hide();
+
+            // Open RSVP modal
+            $('#rsvp-modal').removeClass('hidden').addClass('flex').hide().fadeIn(200);
+            $('#rsvp-modal-content').removeClass('scale-95').addClass('scale-100');
+          });
+          $eventsContainer.append($card);
+        });
+
+        // Animate swap
+        $('#communities-hub-list-view').fadeOut(200, function() {
+          $('#community-detail').removeClass('hidden').fadeIn(200);
+          $('html, body').animate({ scrollTop: $('#main-header').offset().top - 40 }, 300);
+        });
+      });
+
+      // Back button click handler
+      $('#btn-back-to-list').on('click', function() {
+        $('#community-detail').fadeOut(200, function() {
+          $('#community-detail').addClass('hidden');
+          $('#communities-hub-list-view').fadeIn(200);
+          $('html, body').animate({ scrollTop: $('#main-header').offset().top - 40 }, 300);
+        });
+      });
+
+      // Modal Close Handlers
+      function closeModal() {
+        $('#rsvp-modal-content').removeClass('scale-100').addClass('scale-95');
+        $('#rsvp-modal').fadeOut(200, function() {
+          $(this).removeClass('flex').addClass('hidden');
+        });
+      }
+
+      function closeEventModal() {
+        $('#event-detail-modal-content').removeClass('scale-100').addClass('scale-95');
+        $('#event-detail-modal').fadeOut(200, function() {
+          $(this).removeClass('flex').addClass('hidden');
+        });
+      }
+
+      $('#btn-close-modal, #btn-close-success, #rsvp-modal').on('click', function(e) {
+        closeModal();
+      });
+
+      $('#rsvp-modal-content').on('click', function(e) {
+        e.stopPropagation();
+      });
+
+      $('#btn-close-event-modal, #event-detail-modal').on('click', function(e) {
+        closeEventModal();
+      });
+
+      $('#event-detail-modal-content').on('click', function(e) {
+        e.stopPropagation();
+      });
+
+      // Modal Form Submit Simulation
+      $('#rsvp-form').on('submit', function(e) {
+        e.preventDefault();
+        
+        const name = $('#rsvp-name').val();
+        const email = $('#rsvp-email').val();
+        const phone = $('#rsvp-phone').val();
+
+        // Generate unique ticket code
+        const ticketCode = 'KDS-' + Math.floor(10000 + Math.random() * 90000);
+        $('#rsvp-ticket-code').text(ticketCode);
+
+        // Inject customer details
+        $('#success-email').text(email);
+        $('#success-phone').text(phone);
+
+        // Transition form to success screen
+        $('#rsvp-form').fadeOut(200, function() {
+          $('#rsvp-form').addClass('hidden');
+          $('#rsvp-success').removeClass('hidden').fadeIn(200);
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
+

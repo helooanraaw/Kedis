@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KEDIS - Kampanye Kesadaran Digital Pengelolaan Sampah. Platform edukasi, komunitas hijau, dan simulasi pilah sampah.">
+  <title>Kedis — Kesadaran Digital Sampah</title> <!-- Google Fonts: Space Grotesk (Headings), Inter (Body/UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"> <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"> <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script>
+    tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        limeCanopy: '#d7eb80',
+        inkBlack: '#333333',
+        paperWhite: '#ffffff',
+        warmMist: '#f8f8f6',
+        linenCream: '#f0f0eb',
+        stoneGray: '#6c6c6c',
+        ashBorder: '#bebeb9',
+      },
+      fontFamily: {
+        sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      }
+    }
+  }
+}
+  </script> <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-paperWhite font-sans text-inkBlack antialiased selection:bg-limeCanopy/40 selection:text-inkBlack"> <!-- Floating Capsule Header (transparent over hero, pill on scroll) -->
+  <header id="main-header" class="header-over-hero">
+    <div id="header-pill">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center shrink-0">
+        <img src="assets/logo.svg" alt="Logo KEDIS" class="logo-img h-10 w-auto">
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Navigasi Utama" class="hidden md:flex items-center space-x-7 text-sm font-semibold">
+        <a href="index.html" class="nav-link nav-link-active pb-0.5 border-b-2">Beranda</a>
+        
+        <!-- Eco-Learn Dropdown -->
+        <div class="relative py-2">
+          <button id="desktop-dropdown-trigger" type="button" class="nav-link pb-0.5 border-b-2 border-transparent flex items-center gap-1 hover:text-inkBlack transition-colors">
+            Eco-Learn <i class="fa-solid fa-chevron-down text-[8px] transition-transform"></i>
+          </button>
+          <div id="desktop-dropdown-menu" class="absolute top-full left-0 mt-1 w-40 bg-white border border-ashBorder/20 rounded-xl shadow-lg hidden z-50 py-2">
+            <a href="edukasi.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-stoneGray hover:text-inkBlack transition-colors">Kenali Pilah</a>
+            <a href="artikel.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-stoneGray hover:text-inkBlack transition-colors">Kelas Edukasi</a>
+          </div>
+        </div>
+
+        <a href="komunitas.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Connect</a>
+        <a href="game.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Play</a>
+        <a href="tentang.html" class="nav-link pb-0.5 border-b-2 border-transparent">Tentang</a>
+      </nav>
+
+      <!-- CTA + Hamburger -->
+      <div class="flex items-center gap-3">
+        <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-limeCanopy hover:opacity-90 text-inkBlack text-xs font-bold uppercase tracking-wider transition-all duration-200 pulse-attract">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        </a>
+        <button id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi" class="md:hidden w-11 h-11 flex items-center justify-center">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden floating-menu mx-4 mt-0">
+      <nav aria-label="Navigasi Seluler" class="flex flex-col space-y-4 text-sm font-semibold">
+        <a href="index.html" class="text-inkBlack">Beranda</a>
+        
+        <!-- Mobile Eco-Learn Submenu -->
+        <div class="space-y-2">
+          <span class="text-stoneGray uppercase text-[10px] tracking-wider font-bold block">Eco-Learn</span>
+          <div class="pl-3 flex flex-col space-y-2.5">
+            <a href="edukasi.html" class="text-stoneGray hover:text-inkBlack text-xs">Kenali Pilah</a>
+            <a href="artikel.html" class="text-stoneGray hover:text-inkBlack text-xs">Kelas Edukasi</a>
+          </div>
+        </div>
+
+        <a href="komunitas.html" class="text-stoneGray hover:text-inkBlack">Eco-Connect</a>
+        <a href="game.html" class="text-stoneGray hover:text-inkBlack">Eco-Play</a>
+        <a href="tentang.html" class="text-stoneGray hover:text-inkBlack">Tentang Kami</a>
+        <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-limeCanopy text-inkBlack text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Mainkan
+        </a>
+      </nav>
+    </div>
+  </header>   <!-- Full-bleed Leaf Hero Section -->
+  <section class="sticky top-0 z-0 w-full h-screen flex items-center justify-center overflow-hidden bg-[#122817]"> <!-- Nature Photograph background -->
+    <div class="absolute inset-0 z-0"> <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1600&q=80" alt="Dedaunan Hijau Rimbun" class="w-full h-full object-cover opacity-45"> <!-- Deep green translucent overlay to ensure text legibility -->
+      <div class="absolute inset-0 bg-[#122817]/75">
+      </div>
+    </div> <!-- Centered Content Stack -->
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-8 animate-on-scroll">
+      <h1 class="text-hero font-display font-bold text-white tracking-tight leading-tight"> Pilah Sampahmu.<br class="hidden sm:inline"> Hijaukan Bumi Kita. </h1> <!-- Massive Hero Search Bar (Simulated) -->
+      <form id="hero-search-form" action="edukasi.html" method="GET" class="w-full max-w-2xl mx-auto relative flex items-center h-16 rounded-pill bg-paperWhite shadow-ecosia-xl px-2">
+        <i class="fa-solid fa-magnifying-glass text-stoneGray text-lg ml-4"></i>
+        <input type="text" id="hero-search-input" name="q" autocomplete="off" placeholder="Cari panduan memilah sampah..." aria-label="Cari panduan memilah sampah" class="w-full h-full bg-transparent px-4 text-inkBlack font-medium placeholder-stoneGray/80 outline-none">
+        <!-- Interactive outline badge -->
+        <button type="submit" id="edu-cari-btn" class="hidden sm:inline-flex items-center px-4 py-1.5 border border-inkBlack rounded-pill text-xs font-bold text-inkBlack hover:bg-inkBlack hover:text-white transition-all duration-200 uppercase mr-2 tracking-wider shrink-0 select-none cursor-pointer"> + Edu-Cari </button>
+        <button type="submit" class="sr-only">Cari</button>
+        <!-- Interactive Suggestions Dropdown -->
+        <div id="search-suggestions" class="absolute left-0 right-0 top-full mt-3 bg-white rounded-2xl border border-ashBorder/20 shadow-2xl overflow-hidden z-50 hidden text-left py-3 max-h-[320px] overflow-y-auto">
+          <!-- Dynamically populated -->
+        </div>
+      </form>
+      <!-- Floating Stats Card (Dark Translucent with high blur shadow) -->
+      <div class="w-full max-w-3xl mx-auto bg-inkBlack/35 backdrop-blur-md rounded-card border border-white/10 p-6 md:p-8 shadow-ecosia-xl flex flex-col md:flex-row justify-around items-center gap-6 md:gap-4 text-white"> 
+        <!-- Stat 1 -->
+        <div class="flex items-center space-x-4 text-left">
+          <div class="text-3xl text-limeCanopy shrink-0">
+            <i class="fa-solid fa-tree"></i>
+          </div>
+          <div>
+            <div class="font-display text-white text-xl md:text-2xl font-bold leading-none tabular-nums">85 Ton</div>
+            <div class="text-[10px] text-limeCanopy/90 font-bold uppercase tracking-wider mt-1.5">Timbulan Harian Kota</div>
+          </div>
+        </div> 
+        <!-- Vertical separator -->
+        <div class="hidden md:block w-px h-10 bg-white/25"></div> 
+        <!-- Stat 2 -->
+        <div class="flex items-center space-x-4 text-left">
+          <div class="text-3xl text-limeCanopy shrink-0">
+            <i class="fa-solid fa-recycle"></i>
+          </div>
+          <div>
+            <div class="font-display text-white text-xl md:text-2xl font-bold leading-none tabular-nums">40% Organik</div>
+            <div class="text-[10px] text-limeCanopy/90 font-bold uppercase tracking-wider mt-1.5">Limbah Basah di TPA</div>
+          </div>
+        </div>
+        <!-- Vertical separator -->
+        <div class="hidden md:block w-px h-10 bg-white/25"></div> 
+        <!-- Stat 3 -->
+        <div class="flex items-center space-x-4 text-left">
+          <div class="text-3xl text-limeCanopy shrink-0">
+            <i class="fa-solid fa-earth-americas"></i>
+          </div>
+          <div>
+            <div class="font-display text-white text-xl md:text-2xl font-bold leading-none tabular-nums">9,4 Ton</div>
+            <div class="text-[10px] text-limeCanopy/90 font-bold uppercase tracking-wider mt-1.5">Target Reduksi CO₂</div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- Scroll chevron invite -->
+    <div class="scroll-invite"> <span>Gulir</span> <i class="fa-solid fa-chevron-down"></i> </div>
+  </section>
+  <main class="relative z-10"> <!-- Gentle Curve Transition — visible only on scroll -->
+  <div class="w-full overflow-hidden curve-transition-container">
+    <svg viewBox="0 0 1440 72" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="curve-transition-svg">
+      <path d="M0,0 Q360,72 720,36 Q1080,0 1440,48 L1440,72 L0,72 Z" fill="#ffffff" />
+    </svg>
+  </div>
+  <!-- Section 1.5: Krisis & Analisis Sampah (Minimalist Full-Bleed Split Layout) -->
+  <section class="w-full bg-paperWhite border-b border-ashBorder/20 relative overflow-hidden flex flex-col lg:flex-row items-stretch leaf-vein-texture">
+    
+    <!-- Left Column: Full-Bleed Image (Touches left browser edge, fades to gradient on right) -->
+    <div class="relative w-full lg:w-1/2 min-h-[350px] lg:min-h-[700px] shrink-0 animate-on-scroll">
+      <!-- Image on the Left (spans full width of left half to prevent sharp cut-off edges) -->
+      <div class="absolute inset-0 z-0">
+        <img src="assets/krisis-sampah.png" alt="Krisis Penumpukan Sampah Perkotaan" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <!-- Top edge fade mask (blends top of image into the white curve boundary) -->
+      <div class="absolute inset-x-0 top-0 h-16 sm:h-24 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none"></div>
+      <!-- Gradient Overlay Mask to blend image to right (seamless blend across the right half of the image) -->
+      <div class="absolute inset-y-0 left-0 lg:left-[40%] right-0 krisis-gradient-mask z-10"></div>
+    </div>
+
+    <!-- Right Column: Container-Aligned Content & Stats -->
+    <div class="w-full lg:w-1/2 flex items-center py-16 sm:py-24 px-6 sm:px-12 lg:pl-16 lg:pr-[max(24px,calc((100vw-1280px)/2+24px))]">
+      <div class="max-w-xl w-full space-y-8">
+        
+        <!-- Editorial Intro -->
+        <div class="space-y-4">
+          <div class="space-y-2 animate-on-scroll">
+            <span class="text-xs font-bold uppercase tracking-widest text-stoneGray">Analisis Krisis</span>
+            <h2 class="font-display text-4xl sm:text-5xl font-bold text-inkBlack leading-tight tracking-tight">
+              Mengapa Cara Lama Tidak Lagi Cukup?
+            </h2>
+          </div>
+          <p class="text-stoneGray text-sm sm:text-base leading-relaxed animate-on-scroll">
+            Pertumbuhan kota yang eksponensial menyisakan krisis pengelolaan limbah tersembunyi. Data di bawah menunjukkan urgensi untuk mulai memilah sampah secara mandiri dari pintu rumah tangga demi menjaga keberlanjutan bumi kita.
+          </p>
+          <div class="pt-2 animate-on-scroll">
+            <a href="edukasi.html" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-inkBlack hover:opacity-85 transition-opacity group">
+              Pelajari aksi nyata kita 
+              <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Vertical Editorial Stats -->
+        <div class="divide-y divide-inkBlack/10 border-t border-b border-inkBlack/10">
+          
+          <!-- Stat 1 -->
+          <div class="py-6 flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 animate-on-scroll">
+            <div class="font-display text-4xl sm:text-5xl font-bold text-inkBlack tabular-nums shrink-0 w-24 tracking-tight">
+              <span class="counter-value" data-counter="81">0</span>%
+            </div>
+            <div class="space-y-1">
+              <h3 class="font-display text-lg font-bold text-inkBlack">Kebuntuan di Hulu</h3>
+              <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
+                <strong class="text-inkBlack font-semibold">81%</strong> sampah rumah tangga tercampur langsung di tempat pembuangan, merusak potensi daur ulang materi anorganik.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Stat 2 -->
+          <div class="py-6 flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 animate-on-scroll">
+            <div class="font-display text-4xl sm:text-5xl font-bold text-inkBlack tabular-nums shrink-0 w-24 tracking-tight">
+              <span class="counter-value" data-counter="25">0</span>x
+            </div>
+            <div class="space-y-1">
+              <h3 class="font-display text-lg font-bold text-inkBlack">Metana di TPA</h3>
+              <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
+                Sampah organik basah yang tertimbun anaerob menghasilkan gas metana dengan pemanasan global <strong class="text-inkBlack font-semibold">25 kali</strong> lebih kuat dari CO₂.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Stat 3 -->
+          <div class="py-6 flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 animate-on-scroll">
+            <div class="font-display text-4xl sm:text-5xl font-bold text-inkBlack tabular-nums shrink-0 w-24 tracking-tight">
+              <span class="counter-value" data-counter="60">0</span>%+
+            </div>
+            <div class="space-y-1">
+              <h3 class="font-display text-lg font-bold text-inkBlack">Partisipasi Digital Rendah</h3>
+              <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
+                <strong class="text-inkBlack font-semibold">60%+</strong> warga kota ingin mendaur ulang, namun terhambat ketiadaan panduan digital dan alat kalkulasi emisi karbon.
+              </p>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </section>   <!-- Section 1.7: Eco-Diagnosis Wizard — Lime Canopy Band -->
+  <section class="w-full bg-warmMist border-t border-b border-ashBorder/20 relative overflow-hidden leaf-vein-texture">
+    <!-- Decorative foliage cluster: right side cascading branch + connecting leaf venation grids -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+      <!-- Modern minimalist curved branch from right -->
+      <svg class="absolute -right-10 -top-10 w-72 h-[32rem] text-limeCanopy/8 pointer-events-none select-none" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M90,0 Q60,40 50,150" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Symmetrical leaf pairs -->
+        <path d="M78,25 Q55,20 62,10 Q75,15 78,25 Z" fill="currentColor"/>
+        <path d="M78,25 Q95,20 90,10 Q83,18 78,25 Z" fill="currentColor"/>
+        <path d="M68,55 Q45,50 52,40 Q65,45 68,55 Z" fill="currentColor"/>
+        <path d="M68,55 Q85,50 80,40 Q73,48 68,55 Z" fill="currentColor"/>
+        <path d="M60,85 Q37,80 44,70 Q57,75 60,85 Z" fill="currentColor"/>
+        <path d="M60,85 Q77,80 72,70 Q65,78 60,85 Z" fill="currentColor"/>
+        <path d="M54,115 Q31,110 38,100 Q51,105 54,115 Z" fill="currentColor"/>
+        <path d="M54,115 Q71,110 66,100 Q59,108 54,115 Z" fill="currentColor"/>
+      </svg>
+      <!-- Minimalist Leafy Twig 1: Top-Left (Drooping Willow style, translucent green) -->
+      <div class="absolute -left-10 top-12 w-64 h-80 text-[#43a047]/10 pointer-events-none select-none z-0 transform rotate-12">
+        <svg class="w-full h-full" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M90,10 Q50,40 20,150" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M68,32 C50,45 42,70 45,90 C53,75 58,50 68,32 Z" fill="currentColor"/>
+          <path d="M50,55 C35,68 28,95 30,115 C38,100 43,75 50,55 Z" fill="currentColor"/>
+          <path d="M78,18 C65,30 60,50 62,65 C70,55 72,35 78,18 Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <!-- Minimalist Leafy Twig 2: Bottom-Right (Symmetrical Fern style, translucent green) -->
+      <div class="absolute -right-10 bottom-16 w-60 h-80 text-[#43a047]/10 pointer-events-none select-none z-0 transform -rotate-45">
+        <svg class="w-full h-full" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50,150 L50,10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M50,20 Q75,10 70,0 Q60,5 50,20 Z" fill="currentColor"/>
+          <path d="M50,20 Q25,10 30,0 Q40,5 50,20 Z" fill="currentColor"/>
+          <path d="M50,50 Q80,40 75,25 Q62,32 50,50 Z" fill="currentColor"/>
+          <path d="M50,50 Q20,40 25,25 Q38,32 50,50 Z" fill="currentColor"/>
+          <path d="M50,80 Q85,70 80,55 Q65,62 50,80 Z" fill="currentColor"/>
+          <path d="M50,80 Q15,70 20,55 Q35,62 50,80 Z" fill="currentColor"/>
+          <path d="M50,110 Q90,100 85,85 Q68,92 50,110 Z" fill="currentColor"/>
+          <path d="M50,110 Q10,100 15,85 Q32,92 50,110 Z" fill="currentColor"/>
+        </svg>
+      </div>
+    </div>
+        <div class="max-w-4xl mx-auto px-6 py-20">
+          <div class="text-center space-y-4 mb-12 animate-on-scroll"> <span class="text-xs font-bold uppercase tracking-widest text-stoneGray">NAVIGASI PINTAR</span>
+            <h2 class="font-display text-display font-bold text-inkBlack">Eco-Diagnosis: Cari Solusi Hijau Anda</h2>
+            <p class="text-stoneGray max-w-xl mx-auto text-sm sm:text-base leading-relaxed"> Pilih kendala lingkungan terbesar yang Anda hadapi saat ini untuk menemukan panduan digital yang paling sesuai. </p>
+          </div>
+          <div class="bg-paperWhite rounded-card border border-[#d7eb80]/40 p-6 sm:p-10 space-y-8 animate-on-scroll"> <!-- Step 1: Question -->
+            <div class="space-y-4">
+              <h3 class="font-display text-lg font-bold text-inkBlack">Pilih kendala utama Anda:</h3>
+              <div class="grid grid-cols-1 gap-4" id="diagnosis-options" role="radiogroup" aria-label="Eco-Diagnosis Options"> 
+                <button type="button" role="radio" aria-checked="false" data-opt="1" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4"> 
+                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-warmMist">1</span> 
+                  <span>Saya bingung cara membedakan kategori sampah organik, anorganik, dan B3.</span> 
+                </button> 
+                <button type="button" role="radio" aria-checked="false" data-opt="2" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4"> 
+                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-warmMist">2</span> 
+                  <span>Saya ingin tahu berapa emisi karbon yang dihasilkan oleh sampah rumah tangga saya.</span> 
+                </button> 
+                <button type="button" role="radio" aria-checked="false" data-opt="3" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4"> 
+                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-warmMist">3</span> 
+                  <span>Saya tidak tahu lokasi bank sampah terdekat atau kelompok peduli lingkungan di daerah saya.</span> 
+                </button> 
+                <button type="button" role="radio" aria-checked="false" data-opt="4" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4"> 
+                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-warmMist">4</span> 
+                  <span>Saya ingin menguji kemampuan memilah sampah saya melalui simulasi game yang interaktif.</span> 
+                </button> 
+              </div>
+            </div></div> <!-- Step 2: Dynamic Result Panel -->
+            <div id="diagnosis-result" class="hidden border-t border-ashBorder/25 pt-8 space-y-6 animate-on-scroll">
+              <div class="flex items-start gap-4 bg-paperWhite p-6 rounded-card border border-ashBorder/20">
+                <div class="text-3xl text-limeCanopy shrink-0 mt-1" id="diag-icon-target"> <i class="fa-solid fa-seedling"></i> </div>
+                <div class="space-y-3">
+                  <h4 class="font-display text-lg font-bold text-inkBlack" id="diag-title-target">Rekomendasi Solusi Anda</h4>
+                  <p class="text-stoneGray text-xs sm:text-sm leading-relaxed" id="diag-desc-target"> Deskripsi rekomendasi akan muncul secara dinamis di sini. </p> <!-- Badge Promo Fitur Baru: Sertifikat -->
+                  <div class="inline-flex items-center gap-2 px-3 py-1 bg-limeCanopy/10 text-inkBlack border border-limeCanopy/40 rounded-pill text-[11px] font-bold uppercase tracking-wider hidden" id="diag-badge-certificate"> <i class="fa-solid fa-certificate text-limeCanopy"></i> Fitur Baru: Sertifikat Digital Tersedia! </div>
+                  <div class="pt-2"> <a href="#" id="diag-link-target" class="inline-flex items-center justify-center px-6 py-3 rounded-pill bg-limeCanopy hover:opacity-95 text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200"> Pelajari Selengkapnya <i class="fa-solid fa-arrow-right ml-1.5"></i> </a> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+  <!-- Section 2: Value Propositions (Broken Pattern — Alternating Visual Weight) -->
+  <section class="w-full bg-paperWhite relative overflow-hidden leaf-vein-texture">
+    <!-- Decorative botanical foliage branch & floaters -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+      <!-- Modern minimalist curved branch from top-left -->
+      <svg class="absolute -left-10 -top-10 w-72 h-[32rem] text-limeCanopy/8 pointer-events-none select-none" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10,0 Q40,40 50,150" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M22,25 Q45,20 38,10 Q25,15 22,25 Z" fill="currentColor"/>
+        <path d="M22,25 Q5,20 10,10 Q17,18 22,25 Z" fill="currentColor"/>
+        <path d="M32,55 Q55,50 48,40 Q35,45 32,55 Z" fill="currentColor"/>
+        <path d="M32,55 Q15,50 20,40 Q27,48 32,55 Z" fill="currentColor"/>
+        <path d="M40,85 Q63,80 56,70 Q43,75 40,85 Z" fill="currentColor"/>
+        <path d="M40,85 Q23,80 28,70 Q35,78 40,85 Z" fill="currentColor"/>
+        <!-- Floating leaves (Natural SVGs) -->
+      <svg class="absolute text-[#43a047]/10 w-16 h-16 right-[8%] top-[15%] rotate-[12deg]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50,10 Q25,35 25,60 A25,25 0 0,0 75,60 Q75,35 50,10 Z" fill="currentColor"/>
+        <path d="M50,10 L50,85" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+      </svg>
+      <svg class="absolute text-[#43a047]/5 w-20 h-20 left-[45%] top-[40%] rotate-[-45deg]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50,5 C35,25 35,65 50,95 C65,65 65,25 50,5 Z" fill="currentColor"/>
+        <path d="M50,5 L50,95" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+      </svg>
+      <svg class="absolute text-[#43a047]/10 w-12 h-12 left-[12%] bottom-[25%] rotate-[12deg]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50,90 Q30,60 30,40 A20,20 0 0,1 70,40 Q70,60 50,90 Z" fill="currentColor"/>
+        <path d="M50,20 L50,90" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+      </svg>
+      <svg class="absolute text-[#43a047]/6 w-16 h-16 right-[10%] bottom-[15%] rotate-[45deg]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50,10 Q25,35 25,60 A25,25 0 0,0 75,60 Q75,35 50,10 Z" fill="currentColor"/>
+        <path d="M50,10 L50,85" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 py-24 sm:py-32 relative z-[1]">
+      
+      <!-- Section Header -->
+      <div class="text-center space-y-4 mb-20 animate-on-scroll">
+        <span class="text-xs font-bold uppercase tracking-widest text-stoneGray">Langkah Kita</span>
+        <h2 class="font-display text-display font-bold text-inkBlack">Aksi Sederhana Berdampak Nyata</h2>
+        <p class="text-stoneGray max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+          Temukan rangkaian solusi mandiri kami untuk membantu Anda mengubah pola hidup menjadi lebih ramah lingkungan.
+        </p>
+      </div>
+
+      <!-- Minimalist Editorial Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 max-w-5xl mx-auto">
+        
+        <!-- Card 1: Eco-Learn -->
+        <div class="group flex flex-col justify-between animate-on-scroll">
+          <div class="space-y-4">
+            <a href="edukasi.html" class="block overflow-hidden rounded-2xl aspect-[16/10] bg-warmMist">
+              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Edukasi Pilah Sampah" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </a>
+            <div class="space-y-2">
+              <span class="text-[11px] font-bold uppercase tracking-widest text-stoneGray">01 / Panduan Dasar</span>
+              <h3 class="font-display text-xl font-bold text-inkBlack leading-snug">
+                <a href="edukasi.html" class="hover:underline decoration-limeCanopy decoration-2 underline-offset-4">Eco-Learn</a>
+              </h3>
+              <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
+                Arsip digital klasifikasi sampah Organik, Anorganik, dan B3 lengkap dengan tips praktis pengelolaan di rumah.
+              </p>
+            </div>
+          </div>
+          <div class="pt-4 mt-auto">
+            <a href="edukasi.html" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-inkBlack hover:opacity-85 transition-opacity group/link">
+              Mulai Belajar 
+              <i class="fa-solid fa-arrow-right ml-2 transform group-hover/link:translate-x-1 transition-transform duration-200"></i>
+            </a>
+          </div>
+        </div>
+
+
+        <!-- Card 3: Eco-Connect -->
+        <div class="group flex flex-col justify-between animate-on-scroll">
+          <div class="space-y-4">
+            <a href="komunitas.html" class="block overflow-hidden rounded-2xl aspect-[16/10] bg-warmMist">
+              <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600&q=80" alt="Komunitas Peduli Lingkungan" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </a>
+            <div class="space-y-2">
+              <span class="text-[11px] font-bold uppercase tracking-widest text-stoneGray">02 / Jejaring Sosial</span>
+              <h3 class="font-display text-xl font-bold text-inkBlack leading-snug">
+                <a href="komunitas.html" class="hover:underline decoration-limeCanopy decoration-2 underline-offset-4">Eco-Connect</a>
+              </h3>
+              <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
+                Temukan lokasi bank sampah terdekat, relawan kebersihan, dan komunitas peduli lingkungan di kota Anda.
+              </p>
+            </div>
+          </div>
+          <div class="pt-4 mt-auto">
+            <a href="komunitas.html" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-inkBlack hover:opacity-85 transition-opacity group/link">
+              Cari Komunitas 
+              <i class="fa-solid fa-arrow-right ml-2 transform group-hover/link:translate-x-1 transition-transform duration-200"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4: Eco-Play -->
+        <div class="group flex flex-col justify-between animate-on-scroll">
+          <div class="space-y-4">
+            <a href="game.html" class="block overflow-hidden rounded-2xl aspect-[16/10] bg-warmMist">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Simulasi Game Pilah" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </a>
+            <div class="space-y-2">
+              <span class="text-[11px] font-bold uppercase tracking-widest text-stoneGray">03 / Game Interaktif</span>
+              <h3 class="font-display text-xl font-bold text-inkBlack leading-snug">
+                <a href="game.html" class="hover:underline decoration-limeCanopy decoration-2 underline-offset-4">Eco-Play</a>
+              </h3>
+              <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
+                Latih ketangkasan dan pengetahuan pemilahan sampah Anda secara langsung melalui game drag-and-drop interaktif.
+              </p>
+            </div>
+          </div>
+          <div class="pt-4 mt-auto">
+            <a href="game.html" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-inkBlack hover:opacity-85 transition-opacity group/link">
+              Main Sekarang 
+              <i class="fa-solid fa-arrow-right ml-2 transform group-hover/link:translate-x-1 transition-transform duration-200"></i>
+            </a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Financial/Impact Transparency (Split Layout with Donut Chart) -->
+  <section class="w-full bg-warmMist py-20 border-t border-ashBorder/20 relative overflow-hidden leaf-vein-texture">
+    <!-- Decorative foliage cluster: right side + left side + connecting leaf venation grids -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+      <!-- Modern minimalist curved branch from right-bottom -->
+      <svg class="absolute -right-8 -bottom-10 w-72 h-96 text-limeCanopy/8 pointer-events-none select-none" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M90,150 Q60,110 50,0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Symmetrical leaf pairs -->
+        <path d="M78,125 Q55,130 62,140 Q75,135 78,125 Z" fill="currentColor"/>
+        <path d="M78,125 Q95,130 90,140 Q83,132 78,125 Z" fill="currentColor"/>
+        <path d="M68,95 Q45,100 52,110 Q65,105 68,95 Z" fill="currentColor"/>
+        <path d="M68,95 Q85,100 80,110 Q73,102 68,95 Z" fill="currentColor"/>
+        <path d="M60,65 Q37,70 44,80 Q57,75 60,65 Z" fill="currentColor"/>
+        <path d="M60,65 Q77,70 72,80 Q65,72 60,65 Z" fill="currentColor"/>
+        <path d="M54,35 Q31,40 38,50 Q51,45 54,35 Z" fill="currentColor"/>
+        <path d="M54,35 Q71,40 66,50 Q59,42 54,35 Z" fill="currentColor"/>
+      </svg>
+      <!-- Minimalist Leafy Twig 3: Left (Broad Eucalyptus style, translucent green) -->
+      <div class="absolute -left-10 -top-16 w-60 h-80 text-[#43a047]/10 pointer-events-none select-none z-0 transform rotate-45">
+        <svg class="w-full h-full" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10,150 Q30,100 50,0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M30,120 C15,115 15,95 30,100 C45,105 40,115 30,120 Z" fill="currentColor"/>
+          <path d="M42,85 C57,80 62,60 48,65 C34,70 38,80 42,85 Z" fill="currentColor"/>
+          <path d="M38,50 C24,45 28,25 40,30 C52,35 48,45 38,50 Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <!-- Modern minimalist curved branch from left -->
+      <svg class="absolute -left-10 top-10 w-60 h-80 text-limeCanopy/8 pointer-events-none select-none" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10,0 Q40,40 50,150" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Symmetrical leaf pairs -->
+        <path d="M22,25 Q45,20 38,10 Q25,15 22,25 Z" fill="currentColor"/>
+        <path d="M22,25 Q5,20 10,10 Q17,18 22,25 Z" fill="currentColor"/>
+        <path d="M32,55 Q55,50 48,40 Q35,45 32,55 Z" fill="currentColor"/>
+        <path d="M32,55 Q15,50 20,40 Q27,48 32,55 Z" fill="currentColor"/>
+        <path d="M40,85 Q63,80 56,70 Q43,75 40,85 Z" fill="currentColor"/>
+        <path d="M40,85 Q23,80 28,70 Q35,78 40,85 Z" fill="currentColor"/>
+        <path d="M46,115 Q69,110 62,100 Q49,105 46,115 Z" fill="currentColor"/>
+        <path d="M46,115 Q29,110 34,100 Q41,108 46,115 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-[1]"> <!-- Left Column: Donut Chart Representation -->
+      <div class="flex justify-center animate-on-scroll">
+        <div class="w-full max-w-[400px] p-6 flex flex-col items-center justify-center space-y-6">
+          <h3 class="font-display text-base font-bold text-inkBlack text-center">Distribusi Dampak Pengelolaan</h3> <!-- Simple CSS donut chart representation -->
+          <div class="relative w-64 h-64 sm:w-72 sm:h-72 rounded-full donut-chart-container" id="donut-chart">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" class="w-full h-full donut-svg"></svg>
+            <div class="absolute w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-paperWhite flex flex-col items-center justify-center shadow-inner pointer-events-none" style="top:50%;left:50%;transform:translate(-50%,-50%)"> <span class="font-display text-center text-3xl sm:text-4xl font-bold text-inkBlack tabular-nums">65%</span> <span class="text-[11px] sm:text-[12px] font-bold text-center text-stoneGray uppercase tracking-widest mt-1 sm:mt-1.5 max-w-[120px] leading-tight">Target Reduksi TPA</span> </div>
+            <div id="donut-tooltip" class="absolute left-1/2 -translate-x-1/2 top-full mt-4 bg-inkBlack text-paperWhite text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-pill whitespace-nowrap shadow-lg pointer-events-none hidden z-10"> <span id="tooltip-label"></span> <span id="tooltip-pct" class="text-limeCanopy"></span> </div>
+          </div>
+        </div>
+      </div> <!-- Right Column: Transparency Narrative -->
+      <div class="space-y-6 animate-on-scroll"> <span class="text-xs font-bold uppercase tracking-widest text-stoneGray">TRANSPARANSI GERAKAN</span>
+        <h2 class="font-display text-display font-bold text-inkBlack">Setiap Lembar Sampah Terpilah Berharga</h2>
+        <p class="text-stoneGray text-sm sm:text-base leading-relaxed"> Kami percaya gerakan penyelamatan bumi berakar pada keterbukaan dan konsistensi warga. Dengan membiasakan memilah sampah dari pintu dapur, kita berkontribusi secara langsung untuk mengurangi volume pembuangan sampah ke TPA regional hingga 65% melalui pengomposan mandiri dan penyaluran bahan daur ulang yang bersih. </p>
+        <div class="pt-2"> <a href="edukasi.html" class="inline-flex items-center justify-center px-6 py-3 border border-inkBlack rounded-pill text-inkBlack font-bold text-xs uppercase tracking-wider hover:bg-inkBlack hover:text-paperWhite transition-all duration-200"> Pelajari Tata Cara Pemilahan </a> </div>
+      </div>
+    </div>
+  </section>   <!-- Linen Cream Footer — Distilled for Minimalist Ecosia aesthetic -->
+  <footer class="bg-linenCream text-inkBlack border-t border-ashBorder/30 py-16 relative overflow-hidden">
+    <!-- Decorative foliage: top corners + scattered leaves -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+      <!-- Modern minimalist curved branch from left-top -->
+      <svg class="absolute -left-4 -top-8 w-48 h-40 text-inkBlack/5 pointer-events-none select-none" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10,0 Q30,25 40,100" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M18,15 Q35,12 30,5 Q20,8 18,15 Z" fill="currentColor"/>
+        <path d="M18,15 Q5,12 8,5 Q13,10 18,15 Z" fill="currentColor"/>
+        <path d="M25,35 Q42,32 37,25 Q27,28 25,35 Z" fill="currentColor"/>
+        <path d="M25,35 Q12,32 15,25 Q20,30 25,35 Z" fill="currentColor"/>
+        <path d="M30,60 Q47,57 42,50 Q32,53 30,60 Z" fill="currentColor"/>
+        <path d="M30,60 Q17,57 20,50 Q25,55 30,60 Z" fill="currentColor"/>
+      </svg>
+      <!-- Modern minimalist curved branch from right-top -->
+      <svg class="absolute -right-4 -top-8 w-48 h-40 text-inkBlack/5 pointer-events-none select-none" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M90,0 Q70,25 60,100" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M82,15 Q65,12 70,5 Q80,8 82,15 Z" fill="currentColor"/>
+        <path d="M82,15 Q95,12 92,5 Q87,10 82,15 Z" fill="currentColor"/>
+        <path d="M75,35 Q58,32 63,25 Q73,28 75,35 Z" fill="currentColor"/>
+        <path d="M75,35 Q88,32 85,25 Q80,30 75,35 Z" fill="currentColor"/>
+        <path d="M70,60 Q53,57 58,50 Q68,53 70,60 Z" fill="currentColor"/>
+        <path d="M70,60 Q83,57 80,50 Q75,55 70,60 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12"> <!-- Brand column -->
+      <div class="space-y-4"> <a href="index.html" class="inline-block"> <img src="assets/logo.svg" alt="Logo KEDIS" class="h-10 w-auto" loading="lazy"> </a>
+        <p class="text-xs text-stoneGray leading-relaxed max-w-sm"> Kampanye kesadaran digital untuk pemilahan sampah mandiri dari pintu rumah tangga demi lingkungan perkotaan yang sehat dan berkelanjutan. </p>
+        <div class="flex space-x-4 pt-2 text-stoneGray"> <a href="#" aria-label="Instagram KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-instagram text-lg">
+            </i>
+          </a> <a href="#" aria-label="GitHub KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-github text-lg">
+            </i>
+          </a> <a href="#" aria-label="YouTube KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-youtube text-lg">
+            </i>
+          </a> </div>
+      </div> <!-- Contest Info Column -->
+      <div class="space-y-4 md:text-right md:flex md:flex-col md:items-end">
+        <h3 class="font-display text-sm font-bold uppercase tracking-wider text-inkBlack">INVENTION 2026</h3>
+        <p class="text-xs text-stoneGray leading-relaxed max-w-xs md:text-right"> Karya orisinal subtema "Going Green Through Smart Digital Solutions" dalam kompetisi Web Design INVENTION 2026. </p>
+      </div>
+    </div> <!-- Bottom Copyright & Inline Navigation -->
+    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-ashBorder/20 flex flex-col md:flex-row justify-between items-center text-xs text-stoneGray font-bold uppercase tracking-wider gap-4">
+      <div> &copy; 2026 KEDIS. Hak Cipta Dilindungi. Edisi INVENTION 2026. </div>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2"> <a href="index.html" class="hover:text-inkBlack transition-colors">Beranda</a> <a href="edukasi.html" class="hover:text-inkBlack transition-colors">Eco-Learn</a> <a href="komunitas.html" class="hover:text-inkBlack transition-colors">Eco-Connect</a> <a href="game.html" class="hover:text-inkBlack transition-colors">Eco-Play</a> <a href="tentang.html" class="hover:text-inkBlack transition-colors">Tentang</a> </div>
+    </div>
+  </footer>
+  </main> <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+  </script> <!-- Custom JS -->
+  <script src="js/main.js">
+  </script>
+
+</body>
+
+</html>
+

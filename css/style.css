@@ -1,0 +1,856 @@
+/* CSS Variables and Base Styles for KEDIS - Ecosia Style Reference */
+
+:root {
+  /* Colors */
+  --color-lime-canopy: #d7eb80;
+  --color-ink-black: #333333;
+  --color-paper-white: #ffffff;
+  --color-warm-mist: #f8f8f6;
+  --color-linen-cream: #f0f0eb;
+  --color-stone-gray: #6c6c6c;
+  --color-ash-border: #bebeb9;
+  --color-silver-surface: #b6b6b6;
+
+  /* Typography — Inter (body/UI) + Space Grotesk (display) */
+  --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-space-grotesk: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Type scale (amplified 1.35 ratio, fluid clamp for display headings) */
+  --text-caption: 0.75rem;
+  --text-body-sm: 0.875rem;
+  --text-body: 1rem;
+  --text-subheading: 1.125rem;
+  --text-heading-sm: 1.25rem;
+  --text-heading: 1.5rem;
+  --text-heading-lg: clamp(1.5rem, 4vw, 1.875rem);
+  --text-display: clamp(2rem, 5vw, 2.75rem);
+  --text-display-lg: clamp(2.5rem, 6vw, 3.75rem);
+
+  --leading-body: 1.5;
+  --leading-heading: 1.15;
+  --leading-display: 1.1;
+  --tracking-body: 0.007em;
+  --tracking-eyebrow: 0.1em;
+
+  /* Custom Shadow */
+  --shadow-xl: rgba(0, 0, 0, 0.2) 0px 11px 33px 0px;
+}
+
+body {
+  font-family: var(--font-inter);
+  font-size: var(--text-body);
+  color: var(--color-ink-black);
+  background-color: var(--color-paper-white);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
+  font-kerning: normal;
+  scroll-behavior: smooth;
+}
+
+/* Display headings — Space Grotesk, tight leading */
+h1, h2, h3, h4, h5, h6,
+.font-display {
+  font-family: var(--font-space-grotesk);
+  color: var(--color-ink-black);
+  line-height: var(--leading-heading);
+  font-weight: 700;
+}
+
+/* Default heading sizes from the modular type scale */
+h1 { font-size: var(--text-display-lg); }
+h2 { font-size: var(--text-display); }
+h3 { font-size: var(--text-heading-lg); }
+h4 { font-size: var(--text-heading); }
+h5 { font-size: var(--text-heading-sm); }
+h6 { font-size: var(--text-subheading); }
+
+/* Custom Typography Utilities mapped to the type scale */
+.text-caption { font-size: var(--text-caption); }
+.text-body-sm { font-size: var(--text-body-sm); }
+.text-body { font-size: var(--text-body); }
+.text-subheading { font-size: var(--text-subheading); }
+.text-heading-sm { font-size: var(--text-heading-sm); }
+.text-heading { font-size: var(--text-heading); }
+.text-heading-lg { font-size: var(--text-heading-lg); }
+.text-display { font-size: var(--text-display); }
+.text-display-lg { font-size: var(--text-display-lg); }
+
+.font-display {
+  line-height: var(--leading-display);
+}
+
+/* Readable measure for long-form prose */
+.text-measure {
+  max-width: 65ch;
+}
+
+/* Prose — long-form reading body */
+.prose {
+  font-size: 1rem;
+  line-height: 1.65;
+  max-width: 65ch;
+}
+
+/* Eyebrow — compact label above headings */
+.eyebrow {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-stone-gray);
+  margin-bottom: 0.5rem;
+}
+
+/* Data & scores — aligned numerals */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Eyebrow labels */
+.text-eyebrow {
+  font-size: var(--text-caption);
+  font-weight: 700;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+}
+
+/* Custom rounded shapes as per Design.md */
+.rounded-card {
+  border-radius: 20px;
+}
+
+.rounded-pill {
+  border-radius: 9999px;
+}
+
+/* Hero-level typography */
+.text-hero {
+  font-size: clamp(2.75rem, 7.5vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* Scroll chevron — bouncing invite at hero bottom */
+.scroll-invite {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: scrollBounce 2.5s var(--ease-out-expo) infinite;
+}
+.scroll-invite i {
+  font-size: 1rem;
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
+  50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
+}
+
+/* Counter reveal — animated number pop-in */
+.counter-value {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom shadow class */
+.shadow-ecosia-xl {
+  box-shadow: var(--shadow-xl);
+}
+
+/* Hairline border utilities */
+.hairline-border {
+  border: 1px solid var(--color-ash-border);
+}
+
+.hairline-divider {
+  border-color: rgba(51, 51, 51, 0.12);
+}
+
+/* Easing curves */
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Fade-in scroll animations */
+.fade-in-up {
+  animation: fadeInUp 0.8s var(--ease-out-expo) forwards;
+}
+/* Staggered entrance delays for choreographed page loads */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.12s; }
+.stagger-3 { animation-delay: 0.2s; }
+.stagger-4 { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus outline override for inputs */
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--color-ink-black) !important;
+}
+
+/* Focus glow */
+.input-focus-glow:focus {
+  box-shadow: 0 0 0 3px rgba(215, 235, 128, 0.35);
+  transition: box-shadow 0.2s var(--ease-out-expo);
+}
+
+/* Pulse attract — subtle, intermittent, for CTA buttons */
+@keyframes pulse-attract {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(215, 235, 128, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(215, 235, 128, 0); }
+}
+.pulse-attract {
+  animation: pulse-attract 2s ease-in-out 3;
+}
+
+/* Drag lift — hover/shadow on draggable items */
+.drag-lift {
+  transition: transform 0.2s var(--ease-out-expo), box-shadow 0.2s var(--ease-out-expo);
+}
+.drag-lift:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.drag-lift:active {
+  transform: scale(0.97);
+}
+
+/* Lime canopy band — committed color block */
+.band-lime {
+  background-color: rgba(215, 235, 128, 0.12);
+  border-top: 1px solid rgba(215, 235, 128, 0.3);
+  border-bottom: 1px solid rgba(215, 235, 128, 0.3);
+}
+
+/* Card hover — bold lift */
+.card-lift {
+  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.10);
+}
+
+/* Feature card — image/text alternating weight */
+.feature-card-image-heavy img {
+  min-height: 280px;
+  object-fit: cover;
+}
+.feature-card-text-heavy {
+  padding: 2rem;
+}
+
+/* Number counter reveal */
+.counter-reveal {
+  animation: counterPop 0.5s var(--ease-out-expo) forwards;
+}
+@keyframes counterPop {
+  0% { opacity: 0; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Dragging utility class for the sorting game */
+.drag-over {
+  background-color: rgba(215, 235, 128, 0.15) !important;
+  border-color: var(--color-ink-black) !important;
+  border-style: dashed !important;
+}
+
+.item-selected {
+  background-color: rgba(215, 235, 128, 0.25) !important;
+  border-color: var(--color-ink-black) !important;
+  transform: scale(1.03);
+}
+
+/* ==========================================================================
+   Layout — spacing rhythm (8px base, DESIGN.md section gap 80px)
+   ========================================================================== */
+
+.page-banner {
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+}
+
+.page-main {
+  padding-bottom: 5rem;
+}
+
+.stack-loose > * + * {
+  margin-top: 5rem;
+}
+
+.content-section {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(190, 190, 185, 0.2);
+}
+
+.callout-quote {
+  background-color: rgba(240, 240, 235, 0.75);
+  border: 1px solid rgba(190, 190, 185, 0.2);
+  border-radius: 20px;
+  padding: 1.25rem 1.5rem;
+}
+
+.inset-detail {
+  padding-top: 1rem;
+  padding-bottom: 0.25rem;
+  margin-top: 0.25rem;
+  border-top: 1px solid rgba(190, 190, 185, 0.18);
+}
+
+/* CTA band sections — match 80px section rhythm */
+.section-cta {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* Image hover — transform inside overflow clip only */
+.img-hover-zoom img {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-hover-zoom:hover img {
+  transform: scale(1.02);
+}
+
+/* Accessible focus — never remove without replacement */
+:focus {
+  outline: none;
+}
+:focus-visible {
+  outline: 2px solid var(--color-ink-black);
+  outline-offset: 2px;
+}
+
+/* Print Media Query Adaptation — Rethinking print rendering */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  header, footer, #mobile-menu, button, .section-cta, .scroll-invite, #btn-print-cert, #btn-print-game-cert, #btn-calculate, #btn-reset-score, .btn {
+    display: none !important;
+  }
+  main {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  .bg-warmMist, .bg-linenCream, .band-lime {
+    background-color: #ffffff !important;
+    border-color: #bebeb9 !important;
+  }
+  .font-display {
+    color: #000000 !important;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .fade-in-up,
+  .animate-on-scroll {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .img-hover-zoom img {
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   Header & Navbar — Floating Capsule System
+   ========================================================================== */
+
+/*
+ * The header is FIXED at the top.
+ * On the index page it starts fully transparent.
+ * On scroll, the inner #header-pill morphs into a floating rounded capsule.
+ */
+
+#main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: transparent;
+  padding: 20px 32px;
+  pointer-events: none;
+  /* Animasi perubahan padding luar header */
+  transition: padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: padding;
+}
+@media (max-width: 640px) {
+  #main-header {
+    padding: 12px 16px !important;
+  }
+}
+
+/* The actual pill — always visible, houses logo + nav */
+#header-pill {
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 64px;
+  padding: 0 28px;
+  border-radius: 9999px;
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  max-width: 100%;
+  margin: 0 auto;
+  /* Tambahkan transisi di base agar smooth saat berubah ke state .scrolled */
+  transition:
+    background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: background, border-color, box-shadow, max-width;
+}
+
+/* Nav links — vertically centered, no layout shift */
+#header-pill nav a {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+/* ── Over-hero state (index page, top of page) ── */
+/* Enable smooth transitions ONLY on the hero page */
+.header-over-hero #header-pill {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  will-change: background, box-shadow, max-width;
+  transition:
+    background   0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow   0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    max-width    0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.logo-img {
+  transition: filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.header-over-hero .logo-img {
+  filter: brightness(0) invert(1);
+}
+.header-over-hero .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  border-color: transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.header-over-hero .nav-link:hover { color: #fff; }
+.header-over-hero .nav-link-active {
+  color: #fff !important;
+  border-color: var(--color-lime-canopy) !important;
+}
+.header-over-hero #mobile-menu-button { color: #ffffff; }
+.header-over-hero #mobile-menu-button i {
+  transition: color 0.5s ease;
+}
+
+/* ── Scrolled / floating capsule state (index.html only) ── */
+#main-header.scrolled {
+  padding: 12px 32px;
+}
+/* Subpage: LOCK padding even when .scrolled class is added by JS */
+.header-subpage,
+.header-subpage.scrolled {
+  padding: 20px 32px !important;
+  transition: none !important;
+}
+#main-header.scrolled #header-pill {
+  background: rgba(255, 255, 255, 0.88);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-color: rgba(190, 190, 185, 0.30);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.10),
+    0 2px 8px  rgba(0, 0, 0, 0.06);
+  max-width: 1100px;       /* lebih lebar agar tidak terasa sempit */
+  transition:
+    background   0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow   0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    max-width    0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#main-header.scrolled .logo-img  { filter: none; }
+#main-header.scrolled .nav-link {
+  color: var(--color-stone-gray);
+  border-color: transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+#main-header.scrolled .nav-link:hover  { color: var(--color-ink-black); }
+#main-header.scrolled .nav-link-active {
+  color: var(--color-ink-black) !important;
+  border-color: var(--color-ink-black) !important;
+}
+#main-header.scrolled #mobile-menu-button { color: var(--color-ink-black); }
+
+/* ── Subpage header: instant floating pill, NO animation ── */
+.header-subpage #header-pill,
+.header-subpage.scrolled #header-pill {
+  background: rgba(255, 255, 255, 0.88) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  backdrop-filter: blur(20px) !important;
+  border-color: rgba(190, 190, 185, 0.30) !important;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.10),
+    0 2px 8px  rgba(0, 0, 0, 0.06) !important;
+  max-width: 1100px !important;
+  transition: none !important;
+}
+.header-subpage .logo-img,
+.header-subpage.scrolled .logo-img { filter: none !important; }
+.header-subpage .nav-link,
+.header-subpage.scrolled .nav-link {
+  color: var(--color-stone-gray) !important;
+  border-color: transparent !important;
+  transition: none !important;
+}
+.header-subpage .nav-link:hover,
+.header-subpage.scrolled .nav-link:hover { color: var(--color-ink-black) !important; }
+.header-subpage .nav-link-active,
+.header-subpage.scrolled .nav-link-active {
+  color: var(--color-ink-black) !important;
+  border-color: var(--color-ink-black) !important;
+}
+.header-subpage #mobile-menu-button,
+.header-subpage.scrolled #mobile-menu-button { color: var(--color-ink-black) !important; }
+
+/* ── Mobile menu open: solid white pill ── */
+#main-header.mobile-open #header-pill {
+  background: #ffffff !important;
+  border-color: rgba(190, 190, 185, 0.35) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12) !important;
+}
+#main-header.mobile-open .logo-img  { filter: none !important; }
+#main-header.mobile-open .nav-link  { color: var(--color-stone-gray) !important; }
+#main-header.mobile-open #mobile-menu-button { color: var(--color-ink-black) !important; }
+
+/* ── Mobile dropdown panel ── */
+.floating-menu {
+  background: #ffffff;
+  border-radius: 20px;
+  margin-top: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+/* Mobile Navigation Menu Tap Targets Adaptation (Thumb-friendly 44px+) */
+#mobile-menu nav a {
+  display: block;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  font-size: 1rem !important;
+}
+#mobile-menu nav a:last-child {
+  display: inline-flex;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.5rem;
+}
+
+
+/* ==========================================================================
+   Game — 3D Trash Bin (CSS-only cylindrical shape)
+   ========================================================================== */
+
+.bin-3d {
+  --bin-color: #2d8c3a;
+  --bin-light: #3aad4a;
+  --bin-dark: #1e6b2a;
+  position: relative;
+  width: 140px;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease-out-expo);
+  -webkit-user-select: none;
+  user-select: none;
+}
+.bin-3d:hover {
+  transform: scale(1.05);
+}
+.bin-3d:active {
+  transform: scale(0.97);
+}
+
+/* Lid — oval ellipse on top */
+.bin-lid {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 22px;
+  background: var(--bin-light);
+  border-radius: 50%;
+  border: 2.5px solid var(--bin-dark);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: transform 0.3s var(--ease-out-expo), background 0.3s ease;
+}
+.bin-3d:hover .bin-lid {
+  transform: translateY(-6px) rotateX(15deg);
+}
+
+/* Handle knob on lid */
+.bin-handle {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 14px;
+  border: 2.5px solid var(--bin-dark);
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  background: var(--bin-light);
+}
+
+/* Body — tapered cylinder */
+.bin-body {
+  position: relative;
+  z-index: 1;
+  width: 90%;
+  margin: -10px auto 0;
+  height: 130px;
+  background: linear-gradient(135deg, var(--bin-light) 0%, var(--bin-color) 40%, var(--bin-dark) 100%);
+  border: 2.5px solid var(--bin-dark);
+  border-radius: 4px 4px 18px 18px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+/* Vertical ribbing lines on body */
+.bin-body::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 25%;
+  width: 1.5px;
+  background: rgba(0,0,0,0.08);
+}
+.bin-body::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 25%;
+  width: 1.5px;
+  background: rgba(0,0,0,0.08);
+}
+
+/* Bottom ellipse — curved base illusion */
+.bin-base {
+  position: relative;
+  z-index: 0;
+  width: 90%;
+  margin: -6px auto 0;
+  height: 14px;
+  background: var(--bin-dark);
+  border-radius: 50%;
+}
+
+/* Icon + label container inside body */
+.bin-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  z-index: 3;
+}
+.bin-label .bin-icon {
+  font-size: 1.75rem;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+  color: #fff;
+}
+.bin-label .bin-name {
+  font-family: var(--font-space-grotesk);
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  letter-spacing: 0.02em;
+}
+.bin-label .bin-sub {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.8);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+}
+
+/* Color variants */
+.bin-3d--organik {
+  --bin-color: #2d8c3a;
+  --bin-light: #48b858;
+  --bin-dark: #1a6625;
+}
+.bin-3d--anorganik {
+  --bin-color: #2a7fbf;
+  --bin-light: #3aa8e0;
+  --bin-dark: #1a5f8f;
+}
+.bin-3d--b3 {
+  --bin-color: #c43e3e;
+  --bin-light: #e44b4b;
+  --bin-dark: #9a2e2e;
+}
+
+/* Drag-over state override for 3D bins */
+.bin-3d.drag-over .bin-body {
+  border-color: var(--color-ink-black) !important;
+  border-style: dashed !important;
+}
+.bin-3d.drag-over .bin-lid {
+  transform: translateY(-10px) rotateX(20deg);
+  background: var(--color-lime-canopy);
+}
+
+/* Correct answer flash */
+.bin-3d.bin-correct .bin-body {
+  border-color: var(--color-lime-canopy) !important;
+  box-shadow: 0 0 20px rgba(215, 235, 128, 0.5);
+}
+/* Wrong answer flash */
+.bin-3d.bin-wrong .bin-body {
+  border-color: #e44b4b !important;
+  box-shadow: 0 0 20px rgba(228, 75, 75, 0.4);
+}
+
+/* Custom Utilities to remove inline styles */
+.curve-transition-container {
+  line-height: 0;
+  margin-top: -2px;
+  background: transparent;
+}
+.curve-transition-svg {
+  display: block;
+  width: 100%;
+  height: 72px;
+}
+.donut-chart-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.donut-svg {
+  display: block;
+  overflow: visible;
+}
+.donut-segment {
+  cursor: pointer;
+  transition: opacity 0.25s ease, filter 0.25s ease;
+}
+.donut-segment:hover {
+  filter: brightness(1.15);
+  opacity: 0.9;
+}
+.donut-segment.dimmed {
+  opacity: 0.3;
+  filter: none;
+}
+#donut-tooltip {
+  transition: opacity 0.2s ease;
+}
+#donut-tooltip.hidden {
+  display: none;
+}
+
+/* Responsive: smaller bins on mobile */
+@media (max-width: 640px) {
+  .bin-3d {
+    width: 110px;
+  }
+  .bin-body {
+    height: 100px;
+  }
+  .bin-lid {
+    height: 18px;
+  }
+  .bin-handle {
+    width: 24px;
+    height: 11px;
+    top: -8px;
+  }
+  .bin-label .bin-icon {
+    font-size: 1.4rem;
+  }
+  .bin-label .bin-name {
+    font-size: 0.7rem;
+  }
+  .bin-label .bin-sub {
+    font-size: 0.5rem;
+  }
+}
+
+/* Krisis & Analisis Section - Custom Gradient Mask (Fades to Pure White) */
+.krisis-gradient-mask {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 70%, #ffffff 85%, #ffffff 100%);
+}
+@media (min-width: 1024px) {
+  .krisis-gradient-mask {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 30%, rgba(255, 255, 255, 0.9) 65%, #ffffff 80%, #ffffff 100%);
+  }
+}
+
+/* ── Leaf Venation / Cellular Network Background Texture ── */
+.leaf-vein-texture {
+  position: relative;
+}
+.leaf-vein-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.95;
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0 C30 15, 30 45, 60 60 C90 75, 90 105, 120 120 M120 0 C90 15, 90 45, 60 60 C30 75, 30 105, 0 120 M60 0 L60 120 M0 60 L120 60 M30 30 L90 90 M90 30 L30 90 M0 30 Q30 45, 60 30 T120 30 M0 90 Q30 105, 60 90 T120 90 M30 0 Q45 30, 30 60 T30 120 M90 0 Q105 30, 90 60 T90 120' stroke='rgba(67, 160, 71, 0.025)' stroke-width='0.75' fill='none'/%3E%3C/svg%3E");
+}
+

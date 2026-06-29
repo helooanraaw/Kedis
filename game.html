@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Eco-Play KEDIS - Latih pemahaman pemilahan sampah Anda melalui game drag and drop pilah sampah interaktif.">
+  <title>Eco-Play: Game Pilah Sampah - KEDIS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        limeCanopy: '#d7eb80',
+        inkBlack: '#333333',
+        paperWhite: '#ffffff',
+        warmMist: '#f8f8f6',
+        linenCream: '#f0f0eb',
+        stoneGray: '#6c6c6c',
+        ashBorder: '#bebeb9',
+      },
+      fontFamily: {
+        sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      }
+    }
+  }
+}
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-paperWhite font-sans text-inkBlack antialiased selection:bg-limeCanopy/40 selection:text-inkBlack">
+  <header id="main-header" class="header-subpage">
+    <div id="header-pill">
+      <a href="index.html" class="flex items-center shrink-0">
+        <img src="assets/logo.svg" alt="Logo KEDIS" class="logo-img h-10 w-auto">
+      </a>
+      
+      <!-- Desktop Nav -->
+      <nav aria-label="Navigasi Utama" class="hidden md:flex items-center space-x-7 text-sm font-semibold">
+        <a href="index.html" class="nav-link pb-0.5 border-b-2 border-transparent">Beranda</a>
+        
+        <!-- Eco-Learn Dropdown -->
+        <div class="relative py-2">
+          <button id="desktop-dropdown-trigger" type="button" class="nav-link pb-0.5 border-b-2 border-transparent flex items-center gap-1 hover:text-inkBlack transition-colors">
+            Eco-Learn <i class="fa-solid fa-chevron-down text-[8px] transition-transform"></i>
+          </button>
+          <div id="desktop-dropdown-menu" class="absolute top-full left-0 mt-1 w-40 bg-white border border-ashBorder/20 rounded-xl shadow-lg hidden z-50 py-2">
+            <a href="edukasi.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-stoneGray hover:text-inkBlack transition-colors">Kenali Pilah</a>
+            <a href="artikel.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-stoneGray hover:text-inkBlack transition-colors">Kelas Edukasi</a>
+          </div>
+        </div>
+
+        <a href="komunitas.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Connect</a>
+        <a href="game.html" class="nav-link nav-link-active pb-0.5 border-b-2">Eco-Play</a>
+        <a href="tentang.html" class="nav-link pb-0.5 border-b-2 border-transparent">Tentang</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-limeCanopy hover:opacity-90 text-inkBlack text-xs font-bold uppercase tracking-wider transition-opacity duration-200">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        </a>
+        <button id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi" class="md:hidden w-11 h-11 flex items-center justify-center">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden floating-menu mx-4 mt-0">
+      <nav aria-label="Navigasi Seluler" class="flex flex-col space-y-4 text-sm font-semibold">
+        <a href="index.html" class="text-stoneGray hover:text-inkBlack">Beranda</a>
+        
+        <!-- Mobile Eco-Learn Submenu -->
+        <div class="space-y-2">
+          <span class="text-stoneGray uppercase text-[10px] tracking-wider font-bold block">Eco-Learn</span>
+          <div class="pl-3 flex flex-col space-y-2.5">
+            <a href="edukasi.html" class="text-stoneGray hover:text-inkBlack text-xs">Kenali Pilah</a>
+            <a href="artikel.html" class="text-stoneGray hover:text-inkBlack text-xs">Kelas Edukasi</a>
+          </div>
+        </div>
+
+        <a href="komunitas.html" class="text-stoneGray hover:text-inkBlack">Eco-Connect</a>
+        <a href="game.html" class="text-inkBlack">Eco-Play</a>
+        <a href="tentang.html" class="text-stoneGray hover:text-inkBlack">Tentang Kami</a>
+        <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-limeCanopy text-inkBlack text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main class="pt-24">
+    <section class="w-full band-lime">
+      <div class="max-w-7xl mx-auto px-6 page-banner">
+        <div class="text-center space-y-4">
+          <div class="inline-flex items-center gap-2 text-xs bg-inkBlack/8 text-inkBlack px-4 py-2 rounded-pill font-bold uppercase tracking-wider animate-on-scroll stagger-1"><i class="fa-solid fa-gamepad"></i> Simulasi Interaktif</div>
+          <h1 class="text-hero font-display font-bold text-inkBlack animate-on-scroll stagger-2">Game Pilah<br>Sampah Mandiri</h1>
+          <p class="text-stoneGray text-sm sm:text-base max-w-xl mx-auto leading-relaxed text-measure animate-on-scroll stagger-3">Uji dan latih insting memilah sampah Anda. Seret item ke wadah tujuan, atau klik item lalu klik wadahnya di layar sentuh.</p>
+        </div>
+      </div>
+    </section>
+    <section class="max-w-7xl mx-auto px-6 page-main">
+      <div class="max-w-4xl mx-auto space-y-10"> <!-- Score bar — amplified visual hierarchy -->
+        <div class="flex justify-between items-end bg-warmMist rounded-card px-8 py-6 animate-on-scroll">
+          <div> <span class="text-[11px] text-stoneGray font-bold uppercase tracking-wider">Skor Sesi Ini</span>
+            <div class="font-display text-4xl font-bold mt-1 tabular-nums text-inkBlack"><span id="game-score">0</span> <span class="text-lg text-stoneGray font-semibold">poin</span></div>
+          </div>
+          <div class="text-right"> <span class="text-[11px] text-stoneGray font-bold uppercase tracking-wider">Rekor Terbaik</span>
+            <div class="font-display text-4xl font-bold mt-1 tabular-nums text-limeCanopy"><span id="game-highscore">0</span></div>
+          </div>
+        </div> <!-- Trash item zone — bolder treatment -->
+        <div class="flex flex-col items-center justify-center py-16 rounded-card border-2 border-dashed border-ashBorder/40 bg-warmMist/20 animate-on-scroll">
+          <h2 class="sr-only">Wadah Penampilan Item Sampah</h2>
+          <div id="trash-item" tabindex="0" aria-label="Item sampah. Seret atau klik untuk memilih." class="cursor-grab active:cursor-grabbing bg-paperWhite border-2 border-ashBorder/50 rounded-card p-10 text-center select-none transition-all hover:border-inkBlack hover:shadow-lg max-w-xs w-56 drag-lift touch-none">
+            <div class="text-6xl" id="trash-icon">&#x1F955;</div>
+            <div class="font-display text-xl font-bold text-inkBlack mt-4" id="trash-label">Sisa Wortel</div> <span class="text-[11px] text-stoneGray font-bold uppercase tracking-widest mt-3 block">Seret / Klik</span>
+          </div>
+          <p class="text-center text-[11px] text-stoneGray font-medium mt-5 px-6">Seret item ke wadah tujuan, atau klik item lalu pilih wadahnya.</p> <button type="button" id="btn-reset-score" class="mt-3 text-[11px] text-stoneGray underline hover:text-inkBlack transition-colors">Atur Ulang Skor</button>
+        </div>
+        <div class="flex flex-wrap justify-center gap-8 sm:gap-12 animate-on-scroll">
+          <!-- Tong Organik -->
+          <div data-bin="organik" class="bin bin-3d bin-3d--organik" role="button" tabindex="0" aria-label="Tong Organik: pilah sampah organik">
+            <div class="bin-lid"><div class="bin-handle"></div></div>
+            <div class="bin-body">
+              <div class="bin-label">
+                <i class="fa-solid fa-seedling bin-icon"></i>
+                <span class="bin-name">Organik</span>
+                <span class="bin-sub">Sisa Dapur &amp; Tanaman</span>
+              </div>
+            </div>
+            <div class="bin-base"></div>
+          </div>
+          <!-- Tong Anorganik -->
+          <div data-bin="anorganik" class="bin bin-3d bin-3d--anorganik" role="button" tabindex="0" aria-label="Tong Anorganik: pilah sampah anorganik">
+            <div class="bin-lid"><div class="bin-handle"></div></div>
+            <div class="bin-body">
+              <div class="bin-label">
+                <i class="fa-solid fa-recycle bin-icon"></i>
+                <span class="bin-name">Anorganik</span>
+                <span class="bin-sub">Plastik, Kertas, Logam</span>
+              </div>
+            </div>
+            <div class="bin-base"></div>
+          </div>
+          <!-- Tong B3 -->
+          <div data-bin="b3" class="bin bin-3d bin-3d--b3" role="button" tabindex="0" aria-label="Tong B3: pilah sampah berbahaya">
+            <div class="bin-lid"><div class="bin-handle"></div></div>
+            <div class="bin-body">
+              <div class="bin-label">
+                <i class="fa-solid fa-triangle-exclamation bin-icon"></i>
+                <span class="bin-name">B3</span>
+                <span class="bin-sub">Beracun &amp; Berbahaya</span>
+              </div>
+            </div>
+            <div class="bin-base"></div>
+          </div>
+        </div> <!-- Certificate claiming box (visible only when score >= 100) -->
+        <div id="game-cert-panel" class="hidden max-w-xl mx-auto bg-[#d7eb80]/15 border border-[#d7eb80]/40 rounded-card p-6 text-center space-y-4 animate-on-scroll">
+          <div class="text-3xl text-inkBlack flex justify-center"><i class="fa-solid fa-trophy text-[#f59e0b]"></i></div>
+          <div class="space-y-1">
+            <h3 class="font-display text-base font-bold text-inkBlack">Selamat! Anda Mencapai Skor 100+</h3>
+            <p class="text-stoneGray text-xs">Sebagai apresiasi atas keahlian memilah sampah Anda, silakan klaim sertifikat partisipasi digital resmi KEDIS.</p>
+          </div> <button type="button" id="btn-print-game-cert" class="inline-flex items-center justify-center px-6 py-3 rounded-pill bg-inkBlack text-paperWhite hover:bg-inkBlack/90 text-xs font-bold uppercase tracking-wider gap-1.5 transition-colors"> <i class="fa-solid fa-certificate"></i> Cetak Sertifikat Aksi Hijau </button>
+        </div>
+      </div>
+    </section>
+    <section class="w-full bg-warmMist section-cta border-t border-ashBorder/20">
+      <div class="max-w-4xl mx-auto px-6 text-center space-y-6 animate-on-scroll">
+        <h2 class="font-display text-display font-bold text-inkBlack">Latih Kebiasaan Baik di Rumah</h2>
+        <p class="text-stoneGray text-sm max-w-xl mx-auto leading-relaxed">Memilah sampah di kehidupan nyata semudah mengelompokkan item pada simulasi ini.</p>
+        <div class="pt-2 flex flex-col sm:flex-row justify-center gap-4"> <a href="edukasi.html" class="inline-flex items-center justify-center px-6 py-3 rounded-pill bg-limeCanopy hover:opacity-95 text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200">Baca Panduan Lengkap</a> </div>
+      </div>
+    </section>
+  </main>
+  <!-- Linen Cream Footer — Distilled for Minimalist Ecosia aesthetic -->
+  <footer class="bg-linenCream text-inkBlack border-t border-ashBorder/30 py-16">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12"> <!-- Brand column -->
+      <div class="space-y-4"> <a href="index.html" class="inline-block"><img src="assets/logo.svg" alt="Logo KEDIS" class="h-10 w-auto" loading="lazy"></a>
+        <p class="text-xs text-stoneGray leading-relaxed max-w-sm"> Kampanye kesadaran digital untuk pemilahan sampah mandiri dari pintu rumah tangga demi lingkungan perkotaan yang sehat dan berkelanjutan. </p>
+        <div class="flex space-x-4 pt-2 text-stoneGray"> <a href="#" aria-label="Instagram KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a> <a href="#" aria-label="GitHub KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-github text-lg"></i></a> <a href="#" aria-label="YouTube KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-youtube text-lg"></i></a> </div>
+      </div> <!-- Contest Info Column -->
+      <div class="space-y-4 md:text-right md:flex md:flex-col md:items-end">
+        <h3 class="font-display text-sm font-bold uppercase tracking-wider text-inkBlack">INVENTION 2026</h3>
+        <p class="text-xs text-stoneGray leading-relaxed max-w-xs md:text-right"> Karya orisinal subtema "Going Green Through Smart Digital Solutions" dalam kompetisi Web Design INVENTION 2026. </p>
+      </div>
+    </div> <!-- Bottom Copyright & Inline Navigation -->
+    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-ashBorder/20 flex flex-col md:flex-row justify-between items-center text-xs text-stoneGray font-bold uppercase tracking-wider gap-4">
+      <div> &copy; 2026 KEDIS. Hak Cipta Dilindungi. Edisi INVENTION 2026. </div>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2"> <a href="index.html" class="hover:text-inkBlack transition-colors">Beranda</a> <a href="edukasi.html" class="hover:text-inkBlack transition-colors">Eco-Learn</a> <a href="komunitas.html" class="hover:text-inkBlack transition-colors">Eco-Connect</a> <a href="game.html" class="hover:text-inkBlack transition-colors">Eco-Play</a> <a href="tentang.html" class="hover:text-inkBlack transition-colors">Tentang</a> </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  var trashPool = [{
+    label: 'Sisa Wortel',
+    icon: '\uD83E\uDD55',
+    category: 'organik'
+  }, {
+    label: 'Dedaunan Kering',
+    icon: '\uD83C\uDF42',
+    category: 'organik'
+  }, {
+    label: 'Kulit Jeruk',
+    icon: '\uD83C\uDF4A',
+    category: 'organik'
+  }, {
+    label: 'Cangkang Telur',
+    icon: '\uD83E\uDD5A',
+    category: 'organik'
+  }, {
+    label: 'Ampas Kopi',
+    icon: '\u2615',
+    category: 'organik'
+  }, {
+    label: 'Botol Plastik PET',
+    icon: '\uD83E\uDDF4',
+    category: 'anorganik'
+  }, {
+    label: 'Kardus Tebal',
+    icon: '\uD83D\uDCE6',
+    category: 'anorganik'
+  }, {
+    label: 'Kaleng Minuman',
+    icon: '\uD83E\uDD6B',
+    category: 'anorganik'
+  }, {
+    label: 'Koran Bekas',
+    icon: '\uD83D\uDCF0',
+    category: 'anorganik'
+  }, {
+    label: 'Baterai Bekas',
+    icon: '\uD83D\uDD0B',
+    category: 'b3'
+  }, {
+    label: 'Bohlam Lampu',
+    icon: '\uD83D\uDCA1',
+    category: 'b3'
+  }, {
+    label: 'Semprotan Aerosol',
+    icon: '\uD83D\uDCA8',
+    category: 'b3'
+  }, {
+    label: 'Oli Bekas',
+    icon: '\uD83D\uDEE2\uFE0F',
+    category: 'b3'
+  }];
+  var score = 0;
+  var highscore = parseInt(localStorage.getItem('kedis_highscore')) || 0;
+  var currentItem = null;
+  var clickSelected = false;
+  var scoreEl = document.getElementById('game-score');
+  var highscoreEl = document.getElementById('game-highscore');
+  var trashEl = document.getElementById('trash-item');
+  var trashIconEl = document.getElementById('trash-icon');
+  var trashLabelEl = document.getElementById('trash-label');
+  var bins = document.querySelectorAll('.bin');
+  highscoreEl.innerText = highscore;
+
+  function spawnNewItem() {
+    var idx = Math.floor(Math.random() * trashPool.length);
+    currentItem = trashPool[idx];
+    trashIconEl.innerText = currentItem.icon;
+    trashLabelEl.innerText = currentItem.label;
+    trashEl.setAttribute('aria-label', 'Item sampah: ' + currentItem.label);
+    trashEl.classList.remove('item-selected');
+    trashEl.classList.add('animate-pulse');
+    clickSelected = false;
+  }
+  spawnNewItem();
+  // Spring Physics state variables
+  var currentX = 0, currentY = 0;
+  var targetX = 0, targetY = 0;
+  var vx = 0, vy = 0;
+  var isDragging = false;
+  var isLocked = false;
+  var pointerStartX = 0, pointerStartY = 0;
+  var rotationVal = 0;
+  var scaleVal = 1;
+  
+  var springK = 220;
+  var springD = 18;
+  var springM = 1;
+  
+  var isVortex = false;
+  var vortexTargetX = 0;
+  var vortexTargetY = 0;
+  
+  var lastTime = performance.now();
+  function animationLoop(now) {
+    var dt = (now - lastTime) / 1000;
+    if (dt > 0.1) dt = 0.1;
+    lastTime = now;
+    
+    if (isVortex) {
+      currentX += (vortexTargetX - currentX) * dt * 8;
+      currentY += (vortexTargetY - currentY) * dt * 8;
+      scaleVal += (0 - scaleVal) * dt * 10;
+      rotationVal += (720 - rotationVal) * dt * 10;
+      
+      trashEl.style.transform = 'translate3d(' + currentX + 'px, ' + currentY + 'px, 0) scale(' + scaleVal + ') rotate(' + rotationVal + 'deg)';
+      trashEl.style.opacity = scaleVal;
+    } else {
+      if (isDragging) {
+        vx = 0;
+        vy = 0;
+        currentX += (targetX - currentX) * dt * 25;
+        currentY += (targetY - currentY) * dt * 25;
+        
+        var targetRot = (currentX * 0.08);
+        if (targetRot > 15) targetRot = 15;
+        if (targetRot < -15) targetRot = -15;
+        
+        rotationVal += (targetRot - rotationVal) * dt * 12;
+        scaleVal += (1.06 - scaleVal) * dt * 12;
+      } else {
+        var ax = (-springK * (currentX - targetX) - springD * vx) / springM;
+        var ay = (-springK * (currentY - targetY) - springD * vy) / springM;
+        
+        vx += ax * dt;
+        vy += ay * dt;
+        currentX += vx * dt;
+        currentY += vy * dt;
+        
+        rotationVal += (0 - rotationVal) * dt * 12;
+        scaleVal += (1 - scaleVal) * dt * 12;
+      }
+      trashEl.style.transform = 'translate3d(' + currentX + 'px, ' + currentY + 'px, 0) scale(' + scaleVal + ') rotate(' + rotationVal + 'deg)';
+    }
+    requestAnimationFrame(animationLoop);
+  }
+  requestAnimationFrame(animationLoop);
+
+  // Prevent default HTML5 drag behaviors
+  trashEl.addEventListener('dragstart', function(e) { e.preventDefault(); });
+
+  // Pointer Events drag interaction
+  trashEl.addEventListener('pointerdown', function(e) {
+    if (isLocked) return;
+    isDragging = true;
+    pointerStartX = e.clientX;
+    pointerStartY = e.clientY;
+    trashEl.setPointerCapture(e.pointerId);
+    trashEl.classList.remove('animate-pulse');
+    e.preventDefault();
+  });
+
+  trashEl.addEventListener('pointermove', function(e) {
+    if (!isDragging || isLocked) return;
+    targetX = e.clientX - pointerStartX;
+    targetY = e.clientY - pointerStartY;
+    
+    var cardRect = trashEl.getBoundingClientRect();
+    var cardCenter = {
+      x: cardRect.left + cardRect.width / 2,
+      y: cardRect.top + cardRect.height / 2
+    };
+    
+    bins.forEach(function(bin) {
+      var binRect = bin.getBoundingClientRect();
+      var isOver = (
+        cardCenter.x > binRect.left &&
+        cardCenter.x < binRect.right &&
+        cardCenter.y > binRect.top &&
+        cardCenter.y < binRect.bottom
+      );
+      if (isOver) {
+        bin.classList.add('drag-over');
+      } else {
+        bin.classList.remove('drag-over');
+      }
+    });
+  });
+
+  trashEl.addEventListener('pointerup', function(e) {
+    if (!isDragging) return;
+    isDragging = false;
+    
+    var cardRect = trashEl.getBoundingClientRect();
+    var cardCenter = {
+      x: cardRect.left + cardRect.width / 2,
+      y: cardRect.top + cardRect.height / 2
+    };
+    
+    var droppedBin = null;
+    bins.forEach(function(bin) {
+      var binRect = bin.getBoundingClientRect();
+      var isOver = (
+        cardCenter.x > binRect.left &&
+        cardCenter.x < binRect.right &&
+        cardCenter.y > binRect.top &&
+        cardCenter.y < binRect.bottom
+      );
+      if (isOver) droppedBin = bin;
+      bin.classList.remove('drag-over');
+    });
+    
+    if (droppedBin) {
+      var isCorrect = (currentItem.category === droppedBin.getAttribute('data-bin'));
+      processResult(isCorrect, droppedBin);
+    } else {
+      targetX = 0;
+      targetY = 0;
+    }
+  });
+
+  trashEl.addEventListener('pointercancel', function() {
+    isDragging = false;
+    targetX = 0;
+    targetY = 0;
+  });
+
+  // Tap-to-select click fallback
+  trashEl.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (isLocked) return;
+    clickSelected = !clickSelected;
+    if (clickSelected) {
+      trashEl.classList.add('item-selected');
+      trashEl.classList.remove('animate-pulse');
+    } else {
+      trashEl.classList.remove('item-selected');
+      trashEl.classList.add('animate-pulse');
+    }
+  });
+
+  bins.forEach(function(bin) {
+    bin.addEventListener('click', function() {
+      if (clickSelected && !isLocked) {
+        var isCorrect = (currentItem.category === bin.getAttribute('data-bin'));
+        processResult(isCorrect, bin);
+      }
+    });
+    bin.addEventListener('keydown', function(e) {
+      if (clickSelected && !isLocked && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        var isCorrect = (currentItem.category === bin.getAttribute('data-bin'));
+        processResult(isCorrect, bin);
+      }
+    });
+  });
+
+  document.body.addEventListener('click', function() {
+    if (clickSelected) {
+      clickSelected = false;
+      trashEl.classList.remove('item-selected');
+      trashEl.classList.add('animate-pulse');
+    }
+  });
+
+  document.getElementById('btn-reset-score').addEventListener('click', function() {
+    if (confirm('Atur ulang skor ke 0?')) {
+      score = 0;
+      scoreEl.innerText = '0';
+    }
+  });
+
+  function animateScore() {
+    scoreEl.classList.remove('counter-reveal');
+    void scoreEl.offsetWidth;
+    scoreEl.classList.add('counter-reveal');
+  }
+
+  function processResult(isCorrect, binEl) {
+    if (isCorrect) {
+      isLocked = true;
+      isVortex = true;
+      
+      var binRect = binEl.getBoundingClientRect();
+      var binCenter = {
+        x: binRect.left + binRect.width / 2,
+        y: binRect.top + binRect.height / 2
+      };
+      var currentCardRect = trashEl.getBoundingClientRect();
+      var currentCardCenter = {
+        x: currentCardRect.left + currentCardRect.width / 2,
+        y: currentCardRect.top + currentCardRect.height / 2
+      };
+      
+      vortexTargetX = currentX + (binCenter.x - currentCardCenter.x);
+      vortexTargetY = currentY + (binCenter.y - currentCardCenter.y);
+      
+      binEl.classList.add('bin-correct');
+      score += 10;
+      scoreEl.innerText = score;
+      animateScore();
+      
+      if (score > highscore) {
+        highscore = score;
+        localStorage.setItem('kedis_highscore', highscore);
+        highscoreEl.innerText = highscore;
+        highscoreEl.classList.remove('counter-reveal');
+        void highscoreEl.offsetWidth;
+        highscoreEl.classList.add('counter-reveal');
+      }
+      
+      setTimeout(function() {
+        binEl.classList.remove('bin-correct');
+        
+        isVortex = false;
+        scaleVal = 1;
+        rotationVal = 0;
+        currentX = 0;
+        currentY = 0;
+        targetX = 0;
+        targetY = 0;
+        vx = 0;
+        vy = 0;
+        trashEl.style.opacity = '1';
+        trashEl.style.transform = 'translate3d(0,0,0) scale(1) rotate(0)';
+        
+        spawnNewItem();
+        isLocked = false;
+        
+        var certPanel = document.getElementById('game-cert-panel');
+        if (score >= 100) {
+          if (certPanel && certPanel.classList.contains('hidden')) {
+            certPanel.classList.remove('hidden');
+          }
+        }
+      }, 450);
+      
+    } else {
+      binEl.classList.add('bin-wrong');
+      score = Math.max(0, score - 5);
+      scoreEl.innerText = score;
+      animateScore();
+      
+      trashEl.style.borderColor = '#e44b4b';
+      isLocked = true;
+      
+      var shakeTime = 0;
+      function shake() {
+        shakeTime += 1;
+        if (shakeTime < 6) {
+          targetX = (shakeTime % 2 === 0 ? 15 : -15);
+          setTimeout(shake, 60);
+        } else {
+          targetX = 0;
+          targetY = 0;
+          trashEl.style.borderColor = '';
+          isLocked = false;
+          binEl.classList.remove('bin-wrong');
+          spawnNewItem();
+        }
+      }
+      shake();
+    }
+    
+    clickSelected = false;
+    trashEl.classList.remove('item-selected');
+  }
+
+  // Handle resetting score to reset the certificate visibility too
+  document.getElementById('btn-reset-score').addEventListener('click', function() {
+    var certPanel = document.getElementById('game-cert-panel');
+    if (certPanel) {
+      certPanel.classList.add('hidden');
+    }
+  });
+
+  // Certificate printing for Game
+  document.getElementById('btn-print-game-cert').addEventListener('click', function() {
+    var name = prompt('Masukkan nama lengkap Anda untuk sertifikat:');
+    if (!name) return;
+
+    var date = new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
+
+    var printWindow = window.open('', '_blank', 'width=900,height=650');
+    var certHtml = `
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Sertifikat Eco-Sorting Specialist KEDIS - ${name}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #333333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+    .cert-border {
+      width: 297mm;
+      height: 210mm;
+      padding: 20mm;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      border: 15px solid #122817;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+    }
+    .cert-inner-border {
+      border: 2px solid #bebeb9;
+      height: 100%;
+      padding: 10mm;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .logo-section {
+      margin-top: 5px;
+    }
+    .logo-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #122817;
+      letter-spacing: 2px;
+    }
+    .cert-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #333333;
+      margin: 15px 0 5px 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .cert-subtitle {
+      font-size: 14px;
+      color: #6c6c6c;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    .recipient-intro {
+      font-size: 16px;
+      color: #6c6c6c;
+      margin-top: 25px;
+    }
+    .recipient-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #122817;
+      border-bottom: 2px solid #d7eb80;
+      display: inline-block;
+      padding-bottom: 5px;
+      margin: 10px 0;
+    }
+    .cert-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #333333;
+      max-width: 700px;
+      margin: 15px auto;
+    }
+    .highlight {
+      font-weight: 700;
+      color: #122817;
+      background-color: rgba(215, 235, 128, 0.2);
+      padding: 0 4px;
+    }
+    .footer-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 30px;
+      padding: 0 40px;
+    }
+    .signature {
+      width: 150px;
+      text-align: center;
+    }
+    .sig-line {
+      border-top: 1px solid #bebeb9;
+      margin-top: 50px;
+      padding-top: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #333333;
+    }
+    .sig-title {
+      font-size: 10px;
+      color: #6c6c6c;
+      margin-top: 2px;
+    }
+    .date-info {
+      font-size: 12px;
+      color: #6c6c6c;
+      font-weight: 600;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="cert-border">
+    <div class="cert-inner-border">
+      <div class="logo-section">
+        <div class="logo-text">KEDIS</div>
+      </div>
+      <div>
+        <div class="cert-title">Sertifikat Kelulusan Simulasi</div>
+        <div class="cert-subtitle">Eco-Sorting Specialist</div>
+      </div>
+      <div>
+        <div class="recipient-intro">Diberikan kepada:</div>
+        <div class="recipient-name">${name}</div>
+      </div>
+      <div>
+        <p class="cert-desc">
+          Atas pencapaian luar biasa dalam menyelesaikan simulasi game pemilahan sampah mandiri <span class="highlight">Eco-Play KEDIS</span> dengan skor di atas <span class="highlight">100 Poin</span>, serta menunjukkan pemahaman yang matang mengenai klasifikasi sampah organik, anorganik, dan B3.
+        </p>
+      </div>
+      <div class="footer-section">
+        <div class="date-info">
+          Diterbitkan pada:<br>
+          <span style="color: #333333;">${date}</span>
+        </div>
+        <div class="signature">
+          <span style="font-family: 'Space Grotesk', sans-serif; font-style: italic; font-weight: 700; color: #122817; font-size: 14px;">KEDIS Digital</span>
+          <div class="sig-line">Sistem Kampanye KEDIS</div>
+          <div class="sig-title">Smart Digital Solution</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.onload = function() {
+      window.print();
+      setTimeout(function() { window.close(); }, 500);
+    };
+  </script>
+</body>
+</html>
+    `;
+    printWindow.document.write(certHtml);
+    printWindow.document.close();
+  });
+});
+  </script>
+</body>
+
+</html>
+

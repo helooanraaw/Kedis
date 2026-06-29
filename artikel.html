@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KEDIS - Kelas Edukasi & Artikel Upcycling Sampah Kreatif. Ubah limbah menjadi barang berguna dengan panduan langkah-demi-langkah.">
+  <title>Kelas Edukasi &amp; Artikel — KEDIS</title>
+  <!-- Google Fonts: Space Grotesk (Headings), Inter (Body/UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            limeCanopy: '#d7eb80',
+            inkBlack: '#333333',
+            paperWhite: '#ffffff',
+            warmMist: '#f8f8f6',
+            linenCream: '#f0f0eb',
+            stoneGray: '#6c6c6c',
+            ashBorder: '#bebeb9',
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-paperWhite font-sans text-inkBlack antialiased selection:bg-limeCanopy/40 selection:text-inkBlack">
+
+  <!-- Floating Capsule Header -->
+  <header id="main-header" class="header-subpage">
+    <div id="header-pill">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center shrink-0">
+        <img src="assets/logo.svg" alt="Logo KEDIS" class="logo-img h-10 w-auto">
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Navigasi Utama" class="hidden md:flex items-center space-x-7 text-sm font-semibold">
+        <a href="index.html" class="nav-link pb-0.5 border-b-2 border-transparent">Beranda</a>
+        
+        <!-- Eco-Learn Dropdown -->
+        <div class="relative py-2">
+          <button id="desktop-dropdown-trigger" type="button" class="nav-link nav-link-active pb-0.5 border-b-2 flex items-center gap-1 hover:text-inkBlack transition-colors">
+            Eco-Learn <i class="fa-solid fa-chevron-down text-[8px] transition-transform"></i>
+          </button>
+          <div id="desktop-dropdown-menu" class="absolute top-full left-0 mt-1 w-40 bg-white border border-ashBorder/20 rounded-xl shadow-lg hidden z-50 py-2">
+            <a href="edukasi.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-stoneGray hover:text-inkBlack transition-colors">Kenali Pilah</a>
+            <a href="artikel.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-inkBlack transition-colors">Kelas Edukasi</a>
+          </div>
+        </div>
+
+        <a href="komunitas.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Connect</a>
+        <a href="game.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Play</a>
+        <a href="tentang.html" class="nav-link pb-0.5 border-b-2 border-transparent">Tentang</a>
+      </nav>
+
+      <!-- CTA + Hamburger -->
+      <div class="flex items-center gap-3">
+        <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-limeCanopy hover:opacity-90 text-inkBlack text-xs font-bold uppercase tracking-wider transition-all duration-200 pulse-attract">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        </a>
+        <button id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi" class="md:hidden w-11 h-11 flex items-center justify-center">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden floating-menu mx-4 mt-0">
+      <nav aria-label="Navigasi Seluler" class="flex flex-col space-y-4 text-sm font-semibold">
+        <a href="index.html" class="text-stoneGray hover:text-inkBlack">Beranda</a>
+        
+        <!-- Mobile Eco-Learn Submenu -->
+        <div class="space-y-2">
+          <span class="text-inkBlack uppercase text-[10px] tracking-wider font-bold block">Eco-Learn</span>
+          <div class="pl-3 flex flex-col space-y-2.5">
+            <a href="edukasi.html" class="text-stoneGray hover:text-inkBlack text-xs">Kenali Pilah</a>
+            <a href="artikel.html" class="text-inkBlack text-xs font-bold">Kelas Edukasi</a>
+          </div>
+        </div>
+
+        <a href="komunitas.html" class="text-stoneGray hover:text-inkBlack">Eco-Connect</a>
+        <a href="game.html" class="text-stoneGray hover:text-inkBlack">Eco-Play</a>
+        <a href="tentang.html" class="text-stoneGray hover:text-inkBlack">Tentang Kami</a>
+        <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-limeCanopy text-inkBlack text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Mainkan
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Header Spacing -->
+  <div class="h-20 bg-paperWhite"></div>
+
+  <!-- Main Canvas -->
+  <main class="w-full bg-paperWhite py-12">
+    <div class="max-w-7xl mx-auto px-6 space-y-8">
+      
+      <!-- Page Header Layout: Left Title & Right Info Widget -->
+      <div id="articles-header-block" class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center border-b border-ashBorder/10 pb-8 animate-on-scroll">
+        <div class="lg:col-span-2 space-y-4">
+          <div class="inline-block bg-limeCanopy/25 border border-limeCanopy/40 text-inkBlack px-3 py-1 rounded-pill text-[10px] font-bold uppercase tracking-widest">
+            Kelas Edukasi KEDIS
+          </div>
+          <h1 class="font-display text-4xl sm:text-5xl font-bold text-inkBlack tracking-tight leading-none">
+            Kreativitas &amp; Pengolahan Sampah
+          </h1>
+          <p class="text-stoneGray text-xs sm:text-sm leading-relaxed max-w-2xl font-medium">
+            Ketahui panduan praktis mendaur ulang sampah anorganik serta tata cara pengemasan limbah berbahaya (B3) rumah tangga agar aman bagi lingkungan dalam langkah-langkah ringkas.
+          </p>
+        </div>
+        <!-- Did You Know Eco Info Widget (Placed to the right of header) -->
+        <div class="lg:col-span-1 bg-inkBlack text-white p-5 rounded-card space-y-2.5 shadow-sm border border-inkBlack/30">
+          <h3 class="font-display text-[10px] font-bold text-limeCanopy uppercase tracking-widest flex items-center gap-1.5">
+            <i class="fa-solid fa-lightbulb"></i> Tahukah Anda?
+          </h3>
+          <p class="text-[11px] text-white/80 leading-relaxed font-medium">
+            Upcycling meningkatkan nilai estetika sampah tanpa menghancurkan bahan dasarnya terlebih dahulu. Ini menghemat energi dan mengurangi penimbunan limbah TPA secara langsung!
+          </p>
+        </div>
+      </div>
+
+      <!-- Articles Hub view container -->
+      <div id="articles-hub-view" class="space-y-6">
+        
+        <!-- Search bar layout (Placed directly above the articles grid) -->
+        <div class="flex flex-col sm:flex-row items-center justify-between border-b border-ashBorder/20 pb-4 gap-4">
+          <h2 class="font-display text-base font-bold text-inkBlack">Daftar Panduan Kreatif</h2>
+          <div class="relative w-full sm:w-72">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stoneGray text-[10px]"></i>
+            <input type="text" id="article-search" placeholder="Cari panduan..." class="w-full bg-warmMist border border-ashBorder/20 px-9 py-2 rounded-pill text-xs font-bold outline-none focus:border-inkBlack focus:bg-white transition-all duration-200">
+          </div>
+        </div>
+
+        <!-- Empty Search Warning -->
+        <div id="articles-empty" class="hidden text-center py-16 text-stoneGray italic text-xs bg-warmMist border border-ashBorder/20 rounded-card">
+          <i class="fa-solid fa-magnifying-glass text-2xl mb-3 block text-ashBorder"></i>
+          Tidak menemukan artikel yang sesuai dengan pencarian Anda.
+        </div>
+
+        <!-- Full-width 3-Column Grid for Articles -->
+        <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Dynamic Article Cards will be injected here -->
+        </div>
+
+        <!-- Dummy Pagination -->
+        <div class="flex items-center justify-center gap-2 pt-8">
+          <button type="button" class="w-8 h-8 flex items-center justify-center rounded-lg bg-limeCanopy text-inkBlack text-xs font-bold border border-inkBlack/10">1</button>
+          <button type="button" class="w-8 h-8 flex items-center justify-center rounded-lg bg-warmMist hover:bg-linenCream text-stoneGray hover:text-inkBlack text-xs font-bold border border-ashBorder/20 transition-colors">2</button>
+          <button type="button" class="w-8 h-8 flex items-center justify-center rounded-lg bg-warmMist hover:bg-linenCream text-stoneGray hover:text-inkBlack text-xs font-bold border border-ashBorder/20 transition-colors">3</button>
+          <button type="button" class="w-8 h-8 flex items-center justify-center rounded-lg bg-warmMist hover:bg-linenCream text-stoneGray hover:text-inkBlack text-xs font-bold border border-ashBorder/20 transition-colors">4</button>
+          <button type="button" class="w-8 h-8 flex items-center justify-center rounded-lg bg-warmMist hover:bg-linenCream text-stoneGray hover:text-inkBlack text-xs font-bold border border-ashBorder/20 transition-colors">5</button>
+          <button type="button" class="w-8 h-8 flex items-center justify-center rounded-lg bg-warmMist hover:bg-linenCream text-stoneGray hover:text-inkBlack text-xs font-bold border border-ashBorder/20 transition-colors">6</button>
+          <button type="button" class="w-8 h-8 flex items-center justify-center rounded-lg bg-warmMist hover:bg-linenCream text-stoneGray hover:text-inkBlack text-xs font-bold border border-ashBorder/20 transition-colors">7</button>
+          <button type="button" class="w-8 h-8 flex items-center justify-center rounded-lg bg-warmMist hover:bg-linenCream text-stoneGray hover:text-inkBlack text-xs font-bold border border-ashBorder/20 transition-colors" aria-label="Halaman Selanjutnya"><i class="fa-solid fa-chevron-right text-[10px]"></i></button>
+        </div>
+
+      </div>
+
+      <!-- Article Reading Detail View (Initially Hidden) -->
+      <article id="article-read-panel" class="hidden max-w-3xl mx-auto space-y-8 bg-warmMist border border-ashBorder/20 rounded-card p-6 sm:p-10 shadow-sm relative animate-on-scroll">
+        
+        <!-- Back Button -->
+        <button type="button" id="btn-back-to-articles" class="inline-flex items-center gap-2 px-4 py-2 rounded-pill border border-inkBlack text-inkBlack hover:bg-inkBlack hover:text-white font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer">
+          <i class="fa-solid fa-arrow-left"></i> Kembali ke Kelas
+        </button>
+
+        <!-- Dynamic Header info -->
+        <header class="space-y-4 border-b border-ashBorder/20 pb-6">
+          <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-wider">
+            <span id="detail-article-category" class="bg-limeCanopy text-inkBlack px-3 py-1 rounded-pill"></span>
+            <span id="detail-article-readtime" class="text-stoneGray"></span>
+          </div>
+          <h2 id="detail-article-title" class="font-display text-2xl sm:text-3xl font-bold text-inkBlack leading-tight"></h2>
+          <div class="text-[11px] text-stoneGray font-semibold">
+            Diterbitkan pada: <span id="detail-article-date" class="text-inkBlack"></span>
+          </div>
+        </header>
+
+        <!-- Article Featured Image Banner -->
+        <div class="w-full aspect-[2/1] rounded-card overflow-hidden bg-linenCream border border-ashBorder/20">
+          <img id="detail-article-img" src="" alt="Banner Artikel" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Article Rich Body HTML Content -->
+        <div id="detail-article-body" class="prose max-w-none text-stoneGray font-medium text-xs sm:text-sm leading-relaxed space-y-5">
+          <!-- Populated dynamically -->
+        </div>
+
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Linen Cream Footer -->
+  <footer class="bg-linenCream text-inkBlack border-t border-ashBorder/30 py-16 mt-12">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+      <!-- Brand column -->
+      <div class="space-y-4">
+        <a href="index.html" class="inline-block">
+          <img src="assets/logo.svg" alt="Logo KEDIS" class="h-10 w-auto" loading="lazy">
+        </a>
+        <p class="text-xs text-stoneGray leading-relaxed max-w-sm">
+          Kampanye kesadaran digital untuk pemilahan sampah mandiri dari pintu rumah tangga demi lingkungan perkotaan yang sehat dan berkelanjutan.
+        </p>
+        <div class="flex space-x-4 pt-2 text-stoneGray">
+          <a href="#" aria-label="Instagram KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+          <a href="#" aria-label="GitHub KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+          <a href="#" aria-label="YouTube KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-youtube text-lg"></i></a>
+        </div>
+      </div>
+
+      <!-- Contest Info Column -->
+      <div class="space-y-4 md:text-right md:flex md:flex-col md:items-end">
+        <h3 class="font-display text-sm font-bold uppercase tracking-wider text-inkBlack">INVENTION 2026</h3>
+        <p class="text-xs text-stoneGray leading-relaxed max-w-xs md:text-right">
+          Karya orisinal subtema "Going Green Through Smart Digital Solutions" dalam kompetisi Web Design INVENTION 2026.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright & Inline Navigation -->
+    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-t-ashBorder/20 flex flex-col md:flex-row justify-between items-center text-xs text-stoneGray font-bold uppercase tracking-wider gap-4">
+      <div>
+        &copy; 2026 KEDIS. Hak Cipta Dilindungi. Edisi INVENTION 2026.
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+        <a href="index.html" class="hover:text-inkBlack transition-colors">Beranda</a>
+        <a href="edukasi.html" class="hover:text-inkBlack transition-colors">Eco-Learn</a>
+        <a href="komunitas.html" class="hover:text-inkBlack transition-colors">Eco-Connect</a>
+        <a href="game.html" class="hover:text-inkBlack transition-colors">Eco-Play</a>
+        <a href="tentang.html" class="hover:text-inkBlack transition-colors">Tentang</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <!-- Custom JS -->
+  <script src="js/main.js"></script>
+
+  <!-- Interactive Hub Logic script -->
+  <script>
+    $(document).ready(function() {
+      // Local Articles Database (Concise steps, zero yapping)
+      const articlesData = {
+        'olahan-plastik': {
+          title: 'Pot Gantung Karakter Botol Plastik',
+          category: 'Kreasi',
+          date: '29 Juni 2026',
+          readTime: '4 Menit Baca',
+          image: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=800&q=80',
+          summary: 'Ubah botol plastik bekas 1.5L menjadi pot gantung bernilai guna tinggi.',
+          content: `
+            <div class="space-y-4">
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Bahan Utama:</strong>
+                <ul class="list-disc list-inside text-stoneGray space-y-0.5">
+                  <li>Botol plastik bekas air mineral ukuran 1.5L</li>
+                  <li>Pisau cutter / gunting tajam</li>
+                  <li>Cat akrilik dan kuas</li>
+                  <li>Tali rami (tali gantungan)</li>
+                  <li>Solder atau paku panas (lubang air)</li>
+                </ul>
+              </div>
+
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Langkah Praktis:</strong>
+                <ol class="list-decimal list-inside text-stoneGray space-y-1">
+                  <li><strong>Pola Karakter:</strong> Gambar pola telinga kelinci/kucing di bagian tengah botol menggunakan spidol.</li>
+                  <li><strong>Pemotongan:</strong> Gunting botol perlahan mengikuti garis pola.</li>
+                  <li><strong>Drainase:</strong> Lubangi bagian dasar botol dengan solder agar akar tanaman tidak membusuk.</li>
+                  <li><strong>Cat Karakter:</strong> Cat seluruh botol dengan warna dasar, lalu lukis mata, hidung, dan kumis hewan.</li>
+                  <li><strong>Gantungan:</strong> Lubangi sisi kiri &amp; kanan, ikat tali rami, lalu isi pot dengan tanaman hias.</li>
+                </ol>
+              </div>
+
+              <div class="p-4 bg-limeCanopy/10 border border-limeCanopy/30 rounded-xl text-inkBlack">
+                <strong>Target Hasil:</strong> Mereduksi sampah botol plastik sekali pakai menjadi dekorasi tanaman hidup.
+              </div>
+            </div>
+          `
+        },
+        'kulit-buah': {
+          title: 'Pembuatan Cairan Eco-Enzyme',
+          category: 'Organik',
+          date: '28 Juni 2026',
+          readTime: '5 Menit Baca',
+          image: 'https://images.unsplash.com/photo-1610832958506-ee5633619144?auto=format&fit=crop&w=800&q=80',
+          summary: 'Fermentasikan sisa kulit buah segar menjadi pembersih lantai &amp; disinfektan alami.',
+          content: `
+            <div class="space-y-4">
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Bahan Utama (Rasio 1:3:10):</strong>
+                <ul class="list-disc list-inside text-stoneGray space-y-0.5">
+                  <li>Gula merah tebu / Molase (100 gram)</li>
+                  <li>Kulit buah klimakterik segar (jeruk, nanas, apel) (300 gram)</li>
+                  <li>Air bersih sumur (1 Liter)</li>
+                  <li>Wadah plastik bermulut lebar (jangan kaca)</li>
+                </ul>
+              </div>
+
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Langkah Praktis:</strong>
+                <ol class="list-decimal list-inside text-stoneGray space-y-1">
+                  <li><strong>Larutkan Gula:</strong> Larutkan gula merah tebu langsung ke dalam air bersih di wadah.</li>
+                  <li><strong>Masukkan Kulit:</strong> Potong kulit buah kecil-kecil lalu masukkan ke larutan gula. Sisakan ruang udara 20%.</li>
+                  <li><strong>Tutup Rapat:</strong> Tutup wadah rapat-rapat dan letakkan di tempat sejuk terlindung matahari.</li>
+                  <li><strong>Buang Gas:</strong> Pada 2 minggu pertama, buka tutup wadah 3 detik setiap hari untuk membuang gas fermentasi.</li>
+                  <li><strong>Panen:</strong> Diamkan selama 3 bulan, lalu saring untuk dijadikan cairan pembersih lantai organik.</li>
+                </ol>
+              </div>
+
+              <div class="p-4 bg-limeCanopy/10 border border-limeCanopy/30 rounded-xl text-inkBlack">
+                <strong>Target Hasil:</strong> Mereduksi sampah sisa makanan dapur dan menghilangkan ketergantungan pembersih kimia.
+              </div>
+            </div>
+          `
+        },
+        'daur-ulang-kertas': {
+          title: 'Kertas Daur Ulang Seni Estetik',
+          category: 'Kertas',
+          date: '25 Juni 2026',
+          readTime: '4 Menit Baca',
+          image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=800&q=80',
+          summary: 'Daur ulang koran/dokumen bekas menjadi kertas baru bertekstur estetik untuk scrapbook.',
+          content: `
+            <div class="space-y-4">
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Bahan Utama:</strong>
+                <ul class="list-disc list-inside text-stoneGray space-y-0.5">
+                  <li>Kertas bekas non-plastik</li>
+                  <li>Blender</li>
+                  <li>Bingkai screen cetak sablon</li>
+                  <li>Bak air plastik lebar</li>
+                  <li>Spons &amp; kain katun</li>
+                </ul>
+              </div>
+
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Langkah Praktis:</strong>
+                <ol class="list-decimal list-inside text-stoneGray space-y-1">
+                  <li><strong>Bubur Kertas (Pulp):</strong> Sobek kertas kecil-kecil, rendam air hangat 1 jam, blender hingga halus.</li>
+                  <li><strong>Campur Air:</strong> Tuangkan pulp ke bak berisi air bersih, aduk merata.</li>
+                  <li><strong>Menyaring:</strong> Celupkan bingkai screen secara miring, angkat horizontal hingga pulp menutupi kawat screen.</li>
+                  <li><strong>Hiasan:</strong> Taburkan kelopak bunga/daun kering di atas screen basah secara artistik.</li>
+                  <li><strong>Cetak:</strong> Balikkan screen di atas kain katun basah, tekan belakang screen dengan spons untuk memeras air.</li>
+                  <li><strong>Jemur:</strong> Angkat screen perlahan, jemur lembaran kertas di kain di tempat teduh hingga kering.</li>
+                </ol>
+              </div>
+
+              <div class="p-4 bg-limeCanopy/10 border border-limeCanopy/30 rounded-xl text-inkBlack">
+                <strong>Target Hasil:</strong> Memperpanjang siklus kertas bekas menjadi kertas kerajinan estetik bernilai tinggi.
+              </div>
+            </div>
+          `
+        },
+        'limbah-b3': {
+          title: 'Penyimpanan Aman Sampah Elektronik',
+          category: 'Limbah B3',
+          date: '20 Juni 2026',
+          readTime: '4 Menit Baca',
+          image: 'https://images.unsplash.com/photo-1548345680-f5475ea5df84?auto=format&fit=crop&w=800&q=80',
+          summary: 'Kemas baterai bekas dan limbah elektronik rumah tangga agar tidak mencemari lingkungan.',
+          content: `
+            <div class="space-y-4">
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Bahan Utama:</strong>
+                <ul class="list-disc list-inside text-stoneGray space-y-0.5">
+                  <li>Wadah plastik kedap udara khusus</li>
+                  <li>Plester isolasi bening</li>
+                  <li>Dropbox limbah B3 resmi</li>
+                </ul>
+              </div>
+
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Langkah Praktis:</strong>
+                <ol class="list-decimal list-inside text-stoneGray space-y-1">
+                  <li><strong>Plester Kutub:</strong> Rekatkan lakban bening pada ujung kutub baterai bekas untuk menghindari korsleting.</li>
+                  <li><strong>Pisahkan Wadah:</strong> Masukkan baterai bekas ke wadah plastik kedap udara. Jangan satukan dengan sampah organik.</li>
+                  <li><strong>Simpan Sejuk:</strong> Letakkan wadah di tempat yang kering dan jauh dari paparan panas/kompor.</li>
+                  <li><strong>Penyaluran:</strong> Bawa tumpukan limbah B3 terkumpul ke dropbox dinas lingkungan hidup atau bank sampah terdekat.</li>
+                </ol>
+              </div>
+
+              <div class="p-4 bg-limeCanopy/10 border border-limeCanopy/30 rounded-xl text-inkBlack">
+                <strong>Target Hasil:</strong> Mencegah kebocoran zat merkuri &amp; senyawa timbal meresap merusak air tanah warga.
+              </div>
+            </div>
+          `
+        },
+        'kaleng-bekas': {
+          title: 'Organisasi Meja dari Kaleng Bekas',
+          category: 'Kreasi',
+          date: '18 Juni 2026',
+          readTime: '3 Menit Baca',
+          image: 'https://images.unsplash.com/photo-1595079676339-1534801ad6cf?auto=format&fit=crop&w=800&q=80',
+          summary: 'Ubah kaleng minuman aluminium bekas menjadi wadah alat tulis estetik berbalut tali rami.',
+          content: `
+            <div class="space-y-4">
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Bahan Utama:</strong>
+                <ul class="list-disc list-inside text-stoneGray space-y-0.5">
+                  <li>Kaleng minuman aluminium bekas</li>
+                  <li>Tali rami kasar</li>
+                  <li>Lem tembak (hot glue)</li>
+                  <li>Gunting</li>
+                </ul>
+              </div>
+
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Langkah Praktis:</strong>
+                <ol class="list-decimal list-inside text-stoneGray space-y-1">
+                  <li><strong>Haluskan Bibir Kaleng:</strong> Pastikan tepi potongan atas bagian dalam kaleng telah halus agar aman digunakan.</li>
+                  <li><strong>Rekatkan Ujung Tali:</strong> Oleskan lem tembak di dasar luar kaleng, lalu rekatkan ujung tali rami pertama.</li>
+                  <li><strong>Lilitkan:</strong> Putar tali rami melingkari kaleng hingga menutupi seluruh permukaannya, oleskan lem berkala.</li>
+                  <li><strong>Rapikan:</strong> Potong tali di ujung atas kaleng dan rekatkan simpul rapi. Kaleng siap diisi pensil.</li>
+                </ol>
+              </div>
+
+              <div class="p-4 bg-limeCanopy/10 border border-limeCanopy/30 rounded-xl text-inkBlack">
+                <strong>Target Hasil:</strong> Mengurangi tumpukan sampah kaleng logam menjadi perabot meja belajar multifungsi.
+              </div>
+            </div>
+          `
+        },
+        'kompos-takakura': {
+          title: 'Kompos Dapur Metode Takakura',
+          category: 'Organik',
+          date: '15 Juni 2026',
+          readTime: '5 Menit Baca',
+          image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80',
+          summary: 'Metode praktis pengomposan sisa masakan di keranjang tanpa bau busuk, ideal untuk rumah minimalis.',
+          content: `
+            <div class="space-y-4">
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Bahan Utama:</strong>
+                <ul class="list-disc list-inside text-stoneGray space-y-0.5">
+                  <li>Keranjang plastik berlubang udara</li>
+                  <li>Kardus bekas (sebagai pelapis dalam keranjang)</li>
+                  <li>Sekam padi &amp; starter bakteri pengomposan</li>
+                  <li>Kain katun hitam penutup</li>
+                </ul>
+              </div>
+
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Langkah Praktis:</strong>
+                <ol class="list-decimal list-inside text-stoneGray space-y-1">
+                  <li><strong>Lapisi Keranjang:</strong> Pasang kardus bekas mengelilingi sisi bagian dalam keranjang.</li>
+                  <li><strong>Alas Sekam:</strong> Letakkan bantal berisi sekam padi di dasar keranjang untuk menyerap cairan.</li>
+                  <li><strong>Isi Bakteri:</strong> Masukkan tanah starter bakteri/kompos jadi setebal 10 cm.</li>
+                  <li><strong>Masukkan Sampah:</strong> Potong kecil-kecil sampah organik dapur harian, masukkan dan aduk rata.</li>
+                  <li><strong>Tutup Kain:</strong> Selimuti atas keranjang dengan kain hitam agar proses pembusukan tetap hangat &amp; bebas bau.</li>
+                </ol>
+              </div>
+
+              <div class="p-4 bg-limeCanopy/10 border border-limeCanopy/30 rounded-xl text-inkBlack">
+                <strong>Target Hasil:</strong> Mengubah 100% sisa makanan rumah tangga menjadi pupuk padat berkualitas tinggi secara mandiri.
+              </div>
+            </div>
+          `
+        },
+        'baju-bekas': {
+          title: 'Upcycling Baju Bekas Jadi Tas Belanja',
+          category: 'Kreasi',
+          date: '12 Juni 2026',
+          readTime: '3 Menit Baca',
+          image: 'https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=800&q=80',
+          summary: 'Ubah kaos katun usang menjadi kantong belanja ramah lingkungan tanpa perlu menjahit.',
+          content: `
+            <div class="space-y-4">
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Bahan Utama:</strong>
+                <ul class="list-disc list-inside text-stoneGray space-y-0.5">
+                  <li>Kaos katun bekas layak pakai berukuran sedang/besar</li>
+                  <li>Gunting kain tajam</li>
+                  <li>Spidol kain</li>
+                </ul>
+              </div>
+
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Langkah Praktis:</strong>
+                <ol class="list-decimal list-inside text-stoneGray space-y-1">
+                  <li><strong>Potong Lengan:</strong> Gunting bagian lengan kiri &amp; kanan kaos untuk dijadikan lubang tali pegangan.</li>
+                  <li><strong>Potong Leher:</strong> Buang leher kaos dengan potongan kerah melingkar lebar sebagai bukaan tas.</li>
+                  <li><strong>Potong Rumbai:</strong> Balik kaos (sisi dalam di luar), gunting bawah kaos menjadi rumbai vertikal sepanjang 8cm.</li>
+                  <li><strong>Ikat Rumbai:</strong> Ikat kuat dua rumbai yang bersebelahan secara berpasangan hingga lubang bawah tertutup.</li>
+                  <li><strong>Balik Kaos:</strong> Balikkan kembali kaos ke posisi normal. Tas siap digunakan membawa belanjaan.</li>
+                </ol>
+              </div>
+
+              <div class="p-4 bg-limeCanopy/10 border border-limeCanopy/30 rounded-xl text-inkBlack">
+                <strong>Target Hasil:</strong> Mereduksi limbah serat pakaian bekas sekaligus mengurangi pemakaian kantong kresek sekali pakai.
+              </div>
+            </div>
+          `
+        },
+        'minyak-jelantah': {
+          title: 'Penyaluran &amp; Daur Ulang Jelantah',
+          category: 'Limbah B3',
+          date: '10 Juni 2026',
+          readTime: '4 Menit Baca',
+          image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=800&q=80',
+          summary: 'Kumpulkan minyak goreng bekas pakai untuk disalurkan menjadi bahan bakar biodiesel.',
+          content: `
+            <div class="space-y-4">
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Bahan Utama:</strong>
+                <ul class="list-disc list-inside text-stoneGray space-y-0.5">
+                  <li>Minyak goreng jelantah sisa masak</li>
+                  <li>Saringan halus / kain kasa penyaring</li>
+                  <li>Botol plastik bekas air mineral kering</li>
+                </ul>
+              </div>
+
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Langkah Praktis:</strong>
+                <ol class="list-decimal list-inside text-stoneGray space-y-1">
+                  <li><strong>Dinginkan Minyak:</strong> Biarkan minyak bekas mendingin sempurna setelah kompor dimatikan.</li>
+                  <li><strong>Penyaringan:</strong> Saring minyak melintasi kain kasa untuk menahan partikel remah sisa gorengan.</li>
+                  <li><strong>Kemasan:</strong> Tuangkan jelantah bening ke dalam botol plastik tertutup. Simpan di tempat gelap sejuk.</li>
+                  <li><strong>Dropbox Komunitas:</strong> Bawa botol penuh jelantah ke posko penampung minyak komunitas terdekat untuk didaur ulang.</li>
+                </ol>
+              </div>
+
+              <div class="p-4 bg-limeCanopy/10 border border-limeCanopy/30 rounded-xl text-inkBlack">
+                <strong>Target Hasil:</strong> Menghindari pencemaran air dan tanah akibat pembuangan jelantah sembarangan di saluran wastafel.
+              </div>
+            </div>
+          `
+        },
+        'lilin-jelantah': {
+          title: 'Lilin Aromaterapi Minyak Jelantah',
+          category: 'Kreasi',
+          date: '08 Juni 2026',
+          readTime: '4 Menit Baca',
+          image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80',
+          summary: 'Ubah minyak jelantah sisa dapur menjadi lilin aromaterapi wangi penolak nyamuk.',
+          content: `
+            <div class="space-y-4">
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Bahan Utama:</strong>
+                <ul class="list-disc list-inside text-stoneGray space-y-0.5">
+                  <li>Minyak jelantah tersaring (100 ml)</li>
+                  <li>Stearin bubuk / lilin parafin bubuk (100 gram)</li>
+                  <li>Potongan krayon bekas (untuk warna)</li>
+                  <li>Minyak esensial aromaterapi (aroma serai/lavender)</li>
+                  <li>Sumbu lilin dan gelas cetakan kecil</li>
+                </ul>
+              </div>
+
+              <div>
+                <strong class="text-inkBlack text-sm uppercase tracking-wider block mb-1">Langkah Praktis:</strong>
+                <ol class="list-decimal list-inside text-stoneGray space-y-1">
+                  <li><strong>Panaskan Campuran:</strong> Panaskan minyak jelantah bersama bubuk stearin di panci dengan api kecil hingga larut sempurna.</li>
+                  <li><strong>Beri Warna:</strong> Cemplungkan krayon bekas untuk mewarnai cairan lilin sesuai keinginan Anda.</li>
+                  <li><strong>Aromaterapi:</strong> Matikan api kompor, lalu teteskan minyak esensial serai/lavender secukupnya, aduk rata.</li>
+                  <li><strong>Pasang Sumbu:</strong> Ikat sumbu lilin ke lidi penopang di atas mulut gelas kaca cetakan kecil secara vertikal.</li>
+                  <li><strong>Tuang &amp; Bekukan:</strong> Tuangkan lilin hangat ke dalam gelas secara perlahan, biarkan memadat selama 2-3 jam.</li>
+                </ol>
+              </div>
+
+              <div class="p-4 bg-limeCanopy/10 border border-limeCanopy/30 rounded-xl text-inkBlack">
+                <strong>Target Hasil:</strong> Mengurangi limbah cair domestik dengan memanfaatkannya menjadi lilin penolak nyamuk bernilai guna.
+              </div>
+            </div>
+          `
+        }
+      };
+
+      // Generate Article List
+      function renderArticles(searchQuery = '') {
+        const $grid = $('#articles-grid').empty();
+        const qClean = searchQuery.trim().toLowerCase();
+        let visibleCount = 0;
+
+        Object.keys(articlesData).forEach(id => {
+          const item = articlesData[id];
+          
+          // Search matching
+          if (qClean !== '') {
+            const matchesTitle = item.title.toLowerCase().includes(qClean);
+            const matchesSummary = item.summary.toLowerCase().includes(qClean);
+            const matchesCategory = item.category.toLowerCase().includes(qClean);
+            if (!matchesTitle && !matchesSummary && !matchesCategory) return;
+          }
+
+          visibleCount++;
+
+          const $card = $(
+            `<div class="bg-warmMist border border-ashBorder/20 rounded-card overflow-hidden flex flex-col justify-between hover:border-inkBlack/30 hover:shadow-md transition-all duration-300 cursor-pointer animate-on-scroll">` +
+              `<div>` +
+                `<div class="w-full aspect-[16/10] bg-linenCream border-b border-ashBorder/10 overflow-hidden">` +
+                  `<img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">` +
+                `</div>` +
+                `<div class="p-6 space-y-2">` +
+                  `<div class="flex items-center gap-2.5 text-[10px] font-bold uppercase tracking-wider text-stoneGray">` +
+                    `<span class="text-inkBlack bg-limeCanopy px-2.5 py-0.5 rounded-pill">${item.category}</span>` +
+                    `<span>&bull;</span>` +
+                    `<span>${item.readTime}</span>` +
+                  `</div>` +
+                  `<h3 class="font-display text-base font-bold text-inkBlack leading-snug">${item.title}</h3>` +
+                  `<p class="text-stoneGray text-xs leading-relaxed line-clamp-3">${item.summary}</p>` +
+                `</div>` +
+              `</div>` +
+              `<div class="px-6 pb-6 pt-2">` +
+                `<span class="inline-flex items-center text-xs font-bold text-inkBlack uppercase tracking-wider border-b border-inkBlack pb-0.5 hover:opacity-80 transition-opacity">` +
+                  `Baca Panduan <i class="fa-solid fa-arrow-right ml-1 text-[10px]"></i>` +
+                `</span>` +
+              `</div>` +
+            `</div>`
+          );
+
+          // Card Click Trigger
+          $card.on('click', function() {
+            showArticleDetail(id);
+          });
+
+          $grid.append($card);
+        });
+
+        // Toggle Empty Warning
+        $('#articles-empty').toggleClass('hidden', visibleCount > 0);
+      }
+
+      // Display Full Article Reader Panel
+      function showArticleDetail(id) {
+        const item = articlesData[id];
+        if (!item) return;
+
+        // Populate detail panel
+        $('#detail-article-category').text(item.category);
+        $('#detail-article-readtime').text(item.readTime);
+        $('#detail-article-title').text(item.title);
+        $('#detail-article-date').text(item.date);
+        $('#detail-article-img').attr('src', item.image).attr('alt', item.title);
+        $('#detail-article-body').html(item.content);
+
+        // Hide Search header elements for full-screen read focus
+        $('#articles-header-block, #articles-empty').addClass('hidden');
+
+        // Transition views
+        $('#articles-hub-view').fadeOut(200, function() {
+          $('#article-read-panel').removeClass('hidden').fadeIn(200);
+          $('html, body').animate({ scrollTop: $('#main-header').offset().top - 20 }, 300);
+        });
+      }
+
+      // Back Button Handler
+      $('#btn-back-to-articles').on('click', function() {
+        $('#article-read-panel').fadeOut(200, function() {
+          $('#article-read-panel').addClass('hidden');
+          
+          // Re-enable Search header
+          $('#articles-header-block').removeClass('hidden');
+          
+          $('#articles-hub-view').fadeIn(200);
+          $('html, body').animate({ scrollTop: $('#main-header').offset().top - 20 }, 300);
+          
+          // Clear query string so reloads return to home grid
+          window.history.pushState({}, document.title, window.location.pathname);
+        });
+      });
+
+      // Filter Search input typing
+      $('#article-search').on('input', function() {
+        renderArticles($(this).val());
+      });
+
+      // Initialize Grid
+      renderArticles();
+
+      // Check query string parameters (for redirection links from index search)
+      const urlParams = new URLSearchParams(window.location.search);
+      const articleId = urlParams.get('id');
+      if (articleId && articlesData[articleId]) {
+        showArticleDetail(articleId);
+      }
+    });
+  </script>
+</body>
+
+</html>

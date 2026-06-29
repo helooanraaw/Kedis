@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Eco-Learn KEDIS - Panduan memilah sampah Organik, Anorganik, dan B3 dengan benar dari rumah tangga untuk mereduksi gas metana.">
+  <title>Eco-Learn: Panduan Memilah Sampah - KEDIS</title> <!-- Google Fonts: Space Grotesk (Headings), Inter (Body/UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"> <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"> <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script>
+    tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        limeCanopy: '#d7eb80',
+        inkBlack: '#333333',
+        paperWhite: '#ffffff',
+        warmMist: '#f8f8f6',
+        linenCream: '#f0f0eb',
+        stoneGray: '#6c6c6c',
+        ashBorder: '#bebeb9',
+      },
+      fontFamily: {
+        sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      }
+    }
+  }
+}
+  </script> <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-paperWhite font-sans text-inkBlack antialiased selection:bg-limeCanopy/40 selection:text-inkBlack"> <!-- Floating Capsule Header -->
+  <header id="main-header" class="header-subpage">
+    <div id="header-pill">
+      <a href="index.html" class="flex items-center shrink-0">
+        <img src="assets/logo.svg" alt="Logo KEDIS" class="logo-img h-10 w-auto">
+      </a>
+      
+      <!-- Desktop Nav -->
+      <nav aria-label="Navigasi Utama" class="hidden md:flex items-center space-x-7 text-sm font-semibold">
+        <a href="index.html" class="nav-link pb-0.5 border-b-2 border-transparent">Beranda</a>
+        
+        <!-- Eco-Learn Dropdown (Active state) -->
+        <div class="relative py-2">
+          <button id="desktop-dropdown-trigger" type="button" class="nav-link nav-link-active pb-0.5 border-b-2 flex items-center gap-1 hover:text-inkBlack transition-colors">
+            Eco-Learn <i class="fa-solid fa-chevron-down text-[8px] transition-transform"></i>
+          </button>
+          <div id="desktop-dropdown-menu" class="absolute top-full left-0 mt-1 w-40 bg-white border border-ashBorder/20 rounded-xl shadow-lg hidden z-50 py-2">
+            <a href="edukasi.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-inkBlack transition-colors">Kenali Pilah</a>
+            <a href="artikel.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-stoneGray hover:text-inkBlack transition-colors">Kelas Edukasi</a>
+          </div>
+        </div>
+
+        <a href="komunitas.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Connect</a>
+        <a href="game.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Play</a>
+        <a href="tentang.html" class="nav-link pb-0.5 border-b-2 border-transparent">Tentang</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-limeCanopy hover:opacity-90 text-inkBlack text-xs font-bold uppercase tracking-wider transition-opacity duration-200">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        </a>
+        <button id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi" class="md:hidden w-11 h-11 flex items-center justify-center">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden floating-menu mx-4 mt-0">
+      <nav aria-label="Navigasi Seluler" class="flex flex-col space-y-4 text-sm font-semibold">
+        <a href="index.html" class="text-stoneGray hover:text-inkBlack">Beranda</a>
+        
+        <!-- Mobile Eco-Learn Submenu -->
+        <div class="space-y-2">
+          <span class="text-inkBlack uppercase text-[10px] tracking-wider font-bold block">Eco-Learn</span>
+          <div class="pl-3 flex flex-col space-y-2.5">
+            <a href="edukasi.html" class="text-inkBlack text-xs font-bold">Kenali Pilah</a>
+            <a href="artikel.html" class="text-stoneGray hover:text-inkBlack text-xs">Kelas Edukasi</a>
+          </div>
+        </div>
+
+        <a href="komunitas.html" class="text-stoneGray hover:text-inkBlack">Eco-Connect</a>
+        <a href="game.html" class="text-stoneGray hover:text-inkBlack">Eco-Play</a>
+        <a href="tentang.html" class="text-stoneGray hover:text-inkBlack">Tentang Kami</a>
+        <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-limeCanopy text-inkBlack text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main class="pt-24"> <!-- Title Banner — Left-aligned editorial, breaks centered subpage pattern -->
+    <section class="max-w-7xl mx-auto px-6 page-banner">
+      <div class="max-w-3xl space-y-4"> 
+        <h1 class="text-hero font-display font-bold text-inkBlack animate-on-scroll stagger-2">Kenali &amp; Pilah<br>Sampahmu</h1>
+        <p class="text-stoneGray text-base max-w-xl leading-relaxed text-measure animate-on-scroll stagger-3"> Memisahkan sampah sejak dari dapur mempermudah pengomposan bahan hayati serta menjaga tingkat kebersihan bahan daur ulang anorganik agar dapat dimanfaatkan kembali. </p>
+      </div>
+    </section> <!-- Interactive Category Tabs Selector (Pill Tags style) -->
+    <section class="max-w-7xl mx-auto px-6 page-main">
+      <div class="flex justify-center gap-4 mb-20" role="tablist" aria-label="Kategori sampah"> <button type="button" role="tab" id="tab-organik" aria-controls="content-organik" aria-selected="true" data-tab="organik" class="tab-btn px-6 py-2.5 rounded-pill text-xs font-bold uppercase tracking-wider bg-limeCanopy text-inkBlack hover:opacity-95 transition-all duration-200"> <i class="fa-solid fa-seedling mr-1.5">
+          </i> Organik </button> <button type="button" role="tab" id="tab-anorganik" aria-controls="content-anorganik" aria-selected="false" data-tab="anorganik" class="tab-btn px-6 py-2.5 rounded-pill text-xs font-bold uppercase tracking-wider bg-warmMist text-stoneGray border border-ashBorder/20 hover:text-inkBlack hover:border-inkBlack/30 transition-all duration-200"> <i class="fa-solid fa-recycle mr-1.5">
+          </i> Anorganik </button> <button type="button" role="tab" id="tab-b3" aria-controls="content-b3" aria-selected="false" data-tab="b3" class="tab-btn px-6 py-2.5 rounded-pill text-xs font-bold uppercase tracking-wider bg-warmMist text-stoneGray border border-ashBorder/20 hover:text-inkBlack hover:border-inkBlack/30 transition-all duration-200"> <i class="fa-solid fa-triangle-exclamation mr-1.5">
+          </i> B3 </button> </div> <!-- Tab Contents Container -->
+      <div class="tab-contents max-w-5xl mx-auto"> <!-- ===================== Panel 1: ORGANIK ===================== -->
+        <div id="content-organik" class="tab-panel stack-loose" role="tabpanel" aria-labelledby="tab-organik"> <!-- Hero Split Section -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+              <h2 class="font-display font-bold text-inkBlack">Mengenal Sampah Organik</h2>
+              <div class="callout-quote">
+                <p class="text-inkBlack text-base font-semibold italic leading-relaxed text-measure"> "Sampah organik adalah sisa-sisa bahan yang berasal dari makhluk hidup, baik tumbuhan maupun hewan, yang dapat didekomposisi oleh organisme pengurai secara alami kembali ke alam." </p>
+              </div>
+              <p class="text-stoneGray text-sm sm:text-base leading-relaxed text-measure"> Di alam bebas, daun yang gugur atau ranting yang patah akan membusuk dan diserap kembali oleh tanah menjadi unsur hara yang menyuburkan pepohonan. Namun, di lingkungan rumah tangga, sisa makanan kita sering kali tercampur dengan plastik dalam kantong sampah tertutup. </p>
+              <p class="text-stoneGray text-sm sm:text-base leading-relaxed text-measure"> Hal ini menyebabkan sampah organik membusuk secara <strong>anaerobik</strong> (tanpa oksigen) di Tempat Pembuangan Akhir (TPA). Proses anaerobik ini menghasilkan gas metana (CH‚„), gas rumah kaca yang memiliki daya perangkap panas di atmosfer bumi 28 kali lebih kuat daripada karbon dioksida (CO‚‚). Memilah sampah organik dari rumah adalah langkah awal paling efektif untuk mengurangi emisi metana. </p>
+              <div class="flex flex-wrap gap-3 text-xs font-semibold"> <span class="px-4 py-2 bg-linenCream rounded-pill text-inkBlack"> <i class="fa-solid fa-hourglass-start mr-1.5 text-stoneGray">
+                  </i> Dekomposisi: 2 - 8 Minggu </span> <span class="px-4 py-2 bg-linenCream rounded-pill text-inkBlack"> <i class="fa-solid fa-calculator mr-1.5 text-stoneGray">
+                  </i> Rasio C/N Ideal: 25 - 30 </span> <span class="px-4 py-2 bg-linenCream rounded-pill text-inkBlack"> <i class="fa-solid fa-recycle mr-1.5 text-stoneGray">
+                  </i> Pemanfaatan: Pupuk / Biogas </span> </div>
+            </div>
+            <div class="overflow-hidden rounded-card shadow-ecosia-xl aspect-[4/3]"> <iframe width="100%" height="100%" src="https://www.youtube.com/embed/REPLACE_ORGANIK" title="Video edukasi sampah organik" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="w-full h-full"></iframe> </div>
+          </div> <!-- Klasifikasi: Organik Hijau vs Cokelat -->
+          <div class="content-section space-y-6">
+            <h3 class="font-display font-bold text-inkBlack">Dua Kategori Sampah Organik</h3>
+            <p class="text-stoneGray text-base leading-relaxed"> Untuk membuat kompos yang baik tanpa bau busuk, kita harus menyeimbangkan dua jenis bahan organik berikut: </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-base">
+              <div class="bg-warmMist rounded-card p-6 border border-ashBorder/10 space-y-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-[#2d8c3a]/10 flex items-center justify-center text-[#2d8c3a]"> <i class="fa-solid fa-apple-whole text-lg">
+                    </i> </div>
+                  <div>
+                    <h4 class="font-bold text-inkBlack text-base">Unsur Hijau (Tinggi Nitrogen)</h4> <span class="text-xs text-stoneGray font-bold uppercase tracking-wider">Moist &amp; Nitrogen-Rich</span>
+                  </div>
+                </div>
+                <p class="text-stoneGray leading-relaxed"> Bahan yang basah, mengandung banyak air, dan kaya akan kandungan unsur Nitrogen (N). Bahan ini berfungsi sebagai penyedia nutrisi bagi bakteri pengurai untuk berkembang biak. </p>
+                <div class="inset-detail space-y-2"> <span class="text-xs font-bold text-inkBlack">Contoh Bahan:</span>
+                  <p class="text-xs text-stoneGray leading-relaxed"> Sisa buah dan sayuran, ampas kopi/teh, potongan rumput segar, sisa makanan matang (tanpa minyak berlebih), dan cangkang telur. </p>
+                </div>
+              </div>
+              <div class="bg-warmMist rounded-card p-6 border border-ashBorder/10 space-y-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-[#8c6239]/10 flex items-center justify-center text-[#8c6239]"> <i class="fa-solid fa-tree text-lg">
+                    </i> </div>
+                  <div>
+                    <h4 class="font-bold text-inkBlack text-base">Unsur Cokelat (Tinggi Karbon)</h4> <span class="text-xs text-stoneGray font-bold uppercase tracking-wider">Dry &amp; Carbon-Rich</span>
+                  </div>
+                </div>
+                <p class="text-stoneGray leading-relaxed"> Bahan yang cenderung kering, berserat kasar, dan kaya akan kandungan unsur Karbon (C). Bahan ini berfungsi sebagai sumber energi bagi bakteri pengurai serta menjaga rongga udara (aerasi) pada tumpukan kompos. </p>
+                <div class="inset-detail space-y-2"> <span class="text-xs font-bold text-inkBlack">Contoh Bahan:</span>
+                  <p class="text-xs text-stoneGray leading-relaxed"> Daun kering, ranting pohon kecil, serbuk gergaji kayu non-kimia, sekam padi, kertas koran bekas tanpa laminasi, dan kardus cokelat polos yang disobek kecil-kecil. </p>
+                </div>
+              </div>
+            </div>
+          </div> <!-- Metode Pengolahan Mandiri -->
+          <div class="content-section space-y-6">
+            <h3 class="font-display font-bold text-inkBlack">Metode Pengolahan Sampah Organik dari Rumah</h3>
+            <p class="text-stoneGray text-base leading-relaxed"> Kita tidak perlu lahan yang luas untuk mulai mengolah sampah organik. Berikut adalah beberapa metode praktis yang bisa disesuaikan dengan kondisi rumah Anda: </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-base">
+              <div class="bg-warmMist rounded-card p-6 border border-ashBorder/10 space-y-3 flex flex-col justify-between">
+                <div class="space-y-3"> <span class="text-xs bg-[#2d8c3a]/10 text-[#2d8c3a] px-2.5 py-1 rounded-pill font-bold uppercase tracking-wider">Metode Komposter Ember</span>
+                  <h4 class="font-bold text-inkBlack text-lg">Ember Tumpuk / Takakura</h4>
+                  <p class="text-stoneGray leading-relaxed"> Menggunakan wadah tertutup yang diletakkan di sudut teras atau dapur. Sangat cocok untuk rumah tanpa halaman luas. </p>
+                  <div class="text-xs text-stoneGray space-y-1.5 pt-2">
+                    <div class="flex items-start gap-2"> <i class="fa-solid fa-circle-check text-[#2d8c3a] mt-0.5">
+                      </i> <span>Cacah sisa dapur menjadi ukuran kecil (1-2 cm).</span> </div>
+                    <div class="flex items-start gap-2"> <i class="fa-solid fa-circle-check text-[#2d8c3a] mt-0.5">
+                      </i> <span>Campurkan bahan hijau dan bahan cokelat dengan rasio 1:2.</span> </div>
+                    <div class="flex items-start gap-2"> <i class="fa-solid fa-circle-check text-[#2d8c3a] mt-0.5">
+                      </i> <span>Aduk secara berkala seminggu dua kali agar pasokan oksigen terjaga.</span> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-warmMist rounded-card p-6 border border-ashBorder/10 space-y-3 flex flex-col justify-between">
+                <div class="space-y-3"> <span class="text-xs bg-[#2d8c3a]/10 text-[#2d8c3a] px-2.5 py-1 rounded-pill font-bold uppercase tracking-wider">Metode Biopori</span>
+                  <h4 class="font-bold text-inkBlack text-lg">Lubang Resapan Biopori</h4>
+                  <p class="text-stoneGray leading-relaxed"> Pipa silinder berlubang yang ditanam di dalam tanah halaman rumah. Berfungsi menahan air hujan sekaligus komposter alami. </p>
+                  <div class="text-xs text-stoneGray space-y-1.5 pt-2">
+                    <div class="flex items-start gap-2"> <i class="fa-solid fa-circle-check text-[#2d8c3a] mt-0.5">
+                      </i> <span>Buat lubang silindris tanah sedalam 80-100 cm dengan diameter 10 cm.</span> </div>
+                    <div class="flex items-start gap-2"> <i class="fa-solid fa-circle-check text-[#2d8c3a] mt-0.5">
+                      </i> <span>Masukkan pipa PVC berlubang, lalu isi penuh dengan sampah organik.</span> </div>
+                    <div class="flex items-start gap-2"> <i class="fa-solid fa-circle-check text-[#2d8c3a] mt-0.5">
+                      </i> <span>Cacing tanah akan datang alami mengurai sampah menjadi kompos subur.</span> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-warmMist rounded-card p-6 border border-ashBorder/10 space-y-3 flex flex-col justify-between">
+                <div class="space-y-3"> <span class="text-xs bg-[#2d8c3a]/10 text-[#2d8c3a] px-2.5 py-1 rounded-pill font-bold uppercase tracking-wider">Metode Eco-Enzyme</span>
+                  <h4 class="font-bold text-inkBlack text-lg">Cairan Fermentasi Buah</h4>
+                  <p class="text-stoneGray leading-relaxed"> Cairan serbaguna hasil fermentasi ampas kulit buah segar, air bersih, dan molase/gula merah selama minimal 3 bulan. </p>
+                  <div class="text-xs text-stoneGray space-y-1.5 pt-2">
+                    <div class="flex items-start gap-2"> <i class="fa-solid fa-circle-check text-[#2d8c3a] mt-0.5">
+                      </i> <span>Gunakan wadah plastik kedap udara (botol/ember plastik).</span> </div>
+                    <div class="flex items-start gap-2"> <i class="fa-solid fa-circle-check text-[#2d8c3a] mt-0.5">
+                      </i> <span>Rasio campuran: 1 bagian gula : 3 bagian kulit buah : 10 bagian air.</span> </div>
+                    <div class="flex items-start gap-2"> <i class="fa-solid fa-circle-check text-[#2d8c3a] mt-0.5">
+                      </i> <span>Cairan akhir berfungsi sebagai pembersih lantai alami dan pupuk cair.</span> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- Tabel Detail Sampah Organik -->
+          <div class="content-section space-y-6">
+            <h3 class="font-display font-bold text-inkBlack">Panduan Detail Jenis &amp; Cara Mengolah</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-sm border-collapse">
+                <thead>
+                  <tr class="border-b border-ashBorder/30 text-stoneGray text-xs font-bold uppercase tracking-wider">
+                    <th class="pb-3 pr-4">Bahan Organik</th>
+                    <th class="pb-3 px-4">Kategori Unsur</th>
+                    <th class="pb-3 px-4">Mengapa Bermanfaat?</th>
+                    <th class="pb-3 pl-4">Cara Mempersiapkan</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-ashBorder/10 text-stoneGray">
+                  <tr class="align-top">
+                    <td class="py-4 pr-4 font-bold text-inkBlack">Kulit Buah &amp; Potongan Sayur</td>
+                    <td class="py-4 px-4 text-[#2d8c3a] font-semibold">Hijau (Nitrogen)</td>
+                    <td class="py-4 px-4">Mengandung nutrisi makro yang mempercepat perkembangan bakteri baik.</td>
+                    <td class="py-4 pl-4 text-xs">Cacah hingga ukuran kecil. Jika terlalu basah, tiriskan sejenak sebelum dimasukkan ke komposter.</td>
+                  </tr>
+                  <tr class="align-top">
+                    <td class="py-4 pr-4 font-bold text-inkBlack">Ampas Kopi &amp; Kantong Teh</td>
+                    <td class="py-4 px-4 text-[#2d8c3a] font-semibold">Hijau (Nitrogen)</td>
+                    <td class="py-4 px-4">Kaya akan nitrogen alami yang menstimulasi pertumbuhan tanaman.</td>
+                    <td class="py-4 pl-4 text-xs">Keluarkan dari kantong teh sintetis (jika ada). Taburkan langsung ke tanaman atau campur rata di kompos.</td>
+                  </tr>
+                  <tr class="align-top">
+                    <td class="py-4 pr-4 font-bold text-inkBlack">Cangkang Telur Ayam</td>
+                    <td class="py-4 px-4 text-[#2d8c3a] font-semibold">Hijau (Kalsium)</td>
+                    <td class="py-4 px-4">Sumber kalsium karbonat tinggi untuk menetralkan pH tanah asam.</td>
+                    <td class="py-4 pl-4 text-xs">Cuci bersih sisa putih telur agar tidak berbau busuk, jemur hingga kering, lalu remukkan sampai halus.</td>
+                  </tr>
+                  <tr class="align-top">
+                    <td class="py-4 pr-4 font-bold text-inkBlack">Daun-daun Kering</td>
+                    <td class="py-4 px-4 text-[#8c6239] font-semibold">Cokelat (Karbon)</td>
+                    <td class="py-4 px-4">Memberikan struktur serat kasar dan menciptakan sirkulasi oksigen di kompos.</td>
+                    <td class="py-4 pl-4 text-xs">Remas-remas agar ukurannya lebih kecil. Gunakan sebagai penutup lapisan atas sampah basah di komposter.</td>
+                  </tr>
+                  <tr class="align-top">
+                    <td class="py-4 pr-4 font-bold text-inkBlack">Kertas Karton &amp; Dus Cokelat</td>
+                    <td class="py-4 px-4 text-[#8c6239] font-semibold">Cokelat (Karbon)</td>
+                    <td class="py-4 px-4">Menyerap kelebihan air pada tumpukan komposter agar tidak terlalu becek.</td>
+                    <td class="py-4 pl-4 text-xs">Lepas semua selotip/label plastik, gunting atau sobek menjadi bagian-bagian kecil sebelum dicampur.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div> <!-- Hal-hal Penting yang Sering Salah -->
+          <div class="content-section space-y-6">
+            <div class="bg-linenCream rounded-card p-6 space-y-4">
+              <h4 class="font-bold text-inkBlack text-base flex items-center gap-2"> <i class="fa-solid fa-triangle-exclamation text-[#2d8c3a]">
+                </i> Bahan Organik yang Harus Dihindari dalam Komposter Rumahan </h4>
+              <p class="text-stoneGray text-xs leading-relaxed"> Tidak semua sisa makanan cocok dimasukkan ke dalam wadah pengomposan skala rumahan yang kecil karena dapat mengundang hama (tikus/kecoa) atau menimbulkan bau busuk menyengat: </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 text-xs">
+                <div class="space-y-1">
+                  <div class="font-bold text-inkBlack flex items-center gap-1.5 text-red-600"> <i class="fa-solid fa-circle-xmark">
+                    </i> Daging, Tulang, Ikan, &amp; Susu </div>
+                  <p class="text-stoneGray leading-relaxed"> Mengundang hewan pengerat (tikus) dan mengandung lemak yang menghambat sirkulasi udara sehingga menghasilkan bau busuk menyengat. </p>
+                </div>
+                <div class="space-y-1">
+                  <div class="font-bold text-inkBlack flex items-center gap-1.5 text-red-600"> <i class="fa-solid fa-circle-xmark">
+                    </i> Minyak &amp; Santan Sisa </div>
+                  <p class="text-stoneGray leading-relaxed"> Melapisi bahan organik lainnya dan menutup pori-pori bakteri pengurai sehingga proses pembusukan terhenti akibat kekurangan air dan udara. </p>
+                </div>
+                <div class="space-y-1">
+                  <div class="font-bold text-inkBlack flex items-center gap-1.5 text-red-600"> <i class="fa-solid fa-circle-xmark">
+                    </i> Kotoran Hewan Peliharaan </div>
+                  <p class="text-stoneGray leading-relaxed"> Kotoran kucing atau anjing dapat membawa bakteri patogen dan parasit berbahaya yang berisiko tidak mati dalam suhu komposter rumahan. </p>
+                </div>
+                <div class="space-y-1">
+                  <div class="font-bold text-inkBlack flex items-center gap-1.5 text-red-600"> <i class="fa-solid fa-circle-xmark">
+                    </i> Tumbuhan Terinfeksi Hama </div>
+                  <p class="text-stoneGray leading-relaxed"> Spora jamur atau telur serangga yang menyebabkan daun tanaman sakit dapat bertahan hidup dan menular kembali saat kompos disebarkan ke tanaman sehat. </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- ===================== Panel 2: ANORGANIK ===================== -->
+        <div id="content-anorganik" class="tab-panel stack-loose hidden" role="tabpanel" aria-labelledby="tab-anorganik" hidden> <!-- Hero Split Section -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6"> 
+              <h2 class="font-display font-bold text-inkBlack">Mengenal Sampah Anorganik</h2>
+              <div class="callout-quote">
+                <p class="text-inkBlack text-base font-semibold italic leading-relaxed text-measure"> "Sampah anorganik adalah bahan sisa buatan manusia atau mineral pertambangan yang tidak mudah membusuk dan membutuhkan waktu hingga ratusan tahun untuk terurai secara alami." </p>
+              </div>
+              <p class="text-stoneGray text-sm sm:text-base leading-relaxed text-measure"> Plastik, kaleng aluminium, botol kaca, dan kertas bekas adalah contoh umum sampah anorganik. Karakteristik utamanya adalah tidak bisa busuk, tetapi struktur molekulnya sangat kuat sehingga sangat cocok untuk dilebur kembali dan diolah menjadi bahan baku industri manufaktur baru. </p>
+              <p class="text-stoneGray text-sm sm:text-base leading-relaxed text-measure"> Sayangnya, jutaan ton sampah anorganik berakhir di laut dan TPA setiap tahun karena tidak terpilah. Ketika plastik bercampur dengan sampah dapur basah, permukaan plastik tertutup noda organik sehingga mesin pemilah industri tidak dapat memprosesnya secara langsung. Memilah sampah anorganik dalam keadaan <strong>bersih dan kering</strong> adalah kunci keberhasilan daur ulang nasional. </p>
+              <div class="flex flex-wrap gap-3 text-xs font-semibold"> <span class="px-4 py-2 bg-linenCream rounded-pill text-inkBlack"> <i class="fa-solid fa-hourglass-start mr-1.5 text-stoneGray">
+                  </i> Penguraian: 50 - 500 Tahun </span> <span class="px-4 py-2 bg-linenCream rounded-pill text-inkBlack"> <i class="fa-solid fa-hand-holding-dollar mr-1.5 text-stoneGray">
+                  </i> Potensi Ekonomi: Tinggi </span> <span class="px-4 py-2 bg-linenCream rounded-pill text-inkBlack"> <i class="fa-solid fa-industry mr-1.5 text-stoneGray">
+                  </i> Alur: Daur Ulang / Upcycling </span> </div>
+            </div>
+            <div class="overflow-hidden rounded-card shadow-ecosia-xl aspect-[4/3]"> <iframe width="100%" height="100%" src="https://www.youtube.com/embed/REPLACE_ANORGANIK" title="Video edukasi sampah anorganik" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="w-full h-full"></iframe> </div>
+          </div> <!-- Kode Segitiga Plastik (1 - 7) secara mendalam -->
+          <div class="content-section space-y-6">
+            <h3 class="font-display font-bold text-inkBlack">Memahami Kode Daur Ulang Plastik (RIC)</h3>
+            <p class="text-stoneGray text-base leading-relaxed"> Kode angka di dalam simbol segitiga daur ulang disebut <em>Resin Identification Code</em> (RIC). Kode ini menunjukkan jenis bahan plastik penyusun produk tersebut, yang menentukan apakah bahan tersebut aman digunakan kembali dan bagaimana cara daur ulangnya: </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+              <div class="bg-warmMist rounded-card p-5 border border-ashBorder/10 space-y-2 flex flex-col justify-between">
+                <div>
+                  <div class="w-8 h-8 rounded-full bg-[#3aa8e0]/15 flex items-center justify-center text-[#3aa8e0] font-bold text-sm mb-2">1</div>
+                  <h4 class="font-bold text-inkBlack text-sm">PET / PETE</h4>
+                  <p class="text-stoneGray leading-relaxed mt-1 text-[11px]"> <strong>Polyethylene Terephthalate</strong>. Plastik jernih, tipis, sekali pakai. </p>
+                </div>
+                <div class="inset-detail space-y-1"> <span class="block text-xs text-stoneGray">Contoh: Botol air mineral, botol kecap.</span> <span class="block text-xs text-[#2d8c3a] font-bold mt-1">Daur Ulang: Sangat Mudah œ“</span> </div>
+              </div>
+              <div class="bg-warmMist rounded-card p-5 border border-ashBorder/10 space-y-2 flex flex-col justify-between">
+                <div>
+                  <div class="w-8 h-8 rounded-full bg-[#3aa8e0]/15 flex items-center justify-center text-[#3aa8e0] font-bold text-sm mb-2">2</div>
+                  <h4 class="font-bold text-inkBlack text-sm">HDPE</h4>
+                  <p class="text-stoneGray leading-relaxed mt-1 text-[11px]"> <strong>High-Density Polyethylene</strong>. Plastik tebal, kaku, tahan suhu tinggi. </p>
+                </div>
+                <div class="inset-detail space-y-1"> <span class="block text-xs text-stoneGray">Contoh: Botol detergen, botol sampo, jerigen.</span> <span class="block text-xs text-[#2d8c3a] font-bold mt-1">Daur Ulang: Sangat Mudah œ“</span> </div>
+              </div>
+              <div class="bg-warmMist rounded-card p-5 border border-ashBorder/10 space-y-2 flex flex-col justify-between">
+                <div>
+                  <div class="w-8 h-8 rounded-full bg-[#e44b4b]/15 flex items-center justify-center text-[#e44b4b] font-bold text-sm mb-2">3</div>
+                  <h4 class="font-bold text-inkBlack text-sm text-red-600">PVC</h4>
+                  <p class="text-stoneGray leading-relaxed mt-1 text-[11px]"> <strong>Polyvinyl Chloride</strong>. Mengandung klorin beracun, sangat berbahaya jika dibakar. </p>
+                </div>
+                <div class="inset-detail space-y-1"> <span class="block text-xs text-stoneGray">Contoh: Pipa air, kabel listrik, mainan plastik keras.</span> <span class="block text-xs text-[#e44b4b] font-bold mt-1">Daur Ulang: Sangat Sulit ✗</span> </div>
+              </div>
+              <div class="bg-warmMist rounded-card p-5 border border-ashBorder/10 space-y-2 flex flex-col justify-between">
+                <div>
+                  <div class="w-8 h-8 rounded-full bg-[#3aa8e0]/15 flex items-center justify-center text-[#3aa8e0] font-bold text-sm mb-2">4</div>
+                  <h4 class="font-bold text-inkBlack text-sm">LDPE</h4>
+                  <p class="text-stoneGray leading-relaxed mt-1 text-[11px]"> <strong>Low-Density Polyethylene</strong>. Elastis, tipis, memiliki resistansi air yang baik. </p>
+                </div>
+                <div class="inset-detail space-y-1"> <span class="block text-xs text-stoneGray">Contoh: Kantong plastik kresek, cling wrap.</span> <span class="block text-xs text-stoneGray font-bold mt-1">Daur Ulang: Cukup Sulit ~</span> </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs pt-2">
+              <div class="bg-warmMist rounded-card p-5 border border-ashBorder/10 space-y-2 flex flex-col justify-between">
+                <div>
+                  <div class="w-8 h-8 rounded-full bg-[#3aa8e0]/15 flex items-center justify-center text-[#3aa8e0] font-bold text-sm mb-2">5</div>
+                  <h4 class="font-bold text-inkBlack text-sm">PP</h4>
+                  <p class="text-stoneGray leading-relaxed mt-1 text-[11px]"> <strong>Polypropylene</strong>. Jenis plastik terbaik untuk kemasan makanan dan minuman. Tahan panas tinggi. </p>
+                </div>
+                <div class="inset-detail space-y-1"> <span class="block text-xs text-stoneGray">Contoh: Kotak makan thinwall, botol bayi, tutup botol.</span> <span class="block text-xs text-[#2d8c3a] font-bold mt-1">Daur Ulang: Mudah œ“</span> </div>
+              </div>
+              <div class="bg-warmMist rounded-card p-5 border border-ashBorder/10 space-y-2 flex flex-col justify-between">
+                <div>
+                  <div class="w-8 h-8 rounded-full bg-[#e44b4b]/15 flex items-center justify-center text-[#e44b4b] font-bold text-sm mb-2">6</div>
+                  <h4 class="font-bold text-inkBlack text-sm text-red-600">PS</h4>
+                  <p class="text-stoneGray leading-relaxed mt-1 text-[11px]"> <strong>Polystyrene</strong>. Ringan dan berongga. Dapat melepaskan stirena jika terkena panas tinggi. </p>
+                </div>
+                <div class="inset-detail space-y-1"> <span class="block text-xs text-stoneGray">Contoh: Styrofoam wadah makanan, cangkir kopi busa.</span> <span class="block text-xs text-[#e44b4b] font-bold mt-1">Daur Ulang: Sangat Sulit ✗</span> </div>
+              </div>
+              <div class="bg-warmMist rounded-card p-5 border border-ashBorder/10 space-y-2 flex flex-col justify-between">
+                <div>
+                  <div class="w-8 h-8 rounded-full bg-[#e44b4b]/15 flex items-center justify-center text-[#e44b4b] font-bold text-sm mb-2">7</div>
+                  <h4 class="font-bold text-inkBlack text-sm text-red-600">OTHER (Lainnya)</h4>
+                  <p class="text-stoneGray leading-relaxed mt-1 text-[11px]"> Plastik campuran (ABS, PC, Nylon) atau bioplastik. Sangat sulit diidentifikasi jenis resinnya di TPA umum. </p>
+                </div>
+                <div class="inset-detail space-y-1"> <span class="block text-xs text-stoneGray">Contoh: Botol galon air polycarbonate, casing elektronik.</span> <span class="block text-xs text-[#e44b4b] font-bold mt-1">Daur Ulang: Sangat Sulit ✗</span> </div>
+              </div>
+            </div>
+          </div> <!-- Klasifikasi Non-Plastik: Kertas, Kaca, Logam -->
+          <div class="content-section space-y-6">
+            <h3 class="font-display font-bold text-inkBlack">Material Anorganik Non-Plastik</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-base">
+              <div class="bg-warmMist rounded-card p-6 space-y-3">
+                <div class="w-10 h-10 rounded-full bg-[#3aa8e0]/10 flex items-center justify-center text-[#3aa8e0]"> <i class="fa-solid fa-newspaper text-lg">
+                  </i> </div>
+                <h4 class="font-bold text-inkBlack text-base">Kertas &amp; Karton</h4>
+                <p class="text-stoneGray leading-relaxed"> Termasuk kardus, koran, kertas tulis, dan amplop. Daur ulang serat selulosa menghemat penggunaan pohon hutan. </p>
+                <div class="inset-detail text-xs text-stoneGray"> <strong>Catatan Penting:</strong> Kertas kotor terkena minyak makanan (seperti dus pizza) atau kertas laminasi plastik (kertas nasi cokelat) tidak bisa didaur ulang. </div>
+              </div>
+              <div class="bg-warmMist rounded-card p-6 space-y-3">
+                <div class="w-10 h-10 rounded-full bg-[#3aa8e0]/10 flex items-center justify-center text-[#3aa8e0]"> <i class="fa-solid fa-wine-bottle text-lg">
+                  </i> </div>
+                <h4 class="font-bold text-inkBlack text-base">Gelas &amp; Kaca</h4>
+                <p class="text-stoneGray leading-relaxed"> Botol sirup, toples selai, dan kemasan kosmetik kaca. Kaca adalah material luar biasa karena bisa didaur ulang 100% tanpa batas waktu. </p>
+                <div class="inset-detail text-xs text-stoneGray"> <strong>Catatan Penting:</strong> Keramik, kaca cermin, dan lampu kaca tidak boleh dicampur karena memiliki titik lebur yang berbeda dari kaca botol biasa. </div>
+              </div>
+              <div class="bg-warmMist rounded-card p-6 space-y-3">
+                <div class="w-10 h-10 rounded-full bg-[#3aa8e0]/10 flex items-center justify-center text-[#3aa8e0]"> <i class="fa-solid fa-cubes text-lg">
+                  </i> </div>
+                <h4 class="font-bold text-inkBlack text-base">Kaleng &amp; Logam</h4>
+                <p class="text-stoneGray leading-relaxed"> Kaleng soda aluminium, kaleng sarden (besi), seng. Memiliki nilai jual yang paling tinggi karena penghematan energi peleburan yang masif. </p>
+                <div class="inset-detail text-xs text-stoneGray"> <strong>Catatan Penting:</strong> Bersihkan cairan sisa minuman agar tidak menimbulkan aroma tidak sedap yang memicu kedatangan serangga di tempat penyimpanan. </div>
+              </div>
+            </div>
+          </div> <!-- Cara Memilah Anorganik -->
+          <div class="content-section space-y-6">
+            <h3 class="font-display font-bold text-inkBlack">Protokol "Cuci, Kering, Simpan" (CKS)</h3>
+            <p class="text-stoneGray text-base leading-relaxed"> Ikuti 3 langkah mudah memilah sampah anorganik dari rumah agar memiliki nilai jual tinggi dan diterima oleh fasilitas daur ulang: </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+              <div class="bg-warmMist rounded-card p-5 space-y-2 text-center">
+                <div class="w-8 h-8 rounded-full bg-[#3aa8e0]/15 flex items-center justify-center text-[#3aa8e0] font-bold text-sm mx-auto">1</div>
+                <div class="font-bold text-inkBlack">Bilas &amp; Cuci (Clean)</div>
+                <p class="text-xs text-stoneGray leading-relaxed"> Bilas sisa minuman, susu, minyak, atau saus pada botol plastik dan kaleng soda dengan air sisa cucian piring. </p>
+              </div>
+              <div class="bg-warmMist rounded-card p-5 space-y-2 text-center">
+                <div class="w-8 h-8 rounded-full bg-[#3aa8e0]/15 flex items-center justify-center text-[#3aa8e0] font-bold text-sm mx-auto">2</div>
+                <div class="font-bold text-inkBlack">Keringkan (Dry)</div>
+                <p class="text-xs text-stoneGray leading-relaxed"> Tiriskan botol/kaleng dengan membalikkan posisinya hingga kering sempurna agar tidak berjamur atau berbau busuk. </p>
+              </div>
+              <div class="bg-warmMist rounded-card p-5 space-y-2 text-center">
+                <div class="w-8 h-8 rounded-full bg-[#3aa8e0]/15 flex items-center justify-center text-[#3aa8e0] font-bold text-sm mx-auto">3</div>
+                <div class="font-bold text-inkBlack">Pipihkan &amp; Simpan (Compress)</div>
+                <p class="text-xs text-stoneGray leading-relaxed"> Remas botol plastik atau lipat dus hingga pipih guna menghemat kapasitas penyimpanan sebelum dikirim ke Bank Sampah. </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- ===================== Panel 3: B3 ===================== -->
+        <div id="content-b3" class="tab-panel stack-loose hidden" role="tabpanel" aria-labelledby="tab-b3" hidden> <!-- Hero Split Section -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6"> 
+              <h2 class="font-display font-bold text-inkBlack">Mengenal Sampah B3 Rumah Tangga</h2>
+              <div class="callout-quote">
+                <p class="text-inkBlack text-base font-semibold italic leading-relaxed text-measure"> "B3 (Bahan Berbahaya dan Beracun) adalah limbah dari produk sehari-hari yang mengandung zat kimia berbahaya yang dapat mencemari lingkungan dan membahayakan kesehatan manusia baik secara langsung maupun tidak langsung." </p>
+              </div>
+              <p class="text-stoneGray text-sm sm:text-base leading-relaxed text-measure"> Meskipun terdengar seperti industri besar, rumah tangga modern memproduksi limbah B3 dalam jumlah besar. Setiap kali Anda membuang baterai bekas, lampu neon rusak, wadah semprotan nyamuk, obat kedaluwarsa, atau sisa oli motor ke tempat sampah biasa, Anda sedang merilis bahan beracun ke lingkungan kita. </p>
+              <p class="text-stoneGray text-sm sm:text-base leading-relaxed text-measure"> Sebagai contoh nyata, satu buah baterai AA bekas mengandung logam berat merkuri dan kadmium yang dapat meresap ke dalam tanah dan mencemari hingga <strong>600.000 liter air tanah</strong> di sekitarnya. Air tanah yang tercemar ini apabila disedot oleh pompa air warga untuk diminum dapat menimbulkan kerusakan saraf permanen dan kanker dalam jangka panjang. </p>
+              <div class="flex flex-wrap gap-3 text-xs font-semibold"> <span class="px-4 py-2 bg-linenCream rounded-pill text-inkBlack"> <i class="fa-solid fa-skull mr-1.5 text-[#e44b4b]">
+                  </i> Sifat: Toksik / Reaktif / Korosif </span> <span class="px-4 py-2 bg-linenCream rounded-pill text-inkBlack"> <i class="fa-solid fa-circle-radiation mr-1.5 text-stoneGray">
+                  </i> Bahaya Utama: Pencemaran Air Tanah </span> </div>
+            </div>
+            <div class="overflow-hidden rounded-card shadow-ecosia-xl aspect-[4/3]"> <iframe width="100%" height="100%" src="https://www.youtube.com/embed/REPLACE_B3" title="Video edukasi sampah B3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="w-full h-full"></iframe> </div>
+          </div> <!-- Bahaya Spesifik Bahan Kimia B3 Rumah Tangga -->
+          <div class="content-section space-y-6">
+            <h3 class="font-display font-bold text-inkBlack">Dampak Racun B3 Terhadap Tubuh &amp; Alam</h3>
+            <p class="text-stoneGray text-base leading-relaxed"> Berikut adalah penjelasan zat beracun yang terkandung pada limbah rumah tangga kita dan efek berbahayanya jika dibuang sembarangan: </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-base">
+              <div class="bg-warmMist rounded-card p-6 space-y-3">
+                <div class="w-10 h-10 rounded-full bg-[#e44b4b]/10 flex items-center justify-center text-[#e44b4b]"> <i class="fa-solid fa-battery-quarter text-lg">
+                  </i> </div>
+                <h4 class="font-bold text-inkBlack text-base">Baterai Bekas (Logam Berat)</h4>
+                <p class="text-stoneGray leading-relaxed"> Mengandung <strong>Merkuri, Kadmium, dan Timbal</strong>. Logam berat ini bersifat bioakumulatif (menumpuk di dalam tubuh) dan tidak bisa hancur. </p>
+                <div class="inset-detail text-xs text-stoneGray"> <strong>Risiko Kesehatan:</strong> Merusak fungsi ginjal secara permanen, menyebabkan cacat lahir pada janin, serta mengganggu sistem koordinasi motorik. </div>
+              </div>
+              <div class="bg-warmMist rounded-card p-6 space-y-3">
+                <div class="w-10 h-10 rounded-full bg-[#e44b4b]/10 flex items-center justify-center text-[#e44b4b]"> <i class="fa-solid fa-lightbulb text-lg">
+                  </i> </div>
+                <h4 class="font-bold text-inkBlack text-base">Lampu Neon (Uap Merkuri)</h4>
+                <p class="text-stoneGray leading-relaxed"> Lampu hemat energi (CFL) dan lampu tabung (neon) mengandung gas uap merkuri di dalam tabung kacanya untuk memicu pendaran cahaya. </p>
+                <div class="inset-detail text-xs text-stoneGray"> <strong>Risiko Kesehatan:</strong> Jika tabung lampu pecah, uap merkuri langsung terlepas ke udara bebas dan dapat terhirup oleh manusia, berisiko merusak jaringan paru-paru dan otak. </div>
+              </div>
+              <div class="bg-warmMist rounded-card p-6 space-y-3">
+                <div class="w-10 h-10 rounded-full bg-[#e44b4b]/10 flex items-center justify-center text-[#e44b4b]"> <i class="fa-solid fa-spray-can text-lg">
+                  </i> </div>
+                <h4 class="font-bold text-inkBlack text-base">Kaleng Aerosol (Gas Reaktif)</h4>
+                <p class="text-stoneGray leading-relaxed"> Penyemprot nyamuk kaleng, deodoran semprot, atau cat semprot (Pylox) dikemas di bawah tekanan tinggi dengan gas pendorong yang mudah terbakar. </p>
+                <div class="inset-detail text-xs text-stoneGray"> <strong>Risiko Kesehatan:</strong> Kaleng aerosol yang dibuang tercampur dengan sampah kering berisiko meledak hebat saat ditekan di truk sampah atau dibakar di tempat pembakaran liar. </div>
+              </div>
+            </div>
+          </div> <!-- Tabel Detail B3 Rumah Tangga -->
+          <div class="content-section space-y-6">
+            <h3 class="font-display font-bold text-inkBlack">Daftar Jenis B3 Rumah Tangga &amp; Protokol Pembuangan Aman</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-sm border-collapse">
+                <thead>
+                  <tr class="border-b border-ashBorder/30 text-stoneGray text-xs font-bold uppercase tracking-wider">
+                    <th class="pb-3 pr-4">Nama Limbah</th>
+                    <th class="pb-3 px-4">Bahaya Spesifik</th>
+                    <th class="pb-3 pl-4">Protokol Penanganan yang Benar dari Rumah</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-ashBorder/10 text-stoneGray">
+                  <tr class="align-top">
+                    <td class="py-4 pr-4 font-bold text-inkBlack">Obat-obatan Kedaluwarsa</td>
+                    <td class="py-4 px-4">Meracuni ekosistem perairan jika dibuang di toilet; disalahgunakan jika botol kemasannya ditemukan utuh.</td>
+                    <td class="py-4 pl-4 text-xs"> Keluarkan tablet dari strip, campur dengan ampas kopi bekas agar tidak dikonsumsi hewan, hancurkan kemasan luar/label, bungkus plastik rapat lalu buang ke tempat sampah umum. </td>
+                  </tr>
+                  <tr class="align-top">
+                    <td class="py-4 pr-4 font-bold text-inkBlack">Oli Motor Bekas &amp; Aki Sisa</td>
+                    <td class="py-4 px-4">Mengandung timbal tinggi dan sulfur korosif yang merusak mikroba tanah penunjang tumbuhan.</td>
+                    <td class="py-4 pl-4 text-xs"> Tampung oli bekas ke jerigen plastik tebal yang ditutup rapat. Bawa dan serahkan ke bengkel terdekat untuk diteruskan ke depo oli daur ulang resmi. Jangan pernah siram ke selokan. </td>
+                  </tr>
+                  <tr class="align-top">
+                    <td class="py-4 pr-4 font-bold text-inkBlack">Cairan Pembersih Lantai &amp; Kamar Mandi</td>
+                    <td class="py-4 px-4">Zat asam kuat (asam klorida pekat) beracun, melukai kulit petugas pengangkut sampah jika bocor.</td>
+                    <td class="py-4 pl-4 text-xs"> Gunakan cairan hingga habis tak bersisa. Jika masih ada sisa cairan, encerkan dengan air mengalir sebelum dibuang. Cuci botol kemasannya sebelum dicampur sampah plastik daur ulang. </td>
+                  </tr>
+                  <tr class="align-top">
+                    <td class="py-4 pr-4 font-bold text-inkBlack">Termometer Merkuri Rusak</td>
+                    <td class="py-4 px-4">Mengandung merkuri cair perak yang sangat beracun dan cepat menguap pada suhu ruang normal.</td>
+                    <td class="py-4 pl-4 text-xs"> Jangan gunakan sapu atau penyedot debu (vacuum cleaner) jika pecah karena akan menyebarkan uap racun. Gunakan kertas tebal untuk menyapu cairan merkuri, wadahi di stoples tertutup rapat. </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div> <!-- Do's and Dont's B3 -->
+          <div class="bg-linenCream rounded-card p-6 space-y-4">
+            <h4 class="font-bold text-inkBlack text-base flex items-center gap-2"> <i class="fa-solid fa-ban text-[#e44b4b]">
+              </i> Aturan Mutlak Penanganan Limbah B3 Rumah Tangga </h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs text-stoneGray">
+              <div class="space-y-2"> <span class="font-bold text-inkBlack uppercase tracking-wider text-xs text-green-700 block">œ“ Lakukan Hal Ini:</span>
+                <ul class="space-y-1.5 list-none">
+                  <li>• Kumpulkan baterai bekas secara mandiri di botol plastik kering tertutup.</li>
+                  <li>• Serahkan lampu neon bekas secara terpisah kepada petugas sampah dengan dilapisi kardus pelindung agar tidak pecah di jalan.</li>
+                  <li>• Manfaatkan kotak pengumpulan sampah elektronik (e-waste drop-off) di fasilitas umum.</li>
+                </ul>
+              </div>
+              <div class="space-y-2"> <span class="font-bold text-inkBlack uppercase tracking-wider text-xs text-red-600 block">✗ Jangan Pernah Lakukan Ini:</span>
+                <ul class="space-y-1.5 list-none">
+                  <li>• <strong>Jangan membakar</strong> wadah kaleng aerosol atau baterai bekas karena berisiko meledak dan memicu kebakaran TPA.</li>
+                  <li>• <strong>Jangan menuangkan</strong> cat bekas, oli bekas, atau pelarut cat (thinner) langsung ke selokan air depan rumah.</li>
+                  <li>• <strong>Jangan menyimpan</strong> wadah B3 bocor dalam ruangan berventilasi buruk.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> <!-- Warm Mist Callout to Game -->
+    <section class="w-full bg-warmMist section-cta border-t border-ashBorder/20">
+      <div class="max-w-4xl mx-auto px-6 text-center space-y-6 animate-on-scroll">
+        <h2 class="font-display text-2xl sm:text-3xl font-bold text-inkBlack">Uji Pengetahuanmu Lewat Game Interaktif</h2>
+        <p class="text-stoneGray text-sm max-w-xl mx-auto leading-relaxed"> Setelah memahami teori klasifikasi di atas, latih ketangkasan dan pemahaman Anda melalui game drag-and-drop simulasi pilah sampah. </p>
+        <div class="pt-2 flex flex-col sm:flex-row justify-center gap-4"> <a href="game.html" class="inline-flex items-center justify-center px-6 py-3 rounded-pill bg-limeCanopy hover:opacity-95 text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200"> Uji Game Simulasi Pilah </a> </div>
+      </div>
+    </section>
+  </main>   <!-- Linen Cream Footer — Distilled for Minimalist Ecosia aesthetic -->
+  <footer class="bg-linenCream text-inkBlack border-t border-ashBorder/30 py-16">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12"> <!-- Brand column -->
+      <div class="space-y-4"> <a href="index.html" class="inline-block"> <img src="assets/logo.svg" alt="Logo KEDIS" class="h-10 w-auto" loading="lazy"> </a>
+        <p class="text-xs text-stoneGray leading-relaxed max-w-sm"> Kampanye kesadaran digital untuk pemilahan sampah mandiri dari pintu rumah tangga demi lingkungan perkotaan yang sehat dan berkelanjutan. </p>
+        <div class="flex space-x-4 pt-2 text-stoneGray"> <a href="#" aria-label="Instagram KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-instagram text-lg">
+            </i>
+          </a> <a href="#" aria-label="GitHub KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-github text-lg">
+            </i>
+          </a> <a href="#" aria-label="YouTube KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-youtube text-lg">
+            </i>
+          </a> </div>
+      </div> <!-- Contest Info Column -->
+      <div class="space-y-4 md:text-right md:flex md:flex-col md:items-end">
+        <h3 class="font-display text-sm font-bold uppercase tracking-wider text-inkBlack">INVENTION 2026</h3>
+        <p class="text-xs text-stoneGray leading-relaxed max-w-xs md:text-right"> Karya orisinal subtema "Going Green Through Smart Digital Solutions" dalam kompetisi Web Design INVENTION 2026. </p>
+      </div>
+    </div> <!-- Bottom Copyright & Inline Navigation -->
+    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-ashBorder/20 flex flex-col md:flex-row justify-between items-center text-xs text-stoneGray font-bold uppercase tracking-wider gap-4">
+      <div> &copy; 2026 KEDIS. Hak Cipta Dilindungi. Edisi INVENTION 2026. </div>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2"> <a href="index.html" class="hover:text-inkBlack transition-colors">Beranda</a> <a href="edukasi.html" class="hover:text-inkBlack transition-colors">Eco-Learn</a> <a href="komunitas.html" class="hover:text-inkBlack transition-colors">Eco-Connect</a> <a href="game.html" class="hover:text-inkBlack transition-colors">Eco-Play</a> <a href="tentang.html" class="hover:text-inkBlack transition-colors">Tentang</a> </div>
+    </div>
+  </footer> <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+  </script> <!-- Custom JS -->
+  <script src="js/main.js">
+  </script> <!-- jQuery Tabs Script (Ecosia Pill Chip toggle style) -->
+  <script>
+    $(document).ready(function() {
+      // Check query parameter 'q' (from home search bar redirection) to pre-select tab if matching keyword
+      const urlParams = new URLSearchParams(window.location.search);
+      const tabTarget = urlParams.get('tab');
+      const query = urlParams.get('q');
+      
+      if (tabTarget) {
+        switchTab(tabTarget);
+      } else if (query) {
+        const qLower = query.toLowerCase();
+        if (qLower.includes('plastik') || qLower.includes('kertas') || qLower.includes('logam') || qLower.includes('kaca') || qLower.includes('anorganik')) {
+          switchTab('anorganik');
+        } else if (qLower.includes('baterai') || qLower.includes('neon') || qLower.includes('lampu') || qLower.includes('racun') || qLower.includes('b3') || qLower.includes('oli')) {
+          switchTab('b3');
+        } else {
+          switchTab('organik');
+        }
+      }
+
+      $('.tab-btn').on('click', function () {
+        const targetTab = $(this).data('tab');
+        switchTab(targetTab);
+      });
+
+      function switchTab(target) {
+        $('.tab-btn').each(function () {
+          const isTarget = $(this).data('tab') === target;
+          $(this).attr('aria-selected', isTarget);
+          if (isTarget) {
+            $(this).removeClass('bg-warmMist text-stoneGray border border-ashBorder/20 hover:text-inkBlack hover:border-inkBlack/30')
+                   .addClass('bg-limeCanopy text-inkBlack');
+          } else {
+            $(this).removeClass('bg-limeCanopy text-inkBlack')
+                   .addClass('bg-warmMist text-stoneGray border border-ashBorder/20 hover:text-inkBlack hover:border-inkBlack/30');
+          }
+        });
+
+        $('.tab-panel').each(function () {
+          const isTarget = this.id === 'content-' + target;
+          if (isTarget) {
+            $(this).removeClass('hidden').removeAttr('hidden');
+            $(this).css({
+              opacity: 0,
+              transform: 'translateX(16px)',
+              transition: 'none'
+            });
+            // Force reflow
+            this.offsetHeight;
+            $(this).css({
+              transition: 'opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+              opacity: 1,
+              transform: 'translateX(0)'
+            });
+          } else {
+            $(this).addClass('hidden').attr('hidden', '').css({
+              opacity: '',
+              transform: '',
+              transition: ''
+            });
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
+
