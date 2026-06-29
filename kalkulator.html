@@ -5,71 +5,157 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Eco-Monitor KEDIS - Hitung estimasi jejak karbon sampah rumah tangga mingguan Anda dan ketahui kontribusi pencegahan emisi setara pohon.">
-  <title>Eco-Monitor: Hitung Jejak Karbon - KEDIS</title> <!-- Google Fonts: Space Grotesk (Headings), Inter (Body/UI) -->
+  <title>Eco-Monitor: Hitung Jejak Karbon - KEDIS</title>
+  <!-- Google Fonts: Space Grotesk (Headings), Inter (Body/UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"> <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"> <!-- Tailwind CSS Play CDN -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- Tailwind CSS Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        limeCanopy: '#d7eb80',
-        inkBlack: '#333333',
-        paperWhite: '#ffffff',
-        warmMist: '#f8f8f6',
-        linenCream: '#f0f0eb',
-        stoneGray: '#6c6c6c',
-        ashBorder: '#bebeb9',
-      },
-      fontFamily: {
-        sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      theme: {
+        extend: {
+          colors: {
+            limeCanopy: '#d7eb80',
+            inkBlack: '#333333',
+            paperWhite: '#ffffff',
+            warmMist: '#f8f8f6',
+            linenCream: '#f0f0eb',
+            stoneGray: '#6c6c6c',
+            ashBorder: '#bebeb9',
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          }
+        }
       }
     }
-  }
-}
-  </script> <!-- Custom CSS -->
+  </script>
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="bg-paperWhite font-sans text-inkBlack antialiased selection:bg-limeCanopy/40 selection:text-inkBlack"> <!-- Floating Capsule Header -->
+<body class="bg-paperWhite font-sans text-inkBlack antialiased selection:bg-limeCanopy/40 selection:text-inkBlack">
+
+  <!-- Floating Capsule Header -->
   <header id="main-header" class="header-subpage">
-    <div id="header-pill"> <a href="index.html" class="flex items-center shrink-0"> <img src="assets/logo.svg" alt="Logo KEDIS" class="logo-img h-10 w-auto"> </a>
-      <nav aria-label="Navigasi Utama" class="hidden md:flex items-center space-x-7 text-sm font-semibold"> <a href="index.html" class="nav-link pb-0.5 border-b-2 border-transparent">Beranda</a> <a href="edukasi.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Learn</a> <a href="komunitas.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Connect</a> <a href="game.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Play</a> <a href="tentang.html" class="nav-link pb-0.5 border-b-2 border-transparent">Tentang</a> </nav>
-      <div class="flex items-center gap-3"> <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-limeCanopy hover:opacity-90 text-inkBlack text-xs font-bold uppercase tracking-wider transition-opacity duration-200"> <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah </a> <button id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi" class="md:hidden w-11 h-11 flex items-center justify-center"> <i class="fa-solid fa-bars text-xl"></i> </button> </div>
+    <div id="header-pill">
+      <a href="index.html" class="flex items-center shrink-0">
+        <img src="assets/logo.svg" alt="Logo KEDIS" class="logo-img h-10 w-auto">
+      </a>
+      
+      <!-- Desktop Nav -->
+      <nav aria-label="Navigasi Utama" class="hidden md:flex items-center space-x-7 text-sm font-semibold">
+        <a href="index.html" class="nav-link pb-0.5 border-b-2 border-transparent">Beranda</a>
+        
+        <!-- Eco-Learn Dropdown -->
+        <div class="relative py-2">
+          <button id="desktop-dropdown-trigger" type="button" class="nav-link pb-0.5 border-b-2 border-transparent flex items-center gap-1 hover:text-inkBlack transition-colors">
+            Eco-Learn <i class="fa-solid fa-chevron-down text-[8px] transition-transform"></i>
+          </button>
+          <div id="desktop-dropdown-menu" class="absolute top-full left-0 mt-1 w-40 bg-white border border-ashBorder/20 rounded-xl shadow-lg hidden z-50 py-2">
+            <a href="edukasi.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-stoneGray hover:text-inkBlack transition-colors">Kenali Pilah</a>
+            <a href="artikel.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-stoneGray hover:text-inkBlack transition-colors">Kelas Edukasi</a>
+          </div>
+        </div>
+
+        <a href="komunitas.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Connect</a>
+        <a href="game.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Play</a>
+        <a href="tentang.html" class="nav-link pb-0.5 border-b-2 border-transparent">Tentang</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-limeCanopy hover:opacity-90 text-inkBlack text-xs font-bold uppercase tracking-wider transition-opacity duration-200">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        </a>
+        <button id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi" class="md:hidden w-11 h-11 flex items-center justify-center">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
     </div>
+
+    <!-- Mobile Dropdown -->
     <div id="mobile-menu" class="hidden md:hidden floating-menu mx-4 mt-0">
-      <nav aria-label="Navigasi Seluler" class="flex flex-col space-y-4 text-sm font-semibold"> <a href="index.html" class="text-stoneGray hover:text-inkBlack">Beranda</a> <a href="edukasi.html" class="text-stoneGray hover:text-inkBlack">Eco-Learn</a> <a href="komunitas.html" class="text-stoneGray hover:text-inkBlack">Eco-Connect</a> <a href="game.html" class="text-stoneGray hover:text-inkBlack">Eco-Play</a> <a href="tentang.html" class="text-stoneGray hover:text-inkBlack">Tentang Kami</a> <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-limeCanopy text-inkBlack text-xs font-bold uppercase tracking-wider"> <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah </a> </nav>
+      <nav aria-label="Navigasi Seluler" class="flex flex-col space-y-4 text-sm font-semibold">
+        <a href="index.html" class="text-stoneGray hover:text-inkBlack">Beranda</a>
+        
+        <!-- Mobile Eco-Learn Submenu -->
+        <div class="space-y-2">
+          <span class="text-inkBlack uppercase text-[10px] tracking-wider font-bold block">Eco-Learn</span>
+          <div class="pl-3 flex flex-col space-y-2.5">
+            <a href="edukasi.html" class="text-stoneGray hover:text-inkBlack text-xs">Kenali Pilah</a>
+            <a href="artikel.html" class="text-stoneGray hover:text-inkBlack text-xs">Kelas Edukasi</a>
+          </div>
+        </div>
+
+        <a href="komunitas.html" class="text-stoneGray hover:text-inkBlack">Eco-Connect</a>
+        <a href="game.html" class="text-stoneGray hover:text-inkBlack">Eco-Play</a>
+        <a href="tentang.html" class="text-stoneGray hover:text-inkBlack">Tentang Kami</a>
+        <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-limeCanopy text-inkBlack text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        </a>
+      </nav>
     </div>
   </header>
-  <main class="pt-24"> <!-- Title Banner — Centered with decorative icon anchor -->
+
+  <main class="pt-24">
+    <!-- Title Banner — Centered with decorative icon anchor -->
     <section class="max-w-7xl mx-auto px-6 page-banner">
       <div class="text-center space-y-5">
-        <div class="w-16 h-16 mx-auto rounded-2xl bg-limeCanopy/15 flex items-center justify-center animate-on-scroll stagger-1"> <i class="fa-solid fa-cloud text-2xl text-inkBlack/60"></i> </div> <span class="text-xs font-bold uppercase tracking-widest text-stoneGray block animate-on-scroll stagger-2">EVALUASI EMISI</span>
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-limeCanopy/15 flex items-center justify-center animate-on-scroll stagger-1">
+          <i class="fa-solid fa-cloud text-2xl text-inkBlack/60"></i>
+        </div>
+        <span class="text-xs font-bold uppercase tracking-widest text-stoneGray block animate-on-scroll stagger-2">EVALUASI EMISI</span>
         <h1 class="text-hero font-display font-bold text-inkBlack animate-on-scroll stagger-3">Kalkulator<br>Jejak Karbon</h1>
-        <p class="text-stoneGray text-sm sm:text-base max-w-xl mx-auto leading-relaxed text-measure animate-on-scroll stagger-4"> Sampah organik yang membusuk secara tidak sehat di pembuangan akhir melepaskan gas metana. Masukkan perkiraan berat sampah mingguan Anda untuk menghitung emisi karbon tahunan. </p>
+        <p class="text-stoneGray text-sm sm:text-base max-w-xl mx-auto leading-relaxed text-measure animate-on-scroll stagger-4">
+          Sampah organik yang membusuk secara tidak sehat di pembuangan akhir melepaskan gas metana. Masukkan perkiraan berat sampah mingguan Anda untuk menghitung emisi karbon tahunan.
+        </p>
       </div>
-    </section> <!-- Calculator Input / Output Panel (Clean Warm Mist container) -->
+    </section>
+
+    <!-- Calculator Input / Output Panel (Clean Warm Mist container) -->
     <section class="max-w-7xl mx-auto px-6 page-main">
       <div class="max-w-3xl mx-auto bg-warmMist rounded-card border border-ashBorder/20 p-8 sm:p-10 space-y-8 animate-on-scroll">
-        <h2 class="font-display text-xl font-bold text-inkBlack border-b border-ashBorder/25 pb-4">Estimasi Berat Sampah Rumah Tangga</h2> <!-- Input Grid -->
+        <h2 class="font-display text-xl font-bold text-inkBlack border-b border-ashBorder/25 pb-4">Estimasi Berat Sampah Rumah Tangga</h2>
+        
+        <!-- Input Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="space-y-2"> <label for="weight-organic" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Sampah Organik (Kg/minggu)</label> <input type="number" id="weight-organic" min="0" placeholder="0" class="w-full rounded-pill bg-paperWhite border border-ashBorder px-4 py-3 text-sm font-semibold focus:border-inkBlack transition-colors input-focus-glow"> <span class="text-xs text-stoneGray leading-relaxed block font-medium">Sisa lauk dapur, sayur basi, cangkang telur.</span> </div>
-          <div class="space-y-2"> <label for="weight-plastic" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Sampah Plastik (Kg/minggu)</label> <input type="number" id="weight-plastic" min="0" placeholder="0" class="w-full rounded-pill bg-paperWhite border border-ashBorder px-4 py-3 text-sm font-semibold focus:border-inkBlack transition-colors input-focus-glow"> <span class="text-xs text-stoneGray leading-relaxed block font-medium">Kresek belanja, botol kemasan, sedotan.</span> </div>
-          <div class="space-y-2"> <label for="weight-paper" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Kertas &amp; Karton (Kg/minggu)</label> <input type="number" id="weight-paper" min="0" placeholder="0" class="w-full rounded-pill bg-paperWhite border border-ashBorder px-4 py-3 text-sm font-semibold focus:border-inkBlack transition-colors input-focus-glow"> <span class="text-xs text-stoneGray leading-relaxed block font-medium">Koran lama, kardus paketan tebal, pamflet.</span> </div>
-        </div> <button type="button" id="btn-calculate" class="w-full py-4 rounded-pill bg-limeCanopy text-inkBlack font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-opacity duration-200"> Mulai Hitung Jejak Emisi <i class="fa-solid fa-calculator ml-1.5"></i> </button>
+          <div class="space-y-2">
+            <label for="weight-organic" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Sampah Organik (Kg/minggu)</label>
+            <input type="number" id="weight-organic" min="0" placeholder="0" class="w-full rounded-pill bg-paperWhite border border-ashBorder px-4 py-3 text-sm font-semibold focus:border-inkBlack transition-colors input-focus-glow">
+            <span class="text-xs text-stoneGray leading-relaxed block font-medium">Sisa lauk dapur, sayur basi, cangkang telur.</span>
+          </div>
+          <div class="space-y-2">
+            <label for="weight-plastic" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Sampah Plastik (Kg/minggu)</label>
+            <input type="number" id="weight-plastic" min="0" placeholder="0" class="w-full rounded-pill bg-paperWhite border border-ashBorder px-4 py-3 text-sm font-semibold focus:border-inkBlack transition-colors input-focus-glow">
+            <span class="text-xs text-stoneGray leading-relaxed block font-medium">Kresek belanja, botol kemasan, sedotan.</span>
+          </div>
+          <div class="space-y-2">
+            <label for="weight-paper" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Kertas &amp; Karton (Kg/minggu)</label>
+            <input type="number" id="weight-paper" min="0" placeholder="0" class="w-full rounded-pill bg-paperWhite border border-ashBorder px-4 py-3 text-sm font-semibold focus:border-inkBlack transition-colors input-focus-glow">
+            <span class="text-xs text-stoneGray leading-relaxed block font-medium">Koran lama, kardus paketan tebal, pamflet.</span>
+          </div>
+        </div>
+
+        <button type="button" id="btn-calculate" class="w-full py-4 rounded-pill bg-limeCanopy text-inkBlack font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-opacity duration-200">
+          Mulai Hitung Jejak Emisi <i class="fa-solid fa-calculator ml-1.5"></i>
+        </button>
+
         <div id="result-panel" class="hidden border-t border-ashBorder/25 pt-8 space-y-8 animate-on-scroll" aria-live="polite">
           <h3 class="font-display text-lg font-bold text-inkBlack">Hasil Analisis Kontribusi</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            <div class="space-y-3 bg-paperWhite p-6 rounded-card border border-ashBorder/25"> <span class="text-[11px] text-stoneGray font-bold uppercase tracking-wider block">Pencegahan Emisi Karbon</span>
+            <div class="space-y-3 bg-paperWhite p-6 rounded-card border border-ashBorder/25">
+              <span class="text-[11px] text-stoneGray font-bold uppercase tracking-wider block">Pencegahan Emisi Karbon</span>
               <div class="font-display text-4xl sm:text-5xl font-bold text-inkBlack tabular-nums" id="co2-produced">0.0 Kg CO&#8322;</div>
               <span class="text-xs text-stoneGray font-bold uppercase tracking-wider block">/ Tahun</span>
               <p class="text-xs text-stoneGray leading-relaxed font-medium mt-2">Estimasi emisi karbon setara yang berhasil dikurangi dari pelepasan bebas jika sampah di atas dipilah dengan benar.</p>
             </div>
-            <div class="space-y-3 bg-limeCanopy p-6 rounded-card border border-limeCanopy/40 text-inkBlack shadow-sm animate-on-scroll"> <span class="text-[11px] text-inkBlack/70 font-bold uppercase tracking-wider block">Kemampuan Serap Setara</span>
+            <div class="space-y-3 bg-limeCanopy p-6 rounded-card border border-limeCanopy/40 text-inkBlack shadow-sm animate-on-scroll">
+              <span class="text-[11px] text-inkBlack/70 font-bold uppercase tracking-wider block">Kemampuan Serap Setara</span>
               <div class="font-display text-4xl sm:text-5xl font-bold text-inkBlack tabular-nums" id="trees-saved">0 Pohon</div>
               <span class="text-xs text-inkBlack/70 font-bold uppercase tracking-wider block">/ Tahun</span>
               <p class="text-xs text-inkBlack/80 leading-relaxed font-medium mt-2">Memilah sampah di atas secara rutin setara dengan menanam sejumlah pohon dewasa yang aktif menyerap CO&#8322; dari udara bebas.</p>
@@ -77,300 +163,82 @@
           </div>
           <div class="bg-inkBlack text-white p-6 rounded-card flex items-start space-x-4 shadow-md">
             <div class="text-2xl text-limeCanopy mt-0.5"><i class="fa-solid fa-circle-info"></i></div>
-            <div class="space-y-1 text-xs"> <strong class="text-sm font-display block text-limeCanopy font-bold">Rekomendasi Aksi Nyata</strong>
+            <div class="space-y-1 text-xs">
+              <strong class="text-sm font-display block text-limeCanopy font-bold">Rekomendasi Aksi Nyata</strong>
               <p id="recommendation-text" class="text-white/90 leading-relaxed font-medium">Masukkan estimasi berat sampah Anda pada kolom input di atas untuk melihat panduan tindakan reduksi spesifik.</p>
             </div>
-          </div> <!-- Certificate CTA -->
+          </div>
+          
+          <!-- Certificate CTA -->
           <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-ashBorder/20 mt-6">
             <div class="text-center sm:text-left space-y-1">
               <h4 class="font-display text-sm font-bold text-inkBlack">Dapatkan Apresiasi Digital Anda!</h4>
               <p class="text-xs text-stoneGray">Cetak sertifikat resmi partisipasi penyelamatan emisi karbon dari KEDIS.</p>
-            </div> <button type="button" id="btn-print-cert" class="w-full sm:w-auto px-6 py-3 rounded-pill bg-inkBlack text-paperWhite hover:bg-inkBlack/90 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"> <i class="fa-solid fa-print"></i> Cetak Sertifikat </button>
+            </div>
+            <button type="button" id="btn-print-cert" class="w-full sm:w-auto px-6 py-3 rounded-pill bg-inkBlack text-paperWhite hover:bg-inkBlack/90 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors">
+              <i class="fa-solid fa-print"></i> Cetak Sertifikat
+            </button>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Bottom Action Callout -->
     <section class="w-full bg-warmMist section-cta border-t border-ashBorder/20">
       <div class="max-w-4xl mx-auto px-6 text-center space-y-6 animate-on-scroll">
         <h2 class="font-display text-display font-bold text-inkBlack">Sudah Mengetahui Jejak Karbonmu?</h2>
         <p class="text-stoneGray text-sm max-w-xl mx-auto leading-relaxed">Mulailah menyalurkan hasil pilahan sampah kering Anda ke kelompok peduli lingkungan terdekat. Cari tahu keberadaannya di Eco-Connect.</p>
-        <div class="pt-2 flex flex-col sm:flex-row justify-center gap-4"> <a href="komunitas.html" class="inline-flex items-center justify-center px-6 py-3 rounded-pill bg-limeCanopy hover:opacity-95 text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200">Cari Komunitas Terdekat</a> <a href="edukasi.html" class="inline-flex items-center justify-center px-6 py-3 rounded-pill border border-inkBlack hover:bg-inkBlack hover:text-paperWhite text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200">Pelajari Panduan Pilah</a> </div>
+        <div class="pt-2 flex flex-col sm:flex-row justify-center gap-4">
+          <a href="komunitas.html" class="inline-flex items-center justify-center px-6 py-3 rounded-pill bg-limeCanopy hover:opacity-95 text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200">Cari Komunitas Terdekat</a>
+          <a href="edukasi.html" class="inline-flex items-center justify-center px-6 py-3 rounded-pill border border-inkBlack hover:bg-inkBlack hover:text-paperWhite text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200">Pelajari Panduan Pilah</a>
+        </div>
       </div>
     </section>
   </main>
+
   <!-- Linen Cream Footer — Distilled for Minimalist Ecosia aesthetic -->
   <footer class="bg-linenCream text-inkBlack border-t border-ashBorder/30 py-16">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12"> <!-- Brand column -->
-      <div class="space-y-4"> <a href="index.html" class="inline-block"> <img src="assets/logo.svg" alt="Logo KEDIS" class="h-10 w-auto" loading="lazy"> </a>
-        <p class="text-xs text-stoneGray leading-relaxed max-w-sm"> Kampanye kesadaran digital untuk pemilahan sampah mandiri dari pintu rumah tangga demi lingkungan perkotaan yang sehat dan berkelanjutan. </p>
-        <div class="flex space-x-4 pt-2 text-stoneGray"> <a href="#" aria-label="Instagram KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a> <a href="#" aria-label="GitHub KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-github text-lg"></i></a> <a href="#" aria-label="YouTube KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-youtube text-lg"></i></a> </div>
-      </div> <!-- Contest Info Column -->
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+      <!-- Brand column -->
+      <div class="space-y-4">
+        <a href="index.html" class="inline-block">
+          <img src="assets/logo.svg" alt="Logo KEDIS" class="h-10 w-auto" loading="lazy">
+        </a>
+        <p class="text-xs text-stoneGray leading-relaxed max-w-sm">
+          Kampanye kesadaran digital untuk pemilahan sampah mandiri dari pintu rumah tangga demi lingkungan perkotaan yang sehat dan berkelanjutan.
+        </p>
+        <div class="flex space-x-4 pt-2 text-stoneGray">
+          <a href="#" aria-label="Instagram KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+          <a href="#" aria-label="GitHub KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+          <a href="#" aria-label="YouTube KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-youtube text-lg"></i></a>
+        </div>
+      </div>
+      <!-- Contest Info Column -->
       <div class="space-y-4 md:text-right md:flex md:flex-col md:items-end">
         <h3 class="font-display text-sm font-bold uppercase tracking-wider text-inkBlack">INVENTION 2026</h3>
-        <p class="text-xs text-stoneGray leading-relaxed max-w-xs md:text-right"> Karya orisinal subtema "Going Green Through Smart Digital Solutions" dalam kompetisi Web Design INVENTION 2026. </p>
-      </div>
-    </div> <!-- Bottom Copyright & Inline Navigation -->
-    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-ashBorder/20 flex flex-col md:flex-row justify-between items-center text-xs text-stoneGray font-bold uppercase tracking-wider gap-4">
-      <div> &copy; 2026 KEDIS. Hak Cipta Dilindungi. Edisi INVENTION 2026. </div>
-      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2"> <a href="index.html" class="hover:text-inkBlack transition-colors">Beranda</a> <a href="edukasi.html" class="hover:text-inkBlack transition-colors">Eco-Learn</a> <a href="komunitas.html" class="hover:text-inkBlack transition-colors">Eco-Connect</a> <a href="game.html" class="hover:text-inkBlack transition-colors">Eco-Play</a> <a href="tentang.html" class="hover:text-inkBlack transition-colors">Tentang</a> </div>
-    </div>
-  </footer>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
-  <script>
-    $(document).ready(function() {
-  var $btn = $('#btn-calculate');
-  var $inputs = $('#weight-organic, #weight-plastic, #weight-paper');
-  $inputs.on('input', function() {
-    if (parseFloat($(this).val()) < 0) $(this).val('');
-  });
-  $btn.on('click', function() {
-    var orgInput = $('#weight-organic').val();
-    var plaInput = $('#weight-plastic').val();
-    var papInput = $('#weight-paper').val();
-    
-    var isEmpty = (orgInput === '' && plaInput === '' && papInput === '');
-    
-    var org = Math.max(0, parseFloat(orgInput) || 0);
-    var pla = Math.max(0, parseFloat(plaInput) || 0);
-    var pap = Math.max(0, parseFloat(papInput) || 0);
-    
-    $btn.prop('disabled', true).find('i').removeClass('fa-calculator').addClass('fa-spinner fa-spin');
-    setTimeout(function() {
-      var yearlyCo2 = (org * 0.8 * 52) + (pla * 1.5 * 52) + (pap * 1.0 * 52);
-      var treesEquiv = Math.round(yearlyCo2 / 22);
-      
-      // Animate CO2 count
-      $({ countVal: 0 }).animate({ countVal: yearlyCo2 }, {
-        duration: 1000,
-        easing: 'swing',
-        step: function() {
-          $('#co2-produced').text(this.countVal.toFixed(1) + ' Kg CO\u2082');
-        },
-        complete: function() {
-          $('#co2-produced').text(yearlyCo2.toFixed(1) + ' Kg CO\u2082').addClass('counter-reveal');
-        }
-      });
-      
-      // Animate Trees saved count
-      $({ countVal: 0 }).animate({ countVal: treesEquiv }, {
-        duration: 1000,
-        easing: 'swing',
-        step: function() {
-          $('#trees-saved').text(Math.round(this.countVal) + ' Pohon');
-        },
-        complete: function() {
-          $('#trees-saved').text(treesEquiv + ' Pohon').addClass('counter-reveal');
-        }
-      });
-
-      var rec = '';
-      if (isEmpty) {
-        rec = 'Masukkan perkiraan berat sampah dapur, plastik, atau kertas Anda pada kolom input di atas untuk mulai memantau kontribusi karbon.';
-      } else if (yearlyCo2 === 0) {
-        rec = 'Luar biasa! Jejak emisi sampah Anda bernilai nol. Mari terus pertahankan pola konsumsi minim kemasan ini secara konsisten.';
-      } else if (org >= pla && org >= pap) {
-        rec = 'Sampah organik mendominasi limbah Anda. Mulailah mengolahnya secara mandiri menggunakan komposter dapur sederhana atau biopori halaman rumah untuk menghasilkan kompos bergizi tinggi bagi tanaman.';
-      } else if (pla >= org && pla >= pap) {
-        rec = 'Sampah plastik sekali pakai mendominasi limbah Anda. Hindari kantong kresek sekali pakai saat belanja, cuci botol PET bekas Anda, lalu salurkan secara berkala ke Bank Sampah terdekat untuk didaur ulang.';
-      } else {
-        rec = 'Sampah kertas/kardus mendominasi limbah Anda. Kelompokkan koran lama dan kotak karton kiriman belanjaan Anda, ikat dengan tali secara rapi, lalu salurkan ke bank sampah atau pengepul daur ulang terdekat.';
-      }
-      $('#recommendation-text').text(rec);
-      $('#result-panel').slideDown(300);
-      $btn.prop('disabled', false).find('i').removeClass('fa-spinner fa-spin').addClass('fa-calculator');
-    }, 350);
-  });
-
-  // Certificate printing
-  $('#btn-print-cert').on('click', function() {
-    var name = prompt('Masukkan nama lengkap Anda untuk sertifikat:');
-    if (!name) return;
-
-    var co2 = $('#co2-produced').text() + ' / tahun';
-    var trees = $('#trees-saved').text() + ' / tahun';
-    var date = new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
-
-    var printWindow = window.open('', '_blank', 'width=900,height=650');
-    var certHtml = `
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>Sertifikat Aksi Hijau KEDIS - ${name}</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <style>
-    @page {
-      size: A4 landscape;
-      margin: 0;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #333333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      box-sizing: border-box;
-    }
-    .cert-border {
-      width: 297mm;
-      height: 210mm;
-      padding: 20mm;
-      box-sizing: border-box;
-      background-color: #ffffff;
-      border: 15px solid #122817;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      text-align: center;
-    }
-    .cert-inner-border {
-      border: 2px solid #bebeb9;
-      height: 100%;
-      padding: 10mm;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .logo-section {
-      margin-top: 5px;
-    }
-    .logo-text {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: #122817;
-      letter-spacing: 2px;
-    }
-    .cert-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 32px;
-      font-weight: 700;
-      color: #333333;
-      margin: 15px 0 5px 0;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .cert-subtitle {
-      font-size: 14px;
-      color: #6c6c6c;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-    }
-    .recipient-intro {
-      font-size: 16px;
-      color: #6c6c6c;
-      margin-top: 25px;
-    }
-    .recipient-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 36px;
-      font-weight: 700;
-      color: #122817;
-      border-bottom: 2px solid #d7eb80;
-      display: inline-block;
-      padding-bottom: 5px;
-      margin: 10px 0;
-    }
-    .cert-desc {
-      font-size: 15px;
-      line-height: 1.6;
-      color: #333333;
-      max-width: 700px;
-      margin: 15px auto;
-    }
-    .highlight {
-      font-weight: 700;
-      color: #122817;
-      background-color: rgba(215, 235, 128, 0.2);
-      padding: 0 4px;
-    }
-    .footer-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-top: 30px;
-      padding: 0 40px;
-    }
-    .signature {
-      width: 150px;
-      text-align: center;
-    }
-    .sig-line {
-      border-top: 1px solid #bebeb9;
-      margin-top: 50px;
-      padding-top: 5px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #333333;
-    }
-    .sig-title {
-      font-size: 10px;
-      color: #6c6c6c;
-      margin-top: 2px;
-    }
-    .date-info {
-      font-size: 12px;
-      color: #6c6c6c;
-      font-weight: 600;
-      text-align: left;
-    }
-  </style>
-</head>
-<body>
-  <div class="cert-border">
-    <div class="cert-inner-border">
-      <div class="logo-section">
-        <div class="logo-text">KEDIS</div>
-      </div>
-      <div>
-        <div class="cert-title">Sertifikat Aksi Hijau</div>
-        <div class="cert-subtitle">Eco-Citizen Award</div>
-      </div>
-      <div>
-        <div class="recipient-intro">Diberikan kepada:</div>
-        <div class="recipient-name">${name}</div>
-      </div>
-      <div>
-        <p class="cert-desc">
-          Atas partisipasi aktif dalam melakukan pemilahan sampah mandiri dari rumah serta berkontribusi langsung dalam menekan emisi gas rumah kaca tahunan sebesar <span class="highlight">${co2}</span> atau setara dengan penyerapan gas emisi karbon oleh <span class="highlight">${trees}</span> secara berkelanjutan.
+        <p class="text-xs text-stoneGray leading-relaxed max-w-xs md:text-right">
+          Karya orisinal subtema "Going Green Through Smart Digital Solutions" dalam kompetisi Web Design INVENTION 2026.
         </p>
       </div>
-      <div class="footer-section">
-        <div class="date-info">
-          Diterbitkan pada:<br>
-          <span style="color: #333333;">${date}</span>
-        </div>
-        <div class="signature">
-          <span style="font-family: 'Space Grotesk', sans-serif; font-style: italic; font-weight: 700; color: #122817; font-size: 14px;">KEDIS Digital</span>
-          <div class="sig-line">Sistem Kampanye KEDIS</div>
-          <div class="sig-title">Smart Digital Solution</div>
-        </div>
+    </div>
+    <!-- Bottom Copyright & Inline Navigation -->
+    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-ashBorder/20 flex flex-col md:flex-row justify-between items-center text-xs text-stoneGray font-bold uppercase tracking-wider gap-4">
+      <div>
+        &copy; 2026 KEDIS. Hak Cipta Dilindungi. Edisi INVENTION 2026.
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+        <a href="index.html" class="hover:text-inkBlack transition-colors">Beranda</a>
+        <a href="edukasi.html" class="hover:text-inkBlack transition-colors">Eco-Learn</a>
+        <a href="komunitas.html" class="hover:text-inkBlack transition-colors">Eco-Connect</a>
+        <a href="game.html" class="hover:text-inkBlack transition-colors">Eco-Play</a>
+        <a href="tentang.html" class="hover:text-inkBlack transition-colors">Tentang</a>
       </div>
     </div>
-  </div>
-  <script>
-    window.onload = function() {
-      window.print();
-      setTimeout(function() { window.close(); }, 500);
-    };
-  </script>
-</body>
-</html>
-    `;
-    printWindow.document.write(certHtml);
-    printWindow.document.close();
-  });
-});
-  </script>
+  </footer>
+
+  <!-- jQuery & JS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
-

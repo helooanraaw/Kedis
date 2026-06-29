@@ -64,10 +64,10 @@ $(document).ready(function () {
   var donutChart = document.getElementById('donut-chart');
   if (donutChart) {
     var donutData = [
-      { label: 'Terkompos', pct: 65, color: '#c2f200' }, // Vibrant Lime
-      { label: 'Daur Ulang', pct: 15, color: '#ef4444' }, // Vibrant Red
-      { label: 'Diproses Khusus', pct: 12, color: '#00b4d8' }, // Vibrant Sky Blue
-      { label: 'Ke Residu TPA', pct: 8, color: '#f59e0b' } // Vibrant Amber
+      { label: 'Terkompos', pct: 65, color: '#97d700' }, // Warm Leaf Green
+      { label: 'Daur Ulang', pct: 15, color: '#f25c54' }, // Premium Soft Coral/Red
+      { label: 'Diproses Khusus', pct: 12, color: '#52b788' }, // Eucalyptus Mint Teal
+      { label: 'Ke Residu TPA', pct: 8, color: '#a5a58d' } // Soft Charcoal Stone/Taupe
     ];
     var svgNS = 'http://www.w3.org/2000/svg';
     var svg = donutChart.querySelector('.donut-svg');
@@ -277,7 +277,7 @@ $(document).ready(function () {
       { title: "Ampas Kopi & Teh", category: "Organik", tab: "organik", icon: "fa-mug-hot" },
       { title: "Cangkang Telur", category: "Organik", tab: "organik", icon: "fa-egg" },
       { title: "Daun Kering & Ranting", category: "Organik", tab: "organik", icon: "fa-leaf" },
-      { title: "Kardus & Karton Bekas", category: "Organik", tab: "organik", icon: "fa-box-open" },
+      { title: "Kardus & Karton Bekas", category: "Anorganik", tab: "anorganik", icon: "fa-box-open" },
       { title: "Kompos & Pupuk Organik", category: "Organik", tab: "organik", icon: "fa-tree" },
       { title: "Eco-Enzyme dari Sisa Dapur", category: "Organik", tab: "organik", icon: "fa-vial" },
       { title: "Takakura: Kompos Keranjang", category: "Organik", tab: "organik", icon: "fa-basket-shopping" },

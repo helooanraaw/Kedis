@@ -785,7 +785,7 @@
         currentImagesArray.forEach((imgUrl, i) => {
           const $slide = $(
             `<div class="w-full h-full shrink-0">` +
-              `<img src="${imgUrl}" alt="Foto Kegiatan ${data.name}" class="w-full h-full object-cover">` +
+              `<img src="${imgUrl}" alt="Foto Kegiatan ${data.name}" class="w-full h-full object-cover" loading="lazy">` +
             `</div>`
           );
           $track.append($slide);
