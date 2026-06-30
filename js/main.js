@@ -142,7 +142,8 @@ $(document).ready(function () {
         desc: 'Kami menyarankan Anda membaca panduan klasifikasi digital kami. Eco-Learn menyediakan tabel pemilah sampah interaktif untuk membedakan sampah Organik (sisa masakan), Anorganik (plastik, kertas, kaleng), serta limbah Berbahaya/B3 (baterai, elektronik) lengkap dengan tips pengomposan rumahan.',
         link: 'edukasi.html',
         btnText: 'Buka Panduan Eco-Learn',
-        showBadge: false
+        showBadge: false,
+        imgSrc: 'assets/element/TongSampahMerahKuningHijau.svg'
       },
       '2': {
         icon: '<i class="fa-solid fa-calculator"></i>',
@@ -150,7 +151,8 @@ $(document).ready(function () {
         desc: 'Evaluasi dampak gas rumah kaca dari sampah dapur Anda secara mandiri. Gunakan kalkulator Eco-Monitor di bawah untuk menghitung emisi metana tahunan setara pohon. Anda juga bisa mencetak Sertifikat Aksi Hijau secara langsung setelah hasil analisis muncul!',
         link: '#eco-monitor',
         btnText: 'Hitung Jejak Emisi Sekarang',
-        showBadge: true
+        showBadge: true,
+        imgSrc: 'assets/element/TongSampahHijau.svg'
       },
       '3': {
         icon: '<i class="fa-solid fa-people-group"></i>',
@@ -158,7 +160,8 @@ $(document).ready(function () {
         desc: 'Jangan berjalan sendirian! Eco-Connect menyediakan basis data jejaring bank sampah regional dan komunitas peduli lingkungan terdekat di kota Anda. Salurkan hasil pemilahan Anda dan tukarkan dengan tabungan digital atau ikuti aksi sukarela.',
         link: 'komunitas.html',
         btnText: 'Cari Komunitas Terdekat',
-        showBadge: false
+        showBadge: false,
+        imgSrc: 'assets/element/BuangSampahPadaTempatnya.svg'
       },
       '4': {
         icon: '<i class="fa-solid fa-gamepad"></i>',
@@ -166,7 +169,8 @@ $(document).ready(function () {
         desc: 'Latih ketangkasan dan refleks pemilahan Anda melalui game drag-and-drop 3D interaktif kami. Sortir berbagai jenis sampah ke tong yang tepat secepat mungkin. Selesaikan simulasi dengan skor minimal 100 poin untuk mengklaim Sertifikat Kelulusan Aksi Hijau!',
         link: 'game.html',
         btnText: 'Mainkan Eco-Play',
-        showBadge: true
+        showBadge: true,
+        imgSrc: 'assets/element/TongIsiSampah.svg'
       }
     };
 
@@ -177,17 +181,18 @@ $(document).ready(function () {
       if (data) {
         // Reset states
         $diagOptions.attr('aria-checked', 'false').removeClass('border-inkBlack ring-2 ring-limeCanopy/30 bg-limeCanopy/5');
-        $diagOptions.find('.diag-num-indicator').removeClass('bg-limeCanopy text-inkBlack').addClass('bg-warmMist text-inkBlack');
+        $diagOptions.find('.diag-num-indicator').removeClass('bg-limeCanopy text-inkBlack').addClass('bg-paperWhite text-inkBlack');
         
         // Activate current
         $(this).attr('aria-checked', 'true').addClass('border-inkBlack ring-2 ring-limeCanopy/30 bg-limeCanopy/5');
-        $(this).find('.diag-num-indicator').addClass('bg-limeCanopy text-inkBlack').removeClass('bg-warmMist text-inkBlack');
+        $(this).find('.diag-num-indicator').addClass('bg-paperWhite text-inkBlack').removeClass('bg-warmMist text-inkBlack');
 
         // Set content
         $diagIcon.html(data.icon);
         $diagTitle.text(data.title);
         $diagDesc.html(data.desc);
         $diagLink.attr('href', data.link).html(data.btnText + ' <i class="fa-solid fa-arrow-right ml-1.5"></i>');
+        $('#diag-ill-target').attr('src', data.imgSrc);
         
         if (data.showBadge) {
           $diagBadge.removeClass('hidden');

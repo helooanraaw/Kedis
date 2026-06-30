@@ -24,6 +24,7 @@
         linenCream: '#f0f0eb',
         stoneGray: '#6c6c6c',
         ashBorder: '#bebeb9',
+        ecoGreen: '#ecf3ee',
       },
       fontFamily: {
         sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
@@ -36,7 +37,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="bg-paperWhite font-sans text-inkBlack antialiased selection:bg-limeCanopy/40 selection:text-inkBlack"> <!-- Floating Capsule Header (transparent over hero, pill on scroll) -->
+<body class="bg-ecoGreen font-sans text-inkBlack antialiased selection:bg-limeCanopy/40 selection:text-inkBlack"> <!-- Floating Capsule Header (transparent over hero, pill on scroll) -->
   <header id="main-header" class="header-over-hero">
     <div id="header-pill">
       <!-- Logo -->
@@ -53,7 +54,7 @@
           <button id="desktop-dropdown-trigger" type="button" class="nav-link pb-0.5 border-b-2 border-transparent flex items-center gap-1 hover:text-inkBlack transition-colors">
             Eco-Learn <i class="fa-solid fa-chevron-down text-[8px] transition-transform"></i>
           </button>
-          <div id="desktop-dropdown-menu" class="absolute top-full left-0 mt-1 w-40 bg-white border border-ashBorder/20 rounded-xl shadow-lg hidden z-50 py-2">
+          <div id="desktop-dropdown-menu" class="absolute top-full left-0 mt-1 w-40 bg-paperWhite border border-ashBorder/20 rounded-xl shadow-lg hidden z-50 py-2">
             <a href="edukasi.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-stoneGray hover:text-inkBlack transition-colors">Kenali Pilah</a>
             <a href="artikel.html" class="block px-4 py-2 hover:bg-warmMist text-xs font-bold text-stoneGray hover:text-inkBlack transition-colors">Kelas Edukasi</a>
           </div>
@@ -109,10 +110,10 @@
         <i class="fa-solid fa-magnifying-glass text-stoneGray text-lg ml-4"></i>
         <input type="text" id="hero-search-input" name="q" autocomplete="off" placeholder="Cari panduan memilah sampah..." aria-label="Cari panduan memilah sampah" class="w-full h-full bg-transparent px-4 text-inkBlack font-medium placeholder-stoneGray/80 outline-none">
         <!-- Interactive outline badge -->
-        <button type="submit" id="edu-cari-btn" class="hidden sm:inline-flex items-center px-4 py-1.5 border border-inkBlack rounded-pill text-xs font-bold text-inkBlack hover:bg-inkBlack hover:text-white transition-all duration-200 uppercase mr-2 tracking-wider shrink-0 select-none cursor-pointer"> + Edu-Cari </button>
+        <!-- <button type="submit" id="edu-cari-btn" class="hidden sm:inline-flex items-center px-4 py-1.5 border border-inkBlack rounded-pill text-xs font-bold text-inkBlack hover:bg-inkBlack hover:text-white transition-all duration-200 uppercase mr-2 tracking-wider shrink-0 select-none cursor-pointer"> + Edu-Cari </button> -->
         <button type="submit" class="sr-only">Cari</button>
         <!-- Interactive Suggestions Dropdown -->
-        <div id="search-suggestions" class="absolute left-0 right-0 top-full mt-3 bg-white rounded-2xl border border-ashBorder/20 shadow-2xl overflow-hidden z-50 hidden text-left py-3 max-h-[320px] overflow-y-auto">
+        <div id="search-suggestions" class="absolute left-0 right-0 top-full mt-3 bg-paperWhite rounded-2xl border border-ashBorder/20 shadow-2xl overflow-hidden z-50 hidden text-left py-3 max-h-[320px] overflow-y-auto">
           <!-- Dynamically populated -->
         </div>
       </form>
@@ -159,11 +160,12 @@
   <main class="relative z-10"> <!-- Gentle Curve Transition — visible only on scroll -->
   <div class="w-full overflow-hidden curve-transition-container">
     <svg viewBox="0 0 1440 72" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="curve-transition-svg">
-      <path d="M0,0 Q360,72 720,36 Q1080,0 1440,48 L1440,72 L0,72 Z" fill="#ffffff" />
+      <path d="M0,0 Q360,72 720,36 Q1080,0 1440,48 L1440,72 L0,72 Z" fill="#ecf3ee" />
     </svg>
   </div>
-  <!-- Section 1.5: Krisis & Analisis Sampah (Minimalist Full-Bleed Split Layout) -->
-  <section class="w-full bg-paperWhite border-b border-ashBorder/20 relative overflow-hidden flex flex-col lg:flex-row items-stretch leaf-vein-texture">
+  <section class="w-full bg-ecoGreen border-b border-ashBorder/20 relative overflow-hidden flex flex-col lg:flex-row items-stretch leaf-vein-texture">
+    <!-- User Asset: DaunBanyakBorder1 at bottom-right corner -->
+    <img src="assets/element/DaunBanyakBorder1.svg" class="absolute -right-16 -bottom-16 w-[64rem] h-auto opacity-[0.08] pointer-events-none select-none z-0 object-contain transform scale-x-[-1]" alt="">
     
     <!-- Left Column: Full-Bleed Image (Touches left browser edge, fades to gradient on right) -->
     <div class="relative w-full lg:w-1/2 min-h-[350px] lg:min-h-[700px] shrink-0 animate-on-scroll">
@@ -171,8 +173,8 @@
       <div class="absolute inset-0 z-0">
         <img src="assets/krisis-sampah.png" alt="Krisis Penumpukan Sampah Perkotaan" class="w-full h-full object-cover" loading="lazy">
       </div>
-      <!-- Top edge fade mask (blends top of image into the white curve boundary) -->
-      <div class="absolute inset-x-0 top-0 h-16 sm:h-24 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none"></div>
+      <!-- Top edge fade mask (blends top of image into the sage curve boundary) -->
+      <div class="absolute inset-x-0 top-0 h-16 sm:h-24 bg-gradient-to-b from-ecoGreen to-transparent z-10 pointer-events-none"></div>
       <!-- Gradient Overlay Mask to blend image to right (seamless blend across the right half of the image) -->
       <div class="absolute inset-y-0 left-0 lg:left-[40%] right-0 krisis-gradient-mask z-10"></div>
     </div>
@@ -204,42 +206,54 @@
         <div class="divide-y divide-inkBlack/10 border-t border-b border-inkBlack/10">
           
           <!-- Stat 1 -->
-          <div class="py-6 flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 animate-on-scroll">
-            <div class="font-display text-4xl sm:text-5xl font-bold text-inkBlack tabular-nums shrink-0 w-24 tracking-tight">
-              <span class="counter-value" data-counter="81">0</span>%
+          <div class="py-6 flex flex-col sm:flex-row sm:items-start justify-between gap-4 sm:gap-6 animate-on-scroll group">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
+              <div class="font-display text-4xl sm:text-5xl font-bold text-inkBlack tabular-nums shrink-0 w-24 tracking-tight">
+                <span class="counter-value" data-counter="81">0</span>%
+              </div>
+              <div class="space-y-1">
+                <h3 class="font-display text-lg font-bold text-inkBlack">Kebuntuan di Hulu</h3>
+                <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
+                  <strong class="text-inkBlack font-semibold">81%</strong> sampah rumah tangga tercampur langsung di tempat pembuangan, merusak potensi daur ulang materi anorganik.
+                </p>
+              </div>
             </div>
-            <div class="space-y-1">
-              <h3 class="font-display text-lg font-bold text-inkBlack">Kebuntuan di Hulu</h3>
-              <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
-                <strong class="text-inkBlack font-semibold">81%</strong> sampah rumah tangga tercampur langsung di tempat pembuangan, merusak potensi daur ulang materi anorganik.
-              </p>
-            </div>
+            <!-- User Asset: SampahPlastikHitam -->
+            <img src="assets/element/SampahPlastikHitam.svg" class="w-12 h-12 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity hidden sm:block object-contain" alt="Sampah Plastik Hitam">
           </div>
           
           <!-- Stat 2 -->
-          <div class="py-6 flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 animate-on-scroll">
-            <div class="font-display text-4xl sm:text-5xl font-bold text-inkBlack tabular-nums shrink-0 w-24 tracking-tight">
-              <span class="counter-value" data-counter="25">0</span>x
+          <div class="py-6 flex flex-col sm:flex-row sm:items-start justify-between gap-4 sm:gap-6 animate-on-scroll group">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
+              <div class="font-display text-4xl sm:text-5xl font-bold text-inkBlack tabular-nums shrink-0 w-24 tracking-tight">
+                <span class="counter-value" data-counter="25">0</span>x
+              </div>
+              <div class="space-y-1">
+                <h3 class="font-display text-lg font-bold text-inkBlack">Metana di TPA</h3>
+                <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
+                  Sampah organik basah yang tertimbun anaerob menghasilkan gas metana dengan pemanasan global <strong class="text-inkBlack font-semibold">25 kali</strong> lebih kuat dari CO₂.
+                </p>
+              </div>
             </div>
-            <div class="space-y-1">
-              <h3 class="font-display text-lg font-bold text-inkBlack">Metana di TPA</h3>
-              <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
-                Sampah organik basah yang tertimbun anaerob menghasilkan gas metana dengan pemanasan global <strong class="text-inkBlack font-semibold">25 kali</strong> lebih kuat dari CO₂.
-              </p>
-            </div>
+            <!-- User Asset: BotolBotolSampahBekas -->
+            <img src="assets/element/BotolBotolSampahBekas.svg" class="w-12 h-12 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity hidden sm:block object-contain" alt="Botol Sampah Bekas">
           </div>
           
           <!-- Stat 3 -->
-          <div class="py-6 flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6 animate-on-scroll">
-            <div class="font-display text-4xl sm:text-5xl font-bold text-inkBlack tabular-nums shrink-0 w-24 tracking-tight">
-              <span class="counter-value" data-counter="60">0</span>%+
+          <div class="py-6 flex flex-col sm:flex-row sm:items-start justify-between gap-4 sm:gap-6 animate-on-scroll group">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
+              <div class="font-display text-4xl sm:text-5xl font-bold text-inkBlack tabular-nums shrink-0 w-24 tracking-tight">
+                <span class="counter-value" data-counter="60">0</span>%+
+              </div>
+              <div class="space-y-1">
+                <h3 class="font-display text-lg font-bold text-inkBlack">Partisipasi Digital Rendah</h3>
+                <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
+                  <strong class="text-inkBlack font-semibold">60%+</strong> warga kota ingin mendaur ulang, namun terhambat ketiadaan panduan digital dan alat kalkulasi emisi karbon.
+                </p>
+              </div>
             </div>
-            <div class="space-y-1">
-              <h3 class="font-display text-lg font-bold text-inkBlack">Partisipasi Digital Rendah</h3>
-              <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
-                <strong class="text-inkBlack font-semibold">60%+</strong> warga kota ingin mendaur ulang, namun terhambat ketiadaan panduan digital dan alat kalkulasi emisi karbon.
-              </p>
-            </div>
+            <!-- User Asset: Recycle -->
+            <img src="assets/element/Recycle.svg" class="w-12 h-12 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity hidden sm:block object-contain" alt="Logo Daur Ulang">
           </div>
           
         </div>
@@ -250,78 +264,53 @@
   <section class="w-full bg-warmMist border-t border-b border-ashBorder/20 relative overflow-hidden leaf-vein-texture">
     <!-- Decorative foliage cluster: right side cascading branch + connecting leaf venation grids -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
-      <!-- Modern minimalist curved branch from right -->
-      <svg class="absolute -right-10 -top-10 w-72 h-[32rem] text-limeCanopy/8 pointer-events-none select-none" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M90,0 Q60,40 50,150" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <!-- Symmetrical leaf pairs -->
-        <path d="M78,25 Q55,20 62,10 Q75,15 78,25 Z" fill="currentColor"/>
-        <path d="M78,25 Q95,20 90,10 Q83,18 78,25 Z" fill="currentColor"/>
-        <path d="M68,55 Q45,50 52,40 Q65,45 68,55 Z" fill="currentColor"/>
-        <path d="M68,55 Q85,50 80,40 Q73,48 68,55 Z" fill="currentColor"/>
-        <path d="M60,85 Q37,80 44,70 Q57,75 60,85 Z" fill="currentColor"/>
-        <path d="M60,85 Q77,80 72,70 Q65,78 60,85 Z" fill="currentColor"/>
-        <path d="M54,115 Q31,110 38,100 Q51,105 54,115 Z" fill="currentColor"/>
-        <path d="M54,115 Q71,110 66,100 Q59,108 54,115 Z" fill="currentColor"/>
-      </svg>
-      <!-- Minimalist Leafy Twig 1: Top-Left (Drooping Willow style, translucent green) -->
-      <div class="absolute -left-10 top-12 w-64 h-80 text-[#43a047]/10 pointer-events-none select-none z-0 transform rotate-12">
-        <svg class="w-full h-full" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M90,10 Q50,40 20,150" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M68,32 C50,45 42,70 45,90 C53,75 58,50 68,32 Z" fill="currentColor"/>
-          <path d="M50,55 C35,68 28,95 30,115 C38,100 43,75 50,55 Z" fill="currentColor"/>
-          <path d="M78,18 C65,30 60,50 62,65 C70,55 72,35 78,18 Z" fill="currentColor"/>
-        </svg>
-      </div>
-      <!-- Minimalist Leafy Twig 2: Bottom-Right (Symmetrical Fern style, translucent green) -->
-      <div class="absolute -right-10 bottom-16 w-60 h-80 text-[#43a047]/10 pointer-events-none select-none z-0 transform -rotate-45">
-        <svg class="w-full h-full" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50,150 L50,10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M50,20 Q75,10 70,0 Q60,5 50,20 Z" fill="currentColor"/>
-          <path d="M50,20 Q25,10 30,0 Q40,5 50,20 Z" fill="currentColor"/>
-          <path d="M50,50 Q80,40 75,25 Q62,32 50,50 Z" fill="currentColor"/>
-          <path d="M50,50 Q20,40 25,25 Q38,32 50,50 Z" fill="currentColor"/>
-          <path d="M50,80 Q85,70 80,55 Q65,62 50,80 Z" fill="currentColor"/>
-          <path d="M50,80 Q15,70 20,55 Q35,62 50,80 Z" fill="currentColor"/>
-          <path d="M50,110 Q90,100 85,85 Q68,92 50,110 Z" fill="currentColor"/>
-          <path d="M50,110 Q10,100 15,85 Q32,92 50,110 Z" fill="currentColor"/>
-        </svg>
-      </div>
+      <!-- User Asset: RantingDaunPohon on the right (Massive abstract scale) -->
+      <img src="assets/element/RantingDaunPohon.svg" class="absolute -right-24 -top-24 w-[42rem] h-[40rem] opacity-[0.08] pointer-events-none select-none z-0 object-contain transform scale-x-[-1]" alt="">
+      <!-- User Asset: RantingDaunGantung on top-left (Massive abstract scale) -->
+      <!-- <img src="assets/element/RantingDaunGantung.svg" class="absolute left-0 -top-0 w-[64rem] h-auto opacity-[0.10] pointer-events-none select-none z-0 object-contain object-top" alt=""> -->
+      <!-- User Asset: RantingDaunPohon3 on bottom-right (Medium abstract scale) -->
+      <!-- <img src="assets/element/RantingDaunPohon3.svg" class="absolute -right-12 -bottom-16 w-72 h-80 opacity-[0.10] pointer-events-none select-none z-0 object-contain transform -rotate-45" alt=""> -->
     </div>
         <div class="max-w-4xl mx-auto px-6 py-20 relative z-[1]">
           <div class="text-center space-y-4 mb-12 animate-on-scroll"> <span class="text-xs font-bold uppercase tracking-widest text-stoneGray">NAVIGASI PINTAR</span>
             <h2 class="font-display text-display font-bold text-inkBlack">Eco-Diagnosis: Cari Solusi Hijau Anda</h2>
             <p class="text-stoneGray max-w-xl mx-auto text-sm sm:text-base leading-relaxed"> Pilih kendala lingkungan terbesar yang Anda hadapi saat ini untuk menemukan panduan digital yang paling sesuai. </p>
           </div>
-          <div class="bg-paperWhite rounded-card border border-[#d7eb80]/40 p-6 sm:p-10 space-y-8 animate-on-scroll"> <!-- Step 1: Question -->
+          <div class="bg-paperWhite rounded-card border border-ashBorder/20 p-6 sm:p-10 space-y-8 animate-on-scroll"> <!-- Step 1: Question -->
             <div class="space-y-4">
               <h3 class="font-display text-lg font-bold text-inkBlack">Pilih kendala utama Anda:</h3>
               <div class="grid grid-cols-1 gap-4" id="diagnosis-options" role="radiogroup" aria-label="Eco-Diagnosis Options"> 
                 <button type="button" role="radio" aria-checked="false" data-opt="1" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4"> 
-                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-warmMist">1</span> 
+                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-paperWhite">1</span> 
                   <span>Saya bingung cara membedakan kategori sampah organik, anorganik, dan B3.</span> 
                 </button> 
                 <button type="button" role="radio" aria-checked="false" data-opt="2" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4"> 
-                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-warmMist">2</span> 
+                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-paperWhite">2</span> 
                   <span>Saya ingin tahu berapa emisi karbon yang dihasilkan oleh sampah rumah tangga saya.</span> 
                 </button> 
                 <button type="button" role="radio" aria-checked="false" data-opt="3" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4"> 
-                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-warmMist">3</span> 
+                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-paperWhite">3</span> 
                   <span>Saya tidak tahu lokasi bank sampah terdekat atau kelompok peduli lingkungan di daerah saya.</span> 
                 </button> 
                 <button type="button" role="radio" aria-checked="false" data-opt="4" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4"> 
-                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-warmMist">4</span> 
+                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-paperWhite">4</span> 
                   <span>Saya ingin menguji kemampuan memilah sampah saya melalui simulasi game yang interaktif.</span> 
                 </button> 
               </div>
             </div></div> <!-- Step 2: Dynamic Result Panel -->
             <div id="diagnosis-result" class="hidden border-t border-ashBorder/25 pt-8 space-y-6 animate-on-scroll">
-              <div class="flex items-start gap-4 bg-paperWhite p-6 rounded-card border border-ashBorder/20">
+              <div class="flex flex-col md:flex-row items-center md:items-start gap-6 bg-paperWhite p-6 sm:p-8 rounded-card border border-ashBorder/20">
                 <div class="text-3xl text-limeCanopy shrink-0 mt-1" id="diag-icon-target"> <i class="fa-solid fa-seedling"></i> </div>
-                <div class="space-y-3">
+                <div class="space-y-3 flex-1">
                   <h4 class="font-display text-lg font-bold text-inkBlack" id="diag-title-target">Rekomendasi Solusi Anda</h4>
-                  <p class="text-stoneGray text-xs sm:text-sm leading-relaxed" id="diag-desc-target"> Deskripsi rekomendasi akan muncul secara dinamis di sini. </p> <!-- Badge Promo Fitur Baru: Sertifikat -->
+                  <p class="text-stoneGray text-xs sm:text-sm leading-relaxed" id="diag-desc-target"> Deskripsi rekomendasi akan muncul secara dinamis di sini. </p>
+                  <!-- Badge Promo Fitur Baru: Sertifikat -->
                   <div class="inline-flex items-center gap-2 px-3 py-1 bg-limeCanopy/10 text-inkBlack border border-limeCanopy/40 rounded-pill text-[11px] font-bold uppercase tracking-wider hidden" id="diag-badge-certificate"> <i class="fa-solid fa-certificate text-limeCanopy"></i> Fitur Baru: Sertifikat Digital Tersedia! </div>
                   <div class="pt-2"> <a href="#" id="diag-link-target" class="inline-flex items-center justify-center px-6 py-3 rounded-pill bg-limeCanopy hover:opacity-95 text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200"> Pelajari Selengkapnya <i class="fa-solid fa-arrow-right ml-1.5"></i> </a> </div>
+                </div>
+                <!-- Dynamic Illustration Image -->
+                <div class="w-24 h-24 sm:w-28 sm:h-28 shrink-0 overflow-hidden flex items-center justify-center bg-warmMist rounded-2xl border border-ashBorder/10 p-2 select-none pointer-events-none">
+                  <img id="diag-ill-target" src="assets/element/TongSampahMerahKuningHijau.svg" class="w-full h-full object-contain" alt="Ilustrasi Diagnosis">
                 </div>
               </div>
             </div>
@@ -332,35 +321,16 @@
 
 
   <!-- Section 2: Value Propositions (Broken Pattern — Alternating Visual Weight) -->
-  <section class="w-full bg-paperWhite relative overflow-hidden leaf-vein-texture">
+  <section class="w-full bg-ecoGreen relative overflow-hidden leaf-vein-texture">
     <!-- Decorative botanical foliage branch & floaters -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
-      <!-- Modern minimalist curved branch from top-left -->
-      <svg class="absolute -left-10 -top-10 w-72 h-[32rem] text-limeCanopy/8 pointer-events-none select-none" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10,0 Q40,40 50,150" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M22,25 Q45,20 38,10 Q25,15 22,25 Z" fill="currentColor"/>
-        <path d="M22,25 Q5,20 10,10 Q17,18 22,25 Z" fill="currentColor"/>
-        <path d="M32,55 Q55,50 48,40 Q35,45 32,55 Z" fill="currentColor"/>
-        <path d="M32,55 Q15,50 20,40 Q27,48 32,55 Z" fill="currentColor"/>
-        <path d="M40,85 Q63,80 56,70 Q43,75 40,85 Z" fill="currentColor"/>
-        <path d="M40,85 Q23,80 28,70 Q35,78 40,85 Z" fill="currentColor"/>
-        <!-- Floating leaves (Natural SVGs) -->
-      <svg class="absolute text-[#43a047]/10 w-16 h-16 right-[8%] top-[15%] rotate-[12deg]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50,10 Q25,35 25,60 A25,25 0 0,0 75,60 Q75,35 50,10 Z" fill="currentColor"/>
-        <path d="M50,10 L50,85" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
-      </svg>
-      <svg class="absolute text-[#43a047]/5 w-20 h-20 left-[45%] top-[40%] rotate-[-45deg]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50,5 C35,25 35,65 50,95 C65,65 65,25 50,5 Z" fill="currentColor"/>
-        <path d="M50,5 L50,95" stroke="currentColor" stroke-width="1" opacity="0.2"/>
-      </svg>
-      <svg class="absolute text-[#43a047]/10 w-12 h-12 left-[12%] bottom-[25%] rotate-[12deg]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50,90 Q30,60 30,40 A20,20 0 0,1 70,40 Q70,60 50,90 Z" fill="currentColor"/>
-        <path d="M50,20 L50,90" stroke="currentColor" stroke-width="1" opacity="0.25"/>
-      </svg>
-      <svg class="absolute text-[#43a047]/6 w-16 h-16 right-[10%] bottom-[15%] rotate-[45deg]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50,10 Q25,35 25,60 A25,25 0 0,0 75,60 Q75,35 50,10 Z" fill="currentColor"/>
-        <path d="M50,10 L50,85" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
-      </svg>
+      <!-- User Asset: RantingDaunGantung on top-left (Restored to User's custom scale) -->
+      <img src="assets/element/RantingDaunGantung.svg" class="absolute left-0 -top-0 w-[92rem] h-auto opacity-[0.08] pointer-events-none select-none z-0 object-contain object-top" alt="">
+      <!-- User Asset: Semak at bottom-left corner (Massive & Dominant) -->
+      <img src="assets/element/Semak.svg" class="absolute -left-16 -bottom-16 w-[64rem] h-auto opacity-[0.08] pointer-events-none select-none z-0 object-contain" alt="">
+      <!-- User Asset: DaunBanyakBorder1 at bottom-right corner (Mirrored & Enlarged) -->
+      <!-- User Asset: DaunBanyakBorder at top-right corner (Clean 180deg Rotation & Tucked into corner) -->
+      <!-- <img src="assets/element/DaunBanyakBorder.svg" class="absolute -right-20 -top-20 w-[28rem] h-auto opacity-[0.06] pointer-events-none select-none z-0 object-contain transform rotate-20" alt=""> -->
     </div>
 
     <div class="max-w-7xl mx-auto px-6 py-24 sm:py-32 relative z-[1]">
@@ -381,7 +351,7 @@
         <div class="group flex flex-col justify-between animate-on-scroll">
           <div class="space-y-4">
             <a href="edukasi.html" class="block overflow-hidden rounded-2xl aspect-[16/10] bg-warmMist">
-              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Edukasi Pilah Sampah" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <img src="assets/eco-learn.png" alt="Edukasi Pilah Sampah" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
             </a>
             <div class="space-y-2">
               <span class="text-[11px] font-bold uppercase tracking-widest text-stoneGray">01 / Panduan Dasar</span>
@@ -406,7 +376,7 @@
         <div class="group flex flex-col justify-between animate-on-scroll">
           <div class="space-y-4">
             <a href="komunitas.html" class="block overflow-hidden rounded-2xl aspect-[16/10] bg-warmMist">
-              <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600&q=80" alt="Komunitas Peduli Lingkungan" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <img src="assets/eco-connect.png" alt="Komunitas Peduli Lingkungan" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
             </a>
             <div class="space-y-2">
               <span class="text-[11px] font-bold uppercase tracking-widest text-stoneGray">02 / Jejaring Sosial</span>
@@ -430,7 +400,7 @@
         <div class="group flex flex-col justify-between animate-on-scroll">
           <div class="space-y-4">
             <a href="game.html" class="block overflow-hidden rounded-2xl aspect-[16/10] bg-warmMist">
-              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Simulasi Game Pilah" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <img src="assets/eco-play.png" alt="Simulasi Game Pilah" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
             </a>
             <div class="space-y-2">
               <span class="text-[11px] font-bold uppercase tracking-widest text-stoneGray">03 / Game Interaktif</span>
@@ -458,41 +428,12 @@
   <section class="w-full bg-warmMist py-20 border-t border-ashBorder/20 relative overflow-hidden leaf-vein-texture">
     <!-- Decorative foliage cluster: right side + left side + connecting leaf venation grids -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
-      <!-- Modern minimalist curved branch from right-bottom -->
-      <svg class="absolute -right-8 -bottom-10 w-72 h-96 text-limeCanopy/8 pointer-events-none select-none" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M90,150 Q60,110 50,0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <!-- Symmetrical leaf pairs -->
-        <path d="M78,125 Q55,130 62,140 Q75,135 78,125 Z" fill="currentColor"/>
-        <path d="M78,125 Q95,130 90,140 Q83,132 78,125 Z" fill="currentColor"/>
-        <path d="M68,95 Q45,100 52,110 Q65,105 68,95 Z" fill="currentColor"/>
-        <path d="M68,95 Q85,100 80,110 Q73,102 68,95 Z" fill="currentColor"/>
-        <path d="M60,65 Q37,70 44,80 Q57,75 60,65 Z" fill="currentColor"/>
-        <path d="M60,65 Q77,70 72,80 Q65,72 60,65 Z" fill="currentColor"/>
-        <path d="M54,35 Q31,40 38,50 Q51,45 54,35 Z" fill="currentColor"/>
-        <path d="M54,35 Q71,40 66,50 Q59,42 54,35 Z" fill="currentColor"/>
-      </svg>
-      <!-- Minimalist Leafy Twig 3: Left (Broad Eucalyptus style, translucent green) -->
-      <div class="absolute -left-10 -top-16 w-60 h-80 text-[#43a047]/10 pointer-events-none select-none z-0 transform rotate-45">
-        <svg class="w-full h-full" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10,150 Q30,100 50,0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M30,120 C15,115 15,95 30,100 C45,105 40,115 30,120 Z" fill="currentColor"/>
-          <path d="M42,85 C57,80 62,60 48,65 C34,70 38,80 42,85 Z" fill="currentColor"/>
-          <path d="M38,50 C24,45 28,25 40,30 C52,35 48,45 38,50 Z" fill="currentColor"/>
-        </svg>
-      </div>
-      <!-- Modern minimalist curved branch from left -->
-      <svg class="absolute -left-10 top-10 w-60 h-80 text-limeCanopy/8 pointer-events-none select-none" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10,0 Q40,40 50,150" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <!-- Symmetrical leaf pairs -->
-        <path d="M22,25 Q45,20 38,10 Q25,15 22,25 Z" fill="currentColor"/>
-        <path d="M22,25 Q5,20 10,10 Q17,18 22,25 Z" fill="currentColor"/>
-        <path d="M32,55 Q55,50 48,40 Q35,45 32,55 Z" fill="currentColor"/>
-        <path d="M32,55 Q15,50 20,40 Q27,48 32,55 Z" fill="currentColor"/>
-        <path d="M40,85 Q63,80 56,70 Q43,75 40,85 Z" fill="currentColor"/>
-        <path d="M40,85 Q23,80 28,70 Q35,78 40,85 Z" fill="currentColor"/>
-        <path d="M46,115 Q69,110 62,100 Q49,105 46,115 Z" fill="currentColor"/>
-        <path d="M46,115 Q29,110 34,100 Q41,108 46,115 Z" fill="currentColor"/>
-      </svg>
+      <!-- User Asset: RantingDaunPohon at bottom-right (Medium abstract scale) -->
+      <!-- <img src="assets/element/RantingDaunPohon.svg" class="absolute -right-12 -bottom-16 w-[32rem] h-[30rem] opacity-[0.08] pointer-events-none select-none z-0 object-contain transform scale-x-[-1]" alt=""> -->
+      <!-- User Asset: RantingDaunPohon3 at top-left (Massive abstract scale) -->
+      <img src="assets/element/RantingDaunPohon3.svg" class="absolute -left-20 -top-0 w-[64rem] h-[52rem] opacity-[0.10] pointer-events-none select-none z-0 object-contain transform rotate-180" alt="">
+      <!-- User Asset: RantingDaunGantung at left-center (Hanging from top edge) -->
+      <!-- <img src="assets/element/RantingDaunGantung.svg" class="absolute left-16 -top-8 w-64 h-80 opacity-[0.10] pointer-events-none select-none z-0 object-contain" alt=""> -->
     </div>
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-[1]"> <!-- Left Column: Donut Chart Representation -->
       <div class="flex justify-center animate-on-scroll">
@@ -515,26 +456,10 @@
   <footer class="bg-linenCream text-inkBlack border-t border-ashBorder/30 py-16 relative overflow-hidden">
     <!-- Decorative foliage: top corners + scattered leaves -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
-      <!-- Modern minimalist curved branch from left-top -->
-      <svg class="absolute -left-4 -top-8 w-48 h-40 text-inkBlack/5 pointer-events-none select-none" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10,0 Q30,25 40,100" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M18,15 Q35,12 30,5 Q20,8 18,15 Z" fill="currentColor"/>
-        <path d="M18,15 Q5,12 8,5 Q13,10 18,15 Z" fill="currentColor"/>
-        <path d="M25,35 Q42,32 37,25 Q27,28 25,35 Z" fill="currentColor"/>
-        <path d="M25,35 Q12,32 15,25 Q20,30 25,35 Z" fill="currentColor"/>
-        <path d="M30,60 Q47,57 42,50 Q32,53 30,60 Z" fill="currentColor"/>
-        <path d="M30,60 Q17,57 20,50 Q25,55 30,60 Z" fill="currentColor"/>
-      </svg>
-      <!-- Modern minimalist curved branch from right-top -->
-      <svg class="absolute -right-4 -top-8 w-48 h-40 text-inkBlack/5 pointer-events-none select-none" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M90,0 Q70,25 60,100" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M82,15 Q65,12 70,5 Q80,8 82,15 Z" fill="currentColor"/>
-        <path d="M82,15 Q95,12 92,5 Q87,10 82,15 Z" fill="currentColor"/>
-        <path d="M75,35 Q58,32 63,25 Q73,28 75,35 Z" fill="currentColor"/>
-        <path d="M75,35 Q88,32 85,25 Q80,30 75,35 Z" fill="currentColor"/>
-        <path d="M70,60 Q53,57 58,50 Q68,53 70,60 Z" fill="currentColor"/>
-        <path d="M70,60 Q83,57 80,50 Q75,55 70,60 Z" fill="currentColor"/>
-      </svg>
+      <!-- User Asset: RantingDaunGantung on left-top -->
+      <img src="assets/element/RantingDaunGantung.svg" class="absolute -left-0 -top-8 w-100 h-80 opacity-[0.05] pointer-events-none select-none z-0 object-contain" alt="">
+      <!-- User Asset: RantingDaunPohon3 on right-top -->
+      <img src="assets/element/RantingDaunPohon3.svg" class="absolute -right-4 -top-0 w-88 h-80 opacity-[0.05] pointer-events-none select-none z-0 object-contain transform scale-x-[-1]" alt="">
     </div>
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 relative z-[1]"> <!-- Brand column -->
       <div class="space-y-4"> <a href="index.html" class="inline-block"> <img src="assets/logo.svg" alt="Logo KEDIS" class="h-10 w-auto" loading="lazy"> </a>
