@@ -605,10 +605,10 @@
           visibleCount++;
 
           const $card = $(
-            `<div class="bg-warmMist border border-ashBorder/20 rounded-card overflow-hidden flex flex-col justify-between hover:border-inkBlack/30 hover:shadow-md transition-all duration-300 cursor-pointer animate-on-scroll">` +
+            `<div class="bg-warmMist border border-ashBorder/20 rounded-card overflow-hidden flex flex-col justify-between hover:border-inkBlack/30 hover:shadow-md transition-all duration-300 cursor-pointer animate-on-scroll reveal-stagger">` +
               `<div>` +
                 `<div class="w-full aspect-[16/10] bg-linenCream border-b border-ashBorder/10 overflow-hidden">` +
-                  `<img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">` +
+                  `<img src="${item.image}" alt="${item.title}" class="reveal-scale w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">` +
                 `</div>` +
                 `<div class="p-6 space-y-2">` +
                   `<div class="flex items-center gap-2.5 text-[10px] font-bold uppercase tracking-wider text-stoneGray">` +

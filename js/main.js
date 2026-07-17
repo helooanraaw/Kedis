@@ -215,11 +215,11 @@ $(document).ready(function () {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (!prefersReducedMotion && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
+    window.scrollObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           $(entry.target).addClass('fade-in-up').css('opacity', 1);
-          observer.unobserve(entry.target);
+          window.scrollObserver.unobserve(entry.target);
         }
       });
     }, {
@@ -228,7 +228,7 @@ $(document).ready(function () {
 
     $('.animate-on-scroll').each(function () {
       $(this).css('opacity', 0);
-      observer.observe(this);
+      window.scrollObserver.observe(this);
     });
   } else {
     $('.animate-on-scroll').css('opacity', 1);
@@ -641,4 +641,139 @@ $(document).ready(function () {
       setTimeout(type, 1000);
     }
   }
+
+  // ── Scroll Reveal System ──
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    // 1. Staggered reveal for grid cards
+    const staggerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          $(entry.target).addClass('revealed');
+          staggerObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05 });
+
+    $('.reveal-stagger').each(function () {
+      staggerObserver.observe(this);
+    });
+
+    // 2. Scale reveal for images
+    const scaleObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          $(entry.target).addClass('revealed');
+          scaleObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05 });
+
+    $('.reveal-scale').each(function () {
+      scaleObserver.observe(this);
+    });
+
+    // 3. Horizontal reveal (left/right)
+    const horizontalObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          $(entry.target).addClass('revealed');
+          horizontalObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05 });
+
+    $('.reveal-left, .reveal-right').each(function () {
+      horizontalObserver.observe(this);
+    });
+
+    // 4. Step Highlight reveal
+    const stepObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          $(entry.target).addClass('step-active');
+        } else {
+          $(entry.target).removeClass('step-active');
+        }
+      });
+    }, {
+      rootMargin: "-35% 0px -35% 0px",
+      threshold: 0.1
+    });
+
+    $('.reveal-step-highlight').each(function () {
+      stepObserver.observe(this);
+    });
+
+    // MutationObserver to auto-observe dynamically added nodes
+    const observerCallback = (mutationsList) => {
+      for (const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+          mutation.addedNodes.forEach(node => {
+            if (node.nodeType === Node.ELEMENT_NODE) {
+              const $node = $(node);
+              
+              // Handle animate-on-scroll
+              const $animOnScroll = $node.find('.animate-on-scroll').addBack('.animate-on-scroll');
+              $animOnScroll.each(function () {
+                if (window.scrollObserver) {
+                  $(this).css('opacity', 0);
+                  window.scrollObserver.observe(this);
+                }
+              });
+
+              // Handle stagger
+              const $staggers = $node.find('.reveal-stagger').addBack('.reveal-stagger');
+              $staggers.each(function () { staggerObserver.observe(this); });
+
+              // Handle scale
+              const $scales = $node.find('.reveal-scale').addBack('.reveal-scale');
+              $scales.each(function () { scaleObserver.observe(this); });
+
+              // Handle horizontal
+              const $horizontals = $node.find('.reveal-left, .reveal-right').addBack('.reveal-left, .reveal-right');
+              $horizontals.each(function () { horizontalObserver.observe(this); });
+
+              // Handle step highlight
+              const $steps = $node.find('.reveal-step-highlight').addBack('.reveal-step-highlight');
+              $steps.each(function () { stepObserver.observe(this); });
+            }
+          });
+        }
+      }
+    };
+    const mutationObserver = new MutationObserver(observerCallback);
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+  } else {
+    // Fallback: instantly reveal everything
+    $('.reveal-stagger, .reveal-scale, .reveal-left, .reveal-right').addClass('revealed');
+    $('.reveal-step-highlight').addClass('step-active');
+  }
+
+  // 5. Parallax effect for foliage
+  if (!prefersReducedMotion) {
+    const $parallaxElements = $('.reveal-parallax');
+    if ($parallaxElements.length > 0) {
+      function updateParallax() {
+        $parallaxElements.each(function () {
+          const rect = this.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const speed = parseFloat($(this).attr('data-parallax-speed')) || 0.08;
+            const elementCenter = rect.top + rect.height / 2;
+            const viewportCenter = window.innerHeight / 2;
+            const diff = elementCenter - viewportCenter;
+            const yOffset = diff * speed;
+            this.style.setProperty('--parallax-y', `${yOffset}px`);
+          }
+        });
+      }
+
+      $(window).on('scroll', function () {
+        requestAnimationFrame(updateParallax);
+      });
+      // Run once on load
+      updateParallax();
+    }
+  }
 });
+
