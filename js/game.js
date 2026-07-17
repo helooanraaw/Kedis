@@ -1,9 +1,4 @@
-/**
- * KEDIS - Eco-Play: Patroli Pilah
- * 2D Pixel Art Game Engine
- * Vanilla JS - No frameworks
- */
-;(function () {
+(function () {
   var G = {}
   // ── constants ──
   G.CW = 320

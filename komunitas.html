@@ -43,11 +43,11 @@
       <a href="index.html" class="flex items-center shrink-0">
         <img src="assets/logo.svg" alt="Logo KEDIS" class="logo-img h-10 w-auto">
       </a>
-      
+
       <!-- Desktop Nav -->
       <nav aria-label="Navigasi Utama" class="hidden md:flex items-center space-x-7 text-sm font-semibold">
         <a href="index.html" class="nav-link pb-0.5 border-b-2 border-transparent">Beranda</a>
-        
+
         <!-- Eco-Learn Dropdown -->
         <div class="relative py-2">
           <button id="desktop-dropdown-trigger" type="button" class="nav-link pb-0.5 border-b-2 border-transparent flex items-center gap-1 hover:text-inkBlack transition-colors">
@@ -60,13 +60,12 @@
         </div>
 
         <a href="komunitas.html" class="nav-link nav-link-active pb-0.5 border-b-2">Eco-Connect</a>
-        <a href="game.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Play</a>
         <a href="tentang.html" class="nav-link pb-0.5 border-b-2 border-transparent">Tentang</a>
       </nav>
 
       <div class="flex items-center gap-3">
-        <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-limeCanopy hover:opacity-90 text-inkBlack text-xs font-bold uppercase tracking-wider transition-opacity duration-200">
-          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#07503f] hover:opacity-90 text-white text-xs font-bold uppercase tracking-wider transition-opacity duration-200">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Ayo Main
         </a>
         <button id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi" class="md:hidden w-11 h-11 flex items-center justify-center">
           <i class="fa-solid fa-bars text-xl"></i>
@@ -78,7 +77,7 @@
     <div id="mobile-menu" class="hidden md:hidden floating-menu mx-4 mt-0">
       <nav aria-label="Navigasi Seluler" class="flex flex-col space-y-4 text-sm font-semibold">
         <a href="index.html" class="text-stoneGray hover:text-inkBlack">Beranda</a>
-        
+
         <!-- Mobile Eco-Learn Submenu -->
         <div class="space-y-2">
           <span class="text-stoneGray uppercase text-[10px] tracking-wider font-bold block">Eco-Learn</span>
@@ -89,19 +88,18 @@
         </div>
 
         <a href="komunitas.html" class="text-inkBlack">Eco-Connect</a>
-        <a href="game.html" class="text-stoneGray hover:text-inkBlack">Eco-Play</a>
         <a href="tentang.html" class="text-stoneGray hover:text-inkBlack">Tentang Kami</a>
-        <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-limeCanopy text-inkBlack text-xs font-bold uppercase tracking-wider">
-          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-[#07503f] text-white text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Ayo Main
         </a>
       </nav>
     </div>
   </header>
   <main class="pt-24"> <!-- Title Banner — Left-aligned with location accent -->
     <section class="max-w-7xl mx-auto px-6 page-banner">
-      <div class="max-w-3xl space-y-4"> <span class="inline-flex items-center gap-1.5 text-xs bg-linenCream text-inkBlack px-3.5 py-1.5 rounded-pill font-bold uppercase tracking-wider animate-on-scroll stagger-1"><i class="fa-solid fa-location-dot text-[10px] text-stoneGray"></i> Jejaring Sosial</span>
+      <div class="max-w-3xl space-y-4"> <span class="inline-flex items-center gap-1.5 text-xs bg-linenCream text-inkBlack px-3.5 py-1.5 rounded-pill font-bold uppercase tracking-wider animate-on-scroll stagger-1"><i class="fa-solid fa-location-dot text-[10px] text-stoneGray"></i> Komunitas Hijau</span>
         <h1 class="text-hero font-display font-bold text-inkBlack animate-on-scroll stagger-2">Temukan<br>Komunitas Hijau</h1>
-        <p class="text-stoneGray text-sm sm:text-base max-w-xl leading-relaxed text-measure animate-on-scroll stagger-3"> Penyelamatan bumi tidak dapat dicapai sendirian. Salurkan hasil pemilahan sampah kering Anda atau daftarkan diri untuk aksi sukarela ke komunitas lingkungan terdekat. </p>
+        <p class="text-stoneGray text-sm sm:text-base max-w-xl leading-relaxed text-measure animate-on-scroll stagger-3"> Menjaga lingkungan tidak bisa dilakukan sendirian. Salurkan sampah daur ulang Anda atau daftarkan diri sebagai relawan di komunitas lingkungan terdekat. </p>
       </div>
     </section> <!-- Community Hub Content Section -->
     <section class="max-w-5xl mx-auto px-6 page-main">
@@ -230,10 +228,10 @@
             </div>
             <!-- Google Maps Embed -->
             <div class="w-full aspect-[4/3] rounded-card overflow-hidden border border-ashBorder/20 shadow-inner">
-              <iframe width="100%" height="100%" src="https://www.google.com/maps/embed?pb=REPLACE_MAP" title="Lokasi komunitas" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full"></iframe>
+              <iframe id="detail-map-embed" width="100%" height="100%" src="" title="Lokasi komunitas" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full"></iframe>
             </div>
           </div>
-          
+
           <!-- Right Sidebar Content (Stacked widgets to balance layout) -->
           <div class="space-y-6 flex flex-col h-full">
             <!-- Contact card -->
@@ -295,7 +293,7 @@
               <!-- Dynamic slides will be inserted here -->
             </div>
           </div>
-          
+
           <!-- Navigation Buttons -->
           <button type="button" id="carousel-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-paperWhite/90 hover:bg-paperWhite text-inkBlack flex items-center justify-center border border-ashBorder/25 hover:scale-105 transition-all cursor-pointer opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Gambar sebelumnya">
             <i class="fa-solid fa-chevron-left text-xs"></i>
@@ -303,7 +301,7 @@
           <button type="button" id="carousel-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-paperWhite/90 hover:bg-paperWhite text-inkBlack flex items-center justify-center border border-ashBorder/25 hover:scale-105 transition-all cursor-pointer opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Gambar berikutnya">
             <i class="fa-solid fa-chevron-right text-xs"></i>
           </button>
-          
+
           <!-- Indicators -->
           <div id="carousel-indicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
             <!-- Dynamic indicators -->
@@ -316,7 +314,7 @@
             <h3 class="font-display text-xl font-bold text-inkBlack">Agenda Kegiatan &amp; Aksi Lingkungan</h3>
             <p class="text-xs text-stoneGray font-medium mt-1">Ikuti kegiatan nyata yang diadakan oleh komunitas ini untuk berkontribusi langsung.</p>
           </div>
-          
+
           <div id="detail-events-list" class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Dynamically populated event cards -->
           </div>
@@ -326,15 +324,15 @@
     <section class="w-full bg-warmMist section-cta border-t border-ashBorder/20">
       <div class="max-w-4xl mx-auto px-6 text-center space-y-6 animate-on-scroll">
         <h2 class="font-display text-display font-bold text-inkBlack">Belum Menemukan Komunitas Terdekat?</h2>
-        <p class="text-stoneGray text-sm max-w-xl mx-auto leading-relaxed"> Langkah kecil dari rumah Anda sudah bernilai besar. Baca panduan Eco-Learn kami untuk mulai memilah secara mandiri dari lingkungan terkecil. </p>
+        <p class="text-stoneGray text-sm max-w-xl mx-auto leading-relaxed"> Langkah kecil dari rumah Anda sangatlah berharga. Baca panduan memilah sampah kami untuk mulai memisahkan sampah di lingkungan sekitar Anda. </p>
         <div class="pt-2 flex flex-col sm:flex-row justify-center gap-4"> <a href="edukasi.html" class="inline-flex items-center justify-center px-6 py-3 rounded-pill bg-limeCanopy hover:opacity-95 text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200"> Pelajari Panduan Pilah </a> <a href="game.html" class="inline-flex items-center justify-center px-6 py-3 rounded-pill border border-inkBlack hover:bg-inkBlack hover:text-paperWhite text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200"> Uji Pengetahuan (Game) </a> </div>
       </div>
     </section>
-  </main>   <!-- Linen Cream Footer — Distilled for Minimalist Ecosia aesthetic -->
+  </main>   <!-- Linen Cream Footer — Distilled for Minimalist KEDIS aesthetic -->
   <footer class="bg-linenCream text-inkBlack border-t border-ashBorder/30 py-16">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12"> <!-- Brand column -->
       <div class="space-y-4"> <a href="index.html" class="inline-block"> <img src="assets/logo.svg" alt="Logo KEDIS" class="h-10 w-auto" loading="lazy"> </a>
-        <p class="text-xs text-stoneGray leading-relaxed max-w-sm"> Kampanye kesadaran digital untuk pemilahan sampah mandiri dari pintu rumah tangga demi lingkungan perkotaan yang sehat dan berkelanjutan. </p>
+        <p class="text-xs text-stoneGray leading-relaxed max-w-sm"> Kampanye digital untuk mengajak masyarakat memilah sampah dari rumah demi lingkungan kota yang bersih dan sehat. </p>
         <div class="flex space-x-4 pt-2 text-stoneGray"> <a href="#" aria-label="Instagram KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-instagram text-lg">
             </i>
           </a> <a href="#" aria-label="GitHub KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-github text-lg">
@@ -357,7 +355,7 @@
   <!-- Event Detail Modal -->
   <div id="event-detail-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center bg-inkBlack/60 backdrop-blur-sm p-4">
     <div id="event-detail-modal-content" class="bg-paperWhite border border-ashBorder/20 w-full max-w-md rounded-card shadow-2xl p-8 space-y-6 transform scale-95 transition-all duration-300">
-      
+
       <!-- Modal Header -->
       <div class="flex items-start justify-between border-b border-ashBorder/20 pb-4">
         <div>
@@ -373,7 +371,7 @@
       <!-- Modal Content Body -->
       <div class="space-y-4 text-xs font-medium text-stoneGray leading-relaxed">
         <p id="pop-event-desc" class="text-sm text-inkBlack/80 font-medium"></p>
-        
+
         <div class="bg-warmMist rounded-xl p-4 border border-ashBorder/10 space-y-3">
           <div class="flex items-start gap-2.5">
             <i class="fa-solid fa-calendar-day text-stoneGray text-[14px] w-4 text-center mt-0.5"></i>
@@ -419,7 +417,7 @@
   <!-- Volunteer Registration Modal -->
   <div id="rsvp-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center bg-inkBlack/60 backdrop-blur-sm p-4">
     <div id="rsvp-modal-content" class="bg-paperWhite border border-ashBorder/20 w-full max-w-md rounded-card shadow-2xl p-8 space-y-6 transform scale-95 transition-all duration-300">
-      
+
       <!-- Modal Header -->
       <div class="flex items-start justify-between border-b border-ashBorder/20 pb-4">
         <div>
@@ -500,7 +498,7 @@
           Selesai &amp; Tutup
         </button>
       </div>
-      
+
     </div>
   </div>
 
@@ -818,6 +816,7 @@
         $('#detail-region-badge').text(data.region);
         $('#detail-category-badge').text(data.category);
         $('#detail-location').text(data.location);
+        $('#detail-map-embed').attr('src', 'https://www.google.com/maps?q=' + encodeURIComponent(data.location) + '&output=embed');
         $('#detail-email').text(data.email);
         $('#detail-phone').text(data.phone);
         $('#detail-instagram').text(data.instagram);
@@ -871,7 +870,7 @@
             // Configure the RSVP button in the popup to launch registration modal
             $('#btn-pop-rsvp').off('click').on('click', function() {
               closeEventModal();
-              
+
               // Populate RSVP fields
               $('#modal-event-title').text(ev.title);
               $('#modal-community-name').text('Penyelenggara: ' + data.name);
@@ -896,7 +895,7 @@
           // Direct registration click bypasses event modal
           $card.find('.btn-rsvp').on('click', function(e) {
             e.stopPropagation();
-            
+
             // Populate RSVP fields
             $('#modal-event-title').text(ev.title);
             $('#modal-community-name').text('Penyelenggara: ' + data.name);
@@ -965,7 +964,7 @@
       // Modal Form Submit Simulation
       $('#rsvp-form').on('submit', function(e) {
         e.preventDefault();
-        
+
         const name = $('#rsvp-name').val();
         const email = $('#rsvp-email').val();
         const phone = $('#rsvp-phone').val();

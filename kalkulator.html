@@ -48,11 +48,11 @@
       <a href="index.html" class="flex items-center shrink-0">
         <img src="assets/logo.svg" alt="Logo KEDIS" class="logo-img h-10 w-auto">
       </a>
-      
+
       <!-- Desktop Nav -->
       <nav aria-label="Navigasi Utama" class="hidden md:flex items-center space-x-7 text-sm font-semibold">
         <a href="index.html" class="nav-link pb-0.5 border-b-2 border-transparent">Beranda</a>
-        
+
         <!-- Eco-Learn Dropdown -->
         <div class="relative py-2">
           <button id="desktop-dropdown-trigger" type="button" class="nav-link pb-0.5 border-b-2 border-transparent flex items-center gap-1 hover:text-inkBlack transition-colors">
@@ -65,13 +65,12 @@
         </div>
 
         <a href="komunitas.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Connect</a>
-        <a href="game.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Play</a>
         <a href="tentang.html" class="nav-link pb-0.5 border-b-2 border-transparent">Tentang</a>
       </nav>
 
       <div class="flex items-center gap-3">
-        <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-limeCanopy hover:opacity-90 text-inkBlack text-xs font-bold uppercase tracking-wider transition-opacity duration-200">
-          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#07503f] hover:opacity-90 text-white text-xs font-bold uppercase tracking-wider transition-opacity duration-200">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Ayo Main
         </a>
         <button id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi" class="md:hidden w-11 h-11 flex items-center justify-center">
           <i class="fa-solid fa-bars text-xl"></i>
@@ -83,7 +82,7 @@
     <div id="mobile-menu" class="hidden md:hidden floating-menu mx-4 mt-0">
       <nav aria-label="Navigasi Seluler" class="flex flex-col space-y-4 text-sm font-semibold">
         <a href="index.html" class="text-stoneGray hover:text-inkBlack">Beranda</a>
-        
+
         <!-- Mobile Eco-Learn Submenu -->
         <div class="space-y-2">
           <span class="text-inkBlack uppercase text-[10px] tracking-wider font-bold block">Eco-Learn</span>
@@ -94,10 +93,9 @@
         </div>
 
         <a href="komunitas.html" class="text-stoneGray hover:text-inkBlack">Eco-Connect</a>
-        <a href="game.html" class="text-stoneGray hover:text-inkBlack">Eco-Play</a>
         <a href="tentang.html" class="text-stoneGray hover:text-inkBlack">Tentang Kami</a>
-        <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-limeCanopy text-inkBlack text-xs font-bold uppercase tracking-wider">
-          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-[#07503f] text-white text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Ayo Main
         </a>
       </nav>
     </div>
@@ -110,10 +108,10 @@
         <div class="w-16 h-16 mx-auto rounded-2xl bg-limeCanopy/15 flex items-center justify-center animate-on-scroll stagger-1">
           <i class="fa-solid fa-cloud text-2xl text-inkBlack/60"></i>
         </div>
-        <span class="text-xs font-bold uppercase tracking-widest text-stoneGray block animate-on-scroll stagger-2">EVALUASI EMISI</span>
+        <span class="text-xs font-bold uppercase tracking-widest text-stoneGray block animate-on-scroll stagger-2">HITUNG EMISI</span>
         <h1 class="text-hero font-display font-bold text-inkBlack animate-on-scroll stagger-3">Kalkulator<br>Jejak Karbon</h1>
         <p class="text-stoneGray text-sm sm:text-base max-w-xl mx-auto leading-relaxed text-measure animate-on-scroll stagger-4">
-          Sampah organik yang membusuk secara tidak sehat di pembuangan akhir melepaskan gas metana. Masukkan perkiraan berat sampah mingguan Anda untuk menghitung emisi karbon tahunan.
+          Sampah dapur yang menumpuk di tempat pembuangan akhir melepaskan gas berbahaya. Masukkan perkiraan berat sampah mingguan rumah Anda untuk menghitung dampaknya terhadap lingkungan.
         </p>
       </div>
     </section>
@@ -122,7 +120,7 @@
     <section class="max-w-7xl mx-auto px-6 page-main">
       <div class="max-w-3xl mx-auto bg-warmMist rounded-card border border-ashBorder/20 p-8 sm:p-10 space-y-8 animate-on-scroll">
         <h2 class="font-display text-xl font-bold text-inkBlack border-b border-ashBorder/25 pb-4">Estimasi Berat Sampah Rumah Tangga</h2>
-        
+
         <!-- Input Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="space-y-2">
@@ -150,31 +148,31 @@
           <h3 class="font-display text-lg font-bold text-inkBlack">Hasil Analisis Kontribusi</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div class="space-y-3 bg-paperWhite p-6 rounded-card border border-ashBorder/25">
-              <span class="text-[11px] text-stoneGray font-bold uppercase tracking-wider block">Pencegahan Emisi Karbon</span>
+              <span class="text-[11px] text-stoneGray font-bold uppercase tracking-wider block">Pengurangan Emisi Karbon</span>
               <div class="font-display text-4xl sm:text-5xl font-bold text-inkBlack tabular-nums" id="co2-produced">0.0 Kg CO&#8322;</div>
               <span class="text-xs text-stoneGray font-bold uppercase tracking-wider block">/ Tahun</span>
-              <p class="text-xs text-stoneGray leading-relaxed font-medium mt-2">Estimasi emisi karbon setara yang berhasil dikurangi dari pelepasan bebas jika sampah di atas dipilah dengan benar.</p>
+              <p class="text-xs text-stoneGray leading-relaxed font-medium mt-2">Perkiraan emisi karbon yang berhasil kita cegah agar tidak mencemari udara jika sampah di atas dipilah dengan benar.</p>
             </div>
             <div class="space-y-3 bg-limeCanopy p-6 rounded-card border border-limeCanopy/40 text-inkBlack shadow-sm animate-on-scroll">
               <span class="text-[11px] text-inkBlack/70 font-bold uppercase tracking-wider block">Kemampuan Serap Setara</span>
               <div class="font-display text-4xl sm:text-5xl font-bold text-inkBlack tabular-nums" id="trees-saved">0 Pohon</div>
               <span class="text-xs text-inkBlack/70 font-bold uppercase tracking-wider block">/ Tahun</span>
-              <p class="text-xs text-inkBlack/80 leading-relaxed font-medium mt-2">Memilah sampah di atas secara rutin setara dengan menanam sejumlah pohon dewasa yang aktif menyerap CO&#8322; dari udara bebas.</p>
+              <p class="text-xs text-inkBlack/80 leading-relaxed font-medium mt-2">Memilah sampah di atas secara rutin setara dengan kemampuan sejumlah pohon dewasa dalam menyerap polusi udara.</p>
             </div>
           </div>
           <div class="bg-inkBlack text-white p-6 rounded-card flex items-start space-x-4 shadow-md">
             <div class="text-2xl text-limeCanopy mt-0.5"><i class="fa-solid fa-circle-info"></i></div>
             <div class="space-y-1 text-xs">
               <strong class="text-sm font-display block text-limeCanopy font-bold">Rekomendasi Aksi Nyata</strong>
-              <p id="recommendation-text" class="text-white/90 leading-relaxed font-medium">Masukkan estimasi berat sampah Anda pada kolom input di atas untuk melihat panduan tindakan reduksi spesifik.</p>
+              <p id="recommendation-text" class="text-white/90 leading-relaxed font-medium">Masukkan berat sampah rumah tangga Anda di atas untuk melihat rekomendasi langkah yang bisa Anda lakukan.</p>
             </div>
           </div>
-          
+
           <!-- Certificate CTA -->
           <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-ashBorder/20 mt-6">
             <div class="text-center sm:text-left space-y-1">
               <h4 class="font-display text-sm font-bold text-inkBlack">Dapatkan Apresiasi Digital Anda!</h4>
-              <p class="text-xs text-stoneGray">Cetak sertifikat resmi partisipasi penyelamatan emisi karbon dari KEDIS.</p>
+              <p class="text-xs text-stoneGray">Cetak sertifikat keikutsertaan Anda dalam gerakan pengurangan emisi karbon bersama KEDIS.</p>
             </div>
             <button type="button" id="btn-print-cert" class="w-full sm:w-auto px-6 py-3 rounded-pill bg-inkBlack text-paperWhite hover:bg-inkBlack/90 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors">
               <i class="fa-solid fa-print"></i> Cetak Sertifikat
@@ -197,7 +195,7 @@
     </section>
   </main>
 
-  <!-- Linen Cream Footer — Distilled for Minimalist Ecosia aesthetic -->
+  <!-- Linen Cream Footer — Distilled for Minimalist KEDIS aesthetic -->
   <footer class="bg-linenCream text-inkBlack border-t border-ashBorder/30 py-16">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
       <!-- Brand column -->
@@ -206,7 +204,7 @@
           <img src="assets/logo.svg" alt="Logo KEDIS" class="h-10 w-auto" loading="lazy">
         </a>
         <p class="text-xs text-stoneGray leading-relaxed max-w-sm">
-          Kampanye kesadaran digital untuk pemilahan sampah mandiri dari pintu rumah tangga demi lingkungan perkotaan yang sehat dan berkelanjutan.
+          Kampanye digital untuk mengajak masyarakat memilah sampah dari rumah demi lingkungan kota yang bersih dan sehat.
         </p>
         <div class="flex space-x-4 pt-2 text-stoneGray">
           <a href="#" aria-label="Instagram KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
@@ -236,6 +234,40 @@
       </div>
     </div>
   </footer>
+
+  <!-- Certificate Name Input Modal -->
+  <div id="cert-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center bg-inkBlack/60 backdrop-blur-sm p-4">
+    <div id="cert-modal-content" class="bg-paperWhite border border-ashBorder/20 w-full max-w-md rounded-card shadow-2xl p-8 space-y-6 transform scale-95 transition-all duration-300">
+      <!-- Modal Header -->
+      <div class="flex items-start justify-between border-b border-ashBorder/20 pb-4">
+        <div>
+          <span class="text-[10px] font-bold text-stoneGray uppercase tracking-widest block">CETAK SERTIFIKAT</span>
+          <h3 class="font-display text-lg font-bold text-inkBlack mt-1 leading-tight">Sertifikat Kelulusan Aksi Hijau</h3>
+        </div>
+        <button type="button" id="btn-close-cert-modal" class="text-stoneGray hover:text-inkBlack text-xl p-1 transition-colors cursor-pointer" aria-label="Tutup dialog">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="space-y-4">
+        <div class="space-y-2">
+          <label for="cert-user-name" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Nama Lengkap</label>
+          <input type="text" id="cert-user-name" placeholder="Masukkan nama lengkap Anda" class="w-full rounded-pill bg-warmMist border border-ashBorder px-4 py-3 text-sm font-semibold focus:border-inkBlack transition-colors outline-none">
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div class="pt-2 flex gap-3">
+        <button type="button" id="btn-cancel-cert" class="w-1/2 py-3 rounded-pill border border-ashBorder text-inkBlack font-bold text-xs uppercase tracking-wider hover:bg-warmMist transition-all duration-200 cursor-pointer text-center">
+          Batal
+        </button>
+        <button type="button" id="btn-submit-cert" class="w-1/2 py-3 rounded-pill bg-limeCanopy text-inkBlack font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-all duration-200 cursor-pointer text-center">
+          Cetak
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- jQuery & JS -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

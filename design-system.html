@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KEDIS Design System & UI Kit - Panduan komponen antarmuka, warna, dan tipografi resmi platform KEDIS.">
+  <title>Design System &amp; UI Kit — KEDIS</title>
+  
+  <!-- Google Fonts: Space Grotesk (Headings), Inter (Body/UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            limeCanopy: '#d7eb80',
+            inkBlack: '#333333',
+            paperWhite: '#ffffff',
+            warmMist: '#f8f8f6',
+            linenCream: '#f0f0eb',
+            stoneGray: '#6c6c6c',
+            ashBorder: '#bebeb9',
+            ecoGreen: '#ecf3ee',
+            forestInk: '#07503f',
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom CSS matching index.html structure -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* Styling specific to the Design System UI showcase page */
+    .token-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .toast-copy {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: #333333;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      z-index: 2000;
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="bg-ecoGreen font-sans text-inkBlack antialiased selection:bg-limeCanopy/40 selection:text-inkBlack pb-24">
+
+  <!-- Floating Capsule Header for Design System Page -->
+  <header id="main-header" class="header-over-hero pointer-events-none fixed top-0 left-0 w-full z-50 py-5 px-5 sm:px-8">
+    <div id="header-pill" class="max-w-[1200px] mx-auto px-6 h-[66px] flex items-center justify-between border border-transparent bg-transparent pointer-events-auto relative">
+      <a href="index.html" class="flex items-center shrink-0">
+        <img src="assets/logo.svg" alt="Logo KEDIS" class="logo-img h-10 w-auto">
+      </a>
+      <span class="text-xs font-bold uppercase tracking-widest text-stoneGray font-display">Design System &amp; UI Kit</span>
+      <a href="index.html" class="inline-flex items-center justify-center px-4 py-2 rounded-full border border-ashBorder text-inkBlack font-bold text-xs uppercase tracking-wider hover:bg-warmMist transition-all">
+        <i class="fa-solid fa-arrow-left mr-1.5"></i> Beranda
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Spacer -->
+  <div class="h-28"></div>
+
+  <!-- Main Showcase Canvas -->
+  <main class="max-w-5xl mx-auto px-6 space-y-16">
+
+    <!-- Header Block -->
+    <div class="border-b border-ashBorder/20 pb-8 space-y-3">
+      <span class="text-xs font-bold uppercase tracking-widest text-stoneGray font-display">PANDUAN GAYA VISUAL</span>
+      <h1 class="font-display text-4xl sm:text-5xl font-bold text-inkBlack leading-none tracking-tight">KEDIS Design System</h1>
+      <p class="text-stoneGray text-sm sm:text-base leading-relaxed max-w-3xl">
+        Koleksi komponen antarmuka resmi, palet warna, tipografi, dan elemen visual yang digunakan untuk membangun platform Kesadaran Digital Sampah (KEDIS).
+      </p>
+    </div>
+
+    <!-- 1. COLOR PALETTE SECTION -->
+    <section class="space-y-6" id="colors-showcase">
+      <div class="space-y-2">
+        <h2 class="font-display text-2xl font-bold text-inkBlack">1. Palet Warna (Color Palette Tokens)</h2>
+        <p class="text-xs text-stoneGray">Klik pada kartu warna untuk menyalin nama kelas utilitas Tailwind.</p>
+      </div>
+      <div class="token-grid">
+        <!-- Swatch: Forest Ink -->
+        <button type="button" class="text-left bg-paperWhite border border-ashBorder/20 rounded-2xl p-4 flex flex-col justify-between hover:border-inkBlack transition-all cursor-pointer group" onclick="copyText('bg-forestInk')">
+          <div class="w-full aspect-video rounded-xl bg-forestInk mb-4 shadow-inner"></div>
+          <div>
+            <h3 class="font-display font-bold text-inkBlack text-sm">Forest Ink</h3>
+            <code class="text-[10px] text-stoneGray font-mono block mt-1">#07503f | bg-forestInk</code>
+            <p class="text-[10px] text-stoneGray/80 leading-relaxed mt-2">Digunakan untuk navigasi utama, teks judul, tombol sekunder, dan footer.</p>
+          </div>
+        </button>
+
+        <!-- Swatch: Lime Canopy -->
+        <button type="button" class="text-left bg-paperWhite border border-ashBorder/20 rounded-2xl p-4 flex flex-col justify-between hover:border-inkBlack transition-all cursor-pointer group" onclick="copyText('bg-limeCanopy')">
+          <div class="w-full aspect-video rounded-xl bg-limeCanopy mb-4 shadow-inner"></div>
+          <div>
+            <h3 class="font-display font-bold text-inkBlack text-sm">Vivid Lime (Canopy)</h3>
+            <code class="text-[10px] text-stoneGray font-mono block mt-1">#d7eb80 | bg-limeCanopy</code>
+            <p class="text-[10px] text-stoneGray/80 leading-relaxed mt-2">Warna aksen sorotan (highlight), status aktif, border aktif, dan seleksi.</p>
+          </div>
+        </button>
+
+        <!-- Swatch: Warm Bone / Eco Green -->
+        <button type="button" class="text-left bg-paperWhite border border-ashBorder/20 rounded-2xl p-4 flex flex-col justify-between hover:border-inkBlack transition-all cursor-pointer group" onclick="copyText('bg-ecoGreen')">
+          <div class="w-full aspect-video rounded-xl bg-[#f1efdf] mb-4 border border-ashBorder/30"></div>
+          <div>
+            <h3 class="font-display font-bold text-inkBlack text-sm">Warm Bone / Eco Green</h3>
+            <code class="text-[10px] text-stoneGray font-mono block mt-1">#f1efdf | bg-ecoGreen</code>
+            <p class="text-[10px] text-stoneGray/80 leading-relaxed mt-2">Latar belakang utama kanvas halaman. Memberikan kesan majalah cetak.</p>
+          </div>
+        </button>
+
+        <!-- Swatch: Pure White -->
+        <button type="button" class="text-left bg-paperWhite border border-ashBorder/20 rounded-2xl p-4 flex flex-col justify-between hover:border-inkBlack transition-all cursor-pointer group" onclick="copyText('bg-paperWhite')">
+          <div class="w-full aspect-video rounded-xl bg-paperWhite mb-4 border border-ashBorder/30 shadow-sm"></div>
+          <div>
+            <h3 class="font-display font-bold text-inkBlack text-sm">Pure White</h3>
+            <code class="text-[10px] text-stoneGray font-mono block mt-1">#ffffff | bg-paperWhite</code>
+            <p class="text-[10px] text-stoneGray/80 leading-relaxed mt-2">Warna latar kartu komponen dan panel informasi utama untuk kontras bersih.</p>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. TYPOGRAPHY SCALE SECTION -->
+    <section class="space-y-6" id="typography-showcase">
+      <div class="space-y-2">
+        <h2 class="font-display text-2xl font-bold text-inkBlack">2. Skala Tipografi (Typography Scale)</h2>
+        <p class="text-xs text-stoneGray">Hierarki ukuran huruf yang diatur secara konsisten menggunakan Cabin dan Space Grotesk.</p>
+      </div>
+      <div class="bg-paperWhite rounded-2xl border border-ashBorder/20 p-6 sm:p-8 space-y-8">
+        <!-- Hero Title -->
+        <div class="border-b border-ashBorder/10 pb-6">
+          <span class="text-[10px] font-bold text-stoneGray font-mono">Hero Display Title — class="text-hero font-display font-bold"</span>
+          <h1 class="text-hero font-display font-bold text-inkBlack mt-2 leading-none">Hero Title 80px</h1>
+        </div>
+        <!-- H1 Title -->
+        <div class="border-b border-ashBorder/10 pb-6">
+          <span class="text-[10px] font-bold text-stoneGray font-mono">Heading 1 — class="font-display text-4xl sm:text-5xl font-bold"</span>
+          <h1 class="font-display text-4xl sm:text-5xl font-bold text-inkBlack mt-2 leading-none">Heading 1 (48px)</h1>
+        </div>
+        <!-- H2 Title -->
+        <div class="border-b border-ashBorder/10 pb-6">
+          <span class="text-[10px] font-bold text-stoneGray font-mono">Heading 2 — class="font-display text-3xl md:text-5xl font-medium"</span>
+          <h2 class="font-display text-3xl md:text-5xl font-medium text-inkBlack mt-2">Heading 2 (40px)</h2>
+        </div>
+        <!-- H3 Title -->
+        <div class="border-b border-ashBorder/10 pb-6">
+          <span class="text-[10px] font-bold text-stoneGray font-mono">Heading 3 — class="font-display text-xl font-bold"</span>
+          <h3 class="font-display text-xl font-bold text-inkBlack mt-2">Heading 3 (20px)</h3>
+        </div>
+        <!-- Body Text -->
+        <div class="border-b border-ashBorder/10 pb-6">
+          <span class="text-[10px] font-bold text-stoneGray font-mono">Body Text — class="text-stoneGray text-sm sm:text-base leading-relaxed"</span>
+          <p class="text-stoneGray text-sm sm:text-base leading-relaxed mt-2 max-w-2xl">
+            Teks deskripsi umum (Body Text Base, 16px). Memisahkan sampah sejak dari dapur mempermudah pengomposan bahan organik serta menjaga tingkat kebersihan bahan daur ulang anorganik agar dapat dimanfaatkan kembali.
+          </p>
+        </div>
+        <!-- Eyebrow label -->
+        <div>
+          <span class="text-[10px] font-bold text-stoneGray font-mono">Eyebrow Tag — class="text-xs font-bold uppercase tracking-widest text-stoneGray"</span>
+          <div class="text-xs font-bold uppercase tracking-widest text-stoneGray mt-2">01 / Label Kecil Eyebrow (12px)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. INTERACTIVE UI ELEMENTS -->
+    <section class="space-y-6" id="ui-elements-showcase">
+      <div class="space-y-2">
+        <h2 class="font-display text-2xl font-bold text-inkBlack">3. Tombol &amp; Input (Interactive Buttons &amp; Forms)</h2>
+        <p class="text-xs text-stoneGray">Komponen interaktif utama dengan sudut lengkung pill (pill-shaped geometry).</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Buttons Column -->
+        <div class="bg-paperWhite rounded-2xl border border-ashBorder/20 p-6 space-y-6">
+          <h3 class="font-display text-sm font-bold text-inkBlack uppercase tracking-wider border-b border-ashBorder/10 pb-3">Buttons (Tombol)</h3>
+          
+          <!-- Primary Action Button -->
+          <div class="space-y-2">
+            <span class="text-[10px] font-bold text-stoneGray font-mono">Primary Green Button (Ayo Main)</span>
+            <div>
+              <button type="button" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#07503f] hover:opacity-90 text-white text-xs font-bold uppercase tracking-wider transition-all">
+                <i class="fa-solid fa-gamepad mr-1.5"></i> Ayo Main
+              </button>
+            </div>
+          </div>
+          
+          <!-- Primary Lime Button -->
+          <div class="space-y-2">
+            <span class="text-[10px] font-bold text-stoneGray font-mono">Primary Lime Button (Highlight Action)</span>
+            <div>
+              <button type="button" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-limeCanopy hover:opacity-95 text-inkBlack font-bold text-xs uppercase tracking-wider transition-all">
+                Pelajari Selengkapnya <i class="fa-solid fa-arrow-right ml-1.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Secondary Bordered Button -->
+          <div class="space-y-2">
+            <span class="text-[10px] font-bold text-stoneGray font-mono">Secondary Bordered Button</span>
+            <div>
+              <button type="button" class="inline-flex items-center justify-center px-6 py-3 border border-inkBlack rounded-full text-inkBlack font-bold text-xs uppercase tracking-wider hover:bg-inkBlack hover:text-paperWhite transition-all">
+                Lihat Panduan Pilah
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Inputs Column -->
+        <div class="bg-paperWhite rounded-2xl border border-ashBorder/20 p-6 space-y-6">
+          <h3 class="font-display text-sm font-bold text-inkBlack uppercase tracking-wider border-b border-ashBorder/10 pb-3">Inputs &amp; Search (Formulir)</h3>
+
+          <!-- Search Input Pill -->
+          <div class="space-y-2">
+            <span class="text-[10px] font-bold text-stoneGray font-mono">Pill Search Bar</span>
+            <div class="w-full relative flex items-center h-14 rounded-full bg-warmMist border border-ashBorder px-2">
+              <i class="fa-solid fa-magnifying-glass text-stoneGray ml-3"></i>
+              <input type="text" placeholder="Cari panduan sampah..." class="w-full bg-transparent px-3 text-sm font-semibold text-inkBlack outline-none">
+              <button type="submit" class="h-10 px-5 rounded-full bg-[#07503f] hover:opacity-90 text-white text-xs font-bold uppercase tracking-wider transition-all">Cari</button>
+            </div>
+          </div>
+
+          <!-- Input Text Pill -->
+          <div class="space-y-2">
+            <span class="text-[10px] font-bold text-stoneGray font-mono">Pill Text Input Field</span>
+            <div class="space-y-1">
+              <label for="sample-input" class="block text-[10px] font-bold uppercase tracking-wider text-inkBlack">Nama Lengkap</label>
+              <input type="text" id="sample-input" placeholder="Masukkan nama lengkap Anda" class="w-full rounded-full bg-warmMist border border-ashBorder px-5 py-3 text-sm font-semibold focus:border-inkBlack transition-colors outline-none">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. CARDS & BADGES -->
+    <section class="space-y-6" id="cards-badges-showcase">
+      <div class="space-y-2">
+        <h2 class="font-display text-2xl font-bold text-inkBlack">4. Komponen Kartu &amp; Lencana (Cards &amp; Badges)</h2>
+        <p class="text-xs text-stoneGray">Komponen struktural editorial tanpa bayangan kaku (no box-shadows).</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- White Editorial Card Component -->
+        <div class="space-y-2">
+          <span class="text-[10px] font-bold text-stoneGray font-mono">White Component Card (Pure White on Eco Green)</span>
+          <div class="bg-paperWhite border border-forestInk/10 rounded-2xl p-6 flex flex-col justify-between hover:border-forestInk/30 transition-all duration-500">
+            <div class="overflow-hidden rounded-2xl aspect-[16/10] bg-warmMist border border-ashBorder/10 mb-4 flex items-center justify-center text-stoneGray text-xs font-bold font-mono">
+              [ Ilustrasi / Media Frame ]
+            </div>
+            <div class="space-y-2">
+              <span class="text-[9px] font-bold text-forestInk/65 uppercase tracking-widest">Kategori Komponen</span>
+              <h3 class="font-display text-lg font-bold text-inkBlack">Judul Kartu Editorial</h3>
+              <p class="text-xs text-stoneGray leading-relaxed">
+                Kartu didesain menggunakan border minimalis dan background Pure White untuk menonjol di atas latar belakang Warm Bone.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badges & Tabs Component -->
+        <div class="bg-paperWhite rounded-2xl border border-ashBorder/20 p-6 space-y-6">
+          <h3 class="font-display text-sm font-bold text-inkBlack uppercase tracking-wider border-b border-ashBorder/10 pb-3">Badges &amp; Tags</h3>
+
+          <!-- Category Tags -->
+          <div class="space-y-2">
+            <span class="text-[10px] font-bold text-stoneGray font-mono">Category Tags / Tabs</span>
+            <div class="flex flex-wrap gap-2.5">
+              <span class="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-limeCanopy text-inkBlack">Organik</span>
+              <span class="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-warmMist text-stoneGray border border-ashBorder/20">Anorganik</span>
+              <span class="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-warmMist text-stoneGray border border-ashBorder/20">B3</span>
+            </div>
+          </div>
+
+          <!-- Highlight Pill Badge -->
+          <div class="space-y-2">
+            <span class="text-[10px] font-bold text-stoneGray font-mono">Highlight Pill Badge</span>
+            <div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-limeCanopy/20 text-inkBlack border border-limeCanopy/55 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                <i class="fa-solid fa-certificate text-forestInk"></i> Fitur Baru: Sertifikat
+              </span>
+            </div>
+          </div>
+
+          <!-- Stats Pill -->
+          <div class="space-y-2">
+            <span class="text-[10px] font-bold text-stoneGray font-mono">Stats Info Pill</span>
+            <div class="flex gap-2">
+              <span class="px-4 py-2 bg-linenCream rounded-full text-xs font-semibold text-inkBlack">
+                <i class="fa-solid fa-hourglass-start mr-1.5 text-stoneGray"></i> Penguraian: 50 - 500 Tahun
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. IN-PAGE CUSTOM MODAL PREVIEW -->
+    <section class="space-y-6" id="modal-showcase">
+      <div class="space-y-2">
+        <h2 class="font-display text-2xl font-bold text-inkBlack">5. Dialog Modal Kustom (In-Page Custom Modal Dialog)</h2>
+        <p class="text-xs text-stoneGray">Satu-satunya modal dialog interaktif yang menggantikan prompt bawaan browser.</p>
+      </div>
+      <div class="bg-paperWhite rounded-2xl border border-ashBorder/20 p-6 flex flex-col items-center justify-center min-h-[300px]">
+        <button type="button" id="btn-trigger-preview-modal" class="px-6 py-3 rounded-full bg-inkBlack text-white hover:bg-inkBlack/90 text-xs font-bold uppercase tracking-wider">
+          Lihat Contoh Modal Dialog
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- In-Page Demo Modal Component -->
+  <div id="demo-cert-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center bg-inkBlack/60 backdrop-blur-sm p-4">
+    <div id="demo-modal-content" class="bg-paperWhite border border-ashBorder/20 w-full max-w-md rounded-2xl shadow-2xl p-8 space-y-6 transform scale-95 transition-all duration-300">
+      <!-- Modal Header -->
+      <div class="flex items-start justify-between border-b border-ashBorder/20 pb-4">
+        <div>
+          <span class="text-[10px] font-bold text-stoneGray uppercase tracking-widest block">CETAK SERTIFIKAT</span>
+          <h3 class="font-display text-lg font-bold text-inkBlack mt-1 leading-tight">Sertifikat Kelulusan Aksi Hijau</h3>
+        </div>
+        <button type="button" id="btn-close-demo-modal" class="text-stoneGray hover:text-inkBlack text-xl p-1 transition-colors cursor-pointer" aria-label="Tutup dialog">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="space-y-4">
+        <div class="space-y-2">
+          <label for="demo-user-name" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Nama Lengkap</label>
+          <input type="text" id="demo-user-name" placeholder="Masukkan nama lengkap Anda" class="w-full rounded-full bg-warmMist border border-ashBorder px-4 py-3 text-sm font-semibold focus:border-inkBlack transition-colors outline-none">
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div class="pt-2 flex gap-3">
+        <button type="button" id="btn-cancel-demo" class="w-1/2 py-3 rounded-full border border-ashBorder text-inkBlack font-bold text-xs uppercase tracking-wider hover:bg-warmMist transition-all duration-200 cursor-pointer text-center">
+          Batal
+        </button>
+        <button type="button" id="btn-submit-demo" class="w-1/2 py-3 rounded-full bg-limeCanopy text-inkBlack font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-all duration-200 cursor-pointer text-center">
+          Cetak
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Copy Utility -->
+  <div id="toast" class="toast-copy">Teks Berhasil Disalin!</div>
+
+  <!-- jQuery & JS Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  
+  <script>
+    // Copy utility
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const $toast = $('#toast');
+        $toast.text(`Salin: "${text}"`).fadeIn(200);
+        setTimeout(() => {
+          $toast.fadeOut(200);
+        }, 1500);
+      });
+    }
+
+    $(document).ready(function() {
+      // Modal interactive preview
+      $('#btn-trigger-preview-modal').on('click', function() {
+        $('#demo-user-name').val('');
+        $('#demo-cert-modal').removeClass('hidden').addClass('flex').hide().fadeIn(200);
+        $('#demo-modal-content').removeClass('scale-95').addClass('scale-100');
+      });
+
+      function closeDemoModal() {
+        $('#demo-modal-content').removeClass('scale-100').addClass('scale-95');
+        $('#demo-cert-modal').fadeOut(200, function() {
+          $(this).removeClass('flex').addClass('hidden');
+        });
+      }
+
+      $('#btn-close-demo-modal, #btn-cancel-demo, #demo-cert-modal').on('click', function(e) {
+        if (e.target === this) {
+          closeDemoModal();
+        }
+      });
+
+      $('#btn-close-demo-modal, #btn-cancel-demo').on('click', function() {
+        closeDemoModal();
+      });
+
+      $('#demo-modal-content').on('click', function(e) {
+        e.stopPropagation();
+      });
+
+      $('#btn-submit-demo').on('click', function() {
+        const name = $('#demo-user-name').val().trim();
+        if (!name) {
+          alert('Mohon masukkan nama lengkap Anda.');
+          return;
+        }
+        closeDemoModal();
+        const $toast = $('#toast');
+        $toast.text(`Mencetak sertifikat untuk: ${name}`).fadeIn(200);
+        setTimeout(() => {
+          $toast.fadeOut(200);
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+
+</html>

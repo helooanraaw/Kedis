@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -48,7 +48,7 @@
       <!-- Desktop Nav -->
       <nav aria-label="Navigasi Utama" class="hidden md:flex items-center space-x-7 text-sm font-semibold">
         <a href="index.html" class="nav-link nav-link-active pb-0.5 border-b-2">Beranda</a>
-        
+
         <!-- Eco-Learn Dropdown -->
         <div class="relative py-2">
           <button id="desktop-dropdown-trigger" type="button" class="nav-link pb-0.5 border-b-2 border-transparent flex items-center gap-1 hover:text-inkBlack transition-colors">
@@ -61,14 +61,13 @@
         </div>
 
         <a href="komunitas.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Connect</a>
-        <a href="game.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Play</a>
         <a href="tentang.html" class="nav-link pb-0.5 border-b-2 border-transparent">Tentang</a>
       </nav>
 
       <!-- CTA + Hamburger -->
       <div class="flex items-center gap-3">
-        <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-limeCanopy hover:opacity-90 text-inkBlack text-xs font-bold uppercase tracking-wider transition-all duration-200 pulse-attract">
-          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#07503f] hover:opacity-90 text-white text-xs font-medium uppercase tracking-wider transition-all duration-200 pulse-attract">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Ayo Main
         </a>
         <button id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi" class="md:hidden w-11 h-11 flex items-center justify-center">
           <i class="fa-solid fa-bars text-xl"></i>
@@ -80,7 +79,7 @@
     <div id="mobile-menu" class="hidden md:hidden floating-menu mx-4 mt-0">
       <nav aria-label="Navigasi Seluler" class="flex flex-col space-y-4 text-sm font-semibold">
         <a href="index.html" class="text-inkBlack">Beranda</a>
-        
+
         <!-- Mobile Eco-Learn Submenu -->
         <div class="space-y-2">
           <span class="text-stoneGray uppercase text-[10px] tracking-wider font-bold block">Eco-Learn</span>
@@ -91,22 +90,23 @@
         </div>
 
         <a href="komunitas.html" class="text-stoneGray hover:text-inkBlack">Eco-Connect</a>
-        <a href="game.html" class="text-stoneGray hover:text-inkBlack">Eco-Play</a>
         <a href="tentang.html" class="text-stoneGray hover:text-inkBlack">Tentang Kami</a>
-        <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-limeCanopy text-inkBlack text-xs font-bold uppercase tracking-wider">
-          <i class="fa-solid fa-gamepad mr-1.5"></i> Mainkan
+        <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-[#07503f] text-white text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Ayo Main
         </a>
       </nav>
     </div>
   </header>   <!-- Full-bleed Leaf Hero Section -->
   <section class="sticky top-0 z-0 w-full h-screen flex items-center justify-center overflow-hidden bg-[#122817]"> <!-- Nature Photograph background -->
-    <div class="absolute inset-0 z-0"> <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1600&q=80" alt="Dedaunan Hijau Rimbun" class="w-full h-full object-cover opacity-45"> <!-- Deep green translucent overlay to ensure text legibility -->
+    <div class="absolute inset-0 z-0">
+      <!-- Foto oleh Eberhard Grossgasteiger, sumber: https://unsplash.com/photos/f009c37129b9, Unsplash License -->
+      <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1600&q=80" alt="Dedaunan Hijau Rimbun" class="w-full h-full object-cover opacity-45"> <!-- Deep green translucent overlay to ensure text legibility -->
       <div class="absolute inset-0 bg-[#122817]/75">
       </div>
     </div> <!-- Centered Content Stack -->
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-8 animate-on-scroll">
-      <h1 class="text-hero font-display font-bold text-white tracking-tight leading-tight"> Pilah Sampahmu.<br class="hidden sm:inline"> Hijaukan Bumi Kita. </h1> <!-- Massive Hero Search Bar (Simulated) -->
-      <form id="hero-search-form" action="edukasi.html" method="GET" class="w-full max-w-2xl mx-auto relative flex items-center h-16 rounded-pill bg-paperWhite shadow-ecosia-xl px-2">
+      <h1 class="text-hero font-display font-bold text-white tracking-tight leading-tight"> Pilah Sampahmu.<br class="hidden sm:inline"> <span id="hero-dynamic-text" class="text-limeCanopy inline-block min-h-[1.2em]">Hijaukan Bumi Kita.</span> </h1> <!-- Massive Hero Search Bar (Simulated) -->
+      <form id="hero-search-form" action="edukasi.html" method="GET" class="w-full max-w-2xl mx-auto relative flex items-center h-16 rounded-pill bg-paperWhite shadow-kedis-xl px-2">
         <i class="fa-solid fa-magnifying-glass text-stoneGray text-lg ml-4"></i>
         <input type="text" id="hero-search-input" name="q" autocomplete="off" placeholder="Cari panduan memilah sampah..." aria-label="Cari panduan memilah sampah" class="w-full h-full bg-transparent px-4 text-inkBlack font-medium placeholder-stoneGray/80 outline-none">
         <!-- Interactive outline badge -->
@@ -118,7 +118,7 @@
         </div>
       </form>
       <!-- Floating Stats Card (Dark Translucent with high blur shadow) -->
-      <div class="w-full max-w-3xl mx-auto bg-inkBlack/35 backdrop-blur-md rounded-card border border-white/10 p-6 md:p-8 shadow-ecosia-xl flex flex-col md:flex-row justify-around items-center gap-6 md:gap-4 text-white"> 
+      <div class="w-full max-w-3xl mx-auto bg-inkBlack/35 backdrop-blur-md rounded-card border border-white/10 p-6 md:p-8 shadow-kedis-xl flex flex-col md:flex-row justify-around items-center gap-6 md:gap-4 text-white">
         <!-- Stat 1 -->
         <div class="flex items-center space-x-4 text-left">
           <div class="text-3xl text-limeCanopy shrink-0">
@@ -126,11 +126,11 @@
           </div>
           <div>
             <div class="font-display text-white text-xl md:text-2xl font-bold leading-none tabular-nums">85 Ton</div>
-            <div class="text-[10px] text-limeCanopy/90 font-bold uppercase tracking-wider mt-1.5">Timbulan Harian Kota</div>
+            <div class="text-[10px] text-limeCanopy/90 font-bold uppercase tracking-wider mt-1.5">Sampah Kota per Hari</div>
           </div>
-        </div> 
+        </div>
         <!-- Vertical separator -->
-        <div class="hidden md:block w-px h-10 bg-white/25"></div> 
+        <div class="hidden md:block w-px h-10 bg-white/25"></div>
         <!-- Stat 2 -->
         <div class="flex items-center space-x-4 text-left">
           <div class="text-3xl text-limeCanopy shrink-0">
@@ -138,11 +138,11 @@
           </div>
           <div>
             <div class="font-display text-white text-xl md:text-2xl font-bold leading-none tabular-nums">40% Organik</div>
-            <div class="text-[10px] text-limeCanopy/90 font-bold uppercase tracking-wider mt-1.5">Limbah Basah di TPA</div>
+            <div class="text-[10px] text-limeCanopy/90 font-bold uppercase tracking-wider mt-1.5">Sampah Dapur di TPA</div>
           </div>
         </div>
         <!-- Vertical separator -->
-        <div class="hidden md:block w-px h-10 bg-white/25"></div> 
+        <div class="hidden md:block w-px h-10 bg-white/25"></div>
         <!-- Stat 3 -->
         <div class="flex items-center space-x-4 text-left">
           <div class="text-3xl text-limeCanopy shrink-0">
@@ -150,7 +150,7 @@
           </div>
           <div>
             <div class="font-display text-white text-xl md:text-2xl font-bold leading-none tabular-nums">9,4 Ton</div>
-            <div class="text-[10px] text-limeCanopy/90 font-bold uppercase tracking-wider mt-1.5">Target Reduksi CO₂</div>
+            <div class="text-[10px] text-limeCanopy/90 font-bold uppercase tracking-wider mt-1.5">Target Pengurangan CO₂</div>
           </div>
         </div>
       </div>
@@ -166,7 +166,7 @@
   <section class="w-full bg-ecoGreen border-b border-ashBorder/20 relative overflow-hidden flex flex-col lg:flex-row items-stretch leaf-vein-texture">
     <!-- User Asset: DaunBanyakBorder1 at bottom-right corner -->
     <img src="assets/element/DaunBanyakBorder1.svg" class="absolute -right-16 -bottom-16 w-[64rem] h-auto opacity-[0.08] pointer-events-none select-none z-0 object-contain transform scale-x-[-1]" alt="">
-    
+
     <!-- Left Column: Full-Bleed Image (Touches left browser edge, fades to gradient on right) -->
     <div class="relative w-full lg:w-1/2 min-h-[350px] lg:min-h-[700px] shrink-0 animate-on-scroll">
       <!-- Image on the Left (spans full width of left half to prevent sharp cut-off edges) -->
@@ -182,21 +182,21 @@
     <!-- Right Column: Container-Aligned Content & Stats -->
     <div class="w-full lg:w-1/2 flex items-center py-16 sm:py-24 px-6 sm:px-12 lg:pl-16 lg:pr-[max(24px,calc((100vw-1280px)/2+24px))]">
       <div class="max-w-xl w-full space-y-8">
-        
+
         <!-- Editorial Intro -->
         <div class="space-y-4">
           <div class="space-y-2 animate-on-scroll">
             <span class="text-xs font-bold uppercase tracking-widest text-stoneGray">Analisis Krisis</span>
-            <h2 class="font-display text-4xl sm:text-5xl font-bold text-inkBlack leading-tight tracking-tight">
+            <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-inkBlack leading-tight tracking-tight">
               Mengapa Cara Lama Tidak Lagi Cukup?
             </h2>
           </div>
           <p class="text-stoneGray text-sm sm:text-base leading-relaxed animate-on-scroll">
-            Pertumbuhan kota yang eksponensial menyisakan krisis pengelolaan limbah tersembunyi. Data di bawah menunjukkan urgensi untuk mulai memilah sampah secara mandiri dari pintu rumah tangga demi menjaga keberlanjutan bumi kita.
+            Pertumbuhan kota yang cepat menyisakan masalah penumpukan sampah yang serius. Data di bawah ini menunjukkan mengapa kita harus mulai memilah sampah dari rumah untuk menyelamatkan lingkungan sekitar kita.
           </p>
           <div class="pt-2 animate-on-scroll">
             <a href="edukasi.html" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-inkBlack hover:opacity-85 transition-opacity group">
-              Pelajari aksi nyata kita 
+              Pelajari aksi nyata kita
               <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
             </a>
           </div>
@@ -204,7 +204,7 @@
 
         <!-- Vertical Editorial Stats -->
         <div class="divide-y divide-inkBlack/10 border-t border-b border-inkBlack/10">
-          
+
           <!-- Stat 1 -->
           <div class="py-6 flex flex-col sm:flex-row sm:items-start justify-between gap-4 sm:gap-6 animate-on-scroll group">
             <div class="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
@@ -212,16 +212,14 @@
                 <span class="counter-value" data-counter="81">0</span>%
               </div>
               <div class="space-y-1">
-                <h3 class="font-display text-lg font-bold text-inkBlack">Kebuntuan di Hulu</h3>
+                <h3 class="font-display text-lg font-bold text-inkBlack">Masalah Sampah Rumah Tangga</h3>
                 <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
-                  <strong class="text-inkBlack font-semibold">81%</strong> sampah rumah tangga tercampur langsung di tempat pembuangan, merusak potensi daur ulang materi anorganik.
+                  Sekitar <strong class="text-inkBlack font-semibold">81%</strong> sampah rumah tangga langsung dibuang tanpa dipilah, sehingga sampah daur ulang seperti plastik dan kertas menjadi kotor dan rusak.
                 </p>
               </div>
             </div>
-            <!-- User Asset: SampahPlastikHitam -->
-            <img src="assets/element/SampahPlastikHitam.svg" class="w-12 h-12 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity hidden sm:block object-contain" alt="Sampah Plastik Hitam">
           </div>
-          
+
           <!-- Stat 2 -->
           <div class="py-6 flex flex-col sm:flex-row sm:items-start justify-between gap-4 sm:gap-6 animate-on-scroll group">
             <div class="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
@@ -229,16 +227,14 @@
                 <span class="counter-value" data-counter="25">0</span>x
               </div>
               <div class="space-y-1">
-                <h3 class="font-display text-lg font-bold text-inkBlack">Metana di TPA</h3>
+                <h3 class="font-display text-lg font-bold text-inkBlack">Gas Berbahaya di Tempat Pembuangan</h3>
                 <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
-                  Sampah organik basah yang tertimbun anaerob menghasilkan gas metana dengan pemanasan global <strong class="text-inkBlack font-semibold">25 kali</strong> lebih kuat dari CO₂.
+                  Sampah makanan yang menumpuk menghasilkan gas metana, penyebab pemanasan global yang <strong class="text-inkBlack font-semibold">25 kali</strong> lebih berbahaya dibanding CO₂.
                 </p>
               </div>
             </div>
-            <!-- User Asset: BotolBotolSampahBekas -->
-            <img src="assets/element/BotolBotolSampahBekas.svg" class="w-12 h-12 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity hidden sm:block object-contain" alt="Botol Sampah Bekas">
           </div>
-          
+
           <!-- Stat 3 -->
           <div class="py-6 flex flex-col sm:flex-row sm:items-start justify-between gap-4 sm:gap-6 animate-on-scroll group">
             <div class="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
@@ -246,18 +242,16 @@
                 <span class="counter-value" data-counter="60">0</span>%+
               </div>
               <div class="space-y-1">
-                <h3 class="font-display text-lg font-bold text-inkBlack">Partisipasi Digital Rendah</h3>
+                <h3 class="font-display text-lg font-bold text-inkBlack">Kurangnya Panduan Memilah</h3>
                 <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
-                  <strong class="text-inkBlack font-semibold">60%+</strong> warga kota ingin mendaur ulang, namun terhambat ketiadaan panduan digital dan alat kalkulasi emisi karbon.
+                  Lebih dari <strong class="text-inkBlack font-semibold">60%</strong> warga sebenarnya ingin memilah sampah, tetapi bingung karena tidak adanya panduan praktis dan alat pengukur dampak lingkungan.
                 </p>
               </div>
             </div>
-            <!-- User Asset: Recycle -->
-            <img src="assets/element/Recycle.svg" class="w-12 h-12 shrink-0 opacity-70 group-hover:opacity-100 transition-opacity hidden sm:block object-contain" alt="Logo Daur Ulang">
           </div>
-          
+
         </div>
-        
+
       </div>
     </div>
   </section>   <!-- Section 1.7: Eco-Diagnosis Wizard — Lime Canopy Band -->
@@ -273,40 +267,40 @@
     </div>
         <div class="max-w-4xl mx-auto px-6 py-20 relative z-[1]">
           <div class="text-center space-y-4 mb-12 animate-on-scroll"> <span class="text-xs font-bold uppercase tracking-widest text-stoneGray">NAVIGASI PINTAR</span>
-            <h2 class="font-display text-display font-bold text-inkBlack">Eco-Diagnosis: Cari Solusi Hijau Anda</h2>
-            <p class="text-stoneGray max-w-xl mx-auto text-sm sm:text-base leading-relaxed"> Pilih kendala lingkungan terbesar yang Anda hadapi saat ini untuk menemukan panduan digital yang paling sesuai. </p>
+            <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-inkBlack">Pencarian Solusi: Temukan Panduan Sampahmu</h2>
+            <p class="text-stoneGray max-w-xl mx-auto text-sm sm:text-base leading-relaxed"> Pilih masalah sampah terbesar yang sedang Anda hadapi di rumah untuk mendapatkan solusi yang paling cocok. </p>
           </div>
           <div class="bg-paperWhite rounded-card border border-ashBorder/20 p-6 sm:p-10 space-y-8 animate-on-scroll"> <!-- Step 1: Question -->
             <div class="space-y-4">
-              <h3 class="font-display text-lg font-bold text-inkBlack">Pilih kendala utama Anda:</h3>
-              <div class="grid grid-cols-1 gap-4" id="diagnosis-options" role="radiogroup" aria-label="Eco-Diagnosis Options"> 
-                <button type="button" role="radio" aria-checked="false" data-opt="1" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4"> 
-                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-paperWhite">1</span> 
-                  <span>Saya bingung cara membedakan kategori sampah organik, anorganik, dan B3.</span> 
-                </button> 
-                <button type="button" role="radio" aria-checked="false" data-opt="2" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4"> 
-                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-paperWhite">2</span> 
-                  <span>Saya ingin tahu berapa emisi karbon yang dihasilkan oleh sampah rumah tangga saya.</span> 
-                </button> 
-                <button type="button" role="radio" aria-checked="false" data-opt="3" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4"> 
-                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-paperWhite">3</span> 
-                  <span>Saya tidak tahu lokasi bank sampah terdekat atau kelompok peduli lingkungan di daerah saya.</span> 
-                </button> 
-                <button type="button" role="radio" aria-checked="false" data-opt="4" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4"> 
-                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-paperWhite">4</span> 
-                  <span>Saya ingin menguji kemampuan memilah sampah saya melalui simulasi game yang interaktif.</span> 
-                </button> 
+              <h3 class="font-display text-lg font-bold text-inkBlack">Pilih masalah utama Anda:</h3>
+              <div class="grid grid-cols-1 gap-4" id="diagnosis-options" role="radiogroup" aria-label="Eco-Diagnosis Options">
+                <button type="button" role="radio" aria-checked="false" data-opt="1" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4">
+                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-paperWhite">1</span>
+                  <span>Saya bingung membedakan jenis sampah organik, anorganik, dan sampah berbahaya (B3).</span>
+                </button>
+                <button type="button" role="radio" aria-checked="false" data-opt="2" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4">
+                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-paperWhite">2</span>
+                  <span>Saya ingin menghitung dampak emisi karbon dari sampah rumah tangga saya.</span>
+                </button>
+                <button type="button" role="radio" aria-checked="false" data-opt="3" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4">
+                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-paperWhite">3</span>
+                  <span>Saya tidak tahu lokasi bank sampah terdekat atau komunitas lingkungan di daerah saya.</span>
+                </button>
+                <button type="button" role="radio" aria-checked="false" data-opt="4" class="diag-opt-btn flex items-center text-left p-4 rounded-2xl bg-paperWhite border border-ashBorder/30 hover:border-inkBlack transition-all text-sm font-semibold text-inkBlack gap-4">
+                  <span class="w-8 h-8 rounded-full border border-ashBorder flex items-center justify-center shrink-0 text-xs font-bold font-display diag-num-indicator bg-paperWhite">4</span>
+                  <span>Saya ingin belajar memilah sampah lewat game interaktif.</span>
+                </button>
               </div>
             </div></div> <!-- Step 2: Dynamic Result Panel -->
             <div id="diagnosis-result" class="hidden border-t border-ashBorder/25 pt-8 space-y-6 animate-on-scroll">
               <div class="flex flex-col md:flex-row items-center md:items-start gap-6 bg-paperWhite p-6 sm:p-8 rounded-card border border-ashBorder/20">
                 <div class="text-3xl text-limeCanopy shrink-0 mt-1" id="diag-icon-target"> <i class="fa-solid fa-seedling"></i> </div>
                 <div class="space-y-3 flex-1">
-                  <h4 class="font-display text-lg font-bold text-inkBlack" id="diag-title-target">Rekomendasi Solusi Anda</h4>
-                  <p class="text-stoneGray text-xs sm:text-sm leading-relaxed" id="diag-desc-target"> Deskripsi rekomendasi akan muncul secara dinamis di sini. </p>
+                  <h4 class="font-display text-lg font-bold text-inkBlack" id="diag-title-target">Rekomendasi Solusi Untuk Anda</h4>
+                  <p class="text-stoneGray text-xs sm:text-sm leading-relaxed" id="diag-desc-target"> Pilihan solusi Anda akan muncul di sini. </p>
                   <!-- Badge Promo Fitur Baru: Sertifikat -->
                   <div class="inline-flex items-center gap-2 px-3 py-1 bg-limeCanopy/10 text-inkBlack border border-limeCanopy/40 rounded-pill text-[11px] font-bold uppercase tracking-wider hidden" id="diag-badge-certificate"> <i class="fa-solid fa-certificate text-limeCanopy"></i> Fitur Baru: Sertifikat Digital Tersedia! </div>
-                  <div class="pt-2"> <a href="#" id="diag-link-target" class="inline-flex items-center justify-center px-6 py-3 rounded-pill bg-limeCanopy hover:opacity-95 text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200"> Pelajari Selengkapnya <i class="fa-solid fa-arrow-right ml-1.5"></i> </a> </div>
+                  <div class="pt-2"> <a href="#" id="diag-link-target" class="inline-flex items-center justify-center px-6 py-3 rounded-pill bg-limeCanopy hover:opacity-95 text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200"> Lihat Panduan <i class="fa-solid fa-arrow-right ml-1.5"></i> </a> </div>
                 </div>
                 <!-- Dynamic Illustration Image -->
                 <div class="w-24 h-24 sm:w-28 sm:h-28 shrink-0 overflow-hidden flex items-center justify-center bg-warmMist rounded-2xl border border-ashBorder/10 p-2 select-none pointer-events-none">
@@ -317,8 +311,6 @@
           </div>
         </div>
       </section>
-
-
 
   <!-- Section 2: Value Propositions (Broken Pattern — Alternating Visual Weight) -->
   <section class="w-full bg-ecoGreen relative overflow-hidden leaf-vein-texture">
@@ -334,19 +326,18 @@
     </div>
 
     <div class="max-w-7xl mx-auto px-6 py-24 sm:py-32 relative z-[1]">
-      
-      <!-- Section Header -->
+
       <div class="text-center space-y-4 mb-20 animate-on-scroll">
         <span class="text-xs font-bold uppercase tracking-widest text-stoneGray">Langkah Kita</span>
-        <h2 class="font-display text-display font-bold text-inkBlack">Aksi Sederhana Berdampak Nyata</h2>
+        <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-inkBlack">Aksi Sederhana <span class="text-limeCanopy bg-[#07503f] px-3.5 py-0.5 inline-block">Berdampak Nyata</span></h2>
         <p class="text-stoneGray max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
-          Temukan rangkaian solusi mandiri kami untuk membantu Anda mengubah pola hidup menjadi lebih ramah lingkungan.
+          Temukan berbagai cara mudah dari kami untuk membantu Anda memulai gaya hidup ramah lingkungan.
         </p>
       </div>
 
       <!-- Minimalist Editorial Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 max-w-5xl mx-auto">
-        
+
         <!-- Card 1: Eco-Learn -->
         <div class="group flex flex-col justify-between animate-on-scroll">
           <div class="space-y-4">
@@ -354,23 +345,22 @@
               <img src="assets/eco-learn.png" alt="Edukasi Pilah Sampah" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
             </a>
             <div class="space-y-2">
-              <span class="text-[11px] font-bold uppercase tracking-widest text-stoneGray">01 / Panduan Dasar</span>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-stoneGray">01 / Belajar Pilah</span>
               <h3 class="font-display text-xl font-bold text-inkBlack leading-snug">
                 <a href="edukasi.html" class="hover:underline decoration-limeCanopy decoration-2 underline-offset-4">Eco-Learn</a>
               </h3>
               <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
-                Arsip digital klasifikasi sampah Organik, Anorganik, dan B3 lengkap dengan tips praktis pengelolaan di rumah.
+                Panduan lengkap cara memisahkan sampah organik, anorganik, dan sampah berbahaya (B3) dengan tips mudah di rumah.
               </p>
             </div>
           </div>
           <div class="pt-4 mt-auto">
             <a href="edukasi.html" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-inkBlack hover:opacity-85 transition-opacity group/link">
-              Mulai Belajar 
+              Mulai Belajar
               <i class="fa-solid fa-arrow-right ml-2 transform group-hover/link:translate-x-1 transition-transform duration-200"></i>
             </a>
           </div>
         </div>
-
 
         <!-- Card 3: Eco-Connect -->
         <div class="group flex flex-col justify-between animate-on-scroll">
@@ -379,18 +369,18 @@
               <img src="assets/eco-connect.png" alt="Komunitas Peduli Lingkungan" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
             </a>
             <div class="space-y-2">
-              <span class="text-[11px] font-bold uppercase tracking-widest text-stoneGray">02 / Jejaring Sosial</span>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-stoneGray">02 / Hubungkan Aksi</span>
               <h3 class="font-display text-xl font-bold text-inkBlack leading-snug">
                 <a href="komunitas.html" class="hover:underline decoration-limeCanopy decoration-2 underline-offset-4">Eco-Connect</a>
               </h3>
               <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
-                Temukan lokasi bank sampah terdekat, relawan kebersihan, dan komunitas peduli lingkungan di kota Anda.
+                Cari lokasi bank sampah terdekat, jadwal kegiatan bersih-bersih, dan komunitas peduli lingkungan di sekitar Anda.
               </p>
             </div>
           </div>
           <div class="pt-4 mt-auto">
             <a href="komunitas.html" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-inkBlack hover:opacity-85 transition-opacity group/link">
-              Cari Komunitas 
+              Cari Komunitas
               <i class="fa-solid fa-arrow-right ml-2 transform group-hover/link:translate-x-1 transition-transform duration-200"></i>
             </a>
           </div>
@@ -403,23 +393,23 @@
               <img src="assets/eco-play.png" alt="Simulasi Game Pilah" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
             </a>
             <div class="space-y-2">
-              <span class="text-[11px] font-bold uppercase tracking-widest text-stoneGray">03 / Game Interaktif</span>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-stoneGray">03 / Game Edukasi</span>
               <h3 class="font-display text-xl font-bold text-inkBlack leading-snug">
                 <a href="game.html" class="hover:underline decoration-limeCanopy decoration-2 underline-offset-4">Eco-Play</a>
               </h3>
               <p class="text-stoneGray text-xs sm:text-sm leading-relaxed">
-                Latih ketangkasan dan pengetahuan pemilahan sampah Anda secara langsung melalui game drag-and-drop interaktif.
+                Uji pemahaman Anda tentang cara memilah sampah lewat game arcade 2D yang seru dan interaktif.
               </p>
             </div>
           </div>
           <div class="pt-4 mt-auto">
             <a href="game.html" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-inkBlack hover:opacity-85 transition-opacity group/link">
-              Main Sekarang 
+              Main Sekarang
               <i class="fa-solid fa-arrow-right ml-2 transform group-hover/link:translate-x-1 transition-transform duration-200"></i>
             </a>
           </div>
         </div>
-        
+
       </div>
     </div>
   </section>
@@ -441,18 +431,18 @@
           <h3 class="font-display text-base font-bold text-inkBlack text-center">Distribusi Dampak Pengelolaan</h3> <!-- Simple CSS donut chart representation -->
           <div class="relative w-64 h-64 sm:w-72 sm:h-72 rounded-full donut-chart-container" id="donut-chart">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" class="w-full h-full donut-svg"></svg>
-            <div class="absolute w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-paperWhite flex flex-col items-center justify-center shadow-inner pointer-events-none" style="top:50%;left:50%;transform:translate(-50%,-50%)"> <span class="font-display text-center text-3xl sm:text-4xl font-bold text-inkBlack tabular-nums">65%</span> <span class="text-[11px] sm:text-[12px] font-bold text-center text-stoneGray uppercase tracking-widest mt-1 sm:mt-1.5 max-w-[120px] leading-tight">Target Reduksi TPA</span> </div>
+            <div class="absolute w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-paperWhite flex flex-col items-center justify-center shadow-inner pointer-events-none" style="top:50%;left:50%;transform:translate(-50%,-50%)"> <span class="font-display text-center text-3xl sm:text-4xl font-bold text-inkBlack tabular-nums">65%</span> <span class="text-[11px] sm:text-[12px] font-bold text-center text-stoneGray uppercase tracking-widest mt-1 sm:mt-1.5 max-w-[120px] leading-tight">Pengurangan Beban TPA</span> </div>
             <div id="donut-tooltip" class="absolute left-1/2 -translate-x-1/2 top-full mt-4 bg-inkBlack text-paperWhite text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-pill whitespace-nowrap shadow-lg pointer-events-none hidden z-10"> <span id="tooltip-label"></span> <span id="tooltip-pct" class="text-limeCanopy"></span> </div>
           </div>
         </div>
       </div> <!-- Right Column: Transparency Narrative -->
       <div class="space-y-6 animate-on-scroll"> <span class="text-xs font-bold uppercase tracking-widest text-stoneGray">TRANSPARANSI GERAKAN</span>
-        <h2 class="font-display text-display font-bold text-inkBlack">Setiap Lembar Sampah Terpilah Berharga</h2>
-        <p class="text-stoneGray text-sm sm:text-base leading-relaxed"> Kami percaya gerakan penyelamatan bumi berakar pada keterbukaan dan konsistensi warga. Dengan membiasakan memilah sampah dari pintu dapur, kita berkontribusi secara langsung untuk mengurangi volume pembuangan sampah ke TPA regional hingga 65% melalui pengomposan mandiri dan penyaluran bahan daur ulang yang bersih. </p>
-        <div class="pt-2"> <a href="edukasi.html" class="inline-flex items-center justify-center px-6 py-3 border border-inkBlack rounded-pill text-inkBlack font-bold text-xs uppercase tracking-wider hover:bg-inkBlack hover:text-paperWhite transition-all duration-200"> Pelajari Tata Cara Pemilahan </a> </div>
+        <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-inkBlack">Setiap Lembar Sampah Terpilah Berharga</h2>
+        <p class="text-stoneGray text-sm sm:text-base leading-relaxed"> Kami percaya bahwa menjaga bumi dimulai dari kebiasaan kecil di rumah. Dengan memisahkan sampah langsung dari dapur, kita membantu mengurangi tumpukan sampah di TPA hingga 65% melalui pembuatan kompos dan penyaluran bahan daur ulang. </p>
+        <div class="pt-2"> <a href="edukasi.html" class="inline-flex items-center justify-center px-6 py-3 border border-inkBlack rounded-pill text-inkBlack font-bold text-xs uppercase tracking-wider hover:bg-inkBlack hover:text-paperWhite transition-all duration-200"> Pelajari Panduan Pilah </a> </div>
       </div>
     </div>
-  </section>   <!-- Linen Cream Footer — Distilled for Minimalist Ecosia aesthetic -->
+  </section>   <!-- Linen Cream Footer — Distilled for Minimalist KEDIS aesthetic -->
   <footer class="bg-linenCream text-inkBlack border-t border-ashBorder/30 py-16 relative overflow-hidden">
     <!-- Decorative foliage: top corners + scattered leaves -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
@@ -463,7 +453,7 @@
     </div>
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 relative z-[1]"> <!-- Brand column -->
       <div class="space-y-4"> <a href="index.html" class="inline-block"> <img src="assets/logo.svg" alt="Logo KEDIS" class="h-10 w-auto" loading="lazy"> </a>
-        <p class="text-xs text-stoneGray leading-relaxed max-w-sm"> Kampanye kesadaran digital untuk pemilahan sampah mandiri dari pintu rumah tangga demi lingkungan perkotaan yang sehat dan berkelanjutan. </p>
+        <p class="text-xs text-stoneGray leading-relaxed max-w-sm"> Kampanye digital untuk mengajak masyarakat memilah sampah dari rumah demi lingkungan kota yang bersih dan sehat. </p>
         <div class="flex space-x-4 pt-2 text-stoneGray"> <a href="#" aria-label="Instagram KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-instagram text-lg">
             </i>
           </a> <a href="#" aria-label="GitHub KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-github text-lg">

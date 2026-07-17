@@ -166,7 +166,7 @@ $(document).ready(function () {
       '4': {
         icon: '<i class="fa-solid fa-gamepad"></i>',
         title: 'Simulasi Pemilahan Menyenangkan di Eco-Play',
-        desc: 'Latih ketangkasan dan refleks pemilahan Anda melalui game drag-and-drop 3D interaktif kami. Sortir berbagai jenis sampah ke tong yang tepat secepat mungkin. Selesaikan simulasi dengan skor minimal 100 poin untuk mengklaim Sertifikat Kelulusan Aksi Hijau!',
+        desc: 'Latih ketangkasan dan refleks pemilahan Anda melalui game arcade 2D interaktif kami. Jalankan pemilah, ambil sampah, dan sortir ke tong yang tepat secepat mungkin. Selesaikan simulasi dengan skor minimal 100 poin untuk mengklaim Sertifikat Kelulusan Aksi Hijau!',
         link: 'game.html',
         btnText: 'Mainkan Eco-Play',
         showBadge: true,
@@ -486,9 +486,41 @@ $(document).ready(function () {
     });
 
     // Certificate printing
+    // Certificate printing modal triggers
     $('#btn-print-cert').on('click', function() {
-      var name = prompt('Masukkan nama lengkap Anda untuk sertifikat:');
-      if (!name) return;
+      $('#cert-user-name').val('');
+      $('#cert-modal').removeClass('hidden').addClass('flex').hide().fadeIn(200);
+      $('#cert-modal-content').removeClass('scale-95').addClass('scale-100');
+    });
+
+    function closeCertModal() {
+      $('#cert-modal-content').removeClass('scale-100').addClass('scale-95');
+      $('#cert-modal').fadeOut(200, function() {
+        $(this).removeClass('flex').addClass('hidden');
+      });
+    }
+
+    $('#btn-close-cert-modal, #btn-cancel-cert, #cert-modal').on('click', function(e) {
+      if (e.target === this) {
+        closeCertModal();
+      }
+    });
+
+    $('#btn-close-cert-modal, #btn-cancel-cert').on('click', function() {
+      closeCertModal();
+    });
+
+    $('#cert-modal-content').on('click', function(e) {
+      e.stopPropagation();
+    });
+
+    $('#btn-submit-cert').on('click', function() {
+      var name = $('#cert-user-name').val().trim();
+      if (!name) {
+        alert('Mohon masukkan nama lengkap Anda.');
+        return;
+      }
+      closeCertModal();
 
       var co2 = $('#co2-produced').text() + ' / tahun';
       var trees = $('#trees-saved').text() + ' / tahun';
@@ -561,5 +593,52 @@ $(document).ready(function () {
       printWindow.document.write(certHtml);
       printWindow.document.close();
     });
+  }
+
+  // Typewriter effect for Hero Dynamic Text
+  var $dynamicEl = $('#hero-dynamic-text');
+  if ($dynamicEl.length) {
+    var texts = [
+      "Hijaukan Bumi Kita.",
+      "Kurangi Jejak Karbonmu.",
+      "Selamatkan Air Tanah Kita."
+    ];
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      $dynamicEl.text(texts[0]);
+    } else {
+      var textIndex = 0;
+      var charIndex = texts[0].length;
+      var isDeleting = false;
+      var typingSpeed = 100;
+      var deletingSpeed = 50;
+      var delayBetweenTexts = 2000;
+
+      function type() {
+        var currentText = texts[textIndex];
+        if (isDeleting) {
+          $dynamicEl.text(currentText.substring(0, charIndex - 1));
+          charIndex--;
+        } else {
+          $dynamicEl.text(currentText.substring(0, charIndex + 1));
+          charIndex++;
+        }
+
+        var nextSpeed = isDeleting ? deletingSpeed : typingSpeed;
+
+        if (!isDeleting && charIndex === currentText.length) {
+          isDeleting = true;
+          nextSpeed = delayBetweenTexts;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          textIndex = (textIndex + 1) % texts.length;
+          nextSpeed = 500;
+        }
+
+        setTimeout(type, nextSpeed);
+      }
+
+      setTimeout(type, 1000);
+    }
   }
 });

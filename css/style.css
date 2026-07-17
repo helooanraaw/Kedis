@@ -1,4 +1,4 @@
-/* CSS Variables and Base Styles for KEDIS - Ecosia Style Reference */
+/* CSS Variables and Base Styles for KEDIS - Campaign Website Style Reference */
 
 :root {
   /* Colors */
@@ -164,7 +164,7 @@ h6 { font-size: var(--text-subheading); }
 }
 
 /* Custom shadow class */
-.shadow-ecosia-xl {
+.shadow-kedis-xl {
   box-shadow: var(--shadow-xl);
 }
 
@@ -216,14 +216,6 @@ input:focus, select:focus {
   transition: box-shadow 0.2s var(--ease-out-expo);
 }
 
-/* Pulse attract — subtle, intermittent, for CTA buttons */
-@keyframes pulse-attract {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(215, 235, 128, 0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(215, 235, 128, 0); }
-}
-.pulse-attract {
-  animation: pulse-attract 2s ease-in-out 3;
-}
 
 /* Drag lift — hover/shadow on draggable items */
 .drag-lift {
@@ -612,7 +604,6 @@ input:focus, select:focus {
   padding-left: 0.5rem;
 }
 
-
 /* ==========================================================================
    Game — 3D Trash Bin (CSS-only cylindrical shape)
    ========================================================================== */
@@ -882,5 +873,4 @@ input:focus, select:focus {
 .diag-opt-btn:active {
   transform: scale(0.98) translateX(3px);
 }
-
 

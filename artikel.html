@@ -53,7 +53,7 @@
       <!-- Desktop Nav -->
       <nav aria-label="Navigasi Utama" class="hidden md:flex items-center space-x-7 text-sm font-semibold">
         <a href="index.html" class="nav-link pb-0.5 border-b-2 border-transparent">Beranda</a>
-        
+
         <!-- Eco-Learn Dropdown -->
         <div class="relative py-2">
           <button id="desktop-dropdown-trigger" type="button" class="nav-link nav-link-active pb-0.5 border-b-2 flex items-center gap-1 hover:text-inkBlack transition-colors">
@@ -66,14 +66,13 @@
         </div>
 
         <a href="komunitas.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Connect</a>
-        <a href="game.html" class="nav-link pb-0.5 border-b-2 border-transparent">Eco-Play</a>
         <a href="tentang.html" class="nav-link pb-0.5 border-b-2 border-transparent">Tentang</a>
       </nav>
 
       <!-- CTA + Hamburger -->
       <div class="flex items-center gap-3">
-        <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-limeCanopy hover:opacity-90 text-inkBlack text-xs font-bold uppercase tracking-wider transition-all duration-200 pulse-attract">
-          <i class="fa-solid fa-gamepad mr-1.5"></i> Simulasi Pilah
+        <a href="game.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#07503f] hover:opacity-90 text-white text-xs font-bold uppercase tracking-wider transition-all duration-200 pulse-attract">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Ayo Main
         </a>
         <button id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi" class="md:hidden w-11 h-11 flex items-center justify-center">
           <i class="fa-solid fa-bars text-xl"></i>
@@ -85,7 +84,7 @@
     <div id="mobile-menu" class="hidden md:hidden floating-menu mx-4 mt-0">
       <nav aria-label="Navigasi Seluler" class="flex flex-col space-y-4 text-sm font-semibold">
         <a href="index.html" class="text-stoneGray hover:text-inkBlack">Beranda</a>
-        
+
         <!-- Mobile Eco-Learn Submenu -->
         <div class="space-y-2">
           <span class="text-inkBlack uppercase text-[10px] tracking-wider font-bold block">Eco-Learn</span>
@@ -96,10 +95,9 @@
         </div>
 
         <a href="komunitas.html" class="text-stoneGray hover:text-inkBlack">Eco-Connect</a>
-        <a href="game.html" class="text-stoneGray hover:text-inkBlack">Eco-Play</a>
         <a href="tentang.html" class="text-stoneGray hover:text-inkBlack">Tentang Kami</a>
-        <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-limeCanopy text-inkBlack text-xs font-bold uppercase tracking-wider">
-          <i class="fa-solid fa-gamepad mr-1.5"></i> Mainkan
+        <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-[#07503f] text-white text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-gamepad mr-1.5"></i> Ayo Main
         </a>
       </nav>
     </div>
@@ -111,7 +109,7 @@
   <!-- Main Canvas -->
   <main class="w-full bg-paperWhite py-12">
     <div class="max-w-7xl mx-auto px-6 space-y-8">
-      
+
       <!-- Page Header Layout: Left Title & Right Info Widget -->
       <div id="articles-header-block" class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center border-b border-ashBorder/10 pb-8 animate-on-scroll">
         <div class="lg:col-span-2 space-y-4">
@@ -122,7 +120,7 @@
             Kreativitas &amp; Pengolahan Sampah
           </h1>
           <p class="text-stoneGray text-xs sm:text-sm leading-relaxed max-w-2xl font-medium">
-            Ketahui panduan praktis mendaur ulang sampah anorganik serta tata cara pengemasan limbah berbahaya (B3) rumah tangga agar aman bagi lingkungan dalam langkah-langkah ringkas.
+            Temukan panduan praktis mendaur ulang sampah anorganik dan cara mengemas sampah berbahaya (B3) rumah tangga agar aman bagi lingkungan.
           </p>
         </div>
         <!-- Did You Know Eco Info Widget (Placed to the right of header) -->
@@ -138,7 +136,7 @@
 
       <!-- Articles Hub view container -->
       <div id="articles-hub-view" class="space-y-6">
-        
+
         <!-- Search bar layout (Placed directly above the articles grid) -->
         <div class="flex flex-col sm:flex-row items-center justify-between border-b border-ashBorder/20 pb-4 gap-4">
           <h2 class="font-display text-base font-bold text-inkBlack">Daftar Panduan Kreatif</h2>
@@ -175,7 +173,7 @@
 
       <!-- Article Reading Detail View (Initially Hidden) -->
       <article id="article-read-panel" class="hidden max-w-3xl mx-auto space-y-8 bg-warmMist border border-ashBorder/20 rounded-card p-6 sm:p-10 shadow-sm relative animate-on-scroll">
-        
+
         <!-- Back Button -->
         <button type="button" id="btn-back-to-articles" class="inline-flex items-center gap-2 px-4 py-2 rounded-pill border border-inkBlack text-inkBlack hover:bg-inkBlack hover:text-white font-bold text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer">
           <i class="fa-solid fa-arrow-left"></i> Kembali ke Kelas
@@ -195,6 +193,7 @@
 
         <!-- Article Featured Image Banner -->
         <div class="w-full aspect-[2/1] rounded-card overflow-hidden bg-linenCream border border-ashBorder/20">
+          <!-- TODO: verifikasi nama fotografer sebelum submit -->
           <img id="detail-article-img" src="" alt="Banner Artikel" class="w-full h-full object-cover">
         </div>
 
@@ -217,7 +216,7 @@
           <img src="assets/logo.svg" alt="Logo KEDIS" class="h-10 w-auto" loading="lazy">
         </a>
         <p class="text-xs text-stoneGray leading-relaxed max-w-sm">
-          Kampanye kesadaran digital untuk pemilahan sampah mandiri dari pintu rumah tangga demi lingkungan perkotaan yang sehat dan berkelanjutan.
+          Kampanye digital untuk mengajak masyarakat memilah sampah dari rumah demi lingkungan kota yang bersih dan sehat.
         </p>
         <div class="flex space-x-4 pt-2 text-stoneGray">
           <a href="#" aria-label="Instagram KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
@@ -516,6 +515,7 @@
           category: 'Limbah B3',
           date: '10 Juni 2026',
           readTime: '4 Menit Baca',
+          // Foto oleh Roberta Sorge, sumber: https://unsplash.com/photos/1474979266404-7eaacbcd87c5, Unsplash License
           image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=800&q=80',
           summary: 'Kumpulkan minyak goreng bekas pakai untuk disalurkan menjadi bahan bakar biodiesel.',
           content: `
@@ -550,6 +550,7 @@
           category: 'Kreasi',
           date: '08 Juni 2026',
           readTime: '4 Menit Baca',
+          // TODO: verifikasi nama fotografer sebelum submit
           image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80',
           summary: 'Ubah minyak jelantah sisa dapur menjadi lilin aromaterapi wangi penolak nyamuk.',
           content: `
@@ -592,7 +593,7 @@
 
         Object.keys(articlesData).forEach(id => {
           const item = articlesData[id];
-          
+
           // Search matching
           if (qClean !== '') {
             const matchesTitle = item.title.toLowerCase().includes(qClean);
@@ -666,13 +667,13 @@
       $('#btn-back-to-articles').on('click', function() {
         $('#article-read-panel').fadeOut(200, function() {
           $('#article-read-panel').addClass('hidden');
-          
+
           // Re-enable Search header
           $('#articles-header-block').removeClass('hidden');
-          
+
           $('#articles-hub-view').fadeIn(200);
           $('html, body').animate({ scrollTop: $('#main-header').offset().top - 20 }, 300);
-          
+
           // Clear query string so reloads return to home grid
           window.history.pushState({}, document.title, window.location.pathname);
         });

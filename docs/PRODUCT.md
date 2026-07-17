@@ -10,7 +10,7 @@ Urban youth (Gen Z students, SMK/college level) engaging with INVENTION 2026 nat
 
 ## Product Purpose
 
-KEDIS (Kesadaran Digital Sampah) is a static campaign website for the INVENTION 2026 competition under subtheme "Going Green Through Smart Digital Solutions". It educates urban residents on household waste sorting through interactive tools — carbon calculator, drag-and-drop game, community directory, and categorized guides — without back-end or databases. Success means visitors leave knowing how to sort organic, anorganic, and B3 waste from their own kitchen.
+KEDIS (Kesadaran Digital Sampah) is a static campaign website for the INVENTION 2026 competition under subtheme "Going Green Through Smart Digital Solutions". It educates urban residents on household waste sorting through interactive tools — carbon calculator, arcade game, community directory, and categorized guides — without back-end or databases. Success means visitors leave knowing how to sort organic, anorganic, and B3 waste from their own kitchen.
 
 ## Brand Personality
 
@@ -40,4 +40,4 @@ Calm, Trustworthy, Clear. Voice is a patient educator — no panic, no guilt-tri
 - `prefers-reduced-motion` support already implemented (animations disabled)
 - Focus-visible outlines on all interactive elements
 - Semantic HTML5 structure with landmark regions
-- ARIA labels on interactive controls (tabs, game drag targets, buttons)
+- ARIA labels on interactive controls (tabs, game actions, buttons)
