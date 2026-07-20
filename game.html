@@ -103,6 +103,7 @@
           </div>
         </div>
         <a href="komunitas.html" class="text-stoneGray hover:text-warmMist transition-colors">Eco-Connect</a>
+        <a href="game.html" class="text-limeCanopy">Eco-Play</a>
         <a href="tentang.html" class="text-stoneGray hover:text-warmMist transition-colors">Tentang</a>
       </nav>
       <div class="flex items-center gap-2">
@@ -122,6 +123,7 @@
           </div>
         </div>
         <a href="komunitas.html" class="text-stoneGray hover:text-warmMist">Eco-Connect</a>
+        <a href="game.html" class="text-limeCanopy">Eco-Play</a>
         <a href="tentang.html" class="text-stoneGray hover:text-warmMist">Tentang Kami</a>
       </nav>
     </div>
@@ -130,9 +132,9 @@
   <main class="game-main">
     <div class="game-outer">
       <div id="game-bg-botanical">
-        <img src="assets/element/RantingDaunGantung.svg" alt="" class="bg-willow reveal-parallax" data-parallax-speed="0.04" aria-hidden="true">
-        <img src="assets/element/RantingDaunPohon.svg" alt="" class="bg-fern reveal-parallax scale-x-reversed" data-parallax-speed="0.06" aria-hidden="true">
-        <img src="assets/element/RantingDaunPohon3.svg" alt="" class="bg-eucalyptus reveal-parallax" data-parallax-speed="0.05" aria-hidden="true">
+        <img src="assets/element/RantingDaunGantung.svg" alt="" class="bg-willow" aria-hidden="true">
+        <img src="assets/element/RantingDaunPohon.svg" alt="" class="bg-fern" aria-hidden="true">
+        <img src="assets/element/RantingDaunPohon3.svg" alt="" class="bg-eucalyptus" aria-hidden="true">
       </div>
       <div id="game-container">
         <canvas id="game-bg-canvas" width="320" height="180" style="display:block;width:100%;height:100%;object-fit:contain;image-rendering:pixelated;image-rendering:crisp-edges;-ms-interpolation-mode:nearest-neighbor;background:#0f0f23;position:absolute;top:0;left:0;z-index:1"></canvas>
@@ -183,39 +185,8 @@
         if (window.KEDIS_GAME_RESET) window.KEDIS_GAME_RESET()
       })
       document.getElementById('btn-print-game-cert').addEventListener('click', function() {
-        $('#cert-user-name').val('');
-        $('#cert-modal').removeClass('hidden').addClass('flex').hide().fadeIn(200);
-        $('#cert-modal-content').removeClass('scale-95').addClass('scale-100');
-      });
-
-      function closeCertModal() {
-        $('#cert-modal-content').removeClass('scale-100').addClass('scale-95');
-        $('#cert-modal').fadeOut(200, function() {
-          $(this).removeClass('flex').addClass('hidden');
-        });
-      }
-
-      $('#btn-close-cert-modal, #btn-cancel-cert, #cert-modal').on('click', function(e) {
-        if (e.target === this) {
-          closeCertModal();
-        }
-      });
-
-      $('#btn-close-cert-modal, #btn-cancel-cert').on('click', function() {
-        closeCertModal();
-      });
-
-      $('#cert-modal-content').on('click', function(e) {
-        e.stopPropagation();
-      });
-
-      $('#btn-submit-cert').on('click', function() {
-        var name = $('#cert-user-name').val().trim();
-        if (!name) {
-          alert('Mohon masukkan nama lengkap Anda.');
-          return;
-        }
-        closeCertModal();
+        var name = prompt('Masukkan nama lengkap Anda untuk sertifikat:')
+        if (!name) return
         var date = new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })
         var printWindow = window.open('', '_blank', 'width=900,height=650')
         var h = [
@@ -230,7 +201,7 @@
           '.cb{width:297mm;height:210mm;padding:20mm;box-sizing:border-box;background:#fff;border:15px solid #122817;position:relative;display:flex;flex-direction:column;justify-content:space-between;text-align:center}',
           '.ib{border:2px solid #bebeb9;height:100%;padding:10mm;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between}',
           '.lt{font-family:"Space Grotesk",sans-serif;font-size:24px;font-weight:700;color:#122817;letter-spacing:2px}',
-          '.ct{font-family:"Space Grotesk",sans-serif;font-size:32px;font-weight:700;color:#33;margin:15px 0 5px;text-transform:uppercase;letter-spacing:1px}',
+          '.ct{font-family:"Space Grotesk",sans-serif;font-size:32px;font-weight:700;color:#333;margin:15px 0 5px;text-transform:uppercase;letter-spacing:1px}',
           '.cs{font-size:14px;color:#6c6c6c;font-weight:600;text-transform:uppercase;letter-spacing:3px}',
           '.ri{font-size:16px;color:#6c6c6c;margin-top:25px}',
           '.rn{font-family:"Space Grotesk",sans-serif;font-size:36px;font-weight:700;color:#122817;border-bottom:2px solid #d7eb80;display:inline-block;padding-bottom:5px;margin:10px 0}',
@@ -241,8 +212,8 @@
           '.sl{border-top:1px solid #bebeb9;margin-top:50px;padding-top:5px;font-size:12px;font-weight:600;color:#333}',
           '.st{font-size:10px;color:#6c6c6c;margin-top:2px}',
           '.di{font-size:12px;color:#6c6c6c;font-weight:600;text-align:left}',
-          '</style>',
-          '</head>',
+          '<'+'/style>',
+          '<'+'/head>',
           '<body>',
           '<div class="cb"><div class="ib">',
           '<div class="lt">KEDIS</div>',
@@ -252,50 +223,16 @@
           '<div class="fs">',
           '<div class="di">Diterbitkan pada:<br><span style="color:#333">' + date + '</span></div>',
           '<div class="sg"><span style="font-family:Space Grotesk,sans-serif;font-style:italic;font-weight:700;color:#122817;font-size:14px">KEDIS Digital</span><div class="sl">Sistem Kampanye KEDIS</div><div class="st">Smart Digital Solution</div></div>',
-          '</div>',
-          '</div></div>',
-          '<script>window.onload=function(){window.print();setTimeout(function(){window.close()},500)}</script>',
-          '</body></html>'
+          '<'+'/div>',
+          '<'+'/div><'+'/div>',
+          '<script>window.onload=function(){window.print();setTimeout(function(){window.close()},500)}<' + '/script>',
+          '<'+'/body><'+'/html>'
         ].join('\n')
         printWindow.document.write(h)
         printWindow.document.close()
-      });
+      })
     })
   </script>
-
-  <!-- Certificate Name Input Modal -->
-  <div id="cert-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-    <div id="cert-modal-content" class="bg-[#0f0f23] border border-[#f1c40f]/40 w-full max-w-md rounded-lg shadow-2xl p-8 space-y-6 transform scale-95 transition-all duration-300">
-      <!-- Modal Header -->
-      <div class="flex items-start justify-between border-b border-white/10 pb-4">
-        <div>
-          <span class="text-[10px] font-bold text-[#f1c40f] uppercase tracking-widest block font-mono">CETAK SERTIFIKAT</span>
-          <h3 class="font-mono text-sm font-bold text-white mt-1 leading-tight">Sertifikat Kelulusan Aksi Hijau</h3>
-        </div>
-        <button type="button" id="btn-close-cert-modal" class="text-stone-400 hover:text-white text-xl p-1 transition-colors cursor-pointer" aria-label="Tutup dialog">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-
-      <!-- Modal Body -->
-      <div class="space-y-4">
-        <div class="space-y-2">
-          <label for="cert-user-name" class="block text-xs font-bold uppercase tracking-wider text-white font-mono">Nama Lengkap</label>
-          <input type="text" id="cert-user-name" placeholder="Masukkan nama lengkap" class="w-full rounded bg-[#1a1a3a] border border-[#f1c40f]/30 px-4 py-3 text-sm font-semibold text-white focus:border-[#f1c40f] transition-colors outline-none font-mono">
-        </div>
-      </div>
-
-      <!-- Action Footer -->
-      <div class="pt-2 flex gap-3">
-        <button type="button" id="btn-cancel-cert" class="w-1/2 py-3 rounded border border-white/20 text-white font-bold text-xs uppercase tracking-wider hover:bg-white/5 transition-all duration-200 cursor-pointer text-center font-mono">
-          Batal
-        </button>
-        <button type="button" id="btn-submit-cert" class="w-1/2 py-3 rounded bg-[#f1c40f] text-black font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all duration-200 cursor-pointer text-center font-mono">
-          Cetak
-        </button>
-      </div>
-    </div>
-  </div>
 </body>
 
 </html>
