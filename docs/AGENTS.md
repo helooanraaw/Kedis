@@ -14,12 +14,12 @@ Document ini berfungsi sebagai pusat instruksi, batasan teknis, dan konteks apli
 
 ## 🛠️ 2. Batasan Teknis & Regulasi (WAJIB PATUH)
 Setiap Agent wajib mematuhi batasan arsitektur koding tingkat kompetisi berikut:
-* **Format Aplikasi:** Web Statis Murni (Maksimal 5 halaman utama).
+* **Format Aplikasi:** Web Bali Murni (Maksimal 5 halaman utama).
 * **Teknologi Utama:** HTML5, Tailwind CSS (Play CDN v4), dan jQuery (Play CDN).
 * **Larangan Keras:** 
   * DILARANG menggunakan framework JavaScript modern seperti React, Vue, Angular, Svelte, Alpine.js, dll.
   * DILARANG menggunakan *build tools* atau proses kompilasi berbasis Node.js (`npm`, `node_modules`).
-* **Penyimpanan Data:** Karena bersifat statis, seluruh data dinamis wajib direkayasa menggunakan *Mock Data* di memori browser (*Client-side rendering* atau memanfaatkan `localStorage`).
+* **Penyimpanan Data:** Karena bersifat Bali, seluruh data dinamis wajib direkayasa menggunakan *Mock Data* di memori browser (*Client-side rendering* atau memanfaatkan `localStorage`).
 
 ---
 

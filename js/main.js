@@ -28,17 +28,44 @@ $(document).ready(function () {
       }
     });
 
-    // Close menu when clicking outside
-    $(document).on('click', function (e) {
-      if (!$(e.target).closest('#mobile-menu, #mobile-menu-button').length) {
-        $mobileMenu.slideUp(200);
-        $mobileMenuButton.attr('aria-expanded', 'false');
-        if ($header.length) {
-          $header.removeClass('mobile-open');
+      // Close menu when clicking outside
+      $(document).on('click', function (e) {
+        if (!$(e.target).closest('#mobile-menu, #mobile-menu-button').length) {
+          $mobileMenu.slideUp(200);
+          $mobileMenuButton.attr('aria-expanded', 'false');
+          if ($header.length) {
+            $header.removeClass('mobile-open');
+          }
+        }
+      });
+    }
+
+    // Smooth scroll for internal anchor links (e.g. #tentang, #faq)
+    $(document).on('click', 'a[href^="#"]', function (e) {
+      const targetId = $(this).attr('href');
+      if (targetId && targetId !== '#' && $(targetId).length) {
+        e.preventDefault();
+        const offsetTop = $(targetId).offset().top - 80;
+        $('html, body').animate({ scrollTop: offsetTop }, 500);
+        if ($mobileMenu.length) {
+          $mobileMenu.slideUp(200);
+          $mobileMenuButton.attr('aria-expanded', 'false');
+          if ($header.length) {
+            $header.removeClass('mobile-open');
+          }
         }
       }
     });
-  }
+
+    // Handle hash jump on page load (e.g. index.html#tentang)
+    if (window.location.hash) {
+      const hashTarget = $(window.location.hash);
+      if (hashTarget.length) {
+        setTimeout(function () {
+          $('html, body').animate({ scrollTop: hashTarget.offset().top - 80 }, 500);
+        }, 300);
+      }
+    }
 
   // Desktop Nav Eco-Learn Dropdown Click Toggle
   const $dropdownTrigger = $('#desktop-dropdown-trigger');
@@ -775,5 +802,65 @@ $(document).ready(function () {
       updateParallax();
     }
   }
+
+  // 6. Global Official Platform Toast System & Interactive Handlers
+  window.showKedisToast = function (message, title = 'Notifikasi Resmi') {
+    let $toastContainer = $('#kedis-toast-container');
+    if (!$toastContainer.length) {
+      $toastContainer = $('<div id="kedis-toast-container" class="fixed bottom-6 right-6 z-[9999] flex flex-col gap-3 max-w-sm pointer-events-none"></div>').appendTo('body');
+    }
+
+    const toastId = 'toast-' + Date.now();
+    const toastHtml = `
+      <div id="${toastId}" class="pointer-events-auto bg-[#07503f] text-white p-4 rounded-2xl shadow-2xl border border-limeCanopy/30 flex items-start gap-3 transform translate-y-6 opacity-0 transition-all duration-300">
+        <div class="w-8 h-8 rounded-full bg-limeCanopy text-[#07503f] flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <div class="flex-1 space-y-0.5">
+          <h4 class="font-display text-xs font-bold uppercase tracking-wider text-limeCanopy">${title}</h4>
+          <p class="text-xs text-white/90 leading-relaxed font-medium">${message}</p>
+        </div>
+        <button type="button" class="text-white/60 hover:text-white text-xs p-1" onclick="$('#${toastId}').addClass('opacity-0 translate-y-6'); setTimeout(() => $('#${toastId}').remove(), 300);">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    `;
+
+    const $toast = $(toastHtml).appendTo($toastContainer);
+    setTimeout(() => {
+      $toast.removeClass('translate-y-6 opacity-0');
+    }, 50);
+
+    setTimeout(() => {
+      $toast.addClass('opacity-0 translate-y-6');
+      setTimeout(() => $toast.remove(), 300);
+    }, 4500);
+  };
+
+  // PDF Download simulation
+  $(document).on('click', '.btn-download-pdf', function (e) {
+    e.preventDefault();
+    const docName = $(this).attr('data-doc-name') || 'Panduan_Resmi_Pilah_Sampah_KEDIS_2026.pdf';
+    window.showKedisToast(`Dokumen "${docName}" berhasil diunduh ke perangkat Anda.`, 'Unduh Panduan PDF');
+  });
+
+  // Copy share link simulation
+  $(document).on('click', '.btn-share-link', function (e) {
+    e.preventDefault();
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href);
+    }
+    window.showKedisToast('Tautan halaman platform berhasil disalin ke papan klip.', 'Tautan Berhasil Disalin');
+  });
+
+  // Newsletter & Bulletin Submission
+  $(document).on('submit', '.official-newsletter-form', function (e) {
+    e.preventDefault();
+    const email = $(this).find('input[type="email"]').val();
+    if (email) {
+      window.showKedisToast(`Terima kasih (${email})! Email Anda telah terdaftar dalam Warta Mingguan Resmi KEDIS.`, 'Langganan Berhasil');
+      $(this)[0].reset();
+    }
+  });
 });
 

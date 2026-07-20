@@ -2,7 +2,7 @@
 
 ## Latar Belakang & Tujuan
 Teks di beberapa halaman KEDIS saat ini masih menggunakan istilah-istilah yang terdengar kaku, akademis, atau mirip dengan hasil terjemahan langsung mesin AI (misal: "timbulan harian", "limbah basah", "Kebuntuan di Hulu"). 
-Tujuan dari perubahan ini adalah memperbarui salinan tulisan (copywriting) pada seluruh halaman web agar lebih komunikatif, ramah pengguna, mudah dipahami masyarakat luas (Opsi 1 - Komunikatif & Sederhana), tetapi tetap menjaga tata krama formal yang sopan untuk kebutuhan kompetisi Web Design.
+Tujuan dari perubahan ini adalah memperbarui salinan tulisan (copywriting) pada seluruh halaman web agar lebih komunikatif, ramah pengguna, mudah dipahami masyarakat luas (Opsi 1 - Komunikatif & Sederhana), serta tetap menjaga tata bahasa yang baik.
 
 ---
 
@@ -43,7 +43,7 @@ Tujuan dari perubahan ini adalah memperbarui salinan tulisan (copywriting) pada 
 | *Card 3 (Eco-Play):* 03 / Game Interaktif | *Card 3:* 03 / Game Edukasi |
 | *Card 3 Deskripsi:* Latih ketangkasan dan pengetahuan pemilahan sampah Anda secara langsung melalui game arcade pemilahan interaktif. | *Card 3 Deskripsi:* Uji pemahaman Anda tentang cara memilah sampah lewat game arcade 2D yang seru dan interaktif. |
 | **Setiap Lembar Sampah Terpilah Berharga** (Deskripsi) | *Disesuaikan:* "Kami percaya bahwa menjaga bumi dimulai dari kebiasaan kecil di rumah. Dengan memisahkan sampah langsung dari dapur, kita membantu mengurangi tumpukan sampah di TPA hingga 65% melalui pembuatan kompos dan penyaluran bahan daur ulang." |
-| **Footer KEDIS** (Deskripsi) | *Disesuaikan:* "Kampanye digital untuk mengajak masyarakat memilah sampah dari rumah demi lingkungan kota yang bersih dan sehat." |
+| **Latar Belakang Deskripsi** | Mengganti narasi berfokus kompetisi menjadi narasi produk yang berfokus pada visi, aksi nyata pemilahan dari rumah, serta dampak lingkungan positif secara berkelanjutan. |
 
 ---
 
@@ -52,7 +52,7 @@ Tujuan dari perubahan ini adalah memperbarui salinan tulisan (copywriting) pada 
 | Teks Lama (AI-Speak / Kaku) | Usulan Teks Baru (Natural & Komunikatif) |
 | :--- | :--- |
 | **Latar Belakang Deskripsi (Paragraf 1)** | "KEDIS (Kesadaran Digital Sampah) bermula dari keprihatinan kami terhadap tumpukan sampah yang terus menggunung di tempat pembuangan akhir (TPA). Kami sadar bahwa hanya mengandalkan tempat pembuangan saja tidak cukup. Langkah nyata harus dimulai langsung dari rumah kita masing-masing." |
-| **Latar Belakang Deskripsi (Paragraf 2)** | "Sebagai bagian dari kompetisi Web Design INVENTION 2026 dengan subtema **'Going Green Through Smart Digital Solutions'**, kami merancang platform ini untuk mempermudah siapa saja belajar memilah sampah, menghitung pengurangan emisi karbon dengan mudah, serta melatih kebiasaan memilah lewat game interaktif." |
+| **Latar Belakang Deskripsi (Paragraf 2)** | "KEDIS hadir sebagai platform digital pintar yang dirancang untuk mempermudah siapa saja belajar memilah sampah, menghitung pengurangan emisi karbon secara mandiri, serta melatih kebiasaan memilah sampah lewat gim interaktif dan kolaborasi komunitas." |
 | **Visi & Misi Deskripsi (Paragraf 1)** | "Visi kami adalah menciptakan lingkungan perumahan yang bersih dan hijau di Indonesia, di mana setiap orang memiliki kesadaran dan kebiasaan memisahkan sampah organik, anorganik, dan sampah berbahaya (B3) langsung dari rumah." |
 | **Visi & Misi Deskripsi (Paragraf 2)** | "Kami percaya bahwa tindakan sederhana seperti memisahkan sisa makanan basah dari plastik kering dapat mengurangi beban sampah hingga 65%, mencegah gas berbahaya di TPA, serta mewujudkan lingkungan tempat tinggal yang asri, bersih, dan nyaman." |
 

@@ -22,7 +22,7 @@ KEDIS menggunakan palet warna yang terinspirasi dari alam tropis untuk menghadir
 Sistem menggunakan font yang hangat dan ramah untuk menyampaikan pesan edukatif secara sabar.
 
 *   **Cabin (Google Fonts)**: Font utama untuk body text, teks UI, tombol, dan display headline. Dipilih karena memiliki bentuk membulat lembut yang ramah, namun tetap sangat terbaca pada ukuran kecil.
-*   **Space Grotesk** (jika digunakan): Digunakan pada angka-angka statistik besar dan label data untuk mempertegas kesan digital modern.
+*   **Space Grotesk** (jika digunakan): Digunakan pada angka-angka Balitik besar dan label data untuk mempertegas kesan digital modern.
 
 ---
 

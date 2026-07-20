@@ -29,12 +29,12 @@ Tetap dipakai untuk: eyebrow label + heading, teks pendek (1-2 kalimat). **Perlu
 - **Cara:** scale dari 98% ke 100% + fade, BUKAN geser posisi. Bedakan jelas dari `.reveal-fade` supaya foto kerasa "settle ke tempatnya", bukan "muncul dari bawah" kayak teks.
 
 ### `.reveal-count` — SUDAH ADA sebagian, perluas cakupan
-- Sudah jalan untuk 3 statistik krisis (`data-counter` di `index.html`) dan hasil kalkulator karbon (`co2-produced`, `trees-saved` di `js/main.js`).
+- Sudah jalan untuk 3 Balitik krisis (`data-counter` di `index.html`) dan hasil kalkulator karbon (`co2-produced`, `trees-saved` di `js/main.js`).
 - **Tambahkan** ke: angka 65% di donut chart (`index.html`, section "Distribusi Dampak Pengelolaan"), dan angka dampak di detail komunitas (`komunitas.html`, "150+ Relawan" / "850 Kg Terpilah"). Pakai `data-counter` attribute yang sudah ada polanya, tinggal tempel di elemen baru.
 
 ### `.reveal-horizontal` — BARU, cuma 2 titik ini, jangan dipasang di tempat lain
 - **Titik 1:** `edukasi.html` sekitar baris 128-160, section "Dua Kategori Sampah Organik" — card "Unsur Hijau" (baris ~136) geser masuk dari kiri, card "Unsur Cokelat" (baris ~149) geser masuk dari kanan, ketemu di posisi akhirnya bersamaan.
-- **Titik 2:** `index.html` 3 baris statistik krisis (81% / 25x / 60%+) — geser masuk gantian: baris 1 dari kiri, baris 2 dari kanan, baris 3 dari kiri lagi (zigzag, bukan satu arah semua).
+- **Titik 2:** `index.html` 3 baris Balitik krisis (81% / 25x / 60%+) — geser masuk gantian: baris 1 dari kiri, baris 2 dari kanan, baris 3 dari kiri lagi (zigzag, bukan satu arah semua).
 - Alasan cuma 2 titik: pola ini pas untuk konten yang strukturnya "dua sisi berhadapan" atau "list berurutan pendek". Dipasang di section naratif biasa malah bikin section sebelah-sebelahan gerak beda arah tanpa alasan jelas — jangan generalisir ke section lain.
 
 ### `.reveal-parallax` — BARU, untuk elemen dekoratif daun/ranting yang sudah ada

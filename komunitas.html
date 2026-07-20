@@ -60,7 +60,6 @@
         </div>
 
         <a href="komunitas.html" class="nav-link nav-link-active pb-0.5 border-b-2">Eco-Connect</a>
-        <a href="tentang.html" class="nav-link pb-0.5 border-b-2 border-transparent">Tentang</a>
       </nav>
 
       <div class="flex items-center gap-3">
@@ -88,7 +87,6 @@
         </div>
 
         <a href="komunitas.html" class="text-inkBlack">Eco-Connect</a>
-        <a href="tentang.html" class="text-stoneGray hover:text-inkBlack">Tentang Kami</a>
         <a href="game.html" class="mt-1 inline-flex items-center justify-center py-3 rounded-full bg-[#07503f] text-white text-xs font-bold uppercase tracking-wider">
           <i class="fa-solid fa-gamepad mr-1.5"></i> Ayo Main
         </a>
@@ -210,109 +208,132 @@
       <div id="community-detail" class="hidden space-y-12 pb-16">
         <!-- Back button -->
         <div class="animate-on-scroll">
-          <button id="btn-back-to-list" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-inkBlack hover:opacity-80 transition-opacity gap-2 cursor-pointer">
-            <i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar
+          <button id="btn-back-to-list" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-inkBlack hover:opacity-80 transition-opacity gap-2 cursor-pointer bg-warmMist border border-ashBorder/20 px-4 py-2.5 rounded-full">
+            <i class="fa-solid fa-arrow-left text-[#07503f]"></i> Kembali ke Daftar Komunitas
           </button>
         </div>
 
-        <!-- Header Content -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="md:col-span-2 space-y-6">
-            <div class="space-y-4">
-              <div class="flex flex-wrap gap-2">
-                <span id="detail-region-badge" class="text-[11px] bg-linenCream text-inkBlack px-3 py-1 rounded-pill font-bold uppercase tracking-wider"></span>
-                <span id="detail-category-badge" class="text-[11px] border border-inkBlack text-inkBlack px-3 py-1 rounded-pill font-bold uppercase tracking-wider"></span>
-              </div>
-              <h2 id="detail-name" class="font-display text-3xl sm:text-4xl font-bold text-inkBlack"></h2>
-              <p id="detail-desc" class="text-stoneGray text-sm sm:text-base leading-relaxed font-medium"></p>
+        <!-- Header Overview -->
+        <div class="space-y-4 border-b border-ashBorder/20 pb-8 animate-on-scroll">
+          <div class="flex flex-wrap gap-2">
+            <span id="detail-region-badge" class="text-[11px] bg-linenCream text-inkBlack px-3.5 py-1.5 rounded-pill font-bold uppercase tracking-wider"></span>
+            <span id="detail-category-badge" class="text-[11px] border border-inkBlack text-inkBlack px-3.5 py-1.5 rounded-pill font-bold uppercase tracking-wider"></span>
+          </div>
+          <h2 id="detail-name" class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-inkBlack leading-tight"></h2>
+          <p id="detail-desc" class="text-stoneGray text-sm sm:text-base leading-relaxed font-medium max-w-3xl"></p>
+        </div>
+
+        <!-- Community Core Info Grid (Gallery Banner Left + Info Sidebar Right) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+          
+          <!-- Left Column (7 cols): Photo Gallery Carousel -->
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="font-display text-base font-bold text-inkBlack uppercase tracking-wider flex items-center gap-2">
+                <i class="fa-solid fa-images text-[#07503f]"></i> Galeri Aksi Komunitas
+              </h3>
+              <span class="text-xs text-stoneGray font-semibold">Dokumentasi Lapangan</span>
             </div>
-            <!-- Google Maps Embed -->
-            <div class="w-full aspect-[4/3] rounded-card overflow-hidden border border-ashBorder/20 shadow-inner">
-              <iframe id="detail-map-embed" width="100%" height="100%" src="" title="Lokasi komunitas" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full"></iframe>
+            
+            <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-card overflow-hidden bg-linenCream border border-ashBorder/20 shadow-inner group">
+              <!-- Slides Container -->
+              <div id="carousel-slides" class="w-full h-full relative overflow-hidden">
+                <div id="carousel-track" class="flex w-full h-full transition-transform duration-500 ease-out" style="transform: translateX(0%);">
+                  <!-- Dynamic slides will be inserted here -->
+                </div>
+              </div>
+
+              <!-- Navigation Buttons -->
+              <button type="button" id="carousel-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-paperWhite/90 hover:bg-paperWhite text-inkBlack flex items-center justify-center border border-ashBorder/25 hover:scale-105 transition-all cursor-pointer opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Gambar sebelumnya">
+                <i class="fa-solid fa-chevron-left text-xs"></i>
+              </button>
+              <button type="button" id="carousel-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-paperWhite/90 hover:bg-paperWhite text-inkBlack flex items-center justify-center border border-ashBorder/25 hover:scale-105 transition-all cursor-pointer opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Gambar berikutnya">
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+              </button>
+
+              <!-- Indicators -->
+              <div id="carousel-indicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+                <!-- Dynamic indicators -->
+              </div>
             </div>
           </div>
 
-          <!-- Right Sidebar Content (Stacked widgets to balance layout) -->
-          <div class="space-y-6 flex flex-col h-full">
+          <!-- Right Column (5 cols): Contact & Stats Sidebar -->
+          <div class="lg:col-span-5 space-y-6 flex flex-col justify-between">
             <!-- Contact card -->
             <div class="bg-warmMist border border-ashBorder/20 p-6 rounded-card space-y-4">
-              <h3 class="font-display text-sm font-bold text-inkBlack uppercase tracking-wider border-b border-ashBorder/20 pb-2">Hubungi Komunitas</h3>
+              <h3 class="font-display text-xs font-bold text-inkBlack uppercase tracking-wider border-b border-ashBorder/20 pb-2 flex items-center justify-between">
+                <span>Informasi &amp; Kontak</span>
+                <i class="fa-solid fa-address-book text-stoneGray"></i>
+              </h3>
               <div class="space-y-3 text-xs font-medium text-stoneGray">
-                <div class="flex items-center gap-2.5">
-                  <i class="fa-solid fa-location-dot text-inkBlack text-sm w-4 text-center"></i>
-                  <span id="detail-location"></span>
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-xl bg-paperWhite border border-ashBorder/10 flex items-center justify-center text-inkBlack shrink-0">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-stoneGray/70 font-bold uppercase tracking-wider block">Wilayah Basecamp</span>
+                    <span id="detail-location" class="text-inkBlack font-bold"></span>
+                  </div>
                 </div>
-                <div class="flex items-center gap-2.5">
-                  <i class="fa-solid fa-envelope text-inkBlack text-sm w-4 text-center"></i>
-                  <span id="detail-email"></span>
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-xl bg-paperWhite border border-ashBorder/10 flex items-center justify-center text-inkBlack shrink-0">
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-stoneGray/70 font-bold uppercase tracking-wider block">Email Resmi</span>
+                    <span id="detail-email" class="text-inkBlack font-bold"></span>
+                  </div>
                 </div>
-                <div class="flex items-center gap-2.5">
-                  <i class="fa-brands fa-whatsapp text-inkBlack text-sm w-4 text-center"></i>
-                  <span id="detail-phone"></span>
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-xl bg-paperWhite border border-ashBorder/10 flex items-center justify-center text-inkBlack shrink-0">
+                    <i class="fa-brands fa-whatsapp text-emerald-700"></i>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-stoneGray/70 font-bold uppercase tracking-wider block">WhatsApp Kordinator</span>
+                    <span id="detail-phone" class="text-inkBlack font-bold"></span>
+                  </div>
                 </div>
-                <div class="flex items-center gap-2.5">
-                  <i class="fa-brands fa-instagram text-inkBlack text-sm w-4 text-center"></i>
-                  <span id="detail-instagram"></span>
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-xl bg-paperWhite border border-ashBorder/10 flex items-center justify-center text-inkBlack shrink-0">
+                    <i class="fa-brands fa-instagram text-pink-700"></i>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-stoneGray/70 font-bold uppercase tracking-wider block">Instagram Resmi</span>
+                    <span id="detail-instagram" class="text-inkBlack font-bold"></span>
+                  </div>
                 </div>
               </div>
             </div>
 
             <!-- Stats/Impact Card -->
             <div class="bg-warmMist border border-ashBorder/20 p-6 rounded-card space-y-4">
-              <h3 class="font-display text-sm font-bold text-inkBlack uppercase tracking-wider border-b border-ashBorder/20 pb-2">Dampak &amp; Kontribusi</h3>
+              <h3 class="font-display text-xs font-bold text-inkBlack uppercase tracking-wider border-b border-ashBorder/20 pb-2 flex items-center justify-between">
+                <span>Dampak &amp; Kontribusi</span>
+                <i class="fa-solid fa-chart-simple text-[#07503f]"></i>
+              </h3>
               <div class="grid grid-cols-2 gap-4 text-center">
-                <div class="bg-paperWhite p-3.5 rounded-2xl border border-ashBorder/10">
-                  <span class="block font-display text-base sm:text-lg font-bold text-inkBlack" id="detail-stat-members">0+</span>
-                  <span class="text-[9px] text-stoneGray font-bold uppercase tracking-wider block mt-0.5">Relawan</span>
+                <div class="bg-paperWhite p-4 rounded-2xl border border-ashBorder/10 space-y-1">
+                  <span class="block font-display text-xl font-bold text-inkBlack" id="detail-stat-members">0+</span>
+                  <span class="text-[10px] text-stoneGray font-bold uppercase tracking-wider block">Relawan Aktif</span>
                 </div>
-                <div class="bg-paperWhite p-3.5 rounded-2xl border border-ashBorder/10">
-                  <span class="block font-display text-base sm:text-lg font-bold text-inkBlack" id="detail-stat-waste">0 Kg</span>
-                  <span class="text-[9px] text-stoneGray font-bold uppercase tracking-wider block mt-0.5">Terpilah</span>
+                <div class="bg-paperWhite p-4 rounded-2xl border border-ashBorder/10 space-y-1">
+                  <span class="block font-display text-xl font-bold text-inkBlack" id="detail-stat-waste">0 Kg</span>
+                  <span class="text-[10px] text-stoneGray font-bold uppercase tracking-wider block">Sampah Terolah</span>
                 </div>
               </div>
             </div>
-
-            <!-- Quick Guide Card (Stretched to match heights) -->
-            <div class="bg-inkBlack text-white p-6 rounded-card space-y-3.5 shadow-md flex-grow flex flex-col justify-center">
-              <h3 class="font-display text-xs font-bold text-[#d7eb80] uppercase tracking-widest">Cara Ikut Serta</h3>
-              <ul class="space-y-2.5 text-xs text-white/90 leading-relaxed font-medium list-decimal list-inside">
-                <li class="reveal-step-highlight">Pilih agenda kegiatan aktif di bawah.</li>
-                <li class="reveal-step-highlight">Klik tombol <strong class="text-[#d7eb80]">Ikuti Aksi</strong> pada kartu event.</li>
-                <li class="reveal-step-highlight">Konfirmasi rincian via email / WhatsApp.</li>
-                <li class="reveal-step-highlight">Hadir di lokasi dengan membawa tumbler minum sendiri.</li>
-              </ul>
-            </div>
           </div>
         </div>
 
-        <!-- Community Slider Banner -->
-        <div class="relative w-full aspect-[4/3] rounded-card overflow-hidden bg-linenCream border border-ashBorder/20 shadow-inner group">
-          <!-- Slides Container -->
-          <div id="carousel-slides" class="w-full h-full relative overflow-hidden">
-            <div id="carousel-track" class="flex w-full h-full transition-transform duration-500 ease-out" style="transform: translateX(0%);">
-              <!-- Dynamic slides will be inserted here -->
+        <!-- Upcoming Events Section (Placed below community info) -->
+        <div class="space-y-6 pt-6 border-t border-ashBorder/20">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-ashBorder/20 pb-4">
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-[#07503f]">AGENDA KEGIATAN</span>
+              <h3 class="font-display text-2xl font-bold text-inkBlack">Agenda &amp; Aksi Lingkungan Terdekat</h3>
+              <p class="text-xs text-stoneGray font-medium mt-1">Ikuti kegiatan nyata yang diselenggarakan oleh komunitas ini di lokasi sekitar Anda.</p>
             </div>
-          </div>
-
-          <!-- Navigation Buttons -->
-          <button type="button" id="carousel-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-paperWhite/90 hover:bg-paperWhite text-inkBlack flex items-center justify-center border border-ashBorder/25 hover:scale-105 transition-all cursor-pointer opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Gambar sebelumnya">
-            <i class="fa-solid fa-chevron-left text-xs"></i>
-          </button>
-          <button type="button" id="carousel-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-paperWhite/90 hover:bg-paperWhite text-inkBlack flex items-center justify-center border border-ashBorder/25 hover:scale-105 transition-all cursor-pointer opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Gambar berikutnya">
-            <i class="fa-solid fa-chevron-right text-xs"></i>
-          </button>
-
-          <!-- Indicators -->
-          <div id="carousel-indicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
-            <!-- Dynamic indicators -->
-          </div>
-        </div>
-
-        <!-- Upcoming Events -->
-        <div class="space-y-6">
-          <div class="border-b border-ashBorder/20 pb-4">
-            <h3 class="font-display text-xl font-bold text-inkBlack">Agenda Kegiatan &amp; Aksi Lingkungan</h3>
-            <p class="text-xs text-stoneGray font-medium mt-1">Ikuti kegiatan nyata yang diadakan oleh komunitas ini untuk berkontribusi langsung.</p>
           </div>
 
           <div id="detail-events-list" class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -320,47 +341,87 @@
           </div>
         </div>
       </div>
-    </section> <!-- CTA Banner Section -->
-    <section class="w-full bg-warmMist section-cta border-t border-ashBorder/20">
-      <div class="max-w-4xl mx-auto px-6 text-center space-y-6 animate-on-scroll">
-        <h2 class="font-display text-display font-bold text-inkBlack">Belum Menemukan Komunitas Terdekat?</h2>
-        <p class="text-stoneGray text-sm max-w-xl mx-auto leading-relaxed"> Langkah kecil dari rumah Anda sangatlah berharga. Baca panduan memilah sampah kami untuk mulai memisahkan sampah di lingkungan sekitar Anda. </p>
-        <div class="pt-2 flex flex-col sm:flex-row justify-center gap-4"> <a href="edukasi.html" class="inline-flex items-center justify-center px-6 py-3 rounded-pill bg-limeCanopy hover:opacity-95 text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200"> Pelajari Panduan Pilah </a> <a href="game.html" class="inline-flex items-center justify-center px-6 py-3 rounded-pill border border-inkBlack hover:bg-inkBlack hover:text-paperWhite text-inkBlack font-bold text-xs uppercase tracking-wider transition-all duration-200"> Uji Pengetahuan (Game) </a> </div>
-      </div>
     </section>
   </main>   <!-- Linen Cream Footer — Distilled for Minimalist KEDIS aesthetic -->
-  <footer class="bg-linenCream text-inkBlack border-t border-ashBorder/30 py-16">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12"> <!-- Brand column -->
-      <div class="space-y-4"> <a href="index.html" class="inline-block"> <img src="assets/logo.svg" alt="Logo KEDIS" class="h-10 w-auto" loading="lazy"> </a>
-        <p class="text-xs text-stoneGray leading-relaxed max-w-sm"> Kampanye digital untuk mengajak masyarakat memilah sampah dari rumah demi lingkungan kota yang bersih dan sehat. </p>
-        <div class="flex space-x-4 pt-2 text-stoneGray"> <a href="#" aria-label="Instagram KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-instagram text-lg">
-            </i>
-          </a> <a href="#" aria-label="GitHub KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-github text-lg">
-            </i>
-          </a> <a href="#" aria-label="YouTube KEDIS" class="hover:text-inkBlack transition-colors"><i class="fa-brands fa-youtube text-lg">
-            </i>
-          </a> </div>
-      </div> <!-- Contest Info Column -->
-      <div class="space-y-4 md:text-right md:flex md:flex-col md:items-end">
-        <h3 class="font-display text-sm font-bold uppercase tracking-wider text-inkBlack">INVENTION 2026</h3>
-        <p class="text-xs text-stoneGray leading-relaxed max-w-xs md:text-right"> Karya orisinal subtema "Going Green Through Smart Digital Solutions" dalam kompetisi Web Design INVENTION 2026. </p>
+  <!-- Official Platform Footer -->
+  <footer class="bg-linenCream text-inkBlack border-t border-ashBorder/30 pt-16 pb-12 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 relative z-[1]">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12 pb-16 border-b border-ashBorder/20">
+        
+        <!-- Column 1: Brand & Bio -->
+        <div class="lg:col-span-2 space-y-5">
+          <a href="index.html" class="inline-block">
+            <img src="assets/logo.svg" alt="Logo KEDIS" class="h-10 w-auto" loading="lazy">
+          </a>
+          <p class="text-xs text-stoneGray leading-relaxed max-w-sm font-medium">
+            KEDIS (Kesadaran Digital Sampah) adalah platform edukasi &amp; aksi digital pemilahan sampah mandiri untuk mewujudkan lingkungan kota yang bersih, sehat, dan berkelanjutan.
+          </p>
+          <div class="flex items-center space-x-3 pt-1">
+            <a href="#" aria-label="Instagram KEDIS" class="w-9 h-9 rounded-full bg-warmMist border border-ashBorder/20 text-stoneGray hover:text-inkBlack hover:border-inkBlack/30 flex items-center justify-center text-sm transition-all">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" aria-label="YouTube KEDIS" class="w-9 h-9 rounded-full bg-warmMist border border-ashBorder/20 text-stoneGray hover:text-inkBlack hover:border-ashBorder/30 flex items-center justify-center text-sm transition-all">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Layanan Platform -->
+        <div class="space-y-4">
+          <h3 class="font-display text-xs font-bold uppercase tracking-wider text-inkBlack">Platform</h3>
+          <ul class="space-y-2.5 text-xs text-stoneGray font-medium">
+            <li><a href="edukasi.html" class="hover:text-inkBlack transition-colors">Eco-Learn (Panduan Pilah)</a></li>
+            <li><a href="artikel.html" class="hover:text-inkBlack transition-colors">Kelas Edukasi &amp; Daur Ulang</a></li>
+            <li><a href="komunitas.html" class="hover:text-inkBlack transition-colors">Eco-Connect (Komunitas)</a></li>
+            <li><a href="game.html" class="hover:text-inkBlack transition-colors">Eco-Play (Gim Arcade)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Navigasi Utama -->
+        <div class="space-y-4">
+          <h3 class="font-display text-xs font-bold uppercase tracking-wider text-inkBlack">Navigasi</h3>
+          <ul class="space-y-2.5 text-xs text-stoneGray font-medium">
+            <li><a href="index.html" class="hover:text-inkBlack transition-colors">Beranda Utama</a></li>
+            <li><a href="index.html#tentang" class="hover:text-inkBlack transition-colors">Tentang Platform KEDIS</a></li>
+            <li><a href="index.html#faq" class="hover:text-inkBlack transition-colors">Tanya Jawab (FAQ)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Kontak & Informasi -->
+        <div class="space-y-4">
+          <h3 class="font-display text-xs font-bold uppercase tracking-wider text-inkBlack">Kontak &amp; Hubungi</h3>
+          <ul class="space-y-2.5 text-xs text-stoneGray font-medium">
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-envelope text-xs text-[#07503f]"></i>
+              <span>kontak@kedis.id</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-location-dot text-xs text-[#07503f]"></i>
+              <span>Denpasar, Bali, Indonesia</span>
+            </li>
+          </ul>
+        </div>
+
       </div>
-    </div> <!-- Bottom Copyright & Inline Navigation -->
-    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-ashBorder/20 flex flex-col md:flex-row justify-between items-center text-xs text-stoneGray font-bold uppercase tracking-wider gap-4">
-      <div> &copy; 2026 KEDIS. Hak Cipta Dilindungi. Edisi INVENTION 2026. </div>
-      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2"> <a href="index.html" class="hover:text-inkBlack transition-colors">Beranda</a> <a href="edukasi.html" class="hover:text-inkBlack transition-colors">Eco-Learn</a> <a href="komunitas.html" class="hover:text-inkBlack transition-colors">Eco-Connect</a> <a href="game.html" class="hover:text-inkBlack transition-colors">Eco-Play</a> <a href="tentang.html" class="hover:text-inkBlack transition-colors">Tentang</a> </div>
+
+      <!-- Bottom Bar (Copyright & Legal) -->
+      <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-stoneGray font-bold uppercase tracking-wider gap-4">
+        <div>
+          &copy; 2026 KEDIS — Platform Kesadaran Digital Sampah. Hak Cipta Dilindungi.
+        </div>
+      </div>
     </div>
   </footer>
 
   <!-- Event Detail Modal -->
   <div id="event-detail-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center bg-inkBlack/60 backdrop-blur-sm p-4">
-    <div id="event-detail-modal-content" class="bg-paperWhite border border-ashBorder/20 w-full max-w-md rounded-card shadow-2xl p-8 space-y-6 transform scale-95 transition-all duration-300">
+    <div id="event-detail-modal-content" class="bg-paperWhite border border-ashBorder/20 w-full max-w-lg rounded-card shadow-2xl p-6 sm:p-8 space-y-6 transform scale-95 transition-all duration-300 max-h-[90vh] overflow-y-auto">
 
       <!-- Modal Header -->
       <div class="flex items-start justify-between border-b border-ashBorder/20 pb-4">
         <div>
-          <span class="text-[10px] font-bold text-stoneGray uppercase tracking-widest block">DETAIL KEGIATAN</span>
-          <h3 id="pop-event-title" class="font-display text-lg font-bold text-inkBlack mt-1 leading-tight"></h3>
+          <span class="text-[10px] font-bold text-[#07503f] uppercase tracking-widest block">DETAIL KEGIATAN &amp; PETA LOKASI</span>
+          <h3 id="pop-event-title" class="font-display text-xl font-bold text-inkBlack mt-1 leading-tight"></h3>
           <p id="pop-community-name" class="text-xs text-stoneGray font-semibold mt-1"></p>
         </div>
         <button type="button" id="btn-close-event-modal" class="text-stoneGray hover:text-inkBlack text-xl p-1 transition-colors cursor-pointer" aria-label="Tutup detail">
@@ -370,35 +431,47 @@
 
       <!-- Modal Content Body -->
       <div class="space-y-4 text-xs font-medium text-stoneGray leading-relaxed">
-        <p id="pop-event-desc" class="text-sm text-inkBlack/80 font-medium"></p>
+        <p id="pop-event-desc" class="text-sm text-inkBlack/85 font-medium leading-relaxed"></p>
 
-        <div class="bg-warmMist rounded-xl p-4 border border-ashBorder/10 space-y-3">
-          <div class="flex items-start gap-2.5">
-            <i class="fa-solid fa-calendar-day text-stoneGray text-[14px] w-4 text-center mt-0.5"></i>
+        <div class="bg-warmMist rounded-2xl p-4 border border-ashBorder/10 space-y-3">
+          <div class="flex items-start gap-3">
+            <i class="fa-solid fa-calendar-day text-[#07503f] text-sm w-4 text-center mt-0.5"></i>
             <div>
               <strong class="text-inkBlack block">Waktu Pelaksanaan:</strong>
-              <span id="pop-event-date"></span>
+              <span id="pop-event-date" class="text-stoneGray font-semibold"></span>
             </div>
           </div>
-          <div class="flex items-start gap-2.5">
-            <i class="fa-solid fa-map-pin text-stoneGray text-[14px] w-4 text-center mt-0.5"></i>
+          <div class="flex items-start gap-3">
+            <i class="fa-solid fa-map-pin text-[#07503f] text-sm w-4 text-center mt-0.5"></i>
             <div>
-              <strong class="text-inkBlack block">Lokasi / Wilayah:</strong>
-              <span id="pop-event-location"></span>
+              <strong class="text-inkBlack block">Lokasi / Wilayah Kegiatan:</strong>
+              <span id="pop-event-location" class="text-stoneGray font-semibold"></span>
             </div>
           </div>
-          <div class="flex items-start gap-2.5">
-            <i class="fa-solid fa-location-crosshairs text-stoneGray text-[14px] w-4 text-center mt-0.5"></i>
+          <div class="flex items-start gap-3">
+            <i class="fa-solid fa-location-crosshairs text-[#07503f] text-sm w-4 text-center mt-0.5"></i>
             <div>
               <strong class="text-inkBlack block">Titik Kumpul Koordinasi:</strong>
-              <span id="pop-event-meeting"></span>
+              <span id="pop-event-meeting" class="text-stoneGray font-semibold"></span>
             </div>
           </div>
         </div>
 
-        <div class="space-y-2">
-          <strong class="text-inkBlack text-xs block uppercase tracking-wider"><i class="fa-solid fa-bullseye mr-1 text-stoneGray"></i> Target &amp; Tujuan Aksi:</strong>
-          <ul id="pop-event-goals" class="list-disc list-inside space-y-1 pl-1 text-stoneGray">
+        <!-- Google Maps Embed for Event Location -->
+        <div class="space-y-2 pt-1">
+          <strong class="text-inkBlack text-xs block uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-map-location-dot text-[#07503f]"></i> Peta Lokasi Kegiatan (Google Maps):
+          </strong>
+          <div class="w-full aspect-[16/9] rounded-2xl overflow-hidden border border-ashBorder/20 shadow-inner bg-warmMist">
+            <iframe id="pop-event-map-embed" width="100%" height="100%" src="" title="Peta Lokasi Kegiatan" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full"></iframe>
+          </div>
+        </div>
+
+        <div class="space-y-2 pt-1">
+          <strong class="text-inkBlack text-xs block uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-bullseye text-[#07503f]"></i> Target &amp; Tujuan Aksi:
+          </strong>
+          <ul id="pop-event-goals" class="list-disc list-inside space-y-1.5 pl-1 text-stoneGray font-medium">
             <!-- Dynamic goals list -->
           </ul>
         </div>
@@ -406,8 +479,9 @@
 
       <!-- Action Footer -->
       <div class="pt-2">
-        <button type="button" id="btn-pop-rsvp" class="w-full py-3.5 rounded-pill bg-limeCanopy text-inkBlack font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-opacity cursor-pointer text-center">
-          Ikuti Aksi Relawan <i class="fa-solid fa-arrow-right ml-1.5"></i>
+        <button type="button" id="btn-pop-rsvp" class="w-full py-4 rounded-full bg-limeCanopy text-inkBlack font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-opacity cursor-pointer text-center flex items-center justify-center gap-2">
+          <span>Ikuti Aksi Relawan</span>
+          <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
 
@@ -741,7 +815,7 @@
               location: 'Sungai Tukad Mati, Kuta',
               desc: 'Pemasangan jaring penghalang sampah plastik sederhana pada aliran sungai sebelum bermuara langsung ke pantai selat Bali.',
               meetingPoint: 'Pintu Air Jembatan Tukad Mati (Jalan Sunset Road)',
-              goals: ['Pemasangan jaring kawat penahan sampah plastik sungai', 'Pembersihan endapan lumpur muara sungai', 'Pencatatan statistik volume sampah harian sungai']
+              goals: ['Pemasangan jaring kawat penahan sampah plastik sungai', 'Pembersihan endapan lumpur muara sungai', 'Pencatatan Balitik volume sampah harian sungai']
             }
           ]
         }
@@ -884,6 +958,10 @@
             $('#pop-event-location').text(ev.location);
             $('#pop-event-meeting').text(ev.meetingPoint || '-');
 
+            // Set Google Maps embed URL for Event Location
+            const mapSearchQuery = encodeURIComponent(ev.location + ' ' + data.region);
+            $('#pop-event-map-embed').attr('src', 'https://www.google.com/maps?q=' + mapSearchQuery + '&output=embed');
+
             // Render goals list
             const $goalsList = $('#pop-event-goals').empty();
             if (ev.goals) {
@@ -1008,8 +1086,81 @@
           $('#rsvp-success').removeClass('hidden').fadeIn(200);
         });
       });
+
+      // Add Community Modal Handlers
+      $('#btn-open-add-community').on('click', function() {
+        $('#modal-add-community').removeClass('hidden').addClass('flex');
+      });
+
+      $('#btn-close-community-modal, #btn-cancel-community').on('click', function() {
+        $('#modal-add-community').removeClass('flex').addClass('hidden');
+      });
+
+      $('#form-add-community').on('submit', function(e) {
+        e.preventDefault();
+        const name = $('#comm-name').val();
+        $('#modal-add-community').removeClass('flex').addClass('hidden');
+        this.reset();
+        if (window.showKedisToast) {
+          window.showKedisToast(`Pengajuan "${name}" berhasil dikirim dan sedang dalam proses verifikasi tim KEDIS.`, 'Pengajuan Mitra Berhasil');
+        }
+      });
     });
   </script>
+
+  <!-- Modal Daftarkan Komunitas Baru -->
+  <div id="modal-add-community" class="fixed inset-0 z-[1000] hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+    <div class="bg-paperWhite border border-ashBorder/30 w-full max-w-lg rounded-2xl shadow-2xl p-6 sm:p-8 space-y-6 transform scale-95 transition-all duration-300">
+      <div class="flex items-start justify-between border-b border-ashBorder/20 pb-4">
+        <div>
+          <span class="text-[10px] font-bold text-[#07503f] uppercase tracking-widest block font-display">AJUKAN MITRA RESMI</span>
+          <h3 class="font-display text-lg font-bold text-inkBlack mt-0.5">Daftarkan Komunitas / Bank Sampah</h3>
+        </div>
+        <button type="button" id="btn-close-community-modal" class="text-stoneGray hover:text-inkBlack text-lg p-1 transition-colors cursor-pointer" aria-label="Tutup modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="form-add-community" class="space-y-4">
+        <div class="space-y-1.5">
+          <label for="comm-name" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Nama Komunitas / Bank Sampah</label>
+          <input type="text" id="comm-name" required placeholder="Contoh: Bank Sampah Resik Mandiri" class="w-full rounded-xl bg-warmMist border border-ashBorder/40 px-4 py-2.5 text-xs font-semibold text-inkBlack outline-none focus:border-inkBlack">
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label for="comm-region" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Wilayah / Kota</label>
+            <input type="text" id="comm-region" required placeholder="Contoh: DKI Jakarta" class="w-full rounded-xl bg-warmMist border border-ashBorder/40 px-4 py-2.5 text-xs font-semibold text-inkBlack outline-none focus:border-inkBlack">
+          </div>
+          <div class="space-y-1.5">
+            <label for="comm-category" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Kategori Utama</label>
+            <select id="comm-category" required class="w-full rounded-xl bg-warmMist border border-ashBorder/40 px-4 py-2.5 text-xs font-semibold text-inkBlack outline-none focus:border-inkBlack">
+              <option value="Daur Ulang">Daur Ulang</option>
+              <option value="Pengomposan">Pengomposan</option>
+              <option value="Aksi Sukarela">Aksi Sukarela</option>
+              <option value="Edukasi Digital">Edukasi Digital</option>
+            </select>
+          </div>
+        </div>
+        <div class="space-y-1.5">
+          <label for="comm-desc" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Deskripsi Singkat Kegiatan</label>
+          <textarea id="comm-desc" rows="3" required placeholder="Jelaskan jenis sampah yang dikumpulkan atau jadwal aksi rutin..." class="w-full rounded-xl bg-warmMist border border-ashBorder/40 px-4 py-2.5 text-xs font-semibold text-inkBlack outline-none focus:border-inkBlack resize-none"></textarea>
+        </div>
+        <div class="space-y-1.5">
+          <label for="comm-contact" class="block text-xs font-bold uppercase tracking-wider text-inkBlack">Email / WhatsApp Pengelola</label>
+          <input type="text" id="comm-contact" required placeholder="email@komunitas.id / 0812xxxx" class="w-full rounded-xl bg-warmMist border border-ashBorder/40 px-4 py-2.5 text-xs font-semibold text-inkBlack outline-none focus:border-inkBlack">
+        </div>
+
+        <div class="pt-2 flex gap-3">
+          <button type="button" id="btn-cancel-community" class="w-1/2 py-3 rounded-full border border-ashBorder text-stoneGray font-bold text-xs uppercase tracking-wider hover:bg-warmMist transition-all cursor-pointer">
+            Batal
+          </button>
+          <button type="submit" class="w-1/2 py-3 rounded-full bg-[#07503f] text-white font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all cursor-pointer">
+            Kirim Pengajuan
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </body>
 
 </html>
